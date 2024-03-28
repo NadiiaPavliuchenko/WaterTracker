@@ -1,5 +1,7 @@
+import { StyledDiv } from './SettingModal.styled';
+
 const SettingModal = () => {
-  return <div>SettingModal</div>;
+  return <StyledDiv>SettingModal</StyledDiv>;
 };
 
 export default SettingModal;

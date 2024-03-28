@@ -1,0 +1,32 @@
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(./fonts/Roboto-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: Roboto-Medium;
+  src: url(./fonts/Roboto-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: Roboto-Bold;
+  src: url(./fonts/Roboto-Bold.ttf);
+  font-weight: 700;
+}
+:root {
+  /* Colors */
+  --primary-white: #ffffff;
+  --primary-black: #2f2f2f;
+  --primary-blue: #407bff;
+
+  --secondary-lavender: #ecf2ff;
+  --secondary-sky-blue: #9ebbff;
+  --secondary-pale-blue: #d7e3ff;
+  --secondary-red: #ef5050;
+  --secondary-orange: #ff9d43;
+
+  /* Fonts */
+  --roboto-regular: Roboto-Regular;
+  --roboto-medium: Roboto-Medium;
+  --roboto-bold: Roboto-Bold;
+}
