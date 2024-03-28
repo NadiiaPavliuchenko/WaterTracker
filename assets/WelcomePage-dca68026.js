@@ -1,1 +1,0 @@
-import{j as r}from"./index-17c9f6bb.js";const e=()=>r.jsx("div",{children:"WaterСonsumptionTracker"}),n=()=>r.jsx("div",{children:"WhyDrinkWater"}),s=()=>r.jsxs(r.Fragment,{children:[r.jsx("div",{children:"WelcomePage"}),r.jsx(e,{}),r.jsx(n,{})]});export{s as default};
