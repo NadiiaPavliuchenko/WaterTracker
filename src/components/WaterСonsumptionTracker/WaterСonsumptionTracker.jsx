@@ -1,7 +1,15 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Benefits, BenefitsTitle, Button, HiddenTitle, Item, Subtitle, Title, Tracker, } from './WaterConsumptionTracker.styled';
+import {
+  Benefits,
+  BenefitsTitle,
+  Button,
+  HiddenTitle,
+  Item,
+  Subtitle,
+  Title,
+  Tracker,
+} from './WaterConsumptionTracker.styled';
 
 const WaterConsumptionTracker = () => {
   const navigate = useNavigate();
@@ -30,9 +38,7 @@ const WaterConsumptionTracker = () => {
       <BenefitsTitle>Tracker Benefits</BenefitsTitle>
       <Benefits>
         {benefits.map(({ text }, index) => (
-          <Item key={index}>
-            {text}
-          </Item>
+          <Item key={index}>{text}</Item>
         ))}
       </Benefits>
 
