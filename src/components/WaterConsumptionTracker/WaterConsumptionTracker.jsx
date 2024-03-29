@@ -1,9 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Benefits, BenefitsTitle, Button, HiddenTitle, Item, Subtitle, Title, Tracker } from './WaterConsumptionTracker.styled';
 
-import { Benefits, BenefitsTitle, Button, HiddenTitle, Item, Subtitle, Title, Tracker, } from './WaterConsumptionTracker.styled';
-
-const WaterConsumptionTracker = () => {
+export const WaterConsumptionTracker = () => {
   const navigate = useNavigate();
 
   const benefits = [
@@ -42,5 +41,3 @@ const WaterConsumptionTracker = () => {
     </Tracker>
   );
 };
-
-export default WaterConsumptionTracker;

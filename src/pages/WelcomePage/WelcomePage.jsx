@@ -1,11 +1,11 @@
-import WaterСonsumptionTracker from 'components/WaterСonsumptionTracker/WaterСonsumptionTracker';
-import WhyDrinkWater from 'components/WhyDrinkWater/WhyDrinkWater';
+import { WaterConsumptionTracker } from "../../components/WaterConsumptionTracker/WaterConsumptionTracker";
+import { WhyDrinkWater } from "../../components/WhyDrinkWater/WhyDrinkWater";
 
 const WelcomePage = () => {
   return (
     <>
       <div>WelcomePage</div>
-      <WaterСonsumptionTracker />
+      <WaterConsumptionTracker />
       <WhyDrinkWater />
     </>
   );

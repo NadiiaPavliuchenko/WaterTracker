@@ -1,4 +1,4 @@
-const WhyDrinkWater = () => {
+export const WhyDrinkWater = () => {
   const list = [
     'Supply of nutrients to all organs',
     'Providing oxygen to the lungs',
@@ -19,5 +19,3 @@ const WhyDrinkWater = () => {
     </div>
   );
 };
-
-export default WhyDrinkWater;
