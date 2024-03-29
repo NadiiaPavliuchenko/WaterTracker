@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 import { Link } from '@mui/material';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
+import { Field } from 'formik';
 
 const size = {
   mobile: '320px',
@@ -29,8 +33,21 @@ export const ModalDiv = styled.div`
   border-radius: 10px;
   border: 1px solid black;
   padding: 32px 12px;
+  width: 280px;
+  height: 852px;
+  position: absolute;
+  background-color: var(--primary-white);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   @media ${device.tablet} {
     padding: 32px 24px;
+    width: 704px;
+    height: 860px;
+  }
+  @media ${device.desktop} {
+    width: 1008px;
+    height: 592px;
   }
 `;
 
@@ -68,6 +85,11 @@ export const FormLabel = styled.label`
   font-family: var(--roboto-bold);
 `;
 
+export const SmallControlLabel = styled(FormControlLabel)`
+  font-size: 16px;
+  font-family: var(--roboto-regular);
+`;
+
 export const SmallLabel = styled.label`
   font-size: 16px;
   font-family: var(--roboto-regular);
@@ -96,9 +118,68 @@ export const FilePickerLink = styled(Link)`
   font-size: 14px;
 `;
 
-export const RadioGroup = styled.div`
+export const StyledRadioGroup = styled(RadioGroup)`
   margin-bottom: 24px;
   @media ${device.desktop} {
     margin-bottom: 52px;
+  }
+`;
+
+export const CustomRadio = styled(Radio)`
+  color: var(--primary-blue);
+  &.Mui-checked {
+    color: var(--primary-blue);
+  }
+  & .MuiSvgIcon-root {
+    width: 14px;
+    height: 14px;
+  }
+  &&:hover,
+  &&:active,
+  &&:focus {
+    outline: none;
+  }
+`;
+
+export const FormGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+`;
+
+export const PasswordFormGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+`;
+
+export const StyledField = styled(Field)`
+  border: 1px solid var(--secondary-pale-blue);
+  border-radius: 6px;
+  padding: 12px 10px 12px 10px;
+  margin-top: 8px;
+  color: var(--primary-blue);
+  font-size: 16px;
+  &::placeholder {
+    color: var(--secondary-sky-blue);
+  }
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+  @media ${device.tablet} {
+    width: 392px;
+    height: 44px;
+  }
+`;
+
+export const FormContentWrapper = styled.div`
+  @media ${device.desktop} {
+    display: flex;
+    gap: 24px;
   }
 `;

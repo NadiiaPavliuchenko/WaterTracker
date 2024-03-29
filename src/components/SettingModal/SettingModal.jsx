@@ -9,11 +9,18 @@ import {
   ImgThumb,
   FilePickerWrapper,
   FilePickerLink,
-  RadioGroup,
+  StyledRadioGroup,
+  SmallControlLabel,
+  StyledField,
+  FormGroup,
+  PasswordFormGroup,
+  FormContentWrapper,
+  CustomRadio,
 } from './SettingModal.styled';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import { Formik, Form, Field } from 'formik';
+
+import { Formik, Form } from 'formik';
 
 const SettingModal = () => {
   return (
@@ -58,69 +65,79 @@ const SettingModal = () => {
                 </FilePickerLink>
               </FilePickerWrapper>
             </div>
-            <FormSubtitle id="my-radio-group">
-              Your gender identity
-            </FormSubtitle>
-            <RadioGroup role="group" aria-labelledby="my-radio-group">
-              <SmallLabel>
-                <Field type="radio" name="picked" value="woman" />
-                Woman
-              </SmallLabel>
-              <SmallLabel>
-                <Field type="radio" name="picked" value="man" />
-                Man
-              </SmallLabel>
-            </RadioGroup>
-            <div className="form-group">
-              <FormLabel htmlFor="name">Your name</FormLabel>
-              <Field type="name" name="name" className="form-control" />
-            </div>
-            <div className="form-group">
-              <FormLabel htmlFor="email">E-mail</FormLabel>
-              <Field
-                type="email"
-                name="email"
-                className="form-control"
-                autoComplete="email"
-              />
-            </div>
-            <div>
-              <FormSubtitle>Password</FormSubtitle>
-              <div className="form-group">
-                <SmallLabel htmlFor="outdatedPassword">
-                  Outdated Password:
-                </SmallLabel>
-                <Field
-                  type="password"
-                  name="outdatedPassword"
-                  className="form-control"
-                  placeholder="Password"
-                  autoComplete="current-password"
-                />
+            <FormContentWrapper>
+              <div>
+                <FormSubtitle id="my-radio-group">
+                  Your gender identity
+                </FormSubtitle>
+                <StyledRadioGroup row aria-labelledby="my-radio-group">
+                  <SmallControlLabel
+                    value="female"
+                    control={<CustomRadio />}
+                    label="Woman"
+                  ></SmallControlLabel>
+                  <SmallControlLabel
+                    value="male"
+                    control={<CustomRadio />}
+                    label="Man"
+                  ></SmallControlLabel>
+                </StyledRadioGroup>
+                <FormGroup>
+                  <FormLabel htmlFor="name">Your name</FormLabel>
+                  <StyledField
+                    type="name"
+                    name="name"
+                    className="form-control"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <FormLabel htmlFor="email">E-mail</FormLabel>
+                  <StyledField
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    autoComplete="email"
+                  />
+                </FormGroup>
               </div>
-              <div className="form-group">
-                <SmallLabel htmlFor="newPassword">New Password:</SmallLabel>
-                <Field
-                  type="password"
-                  name="newPassword"
-                  className="form-control"
-                  placeholder="Password"
-                  autoComplete="current-password"
-                />
+              <div>
+                <FormSubtitle>Password</FormSubtitle>
+                <PasswordFormGroup>
+                  <SmallLabel htmlFor="outdatedPassword">
+                    Outdated Password:
+                  </SmallLabel>
+                  <StyledField
+                    type="password"
+                    name="outdatedPassword"
+                    className="form-control"
+                    placeholder="Password"
+                    autoComplete="current-password"
+                  />
+                </PasswordFormGroup>
+                <PasswordFormGroup>
+                  <SmallLabel htmlFor="newPassword">New Password:</SmallLabel>
+                  <StyledField
+                    type="password"
+                    name="newPassword"
+                    className="form-control"
+                    placeholder="Password"
+                    autoComplete="current-password"
+                  />
+                </PasswordFormGroup>
+                <PasswordFormGroup>
+                  <SmallLabel htmlFor="repetedPassword">
+                    Repeat new Password:
+                  </SmallLabel>
+                  <StyledField
+                    type="password"
+                    name="repetedPassword"
+                    className="form-control"
+                    placeholder="Password"
+                    autoComplete="current-password"
+                  />
+                </PasswordFormGroup>
               </div>
-              <div className="form-group">
-                <SmallLabel htmlFor="repetedPassword">
-                  Repeat new Password:
-                </SmallLabel>
-                <Field
-                  type="password"
-                  name="repetedPassword"
-                  className="form-control"
-                  placeholder="Password"
-                  autoComplete="current-password"
-                />
-              </div>
-            </div>
+            </FormContentWrapper>
             <button type="submit">Save</button>
           </Form>
         )}
