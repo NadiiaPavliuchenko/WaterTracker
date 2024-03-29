@@ -2,16 +2,16 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toastError, toastSuccess } from '../../services/notification';
 
-axios.defaults.baseURL = 'https://localhost:3001/api';
+axios.defaults.baseURL = 'https://tracker-of-water-oqqk.onrender.com/api/';
 
 export const signUpAPI = createAsyncThunk(
   'signUp/signUpAPI',
 
   async (user, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/register', user);
+      const { data } = await axios.post('/auth/register"', user);
 
-      // write token to axios parameter
+      // записуємо токен в хедер
       axios.defaults.headers.common.Authorization = `Bearer ${data.token}`;
 
       toastSuccess(
@@ -29,7 +29,7 @@ export const signInAPI = createAsyncThunk(
   'signIn/signInAPI',
   async (user, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/users/login', user);
+      const { data } = await axios.post('/auth/login', user);
       // write token to axios parameter
       axios.defaults.headers.common.Authorization = `Bearer ${data.token}`;
 
@@ -46,12 +46,37 @@ export const logOutAPI = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
-      await axios.post('/users/logout');
+      await axios.post('/auth/logout');
       axios.defaults.headers.common.Authorization = '';
       toastSuccess('Log out successful. Come back sooner');
     } catch (error) {
       axios.defaults.headers.common.Authorization = '';
       toastSuccess('Log out successful. Come back sooner');
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+//TODO: обработать get "/api/auth/verify/:verificationToken" verificateUser
+export const verificateUser = createAsyncThunk(
+  'auth/verificateUser',
+  async (token, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(`/auth/verify/${token}`);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+//TODO: обработать post "/api/auth/verify" reVerificateUser body: {email}
+export const reVerificateUser = createAsyncThunk(
+  'auth/reVerificateUser',
+  async (email, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/auth/verify', email);
+      return data;
+    } catch (error) {
       return rejectWithValue(error.message);
     }
   }

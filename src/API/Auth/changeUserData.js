@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toastSuccess, toastError } from '../../services/notification';
 
-axios.defaults.baseURL = `https://localhost:3001/api`;
+axios.defaults.baseURL = `https://tracker-of-water-oqqk.onrender.com/api/`;
 
 export const changeUserAvatarAPI = createAsyncThunk(
   'auth/changeUserAvatarAPI',
@@ -10,7 +10,7 @@ export const changeUserAvatarAPI = createAsyncThunk(
     try {
       const {
         data: { avatarURL },
-      } = await axios.patch('/users/avatars', formData, {
+      } = await axios.patch('/user/avatars', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -25,11 +25,11 @@ export const changeUserAvatarAPI = createAsyncThunk(
   }
 );
 
-export const changeUserDataAPI = createAsyncThunk(
+export const changeUserSettingsAPI = createAsyncThunk(
   'auth/changeUserData',
   async (user, { rejectWithValue }) => {
     try {
-      const { data } = await axios.patch('/users/info', user);
+      const { data } = await axios.patch('/user', user);
       toastSuccess('User info changed successful ');
       return data;
     } catch (error) {

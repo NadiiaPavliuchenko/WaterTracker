@@ -7,7 +7,7 @@ import {
 import { fetchUserRefresh } from '../../API/Auth/fetchUserData';
 import {
   changeUserAvatarAPI,
-  changeUserDataAPI,
+  changeUserSettingsAPI,
 } from '../../API/Auth/changeUserData';
 
 const initialState = {
@@ -104,14 +104,14 @@ const authSlice = createSlice({
         state.isLoadingChangeAvatar = false;
       })
 
-      .addCase(changeUserDataAPI.pending, (state) => {
+      .addCase(changeUserSettingsAPI.pending, (state) => {
         state.isDataUpdating = true;
       })
-      .addCase(changeUserDataAPI.fulfilled, (state, { payload }) => {
+      .addCase(changeUserSettingsAPI.fulfilled, (state, { payload }) => {
         state.user = { ...state.user, ...payload.user };
         state.isDataUpdating = false;
       })
-      .addCase(changeUserDataAPI.rejected, (state) => {
+      .addCase(changeUserSettingsAPI.rejected, (state) => {
         state.isDataUpdating = false;
       });
   },
