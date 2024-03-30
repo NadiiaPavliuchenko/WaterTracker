@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { Day, DayCell, DayPercent } from './Month.styled';
-import CalendarModal from '../Modal/CalendarModal';
+
+import CalendarModal from '../CalendarModal/CalendarModal';
+import { Day, DayCell, DayPercent } from '../Calendar.styled';
 
 const DayComponent = ({ calendarRef, day, waterPercentage }) => {
   const [activeModal, setActiveModal] = useState(null);

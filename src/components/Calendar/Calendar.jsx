@@ -2,8 +2,10 @@ import { useState, useRef } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import store from '../../store/store';
 
-import Icons from '../../../images/sprite.svg';
-import DayComponent from './Day';
+// Иконки для спрайта если надо скину (влево => вправо)
+// import Icons from '../../../images/sprite.svg';
+
+import DayComponent from './Day/Day';
 
 import {
   ArrowButton,
@@ -20,7 +22,7 @@ import { baseTheme } from '../theme';
 export const Calendar = () => {
   // аргумент "dailyNormaState" принимаем информацию о дневной норме потребления воды;
   const [currentDate, setCurrentDate] = useState(new Date()); // текущая дата + функция состояния; currentDate = текущая дата;
-  const [isLoading] = useState(false); // состояние загрузки;
+  const [isLoading] = useState(); // состояние загрузки;
   const ref = useRef(null);
 
   const handleNextMonth = () => {
@@ -103,9 +105,7 @@ export const Calendar = () => {
         )}
         <MonthControl>
           <ArrowButton aria-label="Previous month" onClick={handlePrevMonth}>
-            <svg>
-              <use href={Icons + '#arrow-left'}></use>
-            </svg>
+            <svg>{/* <use href={Icons + '#arrow-left'}></use> */}</svg>
           </ArrowButton>
           <Month>
             {`${new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
@@ -117,9 +117,7 @@ export const Calendar = () => {
             onClick={handleNextMonth}
             disabled={isCurrentMonth()}
           >
-            <svg>
-              <use href={Icons + '#arrow-right'}></use>
-            </svg>
+            <svg>{/* <use href={Icons + '#arrow-right'}></use> */}</svg>
           </ArrowButton>
         </MonthControl>
       </MonthNav>
