@@ -50,6 +50,7 @@ export const store = configureStore({
   reducer: rootReducer,
   middleware,
   // для перегляду стейтів
+  // eslint-disable-next-line no-undef
   devTools: process.env.NODE_ENV === 'development',
 });
 
