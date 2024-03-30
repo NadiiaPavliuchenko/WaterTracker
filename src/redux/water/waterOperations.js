@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getMonthInfoAPI } from '../../API/Water/getStatistic';
+import { getMonthInfoAPI } from '../../services/getStatistic';
 import { toastError, toastSuccess } from '../../services/notification';
+
+axios.defaults.baseURL = 'https://tracker-of-water-oqqk.onrender.com/api';
 
 //статистика за поточний місяць
 export const getCurrentMonthInfoThunk = createAsyncThunk(
@@ -27,8 +29,7 @@ export const getCurrentDayInfoThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const date = new Date();
-      const { data } = await axios.post('water', { date });
-
+      const { data } = await axios.get('/today', { date });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -40,9 +41,9 @@ export const getCurrentDayInfoThunk = createAsyncThunk(
 export const addWaterThunk = createAsyncThunk(
   'water/add',
   async (data, thunkAPI) => {
-    const { drink, dayId } = data;
+    const { ml, date } = data;
     try {
-      const { data } = await axios.post(`water/drinks/${dayId}`, drink);
+      const { data } = await axios.post(`water/${date}`, ml);
       toastSuccess('Drink has been added successful');
       return data;
     } catch (error) {
@@ -55,9 +56,9 @@ export const addWaterThunk = createAsyncThunk(
 //видалення води
 export const deleteDrinkThunk = createAsyncThunk(
   'water/delete',
-  async (drinkId, thunkAPI) => {
+  async (waterRecordId, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`water/drinks/${drinkId}`);
+      const { data } = await axios.delete(`water/${waterRecordId}`);
       toastSuccess('Drink has been deleted successful');
       return data;
     } catch (error) {
@@ -70,10 +71,10 @@ export const deleteDrinkThunk = createAsyncThunk(
 //редагування води
 export const editDrinkThunk = createAsyncThunk(
   'water/edit',
-  async (drink, thunkAPI) => {
-    const { id, time, ml } = drink;
+  async (waterRecirdId, thunkAPI) => {
+    const { id, time, ml } = waterRecirdId;
     try {
-      const { data } = await axios.patch(`water/drinks/${id}`, { time, ml });
+      const { data } = await axios.put(`water/${id}`, { time, ml });
       toastSuccess('Drink has been edited successful');
       return data;
     } catch (error) {
@@ -86,19 +87,19 @@ export const editDrinkThunk = createAsyncThunk(
 //редагування денної норми
 export const editDailyNorm = createAsyncThunk(
   'auth/editDailyNorm',
-  async (norm, { rejectWithValue }) => {
+  async (dailyWaterGoal, thunkAPI) => {
     try {
       const date = new Date();
-      const { data } = await axios.patch('/water/norm', {
+      const { data } = await axios.patch('/waterrate', {
         date,
-        norm: Math.ceil(norm / 100) * 100,
+        dailyWaterGoal: Math.ceil(dailyWaterGoal / 100) * 100,
       });
 
       toastSuccess('Edit successful');
       return data;
     } catch (error) {
       toastError('Something went wrong');
-      return rejectWithValue('Something went wrong');
+      return thunkAPI.rejectWithValue('Something went wrong');
     }
   }
 );

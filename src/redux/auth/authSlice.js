@@ -1,14 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   logOutAPI,
+  refreshUser,
   signInAPI,
   signUpAPI,
-} from '../../API/Auth/authentificationUser';
-import { fetchUserRefresh } from '../../API/Auth/fetchUserData';
-import {
   changeUserAvatarAPI,
   changeUserSettingsAPI,
-} from '../../API/Auth/changeUserData';
+  fetchUserData,
+} from './authOperations';
 
 const initialState = {
   user: {
@@ -20,26 +19,14 @@ const initialState = {
   },
   token: null,
   authIsLoading: false,
+  startDay: null,
   isLoadingChangeAvatar: false,
   isDataUpdating: false,
-  drinks: {},
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-
-  reducers: {
-    change(state, action) {
-      switch (action.payload.operation) {
-        case 'changeBottleXY':
-          state.bottleXY = action.payload.data;
-          break;
-        default:
-          break;
-      }
-    },
-  },
 
   extraReducers: (builder) => {
     builder
@@ -80,14 +67,14 @@ const authSlice = createSlice({
         state.token = null;
       })
 
-      .addCase(fetchUserRefresh.pending, (state) => {
+      .addCase(refreshUser.pending, (state) => {
         state.authIsLoading = true;
       })
-      .addCase(fetchUserRefresh.fulfilled, (state, { payload }) => {
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
         state.authIsLoading = false;
         state.user = { ...payload.user };
       })
-      .addCase(fetchUserRefresh.rejected, (state) => {
+      .addCase(refreshUser.rejected, (state) => {
         state.authIsLoading = false;
         state.user = { ...initialState.user };
         state.token = null;
@@ -113,6 +100,18 @@ const authSlice = createSlice({
       })
       .addCase(changeUserSettingsAPI.rejected, (state) => {
         state.isDataUpdating = false;
+      })
+
+      .addCase(fetchUserData.pending, (state) => {
+        state.authIsLoading = true;
+      })
+      .addCase(fetchUserData.fulfilled, (state, { payload }) => {
+        state.user = { ...state.user, ...payload.user };
+        state.token = payload.token;
+      })
+      .addCase(fetchUserData.rejected, (state) => {
+        state.user = { ...initialState.user };
+        state.token = null;
       });
   },
 });
