@@ -34,20 +34,19 @@ export const ModalDiv = styled.div`
   border: 1px solid black;
   padding: 32px 12px;
   width: 280px;
-  height: 852px;
   position: absolute;
   background-color: var(--primary-white);
   top: 50%;
   left: 50%;
+  max-height: 90%;
+  overflow: auto;
   transform: translate(-50%, -50%);
   @media ${device.tablet} {
     padding: 32px 24px;
     width: 704px;
-    height: 860px;
   }
   @media ${device.desktop} {
     width: 1008px;
-    height: 592px;
   }
 `;
 
@@ -87,6 +86,7 @@ export const FormLabel = styled.label`
 
 export const SmallControlLabel = styled(FormControlLabel)`
   font-size: 16px;
+  height: 14px;
   font-family: var(--roboto-regular);
 `;
 
@@ -126,35 +126,50 @@ export const StyledRadioGroup = styled(RadioGroup)`
 `;
 
 export const CustomRadio = styled(Radio)`
-  color: var(--primary-blue);
   &.Mui-checked {
     color: var(--primary-blue);
   }
-  & .MuiSvgIcon-root {
+  && .MuiSvgIcon-root {
     width: 14px;
     height: 14px;
+    color: var(--primary-blue);
   }
+
   &&:hover,
-  &&:active,
   &&:focus {
-    outline: none;
+    background: none;
   }
 `;
 
 export const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
-  &:not(:last-child) {
-    margin-bottom: 24px;
-  }
+  margin-bottom: 24px;
 `;
 
 export const PasswordFormGroup = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   &:not(:last-child) {
     margin-bottom: 12px;
   }
+  @media ${device.mobile} {
+    &:last-child {
+      margin-bottom: 24px;
+    }
+  }
+`;
+
+export const VisibilityIconsWrapper = styled.div`
+  position: absolute;
+  top: 38px;
+  left: 220px;
+  @media ${device.tablet} {
+    top: 38px;
+    left: 360px;
+  }
+  color: var(--primary-blue);
 `;
 
 export const StyledField = styled(Field)`
@@ -181,5 +196,31 @@ export const FormContentWrapper = styled.div`
   @media ${device.desktop} {
     display: flex;
     gap: 24px;
+  }
+`;
+
+export const SubmitButton = styled.button`
+  background-color: var(--primary-blue);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 30px;
+  width: 256px;
+  height: 36px;
+  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+  font-family: var(--roboto-bold);
+  font-size: 18px;
+  text-align: center;
+  color: var(--primary-white);
+  &:hover,
+  &:focus {
+    box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
+  }
+  &:active {
+    box-shadow: none;
+  }
+
+  @media ${device.tablet} {
+    float: right;
+    width: 160px;
   }
 `;

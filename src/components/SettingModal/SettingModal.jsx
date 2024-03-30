@@ -16,13 +16,26 @@ import {
   PasswordFormGroup,
   FormContentWrapper,
   CustomRadio,
+  SubmitButton,
+  VisibilityIconsWrapper,
 } from './SettingModal.styled';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
 import { Formik, Form } from 'formik';
+import { useState } from 'react';
 
 const SettingModal = () => {
+  const [showPassword, setShowPassword] = useState([false, false, false]);
+
+  const handleShowPassword = (index) => {
+    const newShowPassword = [...showPassword];
+    newShowPassword[index] = !showPassword[index];
+    setShowPassword(newShowPassword);
+  };
+
   return (
     <ModalDiv>
       <TitleWrapper>
@@ -73,12 +86,12 @@ const SettingModal = () => {
                 <StyledRadioGroup row aria-labelledby="my-radio-group">
                   <SmallControlLabel
                     value="female"
-                    control={<CustomRadio />}
+                    control={<CustomRadio disableTouchRipple />}
                     label="Woman"
                   ></SmallControlLabel>
                   <SmallControlLabel
                     value="male"
-                    control={<CustomRadio />}
+                    control={<CustomRadio disableTouchRipple />}
                     label="Man"
                   ></SmallControlLabel>
                 </StyledRadioGroup>
@@ -107,38 +120,62 @@ const SettingModal = () => {
                     Outdated Password:
                   </SmallLabel>
                   <StyledField
-                    type="password"
+                    type={showPassword[0] ? 'text' : 'password'}
                     name="outdatedPassword"
                     className="form-control"
                     placeholder="Password"
                     autoComplete="current-password"
+                    onClick={() => handleShowPassword(0)}
                   />
+                  <VisibilityIconsWrapper>
+                    {showPassword[0] ? (
+                      <VisibilityOutlinedIcon />
+                    ) : (
+                      <VisibilityOffOutlinedIcon />
+                    )}
+                  </VisibilityIconsWrapper>
                 </PasswordFormGroup>
                 <PasswordFormGroup>
                   <SmallLabel htmlFor="newPassword">New Password:</SmallLabel>
                   <StyledField
-                    type="password"
+                    type={showPassword[1] ? 'text' : 'password'}
                     name="newPassword"
                     className="form-control"
                     placeholder="Password"
                     autoComplete="current-password"
+                    onClick={() => handleShowPassword(1)}
                   />
+                  <VisibilityIconsWrapper>
+                    {showPassword[1] ? (
+                      <VisibilityOutlinedIcon />
+                    ) : (
+                      <VisibilityOffOutlinedIcon />
+                    )}
+                  </VisibilityIconsWrapper>
                 </PasswordFormGroup>
                 <PasswordFormGroup>
                   <SmallLabel htmlFor="repetedPassword">
                     Repeat new Password:
                   </SmallLabel>
                   <StyledField
-                    type="password"
+                    type={showPassword[2] ? 'text' : 'password'}
                     name="repetedPassword"
                     className="form-control"
                     placeholder="Password"
                     autoComplete="current-password"
+                    onClick={() => handleShowPassword(2)}
                   />
+                  <VisibilityIconsWrapper>
+                    {showPassword[2] ? (
+                      <VisibilityOutlinedIcon />
+                    ) : (
+                      <VisibilityOffOutlinedIcon />
+                    )}
+                  </VisibilityIconsWrapper>
                 </PasswordFormGroup>
               </div>
             </FormContentWrapper>
-            <button type="submit">Save</button>
+            <SubmitButton type="submit">Save</SubmitButton>
           </Form>
         )}
       </Formik>
