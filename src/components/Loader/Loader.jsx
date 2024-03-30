@@ -1,5 +1,128 @@
+import { Bottle, Wrapper } from './Loader.styled';
+
 const Loader = () => {
-  return <div>Loader</div>;
+  return (
+    <Wrapper>
+      <Bottle>
+        <div className="bottle__sides">
+          <div className="bottle__side">
+            <span>D</span>
+            <span>r</span>
+            <span>i</span>
+            <span>n</span>
+            <span>k</span>
+            <span> </span>
+            <span>m</span>
+            <span>o</span>
+            <span>r</span>
+            <span>e</span>
+            <span> </span>
+            <span>w</span>
+            <span>a</span>
+            <span>t</span>
+            <span>e</span>
+            <span>r</span>
+            <span>!</span>
+          </div>
+          <div className="bottle__side">
+            <span>D</span>
+            <span>r</span>
+            <span>i</span>
+            <span>n</span>
+            <span>k</span>
+            <span> </span>
+            <span>m</span>
+            <span>o</span>
+            <span>r</span>
+            <span>e</span>
+            <span> </span>
+            <span>w</span>
+            <span>a</span>
+            <span>t</span>
+            <span>e</span>
+            <span>r</span>
+            <span>!</span>
+          </div>
+          <div className="bottle__side">
+            <span>D</span>
+            <span>r</span>
+            <span>i</span>
+            <span>n</span>
+            <span>k</span>
+            <span> </span>
+            <span>m</span>
+            <span>o</span>
+            <span>r</span>
+            <span>e</span>
+            <span> </span>
+            <span>w</span>
+            <span>a</span>
+            <span>t</span>
+            <span>e</span>
+            <span>r</span>
+            <span>!</span>
+          </div>
+          <div className="bottle__side">
+            <span>D</span>
+            <span>r</span>
+            <span>i</span>
+            <span>n</span>
+            <span>k</span>
+            <span> </span>
+            <span>m</span>
+            <span>o</span>
+            <span>r</span>
+            <span>e</span>
+            <span> </span>
+            <span>w</span>
+            <span>a</span>
+            <span>t</span>
+            <span>e</span>
+            <span>r</span>
+            <span>!</span>
+          </div>
+          <div className="bottle__side">
+            <span>D</span>
+            <span>r</span>
+            <span>i</span>
+            <span>n</span>
+            <span>k</span>
+            <span> </span>
+            <span>m</span>
+            <span>o</span>
+            <span>r</span>
+            <span>e</span>
+            <span> </span>
+            <span>w</span>
+            <span>a</span>
+            <span>t</span>
+            <span>e</span>
+            <span>r</span>
+            <span>!</span>
+          </div>
+          <div className="bottle__side">
+            <span>D</span>
+            <span>r</span>
+            <span>i</span>
+            <span>n</span>
+            <span>k</span>
+            <span> </span>
+            <span>m</span>
+            <span>o</span>
+            <span>r</span>
+            <span>e</span>
+            <span> </span>
+            <span>w</span>
+            <span>a</span>
+            <span>t</span>
+            <span>e</span>
+            <span>r</span>
+            <span>!</span>
+          </div>
+        </div>
+      </Bottle>
+    </Wrapper>
+  );
 };
 
 export default Loader;
