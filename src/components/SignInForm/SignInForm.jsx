@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as yup from "yup"
+import { Link } from "react-router-dom"
 const SignInForm = ({ submitFunc}) => {
   
   const loginSchema = yup.object({
@@ -46,8 +47,10 @@ const SignInForm = ({ submitFunc}) => {
         <button type="submit">Sign Up</button>
 
       </Form>
+      
 
-  </Formik>
+    </Formik>
+    <Link to="/signup">Sign Up</Link>
     </>  
 };
 

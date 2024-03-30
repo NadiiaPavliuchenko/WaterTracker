@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as yup from "yup"
+import { Link } from "react-router-dom"
 const SignUpForm = ({ submitFunc}) => {
   const registerSchema = yup.object({
     email: yup.string().email().required(),
@@ -55,7 +56,8 @@ const SignUpForm = ({ submitFunc}) => {
 
       </Form>
 
-  </Formik>
+    </Formik>
+    <Link to="/signin">Sign In</Link>
     </>  
 };
 

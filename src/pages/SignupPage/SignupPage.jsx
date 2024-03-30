@@ -4,7 +4,7 @@ import SignUpForm from 'components/SignUpForm/SignUpForm';
 const SignupPage = () => {
   const dispatch = useDispatch()
   function handleSubmit(values) {
-    dispatch(signUpThunk(values))
+    // dispatch(signUpThunk(values))
     console.log(values)
   }
   return (
