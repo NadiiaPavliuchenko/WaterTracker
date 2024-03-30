@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
   width: 100vw;
   background-color: rgba(0, 0, 255, 0.5);
   z-index: 9999;
-  font-size: 1.5rem;
 `;
 
 export const Bottle = styled.div`
@@ -20,6 +19,10 @@ export const Bottle = styled.div`
   position: relative;
   width: 11em;
   height: 11em;
+  font-size: calc(24px + (36 - 24) * (100vw - 320px) / (1280 - 320));
+  font:
+    bold 1em/1.5 'DM Mono',
+    monospace;
 
   .bottle__sides,
   .bottle__side {
