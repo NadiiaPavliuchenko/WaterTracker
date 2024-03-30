@@ -39,8 +39,8 @@ export const ModalBox = styled(Box)`
   background-color: var(--primary-white);
   top: 50%;
   left: 50%;
-  max-height: 90%;
-  overflow: auto;
+  max-height: 90vh;
+  overflow: scroll;
   transform: translate(-50%, -50%);
   @media ${device.tablet} {
     padding: 32px 24px;
@@ -49,6 +49,10 @@ export const ModalBox = styled(Box)`
   @media ${device.desktop} {
     width: 1008px;
   }
+`;
+
+export const ModalContentWrapper = styled.div`
+  overflow: scroll;
 `;
 
 export const TitleWrapper = styled.div`
