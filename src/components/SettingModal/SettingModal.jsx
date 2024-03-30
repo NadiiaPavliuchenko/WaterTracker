@@ -1,44 +1,46 @@
 import {
   ModalDiv,
-  VisuallyHiddenInput,
-  TitleWrapper,
-  CloseBtn,
-  FormSubtitle,
-  FormLabel,
-  SmallLabel,
-  ImgThumb,
-  FilePickerWrapper,
-  FilePickerLink,
-  StyledRadioGroup,
-  SmallControlLabel,
-  StyledField,
-  FormGroup,
-  PasswordFormGroup,
-  FormContentWrapper,
-  CustomRadio,
-  SubmitButton,
-  VisibilityIconsWrapper,
+  // VisuallyHiddenInput,
+  // TitleWrapper,
+  // CloseBtn,
+  // FormSubtitle,
+  // FormLabel,
+  // SmallLabel,
+  // ImgThumb,
+  // FilePickerWrapper,
+  // FilePickerLink,
+  // StyledRadioGroup,
+  // SmallControlLabel,
+  // StyledField,
+  // FormGroup,
+  // PasswordFormGroup,
+  // FormContentWrapper,
+  // CustomRadio,
+  // SubmitButton,
+  // VisibilityIconsWrapper,
 } from './SettingModal.styled';
-import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+// import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+// import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+// import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+// import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+// import Modal from '@mui/material/Modal';
 
-import { Formik, Form } from 'formik';
+// import { Formik, Form } from 'formik';
 import { useState } from 'react';
 
 const SettingModal = () => {
-  const [showPassword, setShowPassword] = useState([false, false, false]);
-
-  const handleShowPassword = (index) => {
-    const newShowPassword = [...showPassword];
-    newShowPassword[index] = !showPassword[index];
-    setShowPassword(newShowPassword);
-  };
+  // const [showPassword, setShowPassword] = useState([false, false, false]);
+  const [showModal, setShowModal] = useState(true);
+  const handleClose = () => setShowModal(false);
+  // const handleShowPassword = (index) => {
+  //   const newShowPassword = [...showPassword];
+  //   newShowPassword[index] = !showPassword[index];
+  //   setShowPassword(newShowPassword);
+  // };
 
   return (
     <ModalDiv>
-      <TitleWrapper>
+      {/* <TitleWrapper>
         <h3>Settings</h3>
         <CloseBtn>
           <CloseRoundedIcon />
@@ -125,9 +127,8 @@ const SettingModal = () => {
                     className="form-control"
                     placeholder="Password"
                     autoComplete="current-password"
-                    onClick={() => handleShowPassword(0)}
                   />
-                  <VisibilityIconsWrapper>
+                  <VisibilityIconsWrapper onClick={() => handleShowPassword(0)}>
                     {showPassword[0] ? (
                       <VisibilityOutlinedIcon />
                     ) : (
@@ -143,9 +144,8 @@ const SettingModal = () => {
                     className="form-control"
                     placeholder="Password"
                     autoComplete="current-password"
-                    onClick={() => handleShowPassword(1)}
                   />
-                  <VisibilityIconsWrapper>
+                  <VisibilityIconsWrapper onClick={() => handleShowPassword(1)}>
                     {showPassword[1] ? (
                       <VisibilityOutlinedIcon />
                     ) : (
@@ -163,9 +163,8 @@ const SettingModal = () => {
                     className="form-control"
                     placeholder="Password"
                     autoComplete="current-password"
-                    onClick={() => handleShowPassword(2)}
                   />
-                  <VisibilityIconsWrapper>
+                  <VisibilityIconsWrapper onClick={() => handleShowPassword(2)}>
                     {showPassword[2] ? (
                       <VisibilityOutlinedIcon />
                     ) : (
@@ -178,7 +177,7 @@ const SettingModal = () => {
             <SubmitButton type="submit">Save</SubmitButton>
           </Form>
         )}
-      </Formik>
+      </Formik> */}
     </ModalDiv>
   );
 };
