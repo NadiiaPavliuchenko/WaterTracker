@@ -3,6 +3,7 @@ import { Link } from '@mui/material';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
+import { Box } from '@mui/material';
 import { Field } from 'formik';
 
 const size = {
@@ -29,7 +30,7 @@ export const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
-export const ModalDiv = styled.div`
+export const ModalBox = styled(Box)`
   border-radius: 10px;
   border: 1px solid black;
   padding: 32px 12px;
