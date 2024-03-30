@@ -14,7 +14,8 @@ import {
   MonthControl,
   Month,
   MonthTitle,
-} from './Month.styled';
+} from '../Month.styled';
+
 import { ThreeDots } from 'react-loader-spinner';
 import { baseTheme } from '../theme';
 
