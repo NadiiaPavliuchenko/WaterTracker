@@ -67,15 +67,11 @@ export const Title = styled.h2`
   font-family: var(--roboto-bold);
 `;
 
-export const CloseBtn = styled.button`
-  border: none;
-  background-color: transparent;
-  color: var(--primary-blue);
-  width: 24px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const StyledCloseSvg = styled.svg`
+  fill: transparent;
+  stroke: var(--primary-blue);
+  transform: rotate(45deg);
+  cursor: pointer;
 `;
 
 export const FormSubtitle = styled.h3`
@@ -111,6 +107,7 @@ export const ImgThumb = styled.div`
   overflow: hidden;
   width: 80px;
   height: 80px;
+  text-align: center;
 `;
 
 export const FilePickerLink = styled(Link)`
@@ -168,11 +165,11 @@ export const PasswordFormGroup = styled.div`
 
 export const VisibilityIconsWrapper = styled.div`
   position: absolute;
-  top: 38px;
-  left: 220px;
+  top: 40px;
+  left: 229px;
   @media ${device.tablet} {
-    top: 38px;
-    left: 360px;
+    top: 40px;
+    left: 365px;
   }
   color: var(--primary-blue);
 `;
@@ -228,4 +225,9 @@ export const SubmitButton = styled.button`
     float: right;
     width: 160px;
   }
+`;
+
+export const StyledSvg = styled.svg`
+  fill: transparent;
+  stroke: var(--primary-blue);
 `;
