@@ -27,6 +27,7 @@ export const Wrapper = styled.div`
     text-align: center;
     font-size: calc(24px + (36 - 24) * (100vw - 320px) / (1280 - 320));
   }
+
 `;
 
 export const Bottle = styled.div`
@@ -35,6 +36,10 @@ export const Bottle = styled.div`
   position: relative;
   width: 11em;
   height: 11em;
+  font-size: calc(24px + (36 - 24) * (100vw - 320px) / (1280 - 320));
+  font:
+    bold 1em/1.5 'DM Mono',
+    monospace;
 
   .bottle__sides,
   .bottle__side {
