@@ -1,6 +1,6 @@
 import { MainContent } from "../../components/Main/MainContent";
 import { WrapperBox } from "../../components/Wrapper/Wrapper.styled";
-import { BackgroundWrapper } from "./WelcomePage.styled";
+import { BackgroundWrapper, Bubble } from "./WelcomePage.styled";
 
 
 const WelcomePage = () => {

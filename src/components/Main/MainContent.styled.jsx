@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const WelcomePageStyle = styled.div`
+export const WelcomePageStyles = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
