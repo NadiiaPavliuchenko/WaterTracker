@@ -2,15 +2,32 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  flex-direction: column;
+  padding: 24px 0;
+  height: 50vh;
+  width: 50vw;
   background-color: rgba(0, 0, 255, 0.5);
   z-index: 9999;
+  border-radius: 24px;
+
+  @media screen and (max-width: 319px) {
+    padding: 40% 0;
+    border-radius: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: calc(24px + (36 - 24) * (100vw - 320px) / (1280 - 320));
+  }
+
 `;
 
 export const Bottle = styled.div`

@@ -3,6 +3,7 @@ import { Bottle, Wrapper } from './Loader.styled';
 const Loader = () => {
   return (
     <Wrapper>
+      <h2>Pour water...</h2>
       <Bottle>
         <div className="bottle__sides">
           <div className="bottle__side">
