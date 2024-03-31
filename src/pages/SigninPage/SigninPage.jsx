@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom"
 import SignInForm from 'components/SignInForm/SignInForm';
 import { signInAPI } from '../../store/auth/authOperations'
 import { getUserEmail } from '../../store/auth/authSelectors'
+import { Link } from "react-router-dom"
 import Wrapper from '../../components/Wrapper/Wrapper';
 const SigninPage = () => {
   const dispatch = useDispatch()
@@ -16,7 +17,8 @@ const SigninPage = () => {
     <>
       <Wrapper>
       <div>SigninPage</div>
-      <SignInForm submitFunc={handleSubmit} />
+        <SignInForm submitFunc={handleSubmit} />
+        <Link to="/signup">Sign Up</Link>
       {userEmail? <Navigate to='/home' />:<Navigate to='/signin' /> }
       </Wrapper>
     </>
