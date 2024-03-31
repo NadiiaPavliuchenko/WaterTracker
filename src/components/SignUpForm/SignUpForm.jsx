@@ -14,7 +14,7 @@ const SignUpForm = ({ submitFunc}) => {
     repeatPassword: ''
   } 
   function handleSubmit(values, actions) {   
-    submitFunc(values)       
+    submitFunc({email:values.email, password: values.password})       
     actions.resetForm()
   }  
   function watchPassFunc(evt) {     

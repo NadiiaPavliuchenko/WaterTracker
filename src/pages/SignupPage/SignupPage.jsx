@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux'
 import SignUpForm from 'components/SignUpForm/SignUpForm';
+import { signUpAPI} from '../../store/auth/authOperations'
 
 const SignupPage = () => {
   const dispatch = useDispatch()
   function handleSubmit(values) {
-    // dispatch(signUpThunk(values))
-    console.log(values)
+    dispatch(signUpAPI(values))    
   }
   return (
     <>
