@@ -12,5 +12,5 @@ export default defineConfig({
       assets: '/src/assets',
     },
   },
-  base: '/it-frogs-tp-03-frontend/',
+  base: '/WaterTrackerFrontend/',
 });
