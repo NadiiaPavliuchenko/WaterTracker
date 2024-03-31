@@ -1,7 +1,7 @@
 import DailyNorma from 'components/DailyNorma/DailyNorma';
 import WaterRatioPanel from 'components/WaterRatioPanel/WaterRatioPanel';
 import TodayWaterList from 'components/TodayWaterList/TodayWaterList';
-import Calendar from 'components/Calendar/Calendar';
+import { Calendar } from 'components/Calendar/Month/Month';
 
 const HomePage = () => {
   return (
