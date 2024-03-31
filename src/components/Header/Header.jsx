@@ -27,7 +27,7 @@ export const Header = () => {
             <div>
               <img src="/src/assets/LogoSite.png" alt="iconHome" />
             </div>
-            <div className="logoText">TRACKER of water</div>
+            <div className="logoText">TRACKER of Water</div>
           </NavLink>
           {/* <ToggleThemeBtn /> */}
           {!token && (
