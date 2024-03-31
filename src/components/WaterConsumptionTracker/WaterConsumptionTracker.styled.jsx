@@ -10,6 +10,11 @@ export const Title = styled.h2`
   color: #2F2F2F;
   line-height: 32px;
   margin-bottom: 16px;
+
+  @media screen and(min-width: 768px) {
+    font-size: 36px;
+    line-height: 42px;
+  }
 `;
 
 export const Subtitle = styled.p`
@@ -17,6 +22,11 @@ export const Subtitle = styled.p`
   color: #2F2F2F;
   line-height: 30px;
   margin-bottom: 24px;
+
+  @media screen and(min-width: 768px) {
+    font-size: 26px;
+    line-height: 32px;
+  }
 `;
 
 export const Benefits = styled.ul`
@@ -27,9 +37,16 @@ export const Benefits = styled.ul`
   color: #2F2F2F;
   line-height: 20px;
   margin-bottom: 24px;
-  min-width: 1440px;
-  flex-direction: column;
-  justify-content: center;
+
+  @media screen and(min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media screen and(min-width: 1440px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const Item = styled.li`
@@ -42,6 +59,15 @@ export const Tracker = styled.div`
   display: inline-block;
   max-width: 280px;
   margin: auto;
+
+  @media screen and(min-width: 768px) {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  @media screen and(min-width: 1440px) {
+    min-width: 439px;
+  }
 `;
 
 export const BenefitsTitle = styled.h3`
@@ -72,6 +98,14 @@ export const Button = styled.button`
     box-shadow: none;
   }
 
-    min-width: 1440px;
+  @media screen and(min-width: 768px) {
+    width: 280px;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 10px 30px;
+  }
+
+  @media screen and(min-width: 1440px) {
     width: 384px;
+  }
 `;
