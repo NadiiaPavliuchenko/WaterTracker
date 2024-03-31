@@ -15,7 +15,7 @@ export const WrapHeader = styled.div`
 `;
 
 export const DarkLightThemeStyle = styled.div`
-  margin-right: 0px;
+  margin-right: 0%;
 `;
 
 export const CloseIcon = styled.svg`
@@ -30,7 +30,15 @@ export const UserName = styled.span`
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  gap: 5px;
+  gap: 40px;
+
+  @media (min-width: 320px) {
+    gap: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 40px;
+  }
 `;
 
 export const UserAuthBtn = styled.button`

@@ -32,14 +32,19 @@ export const Header = () => {
     // <WrapHeader $isDark={isDark}>
     <Wrapper>
       <ContainerHeader>
-        <NavLink to={token ? '/home' : '/'} className="logoBox">
+        <NavLink to={token ? '/welcome' : '/'} className="logoBox">
           <img src={imgUrl} alt="iconHome" />
-          <div className="logoText">TRACKER of Water</div>
         </NavLink>
         {/* <ToggleThemeBtn /> */}
         {!token && (
           <UserName>
-            <NavLink className="textSignIn" to="login" type="button">
+            <NavLink>
+              <DarkLightThemeStyle>
+                <LightModeIcon />
+                <DarkModeIcon />
+              </DarkLightThemeStyle>
+            </NavLink>
+            <NavLink className="textSignIn" to="/signin" type="button">
               <UserAuthBtn>
                 Sign in
                 <CloseIcon>
@@ -48,13 +53,6 @@ export const Header = () => {
               </UserAuthBtn>
             </NavLink>
             {/* <img src={isDark} alt="iconHome" /> */}
-
-            <NavLink>
-              <DarkLightThemeStyle>
-                <LightModeIcon />
-                <DarkModeIcon />
-              </DarkLightThemeStyle>
-            </NavLink>
           </UserName>
         )}
         {token && <UserLogoutModal />}
