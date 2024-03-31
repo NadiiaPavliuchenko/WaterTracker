@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { baseTheme } from './theme';
+import { baseTheme } from '../theme';
 
 export const CalendarContainer = styled.div`
   display: flex;

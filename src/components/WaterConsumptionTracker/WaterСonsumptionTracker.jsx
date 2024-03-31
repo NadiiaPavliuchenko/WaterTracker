@@ -9,6 +9,7 @@ import {
   Title,
   Tracker
 } from './WaterConsumptionTracker.styled';
+import { WrapperBox } from '../Wrapper/Wrapper.styled';
 
 export const WaterConsumptionTracker = () => {
   const navigate = useNavigate();
@@ -30,7 +31,8 @@ export const WaterConsumptionTracker = () => {
   }
 
   return (
-    <Tracker>
+    <WrapperBox>
+      <Tracker>
       <HiddenTitle>Hidden</HiddenTitle>
       <Title>Water consumption tracker</Title>
       <Subtitle>Record daily water intake and track</Subtitle>
@@ -45,6 +47,7 @@ export const WaterConsumptionTracker = () => {
         Try tracker
       </Button>
     </Tracker>
+    </WrapperBox>
   );
 };
 

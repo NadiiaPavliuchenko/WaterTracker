@@ -6,9 +6,16 @@ export const WelcomePageStyles = styled.div`
   gap: 40px;
   align-items: center;
 
-  min-width: 1440px
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 81px;
+  @media screen and(min-width: 768px) {
+    gap: 60px;
+    align-items: stretch;
+  }
+
+  @media screen and(min-width: 1440px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 81px;
+  }
 `;

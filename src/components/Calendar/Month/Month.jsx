@@ -1,10 +1,12 @@
 import { useState, useRef } from 'react';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 // import { useDispatch, useSelector } from 'react-redux';
 // import store from '../../store/store';
 
-import Icons from '../../Calendar';
+// import Icons from '../../Calendar/sprite.svg';
 
-import DayComponent from './Day/Day';
+import DayComponent from '../Day/Day';
 
 import {
   ArrowButton,
@@ -14,7 +16,7 @@ import {
   MonthControl,
   Month,
   MonthTitle,
-} from '../Month.styled';
+} from './Month.styled';
 
 import { ThreeDots } from 'react-loader-spinner';
 import { baseTheme } from '../theme';
@@ -105,10 +107,9 @@ export const Calendar = () => {
         )}
         <MonthControl>
           <ArrowButton aria-label="Previous month" onClick={handlePrevMonth}>
-            <svg>
-              <use href={Icons + '#arrow-left'}></use>
-            </svg>
+            <ArrowBackIosIcon sx={{ color: baseTheme.colors.blue }} />
           </ArrowButton>
+
           <Month>
             {`${new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
               currentDate
@@ -119,9 +120,7 @@ export const Calendar = () => {
             onClick={handleNextMonth}
             disabled={isCurrentMonth()}
           >
-            <svg>
-              <use href={Icons + '#arrow-right'}></use>
-            </svg>
+            <ArrowForwardIosIcon sx={{ color: baseTheme.colors.blue }} />
           </ArrowButton>
         </MonthControl>
       </MonthNav>
