@@ -1,4 +1,4 @@
-import{b as n,c,j as e,W as a}from"./index-a2d20cb2.js";const p=n.h1`
+import{b as n,c,j as e,W as a}from"./index-fec8c7e4.js";const p=n.h1`
   display: none;
 `,l=n.h2`
   font-weight: 700;
