@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { getCurrentUser } from '../../store/auth/authSelectors';
 import { useState } from 'react';
 
-export const DailyNorma = () => {
+const DailyNorma = () => {
   const { waterRate } = useSelector(getCurrentUser);
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -31,3 +31,5 @@ export const DailyNorma = () => {
     </div>
   );
 };
+
+export default DailyNorma;
