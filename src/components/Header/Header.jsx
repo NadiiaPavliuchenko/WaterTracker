@@ -14,6 +14,7 @@ import sprite from 'src/assets/sprite.svg';
 import Wrapper from 'components/Wrapper/Wrapper';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import imgUrl from '/src/assets/LogoSite.png';
 
 // import UserLogo from 'components/UserLogo/UserLogo';
 // import ThemeSwitcher from 'components/ThemeSwitcher/ThemeSwitcher';
@@ -32,7 +33,7 @@ export const Header = () => {
     <Wrapper>
       <ContainerHeader>
         <NavLink to={token ? '/home' : '/'} className="logoBox">
-          <img src="/src/assets/LogoSite.png" alt="iconHome" />
+          <img src={imgUrl} alt="iconHome" />
           <div className="logoText">TRACKER of Water</div>
         </NavLink>
         {/* <ToggleThemeBtn /> */}
