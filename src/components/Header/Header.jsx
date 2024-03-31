@@ -32,7 +32,7 @@ export const Header = () => {
     // <WrapHeader $isDark={isDark}>
     <Wrapper>
       <ContainerHeader>
-        <NavLink to={token ? '/welcome' : '/'} className="logoBox">
+        <NavLink to={token ? '/home' : '/welcome'} className="logoBox">
           <img src={imgUrl} alt="iconHome" />
         </NavLink>
         {/* <ToggleThemeBtn /> */}
