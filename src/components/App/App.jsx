@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
+import PublicRoute from '../../guards/PublicRoute';
+import PrivateRoute from '../../guards/PublicRoute';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
@@ -15,10 +17,34 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route path="/welcome" element={<WelcomePage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/signin" element={<SigninPage />} />
-        <Route path="/signup" element={<SignupPage />} />
+        <Route path="welcome" element={<WelcomePage />} />
+        <Route
+          path="home"
+          element={
+            <PrivateRoute
+              redirectTo="/signin"
+              component={<HomePage />}
+            ></PrivateRoute>
+          }
+        />
+        <Route
+          path="signin"
+          element={
+            <PublicRoute
+              redirectTo="/home"
+              component={<SigninPage />}
+            ></PublicRoute>
+          }
+        />
+        <Route
+          path="signup"
+          element={
+            <PublicRoute
+              redirectTo="/home"
+              component={<SignupPage />}
+            ></PublicRoute>
+          }
+        />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

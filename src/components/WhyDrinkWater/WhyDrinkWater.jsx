@@ -1,3 +1,5 @@
+import { Container, Item, List, OutlineContainer, Title } from "./WhyDrinkWater.styled";
+
 const WhyDrinkWater = () => {
   const list = [
     'Supply of nutrients to all organs',
@@ -9,14 +11,16 @@ const WhyDrinkWater = () => {
     'Maintaining an immune system capable of resisting disease',
   ];
   return (
-    <div>
-      <h1>Why drink water</h1>
-      <ul>
-        {list.map((item, index) => (
-            <li key={index}>{item}</li>
+    <OutlineContainer>
+      <Container>
+        <Title>Why drink water</Title>
+        <List>
+          {list.map((item, index) => (
+            <Item key={index}>{item}</Item>
           ))}
-      </ul>
-    </div>
+        </List>
+      </Container>
+    </OutlineContainer>
   );
 };
 
