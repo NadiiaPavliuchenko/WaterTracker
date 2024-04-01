@@ -9,27 +9,46 @@ export const ModalBox = styled.div`
   width: 280px;
   height: 260px;
   padding: 32px 24px;
-  background-color: #ffffff;
+  background-color: var(--primary-white);
+  border-radius: 10px;
 
   h2 {
+    font-family: 'Roboto-Medium', sans-serif;
     font-size: 26px;
     font-weight: 500;
     line-height: 32px;
     text-align: left;
-    margin-bottom: 24px;
   }
 
   p {
+    font-family: 'Roboto-Medium', sans-serif;
     font-size: 18px;
     font-weight: 500;
     line-height: 20px;
     text-align: left;
     margin-bottom: 24px;
   }
+  .topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .close {
+    fill: var(--primary-blue);
+  }
 
   @media screen and (min-width: 768px) {
     width: 592px;
     height: 208px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 18px;
   }
 `;
 
@@ -42,21 +61,22 @@ export const ButtonContainer = styled.div`
   gap: 24px;
 
   button {
+    font-family: 'Roboto-Medium', sans-serif;
     width: 100%;
     height: 36px;
     padding: 8px 30px 8px 30px;
     border: none;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px 0px #407bff57;
+    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.341);
   }
   .confirm {
-    color: #fff;
-    background-color: #ef5050;
+    color: var(--primary-white);
+    background-color: var(--secondary-red);
   }
 
   .cancel {
-    color: #407bff;
-    background-color: #d7e3ff;
+    color: var(--primary-blue);
+    background-color: var(--secondary-pale-blue);
   }
 
   @media screen and (min-width: 768px) {

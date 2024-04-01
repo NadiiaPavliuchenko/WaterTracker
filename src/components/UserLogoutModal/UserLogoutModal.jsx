@@ -1,12 +1,17 @@
 import ModalContainer from '../ModalContainer/ModalContainer';
 import { ButtonContainer, ModalBox } from './UserLogoutModal.styled';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 const UserLogoutModal = () => {
   return (
     <ModalContainer>
       <ModalBox>
         <div>
-          <h2>Log out</h2>
+          <div className="topline">
+            <h2>Log out</h2>
+            <CloseOutlinedIcon className="close" />
+          </div>
+
           <p>Do you really want to leave?</p>
         </div>
         <ButtonContainer>
