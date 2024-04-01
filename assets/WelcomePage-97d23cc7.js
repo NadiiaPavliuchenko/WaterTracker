@@ -1,6 +1,6 @@
-import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"./bg_img_bubbles-c11f2eb9.js";const c=n.h1`
+import{b as n,e as c,j as e,s as r,f as x}from"./index-91d8c405.js";import{b as a}from"./bg_img_bubbles-c11f2eb9.js";const l=n.h1`
   display: none;
-`,l=n.h2`
+`,h=n.h2`
   font-weight: 700;
   font-size: 28px;
   color: #2F2F2F;
@@ -11,7 +11,7 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
     font-size: 36px;
     line-height: 42px;
   }
-`,x=n.p`
+`,g=n.p`
   font-size: 24px;
   color: #2F2F2F;
   line-height: 30px;
@@ -21,7 +21,7 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
     font-size: 26px;
     line-height: 32px;
   }
-`,g=n.ul`
+`,m=n.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -39,11 +39,11 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
     flex-direction: column;
     justify-content: center;
   }
-`,h=n.li`
+`,b=n.li`
   display: flex;
   gap: 8px;
   align-items: center;
-`,m=n.div`
+`,u=n.div`
   display: inline-block;
   max-width: 280px;
   margin: auto;
@@ -56,13 +56,13 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
   @media screen and(min-width: 1440px) {
     min-width: 439px;
   }
-`,b=n.h3`
+`,f=n.h3`
   font-weight: 500;
   font-size: 18px;
   color: #2F2F2F;
   line-height: 20px;
   margin-bottom: 12px;
-`,u=n.button`
+`,w=n.button`
   display: inline-block;
   width: 100%;
   padding: 8px 30px;
@@ -92,12 +92,22 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
   @media screen and(min-width: 1440px) {
     width: 384px;
   }
-`,f=()=>{const i=p(),t=[{text:"Habit drive"},{text:"View statistics"},{text:"Personal rate setting"}];function o(){i("/signup")}return e.jsx(a,{children:e.jsxs(m,{children:[e.jsx(c,{children:"Hidden"}),e.jsx(l,{children:"Water consumption tracker"}),e.jsx(x,{children:"Record daily water intake and track"}),e.jsx(b,{children:"Tracker Benefits"}),e.jsx(g,{children:t.map(({text:s},d)=>e.jsx(h,{children:s},d))}),e.jsx(u,{type:"button",onClick:o,children:"Try tracker"})]})})},w=n.h2`
+`,k=n.svg`
+  stroke: #407bff;
+  fill: none;
+  width: 32px;
+  height: 32px;
+
+  @media screen and(min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+`,j=()=>{const i=c(),t=[{text:"Habit drive",id:`${r}#calendar`},{text:"View statistics",id:`${r}#presentation-chart-bar`},{text:"Personal rate setting",id:`${r}#wrench-screwdriver`}];function o(){i("/signup")}return e.jsxs(u,{children:[e.jsx(l,{children:"Hidden"}),e.jsx(h,{children:"Water consumption tracker"}),e.jsx(g,{children:"Record daily water intake and track"}),e.jsx(f,{children:"Tracker Benefits"}),e.jsx(m,{children:t.map(({id:s,text:d},p)=>e.jsxs(b,{children:[e.jsx(k,{children:e.jsx("use",{href:s})}),d]},p))}),e.jsx(w,{type:"button",onClick:o,children:"Try tracker"})]})},y=n.h2`
   font-weight: 500;
   font-size: 18px;
   color: #2F2F2F;
   margin-bottom: 12px;
-`,k=n.li`
+`,F=n.li`
   font-size: 16px;
   color: #2F2F2F;
   line-height: 20px;
@@ -125,10 +135,10 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
   @media screen and (min-width: 768px) {
     list-style-position: inside;
   }
-`,j=n.div`
+`,v=n.div`
   display: inline-block;
   margin: 0;
-`,y=n.div`
+`,z=n.div`
   display: inline-block;
 
   width: 280px;
@@ -143,12 +153,12 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
     width: auto;
     list-style-position: inside;
   }
-`,F=n.ul`
+`,T=n.ul`
   list-style-type: none;
   padding-left: 0;
-`,v=()=>{const i=["Supply of nutrients to all organs","Providing oxygen to the lungs","Maintaining the work of the heart","Release of processed substances","Ensuring the stability of the internal environment","Maintaining within the normal temperature","Maintaining an immune system capable of resisting disease"];return e.jsx(j,{children:e.jsxs(y,{children:[e.jsx(w,{children:"Why drink water"}),e.jsx(F,{children:i.map((t,o)=>e.jsx(k,{children:t},o))})]})})},z=n.div`
+`,W=()=>{const i=["Supply of nutrients to all organs","Providing oxygen to the lungs","Maintaining the work of the heart","Release of processed substances","Ensuring the stability of the internal environment","Maintaining within the normal temperature","Maintaining an immune system capable of resisting disease"];return e.jsx(v,{children:e.jsxs(z,{children:[e.jsx(y,{children:"Why drink water"}),e.jsx(T,{children:i.map((t,o)=>e.jsx(F,{children:t},o))})]})})},B=n.div`
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   gap: 40px;
   align-items: center;
 
@@ -164,7 +174,7 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
 
     gap: 81px;
   }
-`,T=()=>e.jsx(a,{children:e.jsxs(z,{children:[e.jsx(f,{}),e.jsx(v,{})]})}),W="/WaterTrackerFrontend/assets/bg_mob-45e67b01.png",B="/WaterTrackerFrontend/assets/bg_tab-1f797613.png",$="/WaterTrackerFrontend/assets/bg_img-f981bb04.png",C=n.div`
+`,$=()=>e.jsxs(B,{children:[e.jsx(j,{}),e.jsx(W,{})]}),C="/WaterTrackerFrontend/assets/bg_mob-45e67b01.png",M="/WaterTrackerFrontend/assets/bg_tab-1f797613.png",P="/WaterTrackerFrontend/assets/bg_img-f981bb04.png",S=n.div`
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -172,18 +182,18 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
   background-repeat: no-repeat;
 
   // мобіл
-  background-image: url(${W});
+  background-image: url(${C});
 
   // табл
   @media screen and (min-width: 768px) {
-    background-image: url(${B});
+    background-image: url(${M});
   }
 
   // деск
   @media screen and (min-width: 1440px) {
-    background-image: url(${$});
+    background-image: url(${P});
   }
-`,M=n.div`
+`,H=n.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -195,13 +205,13 @@ import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"
   @media screen and (min-width: 768px) {
     padding-top: 40px;
     padding-bottom: 50px;
-    background-image: url(${r});
+    background-image: url(${a});
   }
 
   // деск
   @media screen and (min-width: 1440px) {
     padding-top: 49px;
     padding-bottom: 109px;
-    background-image: url(${r});
+    background-image: url(${a});
   }
-`,R=()=>e.jsx(a,{children:e.jsx(C,{children:e.jsx(M,{children:e.jsx(T,{})})})});export{R as default};
+`,D=()=>e.jsx(S,{children:e.jsx(x,{children:e.jsx(H,{children:e.jsx($,{})})})});export{D as default};
