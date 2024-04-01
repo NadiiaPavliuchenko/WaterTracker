@@ -21,7 +21,8 @@ import {
   StyledSvg,
 } from './SettingModal.styled';
 // import ModalContainer from '../ModalContainer/ModalContainer';
-import { getCurrentUser, getUserGender } from '../../store/auth/authSelectors';
+import { getCurrentUser } from '../../store/auth/authSelectors';
+
 import useModal from '../../customHooks/useModal';
 import sprite from '../../assets/sprite.svg';
 
@@ -36,19 +37,10 @@ const SettingModal = () => {
   document.addEventListener('keydown', handleKeyDown);
   // const dispatch = useDispatch();
   const user = useSelector(getCurrentUser);
-  const userGender = useSelector(getUserGender);
+  // const userGender = useSelector(getUserGender);
 
   // const server = 'https://tracker-of-water-oqqk.onrender.com/api/';
-  // const user = {
-  //   name: 'n.pavljuchenko',
-  //   email: 'n.pavljuchenko@gmail.com',
-  //   avatarURL: '//www.gravatar.com/avatar/397507de0f385b925fb12604e5e147b1',
-  //   norm: 2000,
-  //   gender: 'woman',
-  //   password: 'qwer4567',
-  // };
 
-  console.log(user);
   const [showPassword, setShowPassword] = useState([false, false, false]);
   const [newAvatar, setNewAvatar] = useState([user.avatarURL]);
 
@@ -146,7 +138,7 @@ const SettingModal = () => {
             </div>
             <Formik
               initialValues={{
-                gender: userGender,
+                gender: user.gender,
                 name: user.name,
                 email: user.email,
                 avatarURL: user.avatarURL,
