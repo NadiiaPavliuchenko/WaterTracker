@@ -1,10 +1,9 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-// import { useDispatch, useSelector } from 'react-redux';
-// import store from '../../store/store';
-
-// import Icons from '../../Calendar/sprite.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrentMonthInfoThunk } from '../../../store/water/waterOperations';
+import { getCurrentMonth } from '../../../store/water/waterSelectors';
 
 import DayComponent from '../Day/Day';
 
@@ -21,11 +20,22 @@ import {
 import { ThreeDots } from 'react-loader-spinner';
 import { baseTheme } from '../theme';
 
-export const Calendar = () => {
+export const Calendar = (dailyNormaState) => {
   // аргумент "dailyNormaState" принимаем информацию о дневной норме потребления воды;
   const [currentDate, setCurrentDate] = useState(new Date()); // текущая дата + функция состояния; currentDate = текущая дата;
   const [isLoading] = useState(); // состояние загрузки;
+  const dispatch = useDispatch();
   const ref = useRef(null);
+  const waterForMonth = useSelector(getCurrentMonth);
+  // const isLoading = useSelector(selectorIsLoadingMonth);
+
+  useEffect(() => {
+    const month = `${
+      currentDate.getMonth() + 1
+    } - ${currentDate.getFullYear()}`;
+
+    dispatch(getCurrentMonthInfoThunk(month));
+  }, [dispatch, currentDate, dailyNormaState]);
 
   const handleNextMonth = () => {
     // вызове функции handleNextMonth() текущая дата обновляется на первый день следующего месяца;
@@ -70,6 +80,10 @@ export const Calendar = () => {
     const daysInMonth = getDaysInMonth();
     return Array.from({ length: daysInMonth }, (_, index) => {
       const day = index + 1;
+      const waterPercentage = waterForMonth?.find(
+        (item) =>
+          item.dayOfMonth && Number(item.dayOfMonth.split(',')[0]) === day
+      );
 
       return (
         <DayComponent
@@ -77,7 +91,7 @@ export const Calendar = () => {
           calendarRef={ref}
           day={day}
           //TODO: вставить процентаж
-          waterPercentage={null}
+          waterPercentage={waterPercentage}
         />
       );
     });

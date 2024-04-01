@@ -33,7 +33,8 @@ export const HomeSection = styled.div`
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    width: 50%;
+    /*width: 50%;*/
+    flex-direction: row;
   }
 `;
 
