@@ -77,7 +77,7 @@ export const Calendar = () => {
           calendarRef={ref}
           day={day}
           //TODO: вставить процентаж
-          waterPercentage={null}
+          waterPercentage={null} //сюда надо положить вотер дату.
         />
       );
     });

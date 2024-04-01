@@ -1,19 +1,10 @@
 import { motion } from 'framer-motion';
+import { BottleBox } from './BottleAnimation.styled';
 
 const BottleAnimation = () => {
   return (
     <>
-      <div
-        style={{
-          position: 'absolute',
-          display: 'block',
-          width: '374px',
-          height: '278px',
-          bottom: '30px',
-          right: '5%',
-          zIndex: '3',
-        }}
-      >
+      <BottleBox>
         <motion.img
           initial={{ y: -960, scale: 1 }}
           animate={{ y: 0, scale: [0.5, 0.8, 1] }}
@@ -73,7 +64,7 @@ const BottleAnimation = () => {
             zIndex: '2',
           }}
         />
-      </div>
+      </BottleBox>
     </>
   );
 };
