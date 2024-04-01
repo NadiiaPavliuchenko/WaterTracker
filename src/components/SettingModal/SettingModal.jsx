@@ -20,11 +20,12 @@ import {
   VisibilityIconsWrapper,
   StyledSvg,
 } from './SettingModal.styled';
-import { getCurrentUser } from '../../store/auth/authSelectors';
+// import ModalContainer from '../ModalContainer/ModalContainer';
+import { getCurrentUser, getUserGender } from '../../store/auth/authSelectors';
 import useModal from '../../customHooks/useModal';
 import sprite from '../../assets/sprite.svg';
 
-import { Form, Formik } from 'formik';
+import { Form, Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -35,6 +36,7 @@ const SettingModal = () => {
   document.addEventListener('keydown', handleKeyDown);
   // const dispatch = useDispatch();
   const user = useSelector(getCurrentUser);
+  const userGender = useSelector(getUserGender);
 
   // const server = 'https://tracker-of-water-oqqk.onrender.com/api/';
   // const user = {
@@ -45,7 +47,8 @@ const SettingModal = () => {
   //   gender: 'woman',
   //   password: 'qwer4567',
   // };
-  // console.log(user);
+
+  console.log(user);
   const [showPassword, setShowPassword] = useState([false, false, false]);
   const [newAvatar, setNewAvatar] = useState([user.avatarURL]);
 
@@ -75,17 +78,29 @@ const SettingModal = () => {
     name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
     email: Yup.string().email('Invalid email'),
     gender: Yup.string().matches(/(woman|man)/),
+    outdatedPassword: Yup.string()
+      .min(8, 'Password must be at least 8 characters')
+      .max(64),
     newPassword: Yup.string()
       .min(8, 'Password must be at least 8 characters')
       .max(64)
       .notOneOf(
         [Yup.ref('outdatedPassword'), null],
-        'New passwords must not match the old one'
+        'New password must not match the old one'
+      )
+      .when('outdatedPassword', (outdatedPassword, field) =>
+        outdatedPassword ? field.required() : field
       ),
-    repetedPassword: Yup.string().oneOf(
-      [Yup.ref('newPassword'), null],
-      'Passwords must match'
-    ),
+    repeatedPassword: Yup.string()
+      .min(8, 'Password must be at least 8 characters')
+      .max(64)
+      .oneOf(
+        [Yup.ref('newPassword')],
+        'Repeated password must match new password'
+      )
+      .when('newPassword', (newPassword, field) =>
+        newPassword ? field.required() : field
+      ),
   });
 
   return (
@@ -95,6 +110,7 @@ const SettingModal = () => {
       </button>
       {isOpen && (
         <>
+          {/* <ModalContainer onClose={closeModal}> */}
           <ModalBox>
             <TitleWrapper>
               <h3>Settings</h3>
@@ -102,9 +118,35 @@ const SettingModal = () => {
                 <use xlinkHref={`${sprite}#plus`} />
               </StyledCloseSvg>
             </TitleWrapper>
+            <div>
+              <FormLabel htmlFor="file">Your photo</FormLabel>
+              <FilePickerWrapper>
+                <ImgThumb>
+                  <img
+                    src={newAvatar}
+                    alt="user avatar"
+                    width="80px"
+                    height="80px"
+                  />
+                </ImgThumb>
+                <FilePickerLink
+                  component="label"
+                  underline="none"
+                  accept=".jpg,.jpeg,.png"
+                  tabIndex={-1}
+                  onChange={(e) => handleUploadAvatar(e)}
+                >
+                  <StyledSvg width="16px" height="16px">
+                    <use xlinkHref={`${sprite}#upload`} />
+                  </StyledSvg>
+                  Upload a photo
+                  <VisuallyHiddenInput type="file" name="file" />
+                </FilePickerLink>
+              </FilePickerWrapper>
+            </div>
             <Formik
               initialValues={{
-                gender: user.gender,
+                gender: userGender,
                 name: user.name,
                 email: user.email,
                 avatarURL: user.avatarURL,
@@ -120,32 +162,6 @@ const SettingModal = () => {
             >
               {({ values }) => (
                 <Form>
-                  <div>
-                    <FormLabel htmlFor="file">Your photo</FormLabel>
-                    <FilePickerWrapper>
-                      <ImgThumb>
-                        <img
-                          src={newAvatar}
-                          alt="user avatar"
-                          width="80px"
-                          height="80px"
-                        />
-                      </ImgThumb>
-                      <FilePickerLink
-                        component="label"
-                        underline="none"
-                        accept=".jpg,.jpeg,.png"
-                        tabIndex={-1}
-                        onChange={(e) => handleUploadAvatar(e)}
-                      >
-                        <StyledSvg width="16px" height="16px">
-                          <use xlinkHref={`${sprite}#upload`} />
-                        </StyledSvg>
-                        Upload a photo
-                        <VisuallyHiddenInput type="file" name="file" />
-                      </FilePickerLink>
-                    </FilePickerWrapper>
-                  </div>
                   <FormContentWrapper>
                     <div>
                       <FormSubtitle id="my-radio-group">
@@ -171,6 +187,12 @@ const SettingModal = () => {
                           type="name"
                           name="name"
                           className="form-control"
+                          autoComplete="current-password"
+                        />
+                        <ErrorMessage
+                          className="error"
+                          name="name"
+                          component="div"
                         />
                       </FormGroup>
                       <FormGroup>
@@ -179,7 +201,12 @@ const SettingModal = () => {
                           type="email"
                           name="email"
                           className="form-control"
-                          autoComplete="email"
+                          autoComplete="current-password"
+                        />
+                        <ErrorMessage
+                          className="error"
+                          name="email"
+                          component="div"
                         />
                       </FormGroup>
                     </div>
@@ -209,6 +236,11 @@ const SettingModal = () => {
                             </StyledSvg>
                           )}
                         </VisibilityIconsWrapper>
+                        <ErrorMessage
+                          className="error"
+                          name="outdatedPassword"
+                          component="div"
+                        />
                       </PasswordFormGroup>
                       <PasswordFormGroup>
                         <SmallLabel htmlFor="newPassword">
@@ -234,14 +266,19 @@ const SettingModal = () => {
                             </StyledSvg>
                           )}
                         </VisibilityIconsWrapper>
+                        <ErrorMessage
+                          className="error"
+                          name="newPassword"
+                          component="div"
+                        />
                       </PasswordFormGroup>
                       <PasswordFormGroup>
-                        <SmallLabel htmlFor="repetedPassword">
+                        <SmallLabel htmlFor="repeatedPassword">
                           Repeat new Password:
                         </SmallLabel>
                         <StyledField
                           type={showPassword[2] ? 'text' : 'password'}
-                          name="repetedPassword"
+                          name="repeatedPassword"
                           className="form-control"
                           placeholder="Password"
                           autoComplete="current-password"
@@ -259,6 +296,11 @@ const SettingModal = () => {
                             </StyledSvg>
                           )}
                         </VisibilityIconsWrapper>
+                        <ErrorMessage
+                          className="error"
+                          name="repeatedPassword"
+                          component="div"
+                        />
                       </PasswordFormGroup>
                     </div>
                   </FormContentWrapper>
@@ -267,6 +309,7 @@ const SettingModal = () => {
               )}
             </Formik>
           </ModalBox>
+          {/* </ModalContainer> */}
         </>
       )}
     </>
