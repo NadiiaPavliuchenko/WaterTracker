@@ -1,4 +1,4 @@
-import{b as n,c,j as e,W as a}from"./index-29f45cc6.js";const p=n.h1`
+import{b as n,e as p,j as e,f as a}from"./index-38a4da37.js";import{b as r}from"./bg_img_bubbles-c11f2eb9.js";const c=n.h1`
   display: none;
 `,l=n.h2`
   font-weight: 700;
@@ -92,7 +92,7 @@ import{b as n,c,j as e,W as a}from"./index-29f45cc6.js";const p=n.h1`
   @media screen and(min-width: 1440px) {
     width: 384px;
   }
-`,f=()=>{const i=c(),t=[{text:"Habit drive"},{text:"View statistics"},{text:"Personal rate setting"}];function o(){i("/signup")}return e.jsx(a,{children:e.jsxs(m,{children:[e.jsx(p,{children:"Hidden"}),e.jsx(l,{children:"Water consumption tracker"}),e.jsx(x,{children:"Record daily water intake and track"}),e.jsx(b,{children:"Tracker Benefits"}),e.jsx(g,{children:t.map(({text:s},d)=>e.jsx(h,{children:s},d))}),e.jsx(u,{type:"button",onClick:o,children:"Try tracker"})]})})},w=n.h2`
+`,f=()=>{const i=p(),t=[{text:"Habit drive"},{text:"View statistics"},{text:"Personal rate setting"}];function o(){i("/signup")}return e.jsx(a,{children:e.jsxs(m,{children:[e.jsx(c,{children:"Hidden"}),e.jsx(l,{children:"Water consumption tracker"}),e.jsx(x,{children:"Record daily water intake and track"}),e.jsx(b,{children:"Tracker Benefits"}),e.jsx(g,{children:t.map(({text:s},d)=>e.jsx(h,{children:s},d))}),e.jsx(u,{type:"button",onClick:o,children:"Try tracker"})]})})},w=n.h2`
   font-weight: 500;
   font-size: 18px;
   color: #2F2F2F;
@@ -128,7 +128,7 @@ import{b as n,c,j as e,W as a}from"./index-29f45cc6.js";const p=n.h1`
 `,j=n.div`
   display: inline-block;
   margin: 0;
-`,F=n.div`
+`,y=n.div`
   display: inline-block;
 
   width: 280px;
@@ -143,10 +143,10 @@ import{b as n,c,j as e,W as a}from"./index-29f45cc6.js";const p=n.h1`
     width: auto;
     list-style-position: inside;
   }
-`,y=n.ul`
+`,F=n.ul`
   list-style-type: none;
   padding-left: 0;
-`,v=()=>{const i=["Supply of nutrients to all organs","Providing oxygen to the lungs","Maintaining the work of the heart","Release of processed substances","Ensuring the stability of the internal environment","Maintaining within the normal temperature","Maintaining an immune system capable of resisting disease"];return e.jsx(j,{children:e.jsxs(F,{children:[e.jsx(w,{children:"Why drink water"}),e.jsx(y,{children:i.map((t,o)=>e.jsx(k,{children:t},o))})]})})},W=n.div`
+`,v=()=>{const i=["Supply of nutrients to all organs","Providing oxygen to the lungs","Maintaining the work of the heart","Release of processed substances","Ensuring the stability of the internal environment","Maintaining within the normal temperature","Maintaining an immune system capable of resisting disease"];return e.jsx(j,{children:e.jsxs(y,{children:[e.jsx(w,{children:"Why drink water"}),e.jsx(F,{children:i.map((t,o)=>e.jsx(k,{children:t},o))})]})})},z=n.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -164,7 +164,7 @@ import{b as n,c,j as e,W as a}from"./index-29f45cc6.js";const p=n.h1`
 
     gap: 81px;
   }
-`,z=()=>e.jsx(a,{children:e.jsxs(W,{children:[e.jsx(f,{}),e.jsx(v,{})]})}),T="/WaterTrackerFrontend/assets/bg_mob-45e67b01.png",B="/WaterTrackerFrontend/assets/bg_tab-1f797613.png",$="/WaterTrackerFrontend/assets/bg_img-f981bb04.png",r="/WaterTrackerFrontend/assets/bg_img_bubbles-88afa2b3.png",C=n.div`
+`,T=()=>e.jsx(a,{children:e.jsxs(z,{children:[e.jsx(f,{}),e.jsx(v,{})]})}),W="/WaterTrackerFrontend/assets/bg_mob-45e67b01.png",B="/WaterTrackerFrontend/assets/bg_tab-1f797613.png",$="/WaterTrackerFrontend/assets/bg_img-f981bb04.png",C=n.div`
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -172,7 +172,7 @@ import{b as n,c,j as e,W as a}from"./index-29f45cc6.js";const p=n.h1`
   background-repeat: no-repeat;
 
   // мобіл
-  background-image: url(${T});
+  background-image: url(${W});
 
   // табл
   @media screen and (min-width: 768px) {
@@ -204,4 +204,4 @@ import{b as n,c,j as e,W as a}from"./index-29f45cc6.js";const p=n.h1`
     padding-bottom: 109px;
     background-image: url(${r});
   }
-`,P=()=>e.jsx(a,{children:e.jsx(C,{children:e.jsx(M,{children:e.jsx(z,{})})})});export{P as default};
+`,R=()=>e.jsx(a,{children:e.jsx(C,{children:e.jsx(M,{children:e.jsx(T,{})})})});export{R as default};
