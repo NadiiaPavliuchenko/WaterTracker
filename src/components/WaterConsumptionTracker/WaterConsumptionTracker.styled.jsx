@@ -109,3 +109,15 @@ export const Button = styled.button`
     width: 384px;
   }
 `;
+
+export const Svg = styled.svg`
+  stroke: #407bff;
+  fill: none;
+  width: 32px;
+  height: 32px;
+
+  @media screen and(min-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
+`;

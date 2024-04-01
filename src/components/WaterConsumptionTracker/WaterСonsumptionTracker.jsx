@@ -7,9 +7,10 @@ import {
   Item,
   Subtitle,
   Title,
-  Tracker
+  Tracker,
+  Svg
 } from './WaterConsumptionTracker.styled';
-import { WrapperBox } from '../Wrapper/Wrapper.styled';
+import sprite from 'src/assets/sprite.svg';
 
 export const WaterConsumptionTracker = () => {
   const navigate = useNavigate();
@@ -17,12 +18,15 @@ export const WaterConsumptionTracker = () => {
   const benefits = [
     {
       text: 'Habit drive',
+      id: `${sprite}#calendar`,
     },
     {
       text: 'View statistics',
+      id: `${sprite}#presentation-chart-bar`,
     },
     {
       text: 'Personal rate setting',
+      id: `${sprite}#wrench-screwdriver`,
     },
   ];
 
@@ -31,15 +35,19 @@ export const WaterConsumptionTracker = () => {
   }
 
   return (
-    <WrapperBox>
       <Tracker>
       <HiddenTitle>Hidden</HiddenTitle>
       <Title>Water consumption tracker</Title>
       <Subtitle>Record daily water intake and track</Subtitle>
       <BenefitsTitle>Tracker Benefits</BenefitsTitle>
       <Benefits>
-        {benefits.map(({ text }, index) => (
-          <Item key={index}>{text}</Item>
+        {benefits.map(({ id, text }, index) => (
+          <Item key={index}>
+            <Svg>
+              <use href={id}></use>
+            </Svg>
+            {text}
+          </Item>
         ))}
       </Benefits>
 
@@ -47,7 +55,6 @@ export const WaterConsumptionTracker = () => {
         Try tracker
       </Button>
     </Tracker>
-    </WrapperBox>
   );
 };
 
