@@ -22,22 +22,22 @@ import {
 } from './SettingModal.styled';
 // import ModalContainer from '../ModalContainer/ModalContainer';
 import { getCurrentUser } from '../../store/auth/authSelectors';
+import { fetchUserData } from '../../store/auth/authOperations';
 
 import useModal from '../../customHooks/useModal';
 import sprite from '../../assets/sprite.svg';
 
 import { Form, Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const SettingModal = () => {
   const { isOpen, closeModal, openModal, handleKeyDown } = useModal();
 
   document.addEventListener('keydown', handleKeyDown);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const user = useSelector(getCurrentUser);
-  // const userGender = useSelector(getUserGender);
 
   // const server = 'https://tracker-of-water-oqqk.onrender.com/api/';
 
@@ -49,6 +49,10 @@ const SettingModal = () => {
     newShowPassword[index] = !showPassword[index];
     setShowPassword(newShowPassword);
   };
+
+  useEffect(() => {
+    dispatch(fetchUserData());
+  }, [dispatch]);
 
   const handleUploadAvatar = (e) => {
     const target = e.target;
