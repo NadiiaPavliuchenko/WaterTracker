@@ -36,6 +36,7 @@ export const ModalBox = styled.div`
   }
   .close {
     fill: var(--primary-blue);
+    cursor: pointer;
   }
 
   @media screen and (min-width: 768px) {
