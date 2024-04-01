@@ -69,6 +69,15 @@ export const ButtonContainer = styled.div`
     border-radius: 10px;
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.341);
   }
+
+  button:hover {
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.541);
+  }
+
+  button:active {
+    box-shadow: none;
+  }
+
   .confirm {
     color: var(--primary-white);
     background-color: var(--secondary-red);
