@@ -57,7 +57,7 @@ export const Item = styled.li`
 
 export const Tracker = styled.div`
   display: inline-block;
-  max-width: 280px;
+  // max-width: 280px;
   margin: auto;
 
   @media screen and(min-width: 768px) {
