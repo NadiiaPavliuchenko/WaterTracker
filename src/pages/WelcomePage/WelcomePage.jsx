@@ -5,14 +5,13 @@ import { BackgroundWrapper, Bubble } from "./WelcomePage.styled";
 
 const WelcomePage = () => {
   return (
-    <WrapperBox>
-      <BackgroundWrapper>
+    <BackgroundWrapper>
+      <WrapperBox>
         <Bubble>
          <MainContent />
         </Bubble>
+      </WrapperBox>
       </BackgroundWrapper>
-    </WrapperBox>
-    
   );
 };
 
