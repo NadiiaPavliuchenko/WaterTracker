@@ -1,4 +1,4 @@
-import{k as n,o as c,j as e,p as a,q as l}from"./index-93776103.js";import{b as r}from"./bg_img_bubbles-c11f2eb9.js";const x=n.h1`
+import{k as n,o as c,j as e,p as a,q as x}from"./index-f4fe3e2e.js";import{b as r}from"./bg_img_bubbles-c11f2eb9.js";const l=n.h1`
   display: none;
 `,h=n.h2`
   font-weight: 700;
@@ -102,7 +102,7 @@ import{k as n,o as c,j as e,p as a,q as l}from"./index-93776103.js";import{b as 
     width: 40px;
     height: 40px;
   }
-`,j=()=>{const i=c(),t=[{text:"Habit drive",id:`${a}#calendar`},{text:"View statistics",id:`${a}#presentation-chart-bar`},{text:"Personal rate setting",id:`${a}#wrench-screwdriver`}];function o(){i("/signup")}return e.jsxs(u,{children:[e.jsx(x,{children:"Hidden"}),e.jsx(h,{children:"Water consumption tracker"}),e.jsx(g,{children:"Record daily water intake and track"}),e.jsx(f,{children:"Tracker Benefits"}),e.jsx(m,{children:t.map(({id:s,text:d},p)=>e.jsxs(b,{children:[e.jsx(k,{children:e.jsx("use",{href:s})}),d]},p))}),e.jsx(w,{type:"button",onClick:o,children:"Try tracker"})]})},v=n.h2`
+`,j=()=>{const i=c(),t=[{text:"Habit drive",id:`${a}#calendar`},{text:"View statistics",id:`${a}#presentation-chart-bar`},{text:"Personal rate setting",id:`${a}#wrench-screwdriver`}];function o(){i("/signup")}return e.jsxs(u,{children:[e.jsx(l,{children:"Hidden"}),e.jsx(h,{children:"Water consumption tracker"}),e.jsx(g,{children:"Record daily water intake and track"}),e.jsx(f,{children:"Tracker Benefits"}),e.jsx(m,{children:t.map(({id:s,text:d},p)=>e.jsxs(b,{children:[e.jsx(k,{children:e.jsx("use",{href:s})}),d]},p))}),e.jsx(w,{type:"button",onClick:o,children:"Try tracker"})]})},v=n.h2`
   font-weight: 500;
   font-size: 18px;
   color: #2F2F2F;
@@ -193,7 +193,7 @@ import{k as n,o as c,j as e,p as a,q as l}from"./index-93776103.js";import{b as 
   // деск
   @media screen and (min-width: 1440px) {
     background-image: url(${P});
-    min-height: 100vh;
+     min-height: 100vh;
   }
 `,H=n.div`
   background-size: cover;
@@ -201,14 +201,14 @@ import{k as n,o as c,j as e,p as a,q as l}from"./index-93776103.js";import{b as 
   background-repeat: no-repeat;
   background-size: 100%;
   padding-top: 24px;
-  padding-bottom: 40px;
-  min-height: calc(100vh - padding-bottom);
+  // padding-bottom: 40px;
+  min-height: calc(100vh - 40px);
 
   // табл
   @media screen and (min-width: 768px) {
     padding-top: 40px;
-    padding-bottom: 50px;
-    min-height: calc(100vh - padding-bottom);
+    // padding-bottom: 50px;
+    min-height: calc(100vh - 50px);
 
     background-image: url(${r});
   }
@@ -216,9 +216,9 @@ import{k as n,o as c,j as e,p as a,q as l}from"./index-93776103.js";import{b as 
   // деск
   @media screen and (min-width: 1440px) {
     padding-top: 49px;
-    padding-bottom: 109px;
+    // padding-bottom: 109px;
 
     background-image: url(${r});
-    min-height: calc(100vh - padding-bottom);
+    min-height: calc(100vh - 109px);
   }
-`,D=()=>e.jsx(S,{children:e.jsx(H,{children:e.jsx(l,{children:e.jsx($,{})})})});export{D as default};
+`,D=()=>e.jsx(S,{children:e.jsx(H,{children:e.jsx(x,{children:e.jsx($,{})})})});export{D as default};
