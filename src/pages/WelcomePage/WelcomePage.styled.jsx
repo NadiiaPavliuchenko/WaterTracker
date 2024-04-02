@@ -25,7 +25,7 @@ export const BackgroundWrapper = styled.div`
   // деск
   @media screen and (min-width: 1440px) {
     background-image: url(${backgroundDesktop});
-    min-height: 100vh;
+     min-height: 100vh;
   }
 `;
 
@@ -35,14 +35,14 @@ export const Bubble = styled.div`
   background-repeat: no-repeat;
   background-size: 100%;
   padding-top: 24px;
-  padding-bottom: 40px;
-  min-height: calc(100vh - padding-bottom);
+  // padding-bottom: 40px;
+  min-height: calc(100vh - 40px);
 
   // табл
   @media screen and (min-width: 768px) {
     padding-top: 40px;
-    padding-bottom: 50px;
-    min-height: calc(100vh - padding-bottom);
+    // padding-bottom: 50px;
+    min-height: calc(100vh - 50px);
 
     background-image: url(${backgroundBubbles});
   }
@@ -50,9 +50,9 @@ export const Bubble = styled.div`
   // деск
   @media screen and (min-width: 1440px) {
     padding-top: 49px;
-    padding-bottom: 109px;
+    // padding-bottom: 109px;
 
     background-image: url(${backgroundBubbles});
-    min-height: calc(100vh - padding-bottom);
+    min-height: calc(100vh - 109px);
   }
 `;
