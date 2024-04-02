@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 
 export const FormRegisterStyles = styled.div`
-.form {
+@media screen and (min-width: 320px) {
+.form {   
     margin-top: 16px;
 }
 .label {
@@ -16,6 +17,7 @@ export const FormRegisterStyles = styled.div`
     position: relative;
     width: 280px;
 }
+    
 .input {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -44,6 +46,7 @@ export const FormRegisterStyles = styled.div`
     transform: translate(0%, -50%);
     z-index: 10
 }
+
 .buttonSignUp {
     border-radius: 10px;
     padding: 8px 30px;
@@ -58,10 +61,42 @@ export const FormRegisterStyles = styled.div`
     font-size: 16px;
     line-height: 1.25;
     text-align: center;
-    color: #fff;
+    color: #fff
 }
+
 .error {
     color: red
+}
+}
+
+
+ @media screen and (min-width: 768px) {
+    .input-container {    
+        width: 336px;
+    }
+    .input {    
+        width: 336px;        
+        height: 44px;
+    }
+    .buttonSignUp {
+        width: 336px;
+        height: 44px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    
+    .input-container {    
+        width: 384px;
+    }
+    .input {    
+        width: 384px;        
+        height: 44px;
+    }
+    .buttonSignUp {
+        width: 384px;
+        height: 44px;
+    }
 }
 `
 
