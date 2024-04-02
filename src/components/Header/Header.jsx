@@ -8,12 +8,12 @@ import {
   UserAuthBtn,
   CloseIcon,
   UserName,
-  DarkLightThemeStyle,
+  // DarkLightThemeStyle,
 } from './Header.styled';
 import sprite from 'src/assets/sprite.svg';
 import Wrapper from 'components/Wrapper/Wrapper';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+// import LightModeIcon from '@mui/icons-material/LightMode';
+// import DarkModeIcon from '@mui/icons-material/DarkMode';
 import imgUrl from '/src/assets/LogoSite.png';
 import iconDown from '/src/assets/icons8-down-24.png';
 
@@ -39,12 +39,12 @@ export const Header = () => {
         {/* <ToggleThemeBtn /> */}
         {!token && (
           <UserName>
-            <NavLink>
+            {/* <NavLink>
               <DarkLightThemeStyle>
                 <LightModeIcon />
                 <DarkModeIcon />
               </DarkLightThemeStyle>
-            </NavLink>
+            </NavLink> */}
             <NavLink className="textSignIn" to="/signin" type="button">
               <UserAuthBtn>
                 Sign in
