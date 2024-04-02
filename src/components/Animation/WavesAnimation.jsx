@@ -4,11 +4,7 @@ const WavesAnimation = () => {
   return (
     <>
       {' '}
-      <Svg
-        viewBox="0 24 150 28"
-        preserveAspectRatio="none"
-        shape-rendering="auto"
-      >
+      <Svg viewBox="0 24 150 28">
         <defs>
           <path
             id="gentle-wave"
@@ -16,7 +12,7 @@ const WavesAnimation = () => {
           />
         </defs>
         <g className="parallax">
-          <use href="#gentle-wave" x="48" y="0" fill="rgba(158, 187, 255,1" />
+          <use href="#gentle-wave" x="48" y="0" fill="rgba(158, 187, 255,1)" />
 
           <use href="#gentle-wave" x="48" y="5" fill="rgba(236,242,255,0.5)" />
         </g>
