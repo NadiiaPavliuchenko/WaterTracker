@@ -91,7 +91,9 @@ export const Calendar = (dailyNormaState) => {
           calendarRef={ref}
           day={day}
           //TODO: вставить процентаж
+
           waterPercentage={waterPercentage}
+
         />
       );
     });
