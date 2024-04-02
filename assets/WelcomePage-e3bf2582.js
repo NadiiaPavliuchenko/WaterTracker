@@ -1,4 +1,4 @@
-import{d as n,k as c,j as e,s as r,l as x}from"./index-5e8f81fb.js";import{b as a}from"./bg_img_bubbles-c11f2eb9.js";const l=n.h1`
+import{k as n,o as c,j as e,p as r,q as x}from"./index-532037db.js";import{b as a}from"./bg_img_bubbles-c11f2eb9.js";const l=n.h1`
   display: none;
 `,h=n.h2`
   font-weight: 700;

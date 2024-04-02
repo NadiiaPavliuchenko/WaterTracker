@@ -1,4 +1,4 @@
-import{d as m,j as s,b as h,u as x,m as f,W as g,L as w,N as d,o as u}from"./index-5e8f81fb.js";import{c as b,a as n,e as j,F as C,b as N,d as l,E as p}from"./index.esm-f496dd92.js";const v=m.div`
+import{k as m,j as s,d as h,b as x,t as f,W as g,L as w,N as d,x as u}from"./index-532037db.js";import{c as b,a as n,e as j,F as C,b as N,d as l,E as p}from"./index.esm-01be5033.js";import"./hoist-non-react-statics.cjs-487d9569.js";const v=m.div`
 .form {
     margin-top: 16px;
 }
@@ -77,4 +77,4 @@ font-size: 16px;
 line-height: 1.25;
 color: #407bff;
 }
-`,M=()=>{const a=h(),o=x(f);function i(r){a(u(r))}return s.jsx(s.Fragment,{children:s.jsx(g,{children:s.jsxs(F,{children:[s.jsx("h2",{className:"title",children:"Sign Up"}),s.jsx(y,{submitFunc:i}),s.jsx(w,{className:"link",to:"/signin",children:"Sign In"}),o?s.jsx(d,{to:"/signin"}):s.jsx(d,{to:"/signup"})]})})})};export{M as default};
+`,P=()=>{const a=h(),o=x(f);function i(r){a(u(r))}return s.jsx(s.Fragment,{children:s.jsx(g,{children:s.jsxs(F,{children:[s.jsx("h2",{className:"title",children:"Sign Up"}),s.jsx(y,{submitFunc:i}),s.jsx(w,{className:"link",to:"/signin",children:"Sign In"}),o?s.jsx(d,{to:"/signin"}):s.jsx(d,{to:"/signup"})]})})})};export{P as default};
