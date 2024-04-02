@@ -18,8 +18,7 @@ const SigninPage = () => {
       <Wrapper>
       <div>SigninPage</div>
         <SignInForm submitFunc={handleSubmit} />
-        <Link to="/signup">Sign Up</Link>
-      {userEmail? <Navigate to='/home' />:<Navigate to='/signin' /> }
+        <Link to="/signup">Sign Up</Link>     
       </Wrapper>
     </>
   );
