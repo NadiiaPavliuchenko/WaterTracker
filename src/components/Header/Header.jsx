@@ -8,13 +8,14 @@ import {
   UserAuthBtn,
   CloseIcon,
   UserName,
-  DarkLightThemeStyle,
+  // DarkLightThemeStyle,
 } from './Header.styled';
 import sprite from 'src/assets/sprite.svg';
 import Wrapper from 'components/Wrapper/Wrapper';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+// import LightModeIcon from '@mui/icons-material/LightMode';
+// import DarkModeIcon from '@mui/icons-material/DarkMode';
 import imgUrl from '/src/assets/LogoSite.png';
+import iconDown from '/src/assets/icons8-down-24.png';
 
 // import UserLogo from 'components/UserLogo/UserLogo';
 // import ThemeSwitcher from 'components/ThemeSwitcher/ThemeSwitcher';
@@ -32,24 +33,25 @@ export const Header = () => {
     // <WrapHeader $isDark={isDark}>
     <Wrapper>
       <ContainerHeader>
-        <NavLink to={token ? '/home' : '/welcome'} className="logoBox">
+        <NavLink to={token ? '/home' : '/'} className="logoBox">
           <img src={imgUrl} alt="iconHome" />
         </NavLink>
         {/* <ToggleThemeBtn /> */}
         {!token && (
           <UserName>
-            <NavLink>
+            {/* <NavLink>
               <DarkLightThemeStyle>
                 <LightModeIcon />
                 <DarkModeIcon />
               </DarkLightThemeStyle>
-            </NavLink>
+            </NavLink> */}
             <NavLink className="textSignIn" to="/signin" type="button">
               <UserAuthBtn>
                 Sign in
                 <CloseIcon>
                   <use href={`${sprite}#user`}></use>
                 </CloseIcon>
+                <img src={iconDown} alt="iconDown" />
               </UserAuthBtn>
             </NavLink>
             {/* <img src={isDark} alt="iconHome" /> */}

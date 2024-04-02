@@ -1,7 +1,7 @@
-import DailyNormaModal from 'components/DailyNormaModal/DailyNormaModal';
 import { useSelector } from 'react-redux';
 import { getCurrentUser } from '../../store/auth/authSelectors';
 import { useState } from 'react';
+import { DailyNormaModal } from '../DailyNormaModal/DailyNormaModal';
 
 const DailyNorma = () => {
   const { waterRate } = useSelector(getCurrentUser);

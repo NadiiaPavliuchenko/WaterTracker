@@ -1,8 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import PublicRoute from '../../guards/PublicRoute';
-import PrivateRoute from '../../guards/PublicRoute';
+import PrivateRoute from '../../guards/PrivateRoute';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from '../../store/auth/authOperations';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
@@ -13,6 +15,12 @@ const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 const test = import.meta.env.VITE_API_TEST;
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   console.log(test);
   return (
     <Routes>
