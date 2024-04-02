@@ -6,16 +6,17 @@ export const toastSuccess = (message) => {
     position: 'top-end',
     icon: 'success',
     title: message,
-    showConfirmButton: false,
-    timer: 1500,
+    showConfirmButton: true,
+    timer: 3000,
   });
 };
 
-export const toastError = (message) => {
+export const toastError = (message, errorMessage) => {
   Swal.fire({
     position: 'top-end',
     icon: 'error',
     title: message,
+    text: errorMessage, // Используем расшифрованное сообщение об ошибке
     showConfirmButton: false,
     timer: 1500,
   });

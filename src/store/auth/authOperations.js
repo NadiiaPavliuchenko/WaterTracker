@@ -8,10 +8,20 @@ const setAuthHeader = (token = null) => {
   else axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+const getErrorMessage = (error) => {
+  if (error.response && error.response.data) {
+    return error.response.data.message || 'Unknown error';
+  } else if (error.message) {
+    return error.message;
+  } else {
+    return 'Unknown error';
+  }
+};
+
 export const signUpAPI = createAsyncThunk(
   'signUp/signUpAPI',
 
-  async (credentials, thunkAPI) => {
+  async (credentials) => {
     try {
       const res = await axios.post('/auth/register', credentials);
       setAuthHeader(res.data.token);
@@ -20,8 +30,12 @@ export const signUpAPI = createAsyncThunk(
       );
       return res.data;
     } catch (error) {
-      toastError('Something went wrong. Please try again or log in');
-      return thunkAPI.rejectWithValue(error.message);
+      toastError(
+        `Something went wrong. Please try again or log in`,
+        getErrorMessage(error)
+      );
+
+      throw error;
     }
   }
 );
