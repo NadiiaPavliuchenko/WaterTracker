@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import PublicRoute from '../../guards/PublicRoute';
-import PrivateRoute from '../../guards/PublicRoute';
+import PrivateRoute from '../../guards/PrivateRoute';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
