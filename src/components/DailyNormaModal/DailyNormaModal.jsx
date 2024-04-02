@@ -3,7 +3,7 @@ import ModalContainer from '../ModalContainer/ModalContainer';
 
 import useModal from '../../customHooks/useModal';
 import { DailyNormaInputForm } from '../DailyNormaInputForm/DailyNormaInputForm';
-import { DailyNormaCalculationForm } from '../dailyNormaCalculationForm/dailyNormaCalculationForm';
+import { DailyNormaCalcForm } from '../DailyNormaCalcForm/DailyNormaCalcForm';
 
 export const DailyNormaModal = () => {
   const { isOpen, closeModal, handleKeyDown } = useModal();
@@ -38,7 +38,7 @@ export const DailyNormaModal = () => {
               </div>
             </div>
             <div>
-              <DailyNormaCalculationForm />
+              <DailyNormaCalcForm />
             </div>
 
             <div>
