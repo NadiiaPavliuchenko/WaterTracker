@@ -25,32 +25,28 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<WelcomePage />} />
+        <Route
+          index
+          element={
+            <PublicRoute redirectTo="/home" component={<WelcomePage />} />
+          }
+        />
         <Route
           path="home"
           element={
-            <PrivateRoute
-              redirectTo="/signin"
-              component={<HomePage />}
-            ></PrivateRoute>
+            <PrivateRoute redirectTo="/signin" component={<HomePage />} />
           }
         />
         <Route
           path="signin"
           element={
-            <PublicRoute
-              redirectTo="/home"
-              component={<SigninPage />}
-            ></PublicRoute>
+            <PublicRoute redirectTo="/home" component={<SigninPage />} />
           }
         />
         <Route
           path="signup"
           element={
-            <PublicRoute
-              redirectTo="/home"
-              component={<SignupPage />}
-            ></PublicRoute>
+            <PublicRoute redirectTo="/home" component={<SignupPage />} />
           }
         />
         <Route path="*" element={<ErrorPage />} />
