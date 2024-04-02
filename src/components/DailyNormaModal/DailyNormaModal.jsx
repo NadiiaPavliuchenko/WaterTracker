@@ -5,8 +5,8 @@ import useModal from '../../customHooks/useModal';
 import { DailyNormaInputForm } from '../DailyNormaInputForm/DailyNormaInputForm';
 import { DailyNormaCalcForm } from '../DailyNormaCalcForm/DailyNormaCalcForm';
 
-export const DailyNormaModal = () => {
-  const { isOpen, closeModal, handleKeyDown } = useModal();
+export const DailyNormaModal = ({ isOpen }) => {
+  const { closeModal, handleKeyDown } = useModal();
 
   document.addEventListener('keydown', handleKeyDown);
 
