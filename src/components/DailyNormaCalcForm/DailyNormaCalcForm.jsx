@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { getUserGender } from '../../store/auth/authSelectors';
 import { useState } from 'react';
 
-export const DailyNormaCalculationForm = () => {
+export const DailyNormaCalcForm = () => {
   const initialGender = useSelector(getUserGender);
   const [gender, setGender] = useState(initialGender);
   const [weight, setWeight] = useState(0);
