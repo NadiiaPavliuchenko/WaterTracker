@@ -1,18 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux'
 import {  Link } from "react-router-dom"
-import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_2x.png'
 import SignUpForm from 'components/SignUpForm/SignUpForm';
 import { signUpAPI} from '../../store/auth/authOperations'
 import { SignUpPageStyle } from './SignupPage.styled'
 import { getUserEmail } from '../../store/auth/authSelectors'
 import Wrapper from '../../components/Wrapper/Wrapper';
+import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_2x.png'
 
 const SignupPage = () => {
+
   const dispatch = useDispatch()
   const userEmail = useSelector(getUserEmail)
   function handleSubmit(values) {
     dispatch(signUpAPI(values))    
   }
+  
   return (
     <>
       <SignUpPageStyle>

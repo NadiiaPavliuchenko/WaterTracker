@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 
 export const FormLoginStyles = styled.div`
+@media screen and (min-width: 320px) {
 .form {
     margin-top: 16px;
 }
@@ -63,4 +64,34 @@ export const FormLoginStyles = styled.div`
 .error {
     color: red
 }
+}
+@media screen and (min-width: 768px) {
+    .input-container {    
+        width: 336px;
+    }
+    .input {    
+        width: 336px;        
+        height: 44px;
+    }
+    .buttonSignUp {
+        width: 336px;
+        height: 44px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    
+    .input-container {    
+        width: 384px;
+    }
+    .input {    
+        width: 384px;        
+        height: 44px;
+    }
+    .buttonSignUp {
+        width: 384px;
+        height: 44px;
+    }
+}
+
 `

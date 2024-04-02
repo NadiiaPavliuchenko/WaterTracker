@@ -4,7 +4,7 @@ import bg_tab_register_1x from "../../assets/images/background/RegisterLoginPage
 import bg_desk_register_1x from "../../assets/images/background/RegisterLoginPage/Desk/bg_desk_1x.png"
 
 export const SignUpPageStyle = styled.div`
-background-size: 100vw, 100vh;
+background-size: 100vw, contain;
 background-position: 0, 10px ;
 background-repeat: no-repeat;
 background-image: url(${bg_mob_register_1x});
