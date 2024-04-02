@@ -3,7 +3,7 @@ import WaterRatioPanel from 'components/WaterRatioPanel/WaterRatioPanel';
 import TodayWaterList from 'components/TodayWaterList/TodayWaterList';
 import { Calendar } from 'components/Calendar/Month/Month';
 import Wrapper from 'components/Wrapper/Wrapper';
-import { HomeSection, HomeStatistics } from './HomePage.styled';
+import { HomeSection, HomeStatistics, BottleSection } from './HomePage.styled';
 
 
 
@@ -11,10 +11,10 @@ const HomePage = () => {
   return (
     <Wrapper> 
       <HomeSection>
-          <div className='bottle-section'>
+          <BottleSection>
             <DailyNorma />
             <WaterRatioPanel />
-          </div>
+          </BottleSection>
           <HomeStatistics>
             <TodayWaterList />
             <Calendar />
