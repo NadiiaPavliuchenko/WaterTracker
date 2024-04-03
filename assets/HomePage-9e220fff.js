@@ -1,4 +1,4 @@
-import{r as u,u as F,j as e,e as _,a as y,g as I,b as a,M as T,d as B,c as E,f as N,i as D,h as w,k as W,W as O}from"./index-7bded97b.js";import{b as S}from"./bg_img_bubbles-c11f2eb9.js";const Y=({closeModal:n})=>{const i=30 .toFixed(1),[s,l]=u.useState(i),r=h=>{const{value:p}=h.target,x=/^(\d+([.,]\d{0,1})?)?$/;var b=p;p.match(/^[.,]/)?b="0"+p:b=p.replace(/^0+([^.])/,"$1"),x.test(b)&&l(b)},c=F(),d=async h=>{h.preventDefault();const p=h.target.elements.dailyNorm.value*1e3;try{const{payload:x}=await c(_(p));x.user&&n()}catch(x){console.log("🚀 ~ error:",x)}};return e.jsxs("form",{onSubmit:d,children:[e.jsxs("label",{children:["Write down how much water you will drink:",e.jsx("input",{type:"number",name:"dailyNorm",value:s,onChange:r})]}),e.jsx("button",{className:"confirm",type:"submit",children:"Save"})]})},A=()=>{const n=y(I),[t,i]=u.useState(n),[s,l]=u.useState(""),[r,c]=u.useState(""),d=x=>{const{name:b,value:o}=x.target,j=/^(\d+([.,]\d{0,1})?)?$/;var g=o;switch(b){case"gender":i(o);break;case"weight":o.match(/^[.,]/)?g="0"+o:g=o.replace(/^0+([^.])/,"$1"),j.test(g)&&l(g);break;case"activeHours":o.match(/^[.,]/)?g="0"+o:g=o.replace(/^0+([^.])/,"$1"),j.test(g)&&c(g);break}},h=t==="woman"?s*.03+r*.4:s*.04+r*.6,p=Math.round(h*10)/10;return e.jsx("div",{children:e.jsxs("form",{action:"",children:[e.jsx("h3",{children:"Calculate your rate:"}),e.jsxs("label",{children:["Gender",e.jsxs("label",{children:["For woman",e.jsx("input",{type:"radio",name:"gender",value:"woman",checked:t==="woman",onChange:d})]}),e.jsxs("label",{children:["For man",e.jsx("input",{type:"radio",name:"gender",value:"man",checked:t==="man",onChange:d})]})]}),e.jsxs("label",{htmlFor:"",children:["Your weight in kilograms:",e.jsx("input",{type:"number",name:"weight",value:s,onChange:d})]}),e.jsxs("label",{htmlFor:"",children:["The time of active participation in sports or other activities with a high physical. load in hours:",e.jsx("input",{type:"number",name:"activeHours",value:r,onChange:d})]}),e.jsxs("p",{children:["The required amount of water in liters per day:"," ",e.jsxs("span",{children:[p," L"]})]})]})})},H=a.div`
+import{r as u,u as F,j as e,e as R,a as y,g as _,b as a,M as I,d as T,c as B,f as N,i as D,h as w,k as E,W}from"./index-c28aa3b3.js";import{b as O}from"./bg_img_bubbles-c11f2eb9.js";const Y=({closeModal:n})=>{const i=30 .toFixed(1),[s,l]=u.useState(i),r=h=>{const{value:p}=h.target,x=/^(\d+([.,]\d{0,1})?)?$/;var b=p;p.match(/^[.,]/)?b="0"+p:b=p.replace(/^0+([^.])/,"$1"),x.test(b)&&l(b)},c=F(),d=async h=>{h.preventDefault();const p=h.target.elements.dailyNorm.value*1e3;try{const{payload:x}=await c(R(p));x.user&&n()}catch(x){console.log("🚀 ~ error:",x)}};return e.jsxs("form",{onSubmit:d,children:[e.jsxs("label",{children:["Write down how much water you will drink:",e.jsx("input",{type:"number",name:"dailyNorm",value:s,onChange:r})]}),e.jsx("button",{className:"confirm",type:"submit",children:"Save"})]})},A=()=>{const n=y(_),[t,i]=u.useState(n),[s,l]=u.useState(""),[r,c]=u.useState(""),d=x=>{const{name:b,value:o}=x.target,j=/^(\d+([.,]\d{0,1})?)?$/;var g=o;switch(b){case"gender":i(o);break;case"weight":o.match(/^[.,]/)?g="0"+o:g=o.replace(/^0+([^.])/,"$1"),j.test(g)&&l(g);break;case"activeHours":o.match(/^[.,]/)?g="0"+o:g=o.replace(/^0+([^.])/,"$1"),j.test(g)&&c(g);break}},h=t==="woman"?s*.03+r*.4:s*.04+r*.6,p=Math.round(h*10)/10;return e.jsx("div",{children:e.jsxs("form",{action:"",children:[e.jsx("h3",{children:"Calculate your rate:"}),e.jsxs("label",{children:["Gender",e.jsxs("label",{children:["For woman",e.jsx("input",{type:"radio",name:"gender",value:"woman",checked:t==="woman",onChange:d})]}),e.jsxs("label",{children:["For man",e.jsx("input",{type:"radio",name:"gender",value:"man",checked:t==="man",onChange:d})]})]}),e.jsxs("label",{htmlFor:"",children:["Your weight in kilograms:",e.jsx("input",{type:"number",name:"weight",value:s,onChange:d})]}),e.jsxs("label",{htmlFor:"",children:["The time of active participation in sports or other activities with a high physical. load in hours:",e.jsx("input",{type:"number",name:"activeHours",value:r,onChange:d})]}),e.jsxs("p",{children:["The required amount of water in liters per day:"," ",e.jsxs("span",{children:[p," L"]})]})]})})},H=a.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -27,7 +27,7 @@ import{r as u,u as F,j as e,e as _,a as y,g as I,b as a,M as T,d as B,c as E,f a
     width: 592px;
     height: 712px;
   }
-`,V=({isModalOpen:n,closeModal:t})=>e.jsx(e.Fragment,{children:n&&e.jsx(T,{onClose:t,children:e.jsxs(H,{children:[e.jsxs("div",{children:[e.jsxs("div",{className:"topline",children:[e.jsx("h2",{children:"My daily norm"}),e.jsx(B,{className:"close",onClick:t})]}),e.jsxs("div",{children:[e.jsxs("p",{children:["For woman: ",e.jsx("span",{children:"V=(M*0,03) + (T*0,4)"})]}),e.jsxs("p",{children:["For man: ",e.jsx("span",{children:"V=(M*0,04) + (T*0,6)"})]})]}),e.jsx("div",{children:e.jsxs("p",{children:[e.jsx("span",{children:"*"}),"V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)"]})})]}),e.jsx("div",{children:e.jsx(A,{})}),e.jsx("div",{children:e.jsx(Y,{closeModal:t})})]})})}),q=()=>{const{waterRate:n}=y(E),[t,i]=u.useState(!1),s=()=>{i(!0)},l=()=>{i(!1)},r=(n/1e3).toFixed(1)+" L";return e.jsx("div",{children:e.jsxs("div",{children:[e.jsx("h2",{children:"My daily norma: "}),e.jsxs("div",{children:[e.jsx("p",{children:r}),e.jsx("button",{onClick:s,children:"Edit"})]}),e.jsx(V,{isModalOpen:t,closeModal:l})]})})},P=()=>e.jsx("div",{children:"TodayListModal"}),G=()=>e.jsxs(e.Fragment,{children:[e.jsx("div",{children:"WaterRatioPanel"}),e.jsx(P,{})]}),U=()=>e.jsx("div",{children:"TodayWaterList"});var $={},J=D;Object.defineProperty($,"__esModule",{value:!0});var z=$.default=void 0,K=J(N()),Q=e;z=$.default=(0,K.default)((0,Q.jsx)("path",{d:"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"}),"ArrowForwardIos");var k={},X=D;Object.defineProperty(k,"__esModule",{value:!0});var L=k.default=void 0,Z=X(N()),ee=e;L=k.default=(0,Z.default)((0,ee.jsx)("path",{d:"M11.67 3.87 9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"}),"ArrowBackIos");const te=n=>n.water.month,m={colors:{white:"#FFFFFF",black:"#2F2F2F",blue:"#407BFF",red:"#EF5050",orange:"#FF9D43",grey:"#ECF2FF",violet:"#9EBBFF",violet_light:"#D7E3FF"},animation:{duration:"0.25s",cubicBezier:"cubic-bezier(0.4, 0, 0.2, 1)"}},ne=a.div`
+`,V=({isModalOpen:n,closeModal:t})=>e.jsx(e.Fragment,{children:n&&e.jsx(I,{onClose:t,children:e.jsxs(H,{children:[e.jsxs("div",{children:[e.jsxs("div",{className:"topline",children:[e.jsx("h2",{children:"My daily norm"}),e.jsx(T,{className:"close",onClick:t})]}),e.jsxs("div",{children:[e.jsxs("p",{children:["For woman: ",e.jsx("span",{children:"V=(M*0,03) + (T*0,4)"})]}),e.jsxs("p",{children:["For man: ",e.jsx("span",{children:"V=(M*0,04) + (T*0,6)"})]})]}),e.jsx("div",{children:e.jsxs("p",{children:[e.jsx("span",{children:"*"}),"V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)"]})})]}),e.jsx("div",{children:e.jsx(A,{})}),e.jsx("div",{children:e.jsx(Y,{closeModal:t})})]})})}),q=()=>{const{waterRate:n}=y(B),[t,i]=u.useState(!1),s=()=>{i(!0)},l=()=>{i(!1)},r=(n/1e3).toFixed(1)+" L";return e.jsx("div",{children:e.jsxs("div",{children:[e.jsx("h2",{children:"My daily norma: "}),e.jsxs("div",{children:[e.jsx("p",{children:r}),e.jsx("button",{onClick:s,children:"Edit"})]}),e.jsx(V,{isModalOpen:t,closeModal:l})]})})},P=()=>e.jsx("div",{children:"TodayListModal"}),G=()=>e.jsxs(e.Fragment,{children:[e.jsx("div",{children:"WaterRatioPanel"}),e.jsx(P,{})]}),U=()=>e.jsx("div",{children:"TodayWaterList"});var $={},J=D;Object.defineProperty($,"__esModule",{value:!0});var S=$.default=void 0,K=J(N()),Q=e;S=$.default=(0,K.default)((0,Q.jsx)("path",{d:"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"}),"ArrowForwardIos");var k={},X=D;Object.defineProperty(k,"__esModule",{value:!0});var z=k.default=void 0,Z=X(N()),ee=e;z=k.default=(0,Z.default)((0,ee.jsx)("path",{d:"M11.67 3.87 9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"}),"ArrowBackIos");const te=n=>n.water.month,m={colors:{white:"#FFFFFF",black:"#2F2F2F",blue:"#407BFF",red:"#EF5050",orange:"#FF9D43",grey:"#ECF2FF",violet:"#9EBBFF",violet_light:"#D7E3FF"},animation:{duration:"0.25s",cubicBezier:"cubic-bezier(0.4, 0, 0.2, 1)"}},ne=a.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -258,44 +258,28 @@ to {
   animation: ${we} 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
 `;a.svg`
   transform-origin: 50% 65%;
-`;const $e=n=>{const[t,i]=u.useState(new Date),[s]=u.useState(),l=F(),r=u.useRef(null),c=y(te);u.useEffect(()=>{const o=`${t.getMonth()+1} - ${t.getFullYear()}`;l(W(o))},[l,t,n]);const d=()=>{const o=new Date(t.getFullYear(),t.getMonth()+1,1);i(o)},h=()=>{const o=new Date(t.getFullYear(),t.getMonth()-1,1);i(o)},p=()=>{const o=new Date;return t.getMonth()===o.getMonth()&&t.getFullYear()===o.getFullYear()},x=()=>new Date(t.getFullYear(),t.getMonth()+1,0).getDate(),b=()=>{const o=x();return Array.from({length:o},(j,g)=>{const v=g+1,R=c==null?void 0:c.find(M=>M.dayOfMonth&&Number(M.dayOfMonth.split(",")[0])===v);return e.jsx(xe,{calendarRef:r,day:v,waterPercentage:R},v)})};return e.jsxs(ae,{className:"calendar",ref:r,children:[e.jsxs(re,{children:[e.jsx(oe,{children:"Month"}),s&&e.jsx(ye,{height:"60",width:"60",radius:"9",color:m.colors.blue,ariaLabel:"three-dots-loading",wrapperStyle:{height:"30px",width:"40px",display:"flex",alignItems:"center",justifyContent:"center"},wrapperClassName:"",visible:!0}),e.jsxs(le,{children:[e.jsx(C,{"aria-label":"Previous month",onClick:h,children:e.jsx(L,{sx:{color:m.colors.blue}})}),e.jsx(ce,{children:`${new Intl.DateTimeFormat("en-US",{month:"long"}).format(t)}, ${t.getFullYear()}`}),e.jsx(C,{"aria-label":"Next month",onClick:d,disabled:p(),children:e.jsx(z,{sx:{color:m.colors.blue}})})]})]}),e.jsx(he,{children:b()})]})};a.div`
-background-color: #fff;
-  background-image: url(${S});
-  background-repeat: no-repeat;
-  background-size: cover;
-
-display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  gap: 20px;
-  max-width: 1440px;
-  margin: 0 auto;
-
-  @media screen and (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-`;const ke=a.div`
-background-image: url(${S}); 
+`;const $e=n=>{const[t,i]=u.useState(new Date),[s]=u.useState(),l=F(),r=u.useRef(null),c=y(te);u.useEffect(()=>{const o=`${t.getMonth()+1} - ${t.getFullYear()}`;l(E(o))},[l,t,n]);const d=()=>{const o=new Date(t.getFullYear(),t.getMonth()+1,1);i(o)},h=()=>{const o=new Date(t.getFullYear(),t.getMonth()-1,1);i(o)},p=()=>{const o=new Date;return t.getMonth()===o.getMonth()&&t.getFullYear()===o.getFullYear()},x=()=>new Date(t.getFullYear(),t.getMonth()+1,0).getDate(),b=()=>{const o=x();return Array.from({length:o},(j,g)=>{const v=g+1,L=c==null?void 0:c.find(M=>M.dayOfMonth&&Number(M.dayOfMonth.split(",")[0])===v);return e.jsx(xe,{calendarRef:r,day:v,waterPercentage:L},v)})};return e.jsxs(ae,{className:"calendar",ref:r,children:[e.jsxs(re,{children:[e.jsx(oe,{children:"Month"}),s&&e.jsx(ye,{height:"60",width:"60",radius:"9",color:m.colors.blue,ariaLabel:"three-dots-loading",wrapperStyle:{height:"30px",width:"40px",display:"flex",alignItems:"center",justifyContent:"center"},wrapperClassName:"",visible:!0}),e.jsxs(le,{children:[e.jsx(C,{"aria-label":"Previous month",onClick:h,children:e.jsx(z,{sx:{color:m.colors.blue}})}),e.jsx(ce,{children:`${new Intl.DateTimeFormat("en-US",{month:"long"}).format(t)}, ${t.getFullYear()}`}),e.jsx(C,{"aria-label":"Next month",onClick:d,disabled:p(),children:e.jsx(S,{sx:{color:m.colors.blue}})})]})]}),e.jsx(he,{children:b()})]})},ke=a.div`
+  background-image: url(${O}); 
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0;
-  width: 100%;
+  width: 100vw;
 
- display: flex;
+  display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    /*width: 50%;*/
+    height: 90vh;
     flex-direction: row;
   }
 `,Me=a.div`
   flex: 1; 
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `,Ce=a.div`
   display: flex;
   flex-direction: column;
@@ -303,7 +287,7 @@ background-image: url(${S});
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    /*width: 50%;*/
+    height: 90vh;
     flex: 1;
   }
-`,De=()=>e.jsx(O,{children:e.jsxs(ke,{children:[e.jsxs(Me,{children:[e.jsx(q,{}),e.jsx(G,{})]}),e.jsxs(Ce,{children:[e.jsx(U,{}),e.jsx($e,{})]})]})});export{De as default};
+`,De=()=>e.jsx(W,{children:e.jsxs(ke,{children:[e.jsxs(Me,{children:[e.jsx(q,{}),e.jsx(G,{})]}),e.jsxs(Ce,{children:[e.jsx(U,{}),e.jsx($e,{})]})]})});export{De as default};
