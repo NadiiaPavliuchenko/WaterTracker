@@ -3,7 +3,7 @@ import SettingModal from 'components/SettingModal/SettingModal';
 import { useContext, useRef } from 'react';
 import { LogoModalMenu, ModalMenuBtn } from './UserLogoModal.styled';
 import { AnimatePresence } from 'framer-motion';
-import { useModal } from '../../customHooks/useModal';
+import useModal from '../../customHooks/useModal';
 
 const UserLogoModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
