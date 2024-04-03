@@ -11,7 +11,7 @@ import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage
 const SigninPage = () => {
 
   const dispatch = useDispatch()
-  const userEmail = useSelector(getUserEmail)
+  // const userEmail = useSelector(getUserEmail)
   function handleSubmit(values) {
     dispatch(signInAPI(values))    
   }

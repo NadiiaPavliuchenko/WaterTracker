@@ -37,29 +37,38 @@ color: #407bff;
 }
 @media screen and (min-width: 768px) {
     background-image: url(${bg_tab_register_1x});
+    .wrapper {
+        width: 100%;
+        position: relative;
+    }
     .bottle {    
         width: 736px; 
         position: absolute;
-        top: 100px;
-        left: 90px;
+        top: 10px;
+        right: -150px;
     }
 
 }
 @media screen and (min-width: 1440px) {
-    background-image: url(${bg_desk_register_1x});
-    background-size: 1404px, 582px;    
-    background-position-y: 0px;
-    background-position-x: -30px;
+    // background-image: url(${bg_desk_register_1x});
+    // background-size: 1404px, 582px;    
+    // background-position-y: 0px;
+    // background-position-x: -30px;
     .bottle {    
         width: 916px; 
         position: absolute;
-        top: 80px;
-        left: -51px;
+        top: -100px;
+        left: -210%;
+        
     }
     .formCont {
         position: absolute;
-        top: 200px;
-        right: 216px;
+        top: 120px;
+        right: 90px;        
+    }
+    .wrapper {
+        width: 100%;
+        position: relative;
     }
 }
 `

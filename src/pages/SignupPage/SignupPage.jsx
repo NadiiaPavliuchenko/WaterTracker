@@ -19,14 +19,17 @@ const SignupPage = () => {
     <>
       <SignUpPageStyle>
         <Wrapper >
-          <div className='formCont'>
-          <h2 className='title'>Sign Up</h2>
-          <SignUpForm  submitFunc={handleSubmit} />
+          <div className='wrapper'>
+           <div className='formCont'>
+            <h2 className='title'>Sign Up</h2>
+            <SignUpForm  submitFunc={handleSubmit} />
             <Link className='link' to="/signin">Sign In</Link>
-            </div>
-        <img className="bottle" alt="bottle of water" src={ bottleImage_mob_1x }></img>          
-      </Wrapper>
-      </SignUpPageStyle>  
+            <img className="bottle" alt="bottle of water" src={ bottleImage_mob_1x }></img>          
+           </div>
+          </div>
+        </Wrapper>
+      </SignUpPageStyle>
+      {userEmail ? <Navigate to='/signin' /> : <Navigate to='/signup' />}
     </>
   );
 };
