@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export const DailyNormaInputForm = ({ closeModal }) => {
   // const dailyNorm = useSelector(getCurrentNorm);
-  const dailyNorm = 3000;
+  const dailyNorm = 30000;
   const dailyNormLiters = (dailyNorm / 1000).toFixed(1);
 
   const [dailyWaterNorm, setDailyWaterNorm] = useState(dailyNormLiters);
@@ -36,9 +36,10 @@ export const DailyNormaInputForm = ({ closeModal }) => {
 
     try {
       const { payload } = await dispatch(editDailyNorm(newNorm));
-      console.log('🚀 ~ payload:', payload);
 
-      closeModal();
+      if (payload.user) {
+        closeModal();
+      }
     } catch (error) {
       console.log('🚀 ~ error:', error);
     }
