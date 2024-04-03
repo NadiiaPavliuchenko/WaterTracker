@@ -19,28 +19,41 @@ import {
   SubmitButton,
   VisibilityIconsWrapper,
   StyledSvg,
+  RedError,
 } from './SettingModal.styled';
-// import ModalContainer from '../ModalContainer/ModalContainer';
+import ModalContainer from '../ModalContainer/ModalContainer';
 import { getCurrentUser } from '../../store/auth/authSelectors';
+import { changeUserAvatarAPI } from '../../store/auth/authOperations';
 
 import useModal from '../../customHooks/useModal';
 import sprite from '../../assets/sprite.svg';
 
-import { Form, Formik, ErrorMessage } from 'formik';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const SettingModal = () => {
   const { isOpen, closeModal, openModal, handleKeyDown } = useModal();
+  const dispatch = useDispatch();
 
   document.addEventListener('keydown', handleKeyDown);
   const user = useSelector(getCurrentUser);
+  console.log(user);
 
-  // const server = 'https://tracker-of-water-oqqk.onrender.com/api/';
+  const server = 'https://tracker-of-water-oqqk.onrender.com/api/';
 
   const [showPassword, setShowPassword] = useState([false, false, false]);
-  const [newAvatar, setNewAvatar] = useState([user.avatarURL]);
+  const createAvatar = () => {
+    const avatar = user.avatarURL.startsWith('avatars')
+      ? server + user.avatarURL
+      : user.avatarURL;
+    return avatar;
+  };
+
+  const [newAvatar, setNewAvatar] = useState(createAvatar());
+
+  console.log(newAvatar);
 
   const handleShowPassword = (index) => {
     const newShowPassword = [...showPassword];
@@ -62,6 +75,10 @@ const SettingModal = () => {
     }
 
     setNewAvatar(URL.createObjectURL(target.files[0]));
+    const formData = new FormData();
+    formData.append('avatar', target.files[0]);
+    console.log(formData);
+    dispatch(changeUserAvatarAPI(formData));
   };
 
   const UpdateUserSchema = Yup.object().shape({
@@ -96,210 +113,218 @@ const SettingModal = () => {
   return (
     <>
       <button type="button" onClick={openModal}>
-        Open
+        Open Setting
       </button>
       {isOpen && (
         <>
-          {/* <ModalContainer onClose={closeModal}> */}
-          <ModalBox>
-            <TitleWrapper>
-              <h3>Settings</h3>
-              <StyledCloseSvg width="24px" height="24px" onClick={closeModal}>
-                <use xlinkHref={`${sprite}#plus`} />
-              </StyledCloseSvg>
-            </TitleWrapper>
-            <div>
-              <FormLabel htmlFor="file">Your photo</FormLabel>
-              <FilePickerWrapper>
-                <ImgThumb>
-                  <img
-                    src={newAvatar}
-                    alt="user avatar"
-                    width="80px"
-                    height="80px"
-                  />
-                </ImgThumb>
-                <FilePickerLink
-                  component="label"
-                  underline="none"
-                  accept=".jpg,.jpeg,.png"
-                  tabIndex={-1}
-                  onChange={(e) => handleUploadAvatar(e)}
-                >
-                  <StyledSvg width="16px" height="16px">
-                    <use xlinkHref={`${sprite}#upload`} />
-                  </StyledSvg>
-                  Upload a photo
-                  <VisuallyHiddenInput type="file" name="file" />
-                </FilePickerLink>
-              </FilePickerWrapper>
-            </div>
-            <Formik
-              initialValues={{
-                gender: user.gender,
-                name: user.name,
-                email: user.email,
-                avatarURL: user.avatarURL,
-                outdatedPassword: '',
-                newPassword: '',
-                repetedPassword: '',
-              }}
-              validationSchema={UpdateUserSchema}
-              onSubmit={(values) => {
-                console.log('Form is validated! Submitting the form...');
-                console.log(values);
-              }}
-            >
-              {({ values }) => (
-                <Form>
-                  <FormContentWrapper>
-                    <div>
-                      <FormSubtitle id="my-radio-group">
-                        Your gender identity
-                      </FormSubtitle>
-                      <StyledRadioGroup row aria-labelledby="my-radio-group">
-                        <SmallControlLabel
-                          value="woman"
-                          control={<CustomRadio disableTouchRipple />}
-                          label="Woman"
-                          checked={values.gender === 'woman'}
-                        ></SmallControlLabel>
-                        <SmallControlLabel
-                          value="man"
-                          control={<CustomRadio disableTouchRipple />}
-                          label="Man"
-                          checked={values.gender === 'man'}
-                        ></SmallControlLabel>
-                      </StyledRadioGroup>
-                      <FormGroup>
-                        <FormLabel htmlFor="name">Your name</FormLabel>
-                        <StyledField
-                          type="name"
-                          name="name"
-                          className="form-control"
-                          autoComplete="current-password"
-                        />
-                        <ErrorMessage
-                          className="error"
-                          name="name"
-                          component="div"
-                        />
-                      </FormGroup>
-                      <FormGroup>
-                        <FormLabel htmlFor="email">E-mail</FormLabel>
-                        <StyledField
-                          type="email"
-                          name="email"
-                          className="form-control"
-                          autoComplete="current-password"
-                        />
-                        <ErrorMessage
-                          className="error"
-                          name="email"
-                          component="div"
-                        />
-                      </FormGroup>
-                    </div>
-                    <div>
-                      <FormSubtitle>Password</FormSubtitle>
-                      <PasswordFormGroup>
-                        <SmallLabel htmlFor="outdatedPassword">
-                          Outdated Password:
-                        </SmallLabel>
-                        <StyledField
-                          type={showPassword[0] ? 'text' : 'password'}
-                          name="outdatedPassword"
-                          className="form-control"
-                          placeholder="Password"
-                          autoComplete="current-password"
-                        />
-                        <VisibilityIconsWrapper
-                          onClick={() => handleShowPassword(0)}
-                        >
-                          {showPassword[0] ? (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-opened`} />
-                            </StyledSvg>
-                          ) : (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-closed`} />
-                            </StyledSvg>
-                          )}
-                        </VisibilityIconsWrapper>
-                        <ErrorMessage
-                          className="error"
-                          name="outdatedPassword"
-                          component="div"
-                        />
-                      </PasswordFormGroup>
-                      <PasswordFormGroup>
-                        <SmallLabel htmlFor="newPassword">
-                          New Password:
-                        </SmallLabel>
-                        <StyledField
-                          type={showPassword[1] ? 'text' : 'password'}
-                          name="newPassword"
-                          className="form-control"
-                          placeholder="Password"
-                          autoComplete="current-password"
-                        />
-                        <VisibilityIconsWrapper
-                          onClick={() => handleShowPassword(1)}
-                        >
-                          {showPassword[1] ? (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-opened`} />
-                            </StyledSvg>
-                          ) : (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-closed`} />
-                            </StyledSvg>
-                          )}
-                        </VisibilityIconsWrapper>
-                        <ErrorMessage
-                          className="error"
-                          name="newPassword"
-                          component="div"
-                        />
-                      </PasswordFormGroup>
-                      <PasswordFormGroup>
-                        <SmallLabel htmlFor="repeatedPassword">
-                          Repeat new Password:
-                        </SmallLabel>
-                        <StyledField
-                          type={showPassword[2] ? 'text' : 'password'}
-                          name="repeatedPassword"
-                          className="form-control"
-                          placeholder="Password"
-                          autoComplete="current-password"
-                        />
-                        <VisibilityIconsWrapper
-                          onClick={() => handleShowPassword(2)}
-                        >
-                          {showPassword[2] ? (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-opened`} />
-                            </StyledSvg>
-                          ) : (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-closed`} />
-                            </StyledSvg>
-                          )}
-                        </VisibilityIconsWrapper>
-                        <ErrorMessage
-                          className="error"
-                          name="repeatedPassword"
-                          component="div"
-                        />
-                      </PasswordFormGroup>
-                    </div>
-                  </FormContentWrapper>
-                  <SubmitButton type="submit">Save</SubmitButton>
-                </Form>
-              )}
-            </Formik>
-          </ModalBox>
-          {/* </ModalContainer> */}
+          <ModalContainer onClose={closeModal}>
+            <ModalBox>
+              <TitleWrapper>
+                <h3>Settings</h3>
+                <StyledCloseSvg width="24px" height="24px" onClick={closeModal}>
+                  <use xlinkHref={`${sprite}#plus`} />
+                </StyledCloseSvg>
+              </TitleWrapper>
+              <div>
+                <FormLabel htmlFor="file">Your photo</FormLabel>
+                <FilePickerWrapper>
+                  <ImgThumb>
+                    <img
+                      src={newAvatar}
+                      alt="user avatar"
+                      width="80px"
+                      height="80px"
+                    />
+                  </ImgThumb>
+                  <FilePickerLink
+                    component="label"
+                    underline="none"
+                    accept=".jpg,.jpeg,.png"
+                    tabIndex={-1}
+                    onChange={(e) => handleUploadAvatar(e)}
+                  >
+                    <StyledSvg width="16px" height="16px">
+                      <use xlinkHref={`${sprite}#upload`} />
+                    </StyledSvg>
+                    Upload a photo
+                    <VisuallyHiddenInput type="file" name="file" />
+                  </FilePickerLink>
+                </FilePickerWrapper>
+              </div>
+              <Formik
+                initialValues={{
+                  gender: user.gender,
+                  name: user.name,
+                  email: user.email,
+                  avatarURL: user.avatarURL,
+                  outdatedPassword: '',
+                  newPassword: '',
+                  repetedPassword: '',
+                }}
+                validationSchema={UpdateUserSchema}
+                onSubmit={(values) => {
+                  console.log('Form is validated! Submitting the form...');
+                  console.log(values);
+                }}
+              >
+                {(formik) => (
+                  <Form>
+                    <FormContentWrapper>
+                      <div>
+                        <FormSubtitle id="my-radio-group">
+                          Your gender identity
+                        </FormSubtitle>
+                        <StyledRadioGroup row aria-labelledby="my-radio-group">
+                          <SmallControlLabel
+                            value="woman"
+                            control={<CustomRadio disableTouchRipple />}
+                            label="Woman"
+                            name="gender"
+                            checked={formik.values.gender === 'woman'}
+                            onChange={() =>
+                              formik.setFieldValue('gender', 'woman')
+                            }
+                          ></SmallControlLabel>
+                          <SmallControlLabel
+                            value="man"
+                            control={<CustomRadio disableTouchRipple />}
+                            label="Man"
+                            name="gender"
+                            defaultChecked={formik.values.gender === 'man'}
+                            onChange={() =>
+                              formik.setFieldValue('gender', 'man')
+                            }
+                          ></SmallControlLabel>
+                        </StyledRadioGroup>
+                        <FormGroup>
+                          <FormLabel htmlFor="name">Your name</FormLabel>
+                          <StyledField
+                            type="name"
+                            name="name"
+                            className="form-control"
+                            autoComplete="current-password"
+                          />
+                          <RedError
+                            className="error"
+                            name="name"
+                            component="div"
+                          />
+                        </FormGroup>
+                        <FormGroup>
+                          <FormLabel htmlFor="email">E-mail</FormLabel>
+                          <StyledField
+                            type="email"
+                            name="email"
+                            className="form-control"
+                            autoComplete="current-password"
+                          />
+                          <RedError
+                            className="error"
+                            name="email"
+                            component="div"
+                          />
+                        </FormGroup>
+                      </div>
+                      <div>
+                        <FormSubtitle>Password</FormSubtitle>
+                        <PasswordFormGroup>
+                          <SmallLabel htmlFor="outdatedPassword">
+                            Outdated Password:
+                          </SmallLabel>
+                          <StyledField
+                            type={showPassword[0] ? 'text' : 'password'}
+                            name="outdatedPassword"
+                            className="form-control"
+                            placeholder="Password"
+                            autoComplete="current-password"
+                          />
+                          <VisibilityIconsWrapper
+                            onClick={() => handleShowPassword(0)}
+                          >
+                            {showPassword[0] ? (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-opened`} />
+                              </StyledSvg>
+                            ) : (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-closed`} />
+                              </StyledSvg>
+                            )}
+                          </VisibilityIconsWrapper>
+                          <RedError
+                            className="error"
+                            name="outdatedPassword"
+                            component="div"
+                          />
+                        </PasswordFormGroup>
+                        <PasswordFormGroup>
+                          <SmallLabel htmlFor="newPassword">
+                            New Password:
+                          </SmallLabel>
+                          <StyledField
+                            type={showPassword[1] ? 'text' : 'password'}
+                            name="newPassword"
+                            className="form-control"
+                            placeholder="Password"
+                            autoComplete="current-password"
+                          />
+                          <VisibilityIconsWrapper
+                            onClick={() => handleShowPassword(1)}
+                          >
+                            {showPassword[1] ? (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-opened`} />
+                              </StyledSvg>
+                            ) : (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-closed`} />
+                              </StyledSvg>
+                            )}
+                          </VisibilityIconsWrapper>
+                          <RedError
+                            className="error"
+                            name="newPassword"
+                            component="div"
+                          />
+                        </PasswordFormGroup>
+                        <PasswordFormGroup>
+                          <SmallLabel htmlFor="repeatedPassword">
+                            Repeat new Password:
+                          </SmallLabel>
+                          <StyledField
+                            type={showPassword[2] ? 'text' : 'password'}
+                            name="repeatedPassword"
+                            className="form-control"
+                            placeholder="Password"
+                            autoComplete="current-password"
+                          />
+                          <VisibilityIconsWrapper
+                            onClick={() => handleShowPassword(2)}
+                          >
+                            {showPassword[2] ? (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-opened`} />
+                              </StyledSvg>
+                            ) : (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-closed`} />
+                              </StyledSvg>
+                            )}
+                          </VisibilityIconsWrapper>
+                          <RedError
+                            className="error"
+                            name="repeatedPassword"
+                            component="div"
+                          />
+                        </PasswordFormGroup>
+                      </div>
+                    </FormContentWrapper>
+                    <SubmitButton type="submit">Save</SubmitButton>
+                  </Form>
+                )}
+              </Formik>
+            </ModalBox>
+          </ModalContainer>
         </>
       )}
     </>

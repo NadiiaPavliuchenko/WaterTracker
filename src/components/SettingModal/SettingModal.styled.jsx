@@ -4,7 +4,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import { Box } from '@mui/material';
-import { Field } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 
 const size = {
   mobile: '320px',
@@ -230,4 +230,8 @@ export const SubmitButton = styled.button`
 export const StyledSvg = styled.svg`
   fill: transparent;
   stroke: var(--primary-blue);
+`;
+
+export const RedError = styled(ErrorMessage)`
+  color: var(--secondary-red);
 `;
