@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 export const Title = styled.h2`
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   margin-bottom: 12px;
 `;
 
 export const Item = styled.li`
   font-size: 16px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   line-height: 20px;
 
   margin-bottom: 16px;
@@ -28,7 +28,7 @@ export const Item = styled.li`
     transform: translateY(-50%);
     width: 8px;
     height: 8px;
-    background-color: #407BFF;
+    background-color: #407bff;
     border-radius: 50%;
   }
 
@@ -37,13 +37,16 @@ export const Item = styled.li`
   }
 `;
 export const OutlineContainer = styled.div`
-  display: inline-block;
+  display: block;
+
   margin: 0;
 `;
 
 export const Container = styled.div`
-  display: inline-block;
-
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
   width: 280px;
 
   padding: 24px 16px;

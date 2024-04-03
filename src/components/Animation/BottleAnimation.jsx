@@ -1,17 +1,41 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimate } from 'framer-motion';
 import { BottleBox } from './BottleAnimation.styled';
+import { useEffect } from 'react';
 
 const BottleAnimation = () => {
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    const animationB = async () => {
+      const config = {
+        duration: 5,
+        ease: 'easeInOut',
+      };
+
+      const animations = {
+        bottle: {
+          y: [-2000, 400, -20, 15, 0],
+          rotateZ: [45, 0, -45, 15, -5, 0],
+        },
+      };
+
+      await animate(scope.current, animations.bottle, config);
+      animate(
+        scope.current,
+        { rotateZ: [0, 5, 0, -10, 0], y: [0, -5, 5, 10, 5, 0, -5, -10, -4, 0] },
+        { duration: 10, repeat: Infinity, ease: 'easeInOut' }
+      );
+    };
+
+    animationB();
+  });
+
   return (
     <>
       <BottleBox>
         <motion.img
           initial={{ y: -2000, rotateZ: -90 }}
-          animate={{
-            y: [-2000, 400, -20, 15, 0],
-            rotateZ: [45, 0, -45, 15, -5, 0],
-          }}
-          transition={{ duration: 5, ease: 'easeInOut' }}
+          ref={scope}
           src="/images/animation/bottle.png"
           alt=""
           height="240px"

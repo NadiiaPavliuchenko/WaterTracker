@@ -8,7 +8,7 @@ export const BubblesBox = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: 0;
 
   .bubble {
     position: absolute;
@@ -41,6 +41,7 @@ export const BubblesBox = styled.div`
     width: 38px;
     height: 38px;
     top: 672.17px;
+    left: 0;
     gap: 0px;
     opacity: 0.7px;
     background: transparent;
