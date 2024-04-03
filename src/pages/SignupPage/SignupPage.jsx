@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import {  Link } from "react-router-dom"
+import {  Navigate, Link } from "react-router-dom"
 import SignUpForm from 'components/SignUpForm/SignUpForm';
 import { signUpAPI} from '../../store/auth/authOperations'
 import { SignUpPageStyle } from './SignupPage.styled'

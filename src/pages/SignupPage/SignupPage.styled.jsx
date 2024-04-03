@@ -50,10 +50,10 @@ color: #407bff;
 
 }
 @media screen and (min-width: 1440px) {
-    // background-image: url(${bg_desk_register_1x});
-    // background-size: 1404px, 582px;    
-    // background-position-y: 0px;
-    // background-position-x: -30px;
+    background-image: url(${bg_desk_register_1x});
+    background-size: 1404px, 582px;    
+    background-position-y: 0px;
+    background-position-x: -30px;
     .bottle {    
         width: 916px; 
         position: absolute;
