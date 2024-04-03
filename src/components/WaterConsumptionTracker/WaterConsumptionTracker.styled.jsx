@@ -80,7 +80,6 @@ export const BenefitsTitle = styled.h3`
 `;
 
 export const Button = styled.button`
-  display: inline-block;
   width: 100%;
   padding: 8px 30px;
   color: #fff;
@@ -99,14 +98,14 @@ export const Button = styled.button`
     box-shadow: none;
   }
 
-  @media screen and(min-width: 768px) {
-    width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 336px;
     font-size: 18px;
     line-height: 24px;
     padding: 10px 30px;
   }
 
-  @media screen and(min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
     width: 384px;
   }
 `;

@@ -7,7 +7,7 @@ export const Svg = styled.svg`
   right: 0;
   width: 100%;
   height: 288px;
-  z-index: -1;
+  z-index: -5;
 
   .parallax > use {
     -webkit-animation: moveForever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5)
