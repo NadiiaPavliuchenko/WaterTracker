@@ -1,32 +1,31 @@
 import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
 import SettingModal from 'components/SettingModal/SettingModal';
-import { useContext, useRef } from 'react';
-import { LogoModalMenu, ModalMenuBtn } from './UserLogoModal.styled';
+import { useRef, useState } from 'react';
+import { LogoModalMenu, ModalMenuBtn, Icon } from './UserLogoModal.styled';
 import { AnimatePresence } from 'framer-motion';
-import useModal from '../../customHooks/useModal';
+import sprite from 'src/assets/sprite.svg';
 
 const UserLogoModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
-  const togModal = useContext(useModal);
+  const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
   const handleSettingButtonClick = () => {
-    if (onClose && typeof onClose === 'function') {
-      togModal(<SettingModal />);
-      onClose();
-    }
+    setIsSettingModalOpen(true);
+    onClose && onClose();
   };
 
   const handleLogoutButtonClick = () => {
-    if (onClose && typeof onClose === 'function') {
-      onClose();
-      togModal(
-        <UserLogoutModal
-          onClose={() => {
-            togModal();
-          }}
-        />
-      );
-    }
+    setIsLogoutModalOpen(true);
+    onClose && onClose();
+  };
+
+  const handleSettingModalClose = () => {
+    setIsSettingModalOpen(false);
+  };
+
+  const handleLogoutModalClose = () => {
+    setIsLogoutModalOpen(false);
   };
 
   return (
@@ -39,11 +38,25 @@ const UserLogoModal = ({ isOpen, onClose }) => {
           ref={modalRef}
         >
           <ModalMenuBtn onClick={handleSettingButtonClick}>
-            Setting
+            <Icon>
+              <use href={`${sprite}#settings`}></use>
+            </Icon>
+            Settings
           </ModalMenuBtn>
-          <ModalMenuBtn onClick={handleLogoutButtonClick}>Log out</ModalMenuBtn>
+          <ModalMenuBtn onClick={handleLogoutButtonClick}>
+            <Icon>
+              <use href={`${sprite}#arrow-right-on-rectangle`}></use>
+            </Icon>
+            Log out
+          </ModalMenuBtn>
         </LogoModalMenu>
       )}
+      {<SettingModal onClose={(handleSettingModalClose, isSettingModalOpen)} />}
+      {
+        <UserLogoutModal
+          onClose={(handleLogoutModalClose, isLogoutModalOpen)}
+        />
+      }
     </AnimatePresence>
   );
 };
