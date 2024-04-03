@@ -1,4 +1,4 @@
-import{b as d,B as h,C as r,j as e,F as m,D as g,E as l,G as p,z as a,u as f,a as b,H as u,W as w,I as j,J as y}from"./index-0676e2f0.js";import{b as S,a as k,c as N,d as v}from"./bottle_desk_2x-0e16256e.js";const F=d.div`
+import{b as d,B as h,C as r,j as e,F as m,D as g,E as p,G as l,z as a,u as f,W as b,H as u,I as w}from"./index-c7e21c9f.js";import{b as j,a as y,c as S,d as k}from"./bottle_desk_2x-0e16256e.js";const N=d.div`
 @media screen and (min-width: 320px) {
 .form {
     margin-top: 16px;
@@ -91,11 +91,11 @@ import{b as d,B as h,C as r,j as e,F as m,D as g,E as l,G as p,z as a,u as f,a a
     }
 }
 
-`,z=({submitFunc:s})=>{const o=h({email:r().email().required(),password:r().min(6).max(64).required()}),n={email:"",password:""};function c(i,t){s(i),t.resetForm()}function x(i){const t=i.target.closest(".watchPasswordIcon").previousSibling;if(t.type==="password"){t.type="text",i.target.closest("SVG").firstChild.href.baseVal=a+"#eye-opened";return}if(t.type==="text"){t.type="password",i.target.closest("SVG").firstChild.href.baseVal=a+"#eye-closed";return}}return e.jsx(e.Fragment,{children:e.jsx(F,{children:e.jsx(m,{initialValues:n,validationSchema:o,onSubmit:c,children:e.jsxs(g,{className:"form",autoComplete:"off",children:[e.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",e.jsx("br",{}),e.jsx("div",{className:"input-container",children:e.jsx(l,{className:"input",type:"text",name:"email",placeholder:"Email"})}),e.jsx(p,{className:"error",name:"email",component:"div"})]}),e.jsx("br",{}),e.jsxs("label",{className:"label",htmlFor:"password",children:["Enter your password",e.jsxs("div",{className:"input-container",children:[e.jsx(l,{className:"input",type:"password",name:"password",placeholder:"Password"}),e.jsx("svg",{className:"watchPasswordIcon",onClick:x,width:"16",height:"14",stroke:"#9ebbff",fill:"none",children:e.jsx("use",{href:a+"#eye-closed"})})]}),e.jsx(p,{className:"error",name:"password",component:"div"})]}),e.jsx("br",{}),e.jsx("button",{className:"buttonSignUp",type:"submit",children:"Sign In"})]})})})})},_=d.div`
+`,v=({submitFunc:s})=>{const n=h({email:r().email().required(),password:r().min(6).max(64).required()}),o={email:"",password:""};function c(i,t){s(i),t.resetForm()}function x(i){const t=i.target.closest(".watchPasswordIcon").previousSibling;if(t.type==="password"){t.type="text",i.target.closest("SVG").firstChild.href.baseVal=a+"#eye-opened";return}if(t.type==="text"){t.type="password",i.target.closest("SVG").firstChild.href.baseVal=a+"#eye-closed";return}}return e.jsx(e.Fragment,{children:e.jsx(N,{children:e.jsx(m,{initialValues:o,validationSchema:n,onSubmit:c,children:e.jsxs(g,{className:"form",autoComplete:"off",children:[e.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",e.jsx("br",{}),e.jsx("div",{className:"input-container",children:e.jsx(p,{className:"input",type:"text",name:"email",placeholder:"Email"})}),e.jsx(l,{className:"error",name:"email",component:"div"})]}),e.jsx("br",{}),e.jsxs("label",{className:"label",htmlFor:"password",children:["Enter your password",e.jsxs("div",{className:"input-container",children:[e.jsx(p,{className:"input",type:"password",name:"password",placeholder:"Password"}),e.jsx("svg",{className:"watchPasswordIcon",onClick:x,width:"16",height:"14",stroke:"#9ebbff",fill:"none",children:e.jsx("use",{href:a+"#eye-closed"})})]}),e.jsx(l,{className:"error",name:"password",component:"div"})]}),e.jsx("br",{}),e.jsx("button",{className:"buttonSignUp",type:"submit",children:"Sign In"})]})})})})},F=d.div`
 background-size: 100vw, contain;
 background-position: 0, 10px ;
 background-repeat: no-repeat;
-background-image: url(${S});
+background-image: url(${j});
 
 
 @media screen and (min-width: 320px){
@@ -125,7 +125,7 @@ color: #407bff;
 }
 }
 @media screen and (min-width: 768px) {
-    background-image: url(${k});
+    background-image: url(${y});
     .bottle {    
         width: 736px; 
         position: absolute;
@@ -135,7 +135,7 @@ color: #407bff;
 
 }
 @media screen and (min-width: 1440px) {
-    background-image: url(${N});
+    background-image: url(${S});
     background-size: 1404px, 582px;    
     background-position-y: 0px;
     background-position-x: -30px;
@@ -151,4 +151,4 @@ color: #407bff;
         right: 216px;
     }
 }
-`,C=()=>{const s=f();b(u);function o(n){s(y(n))}return e.jsx(e.Fragment,{children:e.jsx(_,{children:e.jsxs(w,{children:[e.jsxs("div",{className:"formCont",children:[e.jsx("div",{className:"title",children:"SigninPage"}),e.jsx(z,{submitFunc:o}),e.jsx(j,{className:"link",to:"/signup",children:"Sign Up"})]}),e.jsx("img",{className:"bottle",alt:"bottle of water",src:v})]})})})};export{C as default};
+`,I=()=>{const s=f();function n(o){s(w(o))}return e.jsx(e.Fragment,{children:e.jsx(F,{children:e.jsxs(b,{children:[e.jsxs("div",{className:"formCont",children:[e.jsx("div",{className:"title",children:"SigninPage"}),e.jsx(v,{submitFunc:n}),e.jsx(u,{className:"link",to:"/signup",children:"Sign Up"})]}),e.jsx("img",{className:"bottle",alt:"bottle of water",src:k})]})})})};export{I as default};
