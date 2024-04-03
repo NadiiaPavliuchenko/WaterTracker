@@ -19,28 +19,37 @@ import {
   SubmitButton,
   VisibilityIconsWrapper,
   StyledSvg,
+  RedError,
 } from './SettingModal.styled';
-// import ModalContainer from '../ModalContainer/ModalContainer';
+import ModalContainer from '../ModalContainer/ModalContainer';
 import { getCurrentUser } from '../../store/auth/authSelectors';
+import {
+  changeUserAvatarAPI,
+  changeUserSettingsAPI,
+} from '../../store/auth/authOperations';
 
-import useModal from '../../customHooks/useModal';
 import sprite from '../../assets/sprite.svg';
 
-import { Form, Formik, ErrorMessage } from 'formik';
+import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-const SettingModal = () => {
-  const { isOpen, closeModal, openModal, handleKeyDown } = useModal();
+const SettingModal = ({ onModalClose, isModalOpen }) => {
+  const dispatch = useDispatch();
 
-  document.addEventListener('keydown', handleKeyDown);
   const user = useSelector(getCurrentUser);
 
-  // const server = 'https://tracker-of-water-oqqk.onrender.com/api/';
-
   const [showPassword, setShowPassword] = useState([false, false, false]);
-  const [newAvatar, setNewAvatar] = useState([user.avatarURL]);
+  // const createAvatar = () => {
+  //   const avatar = user.avatarURL.startsWith('avatars')
+  //     ? server + user.avatarURL
+  //     : user.avatarURL;
+  //   return avatar;
+  // };
+
+  const [newAvatar, setNewAvatar] = useState(user.avatarURL);
+  const [changedValues, setChangedValues] = useState({});
 
   const handleShowPassword = (index) => {
     const newShowPassword = [...showPassword];
@@ -62,6 +71,9 @@ const SettingModal = () => {
     }
 
     setNewAvatar(URL.createObjectURL(target.files[0]));
+    const formData = new FormData();
+    formData.append('avatar', target.files[0]);
+    dispatch(changeUserAvatarAPI(formData));
   };
 
   const UpdateUserSchema = Yup.object().shape({
@@ -71,40 +83,56 @@ const SettingModal = () => {
     outdatedPassword: Yup.string()
       .min(8, 'Password must be at least 8 characters')
       .max(64),
-    newPassword: Yup.string()
+    password: Yup.string()
       .min(8, 'Password must be at least 8 characters')
       .max(64)
-      .notOneOf(
-        [Yup.ref('outdatedPassword'), null],
-        'New password must not match the old one'
-      )
-      .when('outdatedPassword', (outdatedPassword, field) =>
-        outdatedPassword ? field.required() : field
-      ),
+      .when('outdatedPassword', (outdatedPassword, schema) => {
+        if (typeof outdatedPassword[0] !== 'undefined') {
+          return schema
+            .notOneOf(
+              [Yup.ref('outdatedPassword')],
+              'New password must not match the old one'
+            )
+            .required('New password is required');
+        }
+        return schema;
+      }),
     repeatedPassword: Yup.string()
       .min(8, 'Password must be at least 8 characters')
       .max(64)
-      .oneOf(
-        [Yup.ref('newPassword')],
-        'Repeated password must match new password'
-      )
-      .when('newPassword', (newPassword, field) =>
-        newPassword ? field.required() : field
-      ),
+      .when('password', (password, schema) => {
+        if (typeof password[0] !== 'undefined') {
+          return schema
+            .oneOf(
+              [Yup.ref('password')],
+              'Repeted password must match new password'
+            )
+            .required('Reteted password is required');
+        }
+        return schema;
+      }),
   });
+
+  const handleBlur = (fieldName, fieldValue) => {
+    setChangedValues(() => ({
+      [fieldName]: fieldValue,
+    }));
+  };
+
+  const handleSubmit = () => {
+    dispatch(changeUserSettingsAPI(changedValues));
+    // console.log(changedValues);
+    // onModalClose();
+  };
 
   return (
     <>
-      <button type="button" onClick={openModal}>
-        Open
-      </button>
-      {isOpen && (
-        <>
-          {/* <ModalContainer onClose={closeModal}> */}
+      {isModalOpen && (
+        <ModalContainer onClose={onModalClose}>
           <ModalBox>
             <TitleWrapper>
               <h3>Settings</h3>
-              <StyledCloseSvg width="24px" height="24px" onClick={closeModal}>
+              <StyledCloseSvg width="24px" height="24px" onClick={onModalClose}>
                 <use xlinkHref={`${sprite}#plus`} />
               </StyledCloseSvg>
             </TitleWrapper>
@@ -141,16 +169,13 @@ const SettingModal = () => {
                 email: user.email,
                 avatarURL: user.avatarURL,
                 outdatedPassword: '',
-                newPassword: '',
-                repetedPassword: '',
+                password: '',
+                repeatedPassword: '',
               }}
               validationSchema={UpdateUserSchema}
-              onSubmit={(values) => {
-                console.log('Form is validated! Submitting the form...');
-                console.log(values);
-              }}
+              onSubmit={handleSubmit}
             >
-              {({ values }) => (
+              {(formik) => (
                 <Form>
                   <FormContentWrapper>
                     <div>
@@ -162,13 +187,25 @@ const SettingModal = () => {
                           value="woman"
                           control={<CustomRadio disableTouchRipple />}
                           label="Woman"
-                          checked={values.gender === 'woman'}
+                          name="gender"
+                          checked={formik.values.gender === 'woman'}
+                          onChange={() =>
+                            formik.setFieldValue('gender', 'woman')
+                          }
+                          onBlur={(e) =>
+                            handleBlur(e.target.name, e.target.value)
+                          }
                         ></SmallControlLabel>
                         <SmallControlLabel
                           value="man"
                           control={<CustomRadio disableTouchRipple />}
                           label="Man"
-                          checked={values.gender === 'man'}
+                          name="gender"
+                          defaultChecked={formik.values.gender === 'man'}
+                          onChange={() => formik.setFieldValue('gender', 'man')}
+                          onBlur={(e) =>
+                            handleBlur(e.target.name, e.target.value)
+                          }
                         ></SmallControlLabel>
                       </StyledRadioGroup>
                       <FormGroup>
@@ -178,8 +215,11 @@ const SettingModal = () => {
                           name="name"
                           className="form-control"
                           autoComplete="current-password"
+                          onBlur={(e) =>
+                            handleBlur(e.target.name, e.target.value)
+                          }
                         />
-                        <ErrorMessage
+                        <RedError
                           className="error"
                           name="name"
                           component="div"
@@ -192,8 +232,11 @@ const SettingModal = () => {
                           name="email"
                           className="form-control"
                           autoComplete="current-password"
+                          onBlur={(e) =>
+                            handleBlur(e.target.name, e.target.value)
+                          }
                         />
-                        <ErrorMessage
+                        <RedError
                           className="error"
                           name="email"
                           component="div"
@@ -226,7 +269,7 @@ const SettingModal = () => {
                             </StyledSvg>
                           )}
                         </VisibilityIconsWrapper>
-                        <ErrorMessage
+                        <RedError
                           className="error"
                           name="outdatedPassword"
                           component="div"
@@ -238,10 +281,13 @@ const SettingModal = () => {
                         </SmallLabel>
                         <StyledField
                           type={showPassword[1] ? 'text' : 'password'}
-                          name="newPassword"
+                          name="password"
                           className="form-control"
                           placeholder="Password"
                           autoComplete="current-password"
+                          onBlur={(e) =>
+                            handleBlur(e.target.name, e.target.value)
+                          }
                         />
                         <VisibilityIconsWrapper
                           onClick={() => handleShowPassword(1)}
@@ -256,7 +302,7 @@ const SettingModal = () => {
                             </StyledSvg>
                           )}
                         </VisibilityIconsWrapper>
-                        <ErrorMessage
+                        <RedError
                           className="error"
                           name="newPassword"
                           component="div"
@@ -286,7 +332,7 @@ const SettingModal = () => {
                             </StyledSvg>
                           )}
                         </VisibilityIconsWrapper>
-                        <ErrorMessage
+                        <RedError
                           className="error"
                           name="repeatedPassword"
                           component="div"
@@ -299,8 +345,7 @@ const SettingModal = () => {
               )}
             </Formik>
           </ModalBox>
-          {/* </ModalContainer> */}
-        </>
+        </ModalContainer>
       )}
     </>
   );
