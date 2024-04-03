@@ -87,11 +87,6 @@ const waterSlice = createSlice({
       })
 
       .addCase(editDailyNorm.fulfilled, (state, { payload }) => {
-        console.log(
-          '🚀 ~ payload.user.dailyWaterGoal:',
-          payload.user.dailyWaterGoal
-        );
-
         state.dayInfo.norm = payload.user.dailyWaterGoal;
         state.dayInfo.percent = payload.user.consumedWaterPercentage;
         state.isEditingNorm = false;
