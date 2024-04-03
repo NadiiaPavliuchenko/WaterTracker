@@ -2,7 +2,7 @@
 // import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 // import { getToken, getIsDarkTheme } from '../../redux/auth/auth-Selectors';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   ContainerHeader,
   UserAuthBtn,
@@ -17,27 +17,26 @@ import Wrapper from 'components/Wrapper/Wrapper';
 import imgUrl from '/src/assets/LogoSite.png';
 import iconDown from '/src/assets/icons8-down-24.png';
 
-// import UserLogo from 'components/UserLogo/UserLogo';
+import UserLogo from '../UserLogo/UserLogo';
 // import ThemeSwitcher from 'components/ThemeSwitcher/ThemeSwitcher';
-import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
-// import { selectIsLoggedIn } from 'components/UserAuth/authSelectors';
+// import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
+import { getCurrentUser, getToken } from '../../store/auth/authSelectors';
 
 export const Header = () => {
-  // const token = useSelector(getToken); // если авторизирован то токен есть
-  // const isDark = useSelector(getIsDarkTheme);
+  const token = useSelector(getToken);
+  const { name, email, avatarUrl } = useSelector(getCurrentUser);
 
-  const token = false;
+  // const token = false;
   // const isDark = false;
 
   return (
-    // <WrapHeader $isDark={isDark}>
     <Wrapper>
       <ContainerHeader>
         <NavLink to={token ? '/home' : '/'} className="logoBox">
           <img src={imgUrl} alt="iconHome" />
         </NavLink>
         {/* <ToggleThemeBtn /> */}
-        {!token && (
+        {!token ? (
           <UserName>
             {/* <NavLink>
               <DarkLightThemeStyle>
@@ -56,8 +55,9 @@ export const Header = () => {
             </NavLink>
             {/* <img src={isDark} alt="iconHome" /> */}
           </UserName>
+        ) : (
+          <UserLogo name={name} email={email} avatarUrl={avatarUrl} />
         )}
-        {token && <UserLogoutModal />}
       </ContainerHeader>
     </Wrapper>
   );
