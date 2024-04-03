@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import SignInForm from 'components/SignInForm/SignInForm';
 import { signInAPI } from '../../store/auth/authOperations'
 import { SignInPageStyle } from "./SigninPage.styled"
-import { getUserEmail } from '../../store/auth/authSelectors'
 import Wrapper from '../../components/Wrapper/Wrapper';
 import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_2x.png'
 
@@ -11,7 +10,7 @@ import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage
 const SigninPage = () => {
 
   const dispatch = useDispatch()
-  const userEmail = useSelector(getUserEmail)
+  // const userEmail = useSelector(getUserEmail)
   function handleSubmit(values) {
     dispatch(signInAPI(values))    
   }

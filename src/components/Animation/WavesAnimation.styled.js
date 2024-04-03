@@ -4,8 +4,10 @@ export const Svg = styled.svg`
   position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 288px;
+  z-index: -5;
 
   .parallax > use {
     -webkit-animation: moveForever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5)
@@ -49,7 +51,11 @@ export const Svg = styled.svg`
     }
   }
 
-  @media (max-width: 768px) {
-    height: 25vh;
+  @media screen and (min-width: 768px) {
+    height: 464px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 288px;
   }
 `;

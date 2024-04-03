@@ -4,22 +4,50 @@ import { useState } from 'react';
 
 export const DailyNormaCalcForm = () => {
   const initialGender = useSelector(getUserGender);
+
   const [gender, setGender] = useState(initialGender);
-  const [weight, setWeight] = useState(0);
-  const [activeHours, setActiveHours] = useState(0);
+  const [weight, setWeight] = useState('');
+  const [activeHours, setActiveHours] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // Регулярний вираз для перевірки цілого числа або числа з одним десятковим знаком
+    const regex = /^(\d+([.,]\d{0,1})?)?$/;
+    var formattedValue = value;
+
     switch (name) {
       case 'gender':
         setGender(value);
         break;
+
       case 'weight':
-        setWeight(value);
+        // Перевіряємо, чи є введення крапкою або комою на початку
+        if (value.match(/^[.,]/)) {
+          formattedValue = '0' + value;
+        } else {
+          // Обрізаємо нулі на початку, якщо за ними не йде крапка
+          formattedValue = value.replace(/^0+([^.])/, '$1');
+        }
+
+        if (regex.test(formattedValue)) {
+          setWeight(formattedValue);
+        }
         break;
+
       case 'activeHours':
-        setActiveHours(value);
+        // Перевіряємо, чи є введення крапкою або комою на початку
+        if (value.match(/^[.,]/)) {
+          formattedValue = '0' + value;
+        } else {
+          // Обрізаємо нулі на початку, якщо за ними не йде крапка
+          formattedValue = value.replace(/^0+([^.])/, '$1');
+        }
+
+        if (regex.test(formattedValue)) {
+          setActiveHours(formattedValue);
+        }
         break;
+
       default:
         break;
     }
@@ -30,6 +58,8 @@ export const DailyNormaCalcForm = () => {
       ? weight * 0.03 + activeHours * 0.4
       : weight * 0.04 + activeHours * 0.6;
 
+  const roundedWaterNorma = Math.round(waterNorma * 10) / 10;
+
   return (
     <div>
       <form action="">
@@ -38,22 +68,22 @@ export const DailyNormaCalcForm = () => {
         <label>
           Gender
           <label>
-            Male
+            For woman
             <input
               type="radio"
               name="gender"
-              value="male"
-              checked={gender === 'male'}
+              value="woman"
+              checked={gender === 'woman'}
               onChange={handleChange}
             />
           </label>
           <label>
-            Female
+            For man
             <input
               type="radio"
               name="gender"
-              value="female"
-              checked={gender === 'female'}
+              value="man"
+              checked={gender === 'man'}
               onChange={handleChange}
             />
           </label>
@@ -81,7 +111,7 @@ export const DailyNormaCalcForm = () => {
         </label>
         <p>
           The required amount of water in liters per day:{' '}
-          <span>{waterNorma} L</span>
+          <span>{roundedWaterNorma} L</span>
         </p>
       </form>
     </div>
