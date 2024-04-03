@@ -6,11 +6,11 @@ import { BackgroundWrapper, Bubble } from "./WelcomePage.styled";
 const WelcomePage = () => {
   return (
     <BackgroundWrapper>
-      <WrapperBox>
-        <Bubble>
+      <Bubble>
+        <WrapperBox>
          <MainContent />
-        </Bubble>
-      </WrapperBox>
+        </WrapperBox>
+      </Bubble>
       </BackgroundWrapper>
   );
 };
