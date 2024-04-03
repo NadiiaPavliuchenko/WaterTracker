@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LogoModalMenu = styled(LogoModalMenu)`
+export const LogoModalMenu = styled.div`
   position: absolute;
   border-radius: 10px;
   z-index: 500;
@@ -20,7 +20,7 @@ export const LogoModalMenu = styled(LogoModalMenu)`
   }
 `;
 
-export const ModalMenuBtn = styled(ModalMenuBtn)`
+export const ModalMenuBtn = styled.button`
   background-color: #ffffff;
   color: #407bff;
   width: 86px;
