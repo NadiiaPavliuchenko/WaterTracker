@@ -1,4 +1,4 @@
-import{k as t,j as e,L as n}from"./index-05c8db07.js";const b=t.div`
+import{h as t,j as e,L as n}from"./index-3117d45c.js";const b=t.div`
   height: 100%;
   display: flex;
   justify-content: center;
@@ -125,4 +125,4 @@ import{k as t,j as e,L as n}from"./index-05c8db07.js";const b=t.div`
     bottom: 5vmin;
     left: -25vmin;
   }
-`,l=()=>{const i=()=>{window.history.back()};return e.jsxs(b,{children:[e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsxs("div",{className:"main",children:[e.jsx("h1",{children:"404"}),e.jsxs("p",{children:["It looks like you're lost...",e.jsx("br",{}),"That's a trouble?"]}),e.jsxs("div",{className:"buttons",children:[e.jsx(n,{to:"/home",children:e.jsx("button",{children:"Go to Home"})}),e.jsx("button",{onClick:i,children:"Go back"})]})]})]})};export{l as default};
+`,h=()=>{const i=()=>{window.history.back()};return e.jsxs(b,{children:[e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsxs("div",{className:"main",children:[e.jsx("h1",{children:"404"}),e.jsxs("p",{children:["It looks like you're lost...",e.jsx("br",{}),"That's a trouble?"]}),e.jsxs("div",{className:"buttons",children:[e.jsx(n,{to:"/home",children:e.jsx("button",{children:"Go to Home"})}),e.jsx("button",{onClick:i,children:"Go back"})]})]})]})};export{h as default};
