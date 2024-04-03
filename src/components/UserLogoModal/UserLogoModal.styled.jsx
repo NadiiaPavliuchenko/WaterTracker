@@ -1,14 +1,12 @@
 import styled from 'styled-components';
-import theme from '../../../CommonStyle/themeJSX';
-import { motion } from 'framer-motion';
 
-export const LogoModalMenu = styled(motion.div)`
+export const LogoModalMenu = styled(LogoModalMenu)`
   position: absolute;
   border-radius: 10px;
   z-index: 500;
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.2);
   width: 118px;
-  background-color: ${theme.colors.primaryLight};
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,9 +20,9 @@ export const LogoModalMenu = styled(motion.div)`
   }
 `;
 
-export const ModalMenuBtn = styled.button`
-  background-color: ${theme.colors.primaryLight};
-  color: ${theme.colors.primaryAccent};
+export const ModalMenuBtn = styled(ModalMenuBtn)`
+  background-color: #ffffff;
+  color: #407bff;
   width: 86px;
   height: 20px;
   display: flex;
@@ -35,7 +33,7 @@ export const ModalMenuBtn = styled.button`
     margin-bottom: 16px;
   }
   &:hover {
-    color: ${theme.colors.secondaryYellow};
+    color: #ff9d43;
     transition: color 0.3s ease;
   }
 `;
