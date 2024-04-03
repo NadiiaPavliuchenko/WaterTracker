@@ -7,7 +7,7 @@ export const HiddenTitle = styled.h1`
 export const Title = styled.h2`
   font-weight: 700;
   font-size: 28px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   line-height: 32px;
   margin-bottom: 16px;
 
@@ -19,7 +19,7 @@ export const Title = styled.h2`
 
 export const Subtitle = styled.p`
   font-size: 24px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   line-height: 30px;
   margin-bottom: 24px;
 
@@ -34,16 +34,16 @@ export const Benefits = styled.ul`
   flex-direction: column;
   gap: 16px;
   font-size: 16px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   line-height: 20px;
   margin-bottom: 24px;
 
-  @media screen and(min-width: 768px) {
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
   }
 
-  @media screen and(min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -56,37 +56,37 @@ export const Item = styled.li`
 `;
 
 export const Tracker = styled.div`
-  display: inline-block;
-  // max-width: 280px;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
 
-  @media screen and(min-width: 768px) {
-    max-width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 100%;
     margin: 0;
   }
 
-  @media screen and(min-width: 1440px) {
-    min-width: 439px;
+  @media screen and (min-width: 1440px) {
+    width: 439px;
   }
 `;
 
 export const BenefitsTitle = styled.h3`
   font-weight: 500;
   font-size: 18px;
-  color: #2F2F2F;
+  color: #2f2f2f;
   line-height: 20px;
   margin-bottom: 12px;
 `;
 
 export const Button = styled.button`
-  display: inline-block;
   width: 100%;
   padding: 8px 30px;
   color: #fff;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  background-color: #407BFF;
+  background-color: #407bff;
   box-shadow: 0 4px 8px rgba(64, 123, 255, 0.34);
   border-radius: 10px;
   cursor: pointer;
@@ -98,14 +98,14 @@ export const Button = styled.button`
     box-shadow: none;
   }
 
-  @media screen and(min-width: 768px) {
-    width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 336px;
     font-size: 18px;
     line-height: 24px;
     padding: 10px 30px;
   }
 
-  @media screen and(min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
     width: 384px;
   }
 `;

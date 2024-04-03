@@ -41,6 +41,7 @@ export const BubblesBox = styled.div`
     width: 38px;
     height: 38px;
     top: 672.17px;
+    left: 0;
     gap: 0px;
     opacity: 0.7px;
     background: transparent;
