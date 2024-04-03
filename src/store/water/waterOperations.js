@@ -86,7 +86,7 @@ export const editDrinkThunk = createAsyncThunk(
 
 //редагування денної норми
 export const editDailyNorm = createAsyncThunk(
-  'auth/editDailyNorm',
+  'water/editDailyNorm',
   async (dailyWaterGoal, thunkAPI) => {
     try {
       const date = new Date().toISOString().split('T')[0];
@@ -102,13 +102,12 @@ export const editDailyNorm = createAsyncThunk(
           },
         }
       );
-      console.log('🚀 ~ data:', data);
 
       toastSuccess('Edit successful');
       return data;
     } catch (error) {
-      toastError('Something went wrong');
-      return thunkAPI.rejectWithValue('Something went wrong');
+      toastError(error.response.data.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
