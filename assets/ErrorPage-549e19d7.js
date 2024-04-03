@@ -1,4 +1,4 @@
-import{b as t,j as e,L as n}from"./index-370ac6c3.js";const b=t.div`
+import{b as t,j as e,I as n}from"./index-0676e2f0.js";const b=t.div`
   height: 100%;
   display: flex;
   justify-content: center;
