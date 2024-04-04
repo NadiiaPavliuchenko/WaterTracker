@@ -1,5 +1,5 @@
 import TodayListModal from 'components/TodayListModal/TodayListModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   AddWaterBtn,
   Container,
@@ -22,6 +22,7 @@ const WaterRatioPanel = () => {
     setOpenList(false);
   };
   const progress = progressPercentage > 100 ? 100 : progressPercentage;
+
   return (
     <Container>
       {/* Progress Bar */}

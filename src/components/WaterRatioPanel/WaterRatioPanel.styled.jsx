@@ -3,9 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   height: 90px;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 23px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const ProgressContainer = styled.div`
