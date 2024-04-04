@@ -96,6 +96,7 @@ export const DailyNormaCalcForm = () => {
             name="weight"
             value={weight}
             onChange={handleChange}
+            placeholder="0"
           />
         </label>
 
@@ -107,6 +108,7 @@ export const DailyNormaCalcForm = () => {
             name="activeHours"
             value={activeHours}
             onChange={handleChange}
+            placeholder="0"
           />
         </label>
         <p>

@@ -8,7 +8,7 @@ export const DailyNormaInputForm = ({ closeModal }) => {
   const dailyNorm = 30000;
   const dailyNormLiters = (dailyNorm / 1000).toFixed(1);
 
-  const [dailyWaterNorm, setDailyWaterNorm] = useState(dailyNormLiters);
+  const [dailyWaterNorm, setDailyWaterNorm] = useState('');
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -54,6 +54,7 @@ export const DailyNormaInputForm = ({ closeModal }) => {
           name="dailyNorm"
           value={dailyWaterNorm}
           onChange={handleChange}
+          placeholder={dailyNormLiters}
         />
       </label>
 

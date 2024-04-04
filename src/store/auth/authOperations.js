@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toastError, toastSuccess } from '../../services/notification';
 
-axios.defaults.baseURL = 'https://tracker-of-water-oqqk.onrender.com/api';
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 const setAuthHeader = (token = null) => {
   if (!token) axios.defaults.headers.common.Authorization = ``;
   else axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -23,7 +23,7 @@ export const signUpAPI = createAsyncThunk(
 
   async (credentials) => {
     try {
-      const res = await axios.post('/auth/register', credentials);
+      const res = await axios.post('auth/register', credentials);
       setAuthHeader(res.data.token);
       toastSuccess(
         'Registration successful. We send you an email with a link to activate your account'
@@ -44,7 +44,7 @@ export const signInAPI = createAsyncThunk(
   'signIn/signInAPI',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/auth/login', credentials);
+      const res = await axios.post('auth/login', credentials);
       setAuthHeader(res.data.token);
       toastSuccess('Login successful. Welcome!');
       return res.data;
@@ -61,7 +61,7 @@ export const logOutAPI = createAsyncThunk(
   'auth/logout',
   async (_, thunkAPI) => {
     try {
-      await axios.post('/auth/logout');
+      await axios.post('auth/logout');
       setAuthHeader();
       toastSuccess('Log out successful. Come back sooner');
     } catch (error) {
@@ -82,7 +82,7 @@ export const refreshUser = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get('/user/current');
+      const res = await axios.get('user/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue('Autorization error');
@@ -95,7 +95,7 @@ export const verificateUser = createAsyncThunk(
   'auth/verificateUser',
   async (token, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/auth/verify/${token}`);
+      const { data } = await axios.get(`auth/verify/${token}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -107,7 +107,7 @@ export const reVerificateUser = createAsyncThunk(
   'auth/reVerificateUser',
   async (email, thunkAPI) => {
     try {
-      const { data } = await axios.post('/auth/verify', email);
+      const { data } = await axios.post('auth/verify', email);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -121,7 +121,7 @@ export const changeUserAvatarAPI = createAsyncThunk(
     try {
       const {
         data: { avatarURL },
-      } = await axios.patch('/user/avatars', formData, {
+      } = await axios.patch('user/avatars', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -140,7 +140,7 @@ export const changeUserSettingsAPI = createAsyncThunk(
   'auth/changeUserData',
   async (user, thunkAPI) => {
     try {
-      const { data } = await axios.patch('/user', user);
+      const { data } = await axios.patch('user', user);
       toastSuccess('User info changed successful ');
       return data;
     } catch (error) {
@@ -154,7 +154,7 @@ export const fetchUserData = createAsyncThunk(
   'auth/userData',
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get('/user/current');
+      const { data } = await axios.get('user/current');
       return data;
     } catch (error) {
       toastError('Something went wrong');

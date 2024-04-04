@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getMonthInfoAPI } from '../../services/getStatistic';
 import { toastError, toastSuccess } from '../../services/notification';
 
-axios.defaults.baseURL = 'https://tracker-of-water-oqqk.onrender.com/api';
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
 //статистика за поточний місяць
 export const getCurrentMonthInfoThunk = createAsyncThunk(
@@ -28,8 +28,12 @@ export const getCurrentDayInfoThunk = createAsyncThunk(
   'water/getDay',
   async (_, thunkAPI) => {
     try {
-      const date = new Date();
-      const { data } = await axios.get('/today', { date });
+      const date = new Date().toISOString().split('T')[0];
+      const { data } = await axios.get('today', {
+        params: {
+          date,
+        },
+      });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -92,7 +96,7 @@ export const editDailyNorm = createAsyncThunk(
       const date = new Date().toISOString().split('T')[0];
 
       const { data } = await axios.patch(
-        '/waterrate',
+        'waterrate',
         {
           dailyWaterGoal: dailyWaterGoal,
         },

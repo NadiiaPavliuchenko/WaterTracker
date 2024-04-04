@@ -12,8 +12,6 @@ const SigninPage = lazy(() => import('../../pages/SigninPage/SigninPage'));
 const SignupPage = lazy(() => import('../../pages/SignupPage/SignupPage'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 
-const test = import.meta.env.VITE_API_TEST;
-
 function App() {
   const dispatch = useDispatch();
 
@@ -21,7 +19,6 @@ function App() {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  console.log(test);
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
