@@ -2,6 +2,8 @@ import { useDispatch } from 'react-redux';
 // import { getCurrentNorm } from '../../store/water/waterSelectors';
 import { editDailyNorm } from '../../store/water/waterOperations';
 import { useState } from 'react';
+import { InputStyled } from '../DailyNormaCalcForm/DailyNormaCalcFormStyled';
+import { ButtonStyled, LabelStyled } from './DailyNormaInputFormStyled';
 
 export const DailyNormaInputForm = ({ closeModal }) => {
   // const dailyNorm = useSelector(getCurrentNorm);
@@ -47,20 +49,20 @@ export const DailyNormaInputForm = ({ closeModal }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <LabelStyled>
         Write down how much water you will drink:
-        <input
+        <InputStyled
           type="number"
           name="dailyNorm"
           value={dailyWaterNorm}
           onChange={handleChange}
           placeholder={dailyNormLiters}
         />
-      </label>
+      </LabelStyled>
 
-      <button className="confirm" type="submit">
+      <ButtonStyled className="confirm" type="submit">
         Save
-      </button>
+      </ButtonStyled>
     </form>
   );
 };
