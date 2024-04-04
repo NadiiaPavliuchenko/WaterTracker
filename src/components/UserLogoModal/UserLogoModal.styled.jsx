@@ -15,10 +15,31 @@ export const LogoModalMenu = styled.div`
   margin-top: 2px;
   transform-origin: top;
   right: 0;
-  transform: translateX(-24vw) translateY(2.6vw);
+  transform: translateX(-18.5vw) translateY(3.2vw);
 
-  @media screen and (min-width: 1440px) {
-    margin-top: 6px;
+  @media screen and (max-width: 1440px) {
+    transform: translateX(-9vw) translateY(4vw);
+  }
+
+  @media screen and (max-width: 1024px) {
+    transform: translateX(-16vw) translateY(5.7vw);
+  }
+
+  @media screen and (max-width: 768px) {
+    transform: translateX(-4vw) translateY(8.2vw);
+  }
+
+  @media screen and (max-width: 425px) {
+    transform: translateX(-17vw) translateY(14vw);
+    width: 120px;
+  }
+
+  @media screen and (max-width: 375px) {
+    transform: translateX(-20vw) translateY(14vw);
+    width: 120px;
+  }
+  @media screen and (max-width: 320px) {
+    transform: translateX(-20vw) translateY(20vw);
   }
 `;
 
@@ -39,6 +60,12 @@ export const ModalMenuBtn = styled.button`
     color: #ff9d43;
     transition: color 0.3s ease;
   }
+  @media screen and (max-width: 425px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 14px;
+  }
 `;
 
 export const Icon = styled.svg`
@@ -47,6 +74,13 @@ export const Icon = styled.svg`
   height: 16px;
   stroke: #407bff;
   fill: #ffffff;
+
+  @media screen and (max-width: 425px) {
+    font-size: 12px;
+    width: 14px;
+    height: 14px;
+    margin-right: 9px;
+  }
 `;
 // margin-right: 8px;
 //   display: flex;

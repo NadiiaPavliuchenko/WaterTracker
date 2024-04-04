@@ -1,6 +1,16 @@
 import { useSelector } from 'react-redux';
 import { getUserGender } from '../../store/auth/authSelectors';
 import { useState } from 'react';
+import {
+  InputStyled,
+  InputWrapper,
+  LitersStyled,
+  RadioWrapper,
+  RadiosWrapper,
+  TextStyled,
+  TextsStyled,
+  TitleStyled,
+} from './DailyNormaCalcFormStyled';
 
 export const DailyNormaCalcForm = () => {
   const initialGender = useSelector(getUserGender);
@@ -63,12 +73,10 @@ export const DailyNormaCalcForm = () => {
   return (
     <div>
       <form action="">
-        <h3>Calculate your rate:</h3>
+        <TitleStyled>Calculate your rate:</TitleStyled>
 
-        <label>
-          Gender
-          <label>
-            For woman
+        <RadiosWrapper>
+          <RadioWrapper>
             <input
               type="radio"
               name="gender"
@@ -76,9 +84,9 @@ export const DailyNormaCalcForm = () => {
               checked={gender === 'woman'}
               onChange={handleChange}
             />
-          </label>
-          <label>
-            For man
+            For woman
+          </RadioWrapper>
+          <RadioWrapper>
             <input
               type="radio"
               name="gender"
@@ -86,35 +94,38 @@ export const DailyNormaCalcForm = () => {
               checked={gender === 'man'}
               onChange={handleChange}
             />
-          </label>
-        </label>
+            For man
+          </RadioWrapper>
+        </RadiosWrapper>
 
-        <label htmlFor="">
+        <InputWrapper>
           Your weight in kilograms:
-          <input
+          <InputStyled
             type="number"
             name="weight"
             value={weight}
             onChange={handleChange}
             placeholder="0"
           />
-        </label>
+        </InputWrapper>
 
-        <label htmlFor="">
+        <InputWrapper>
           The time of active participation in sports or other activities with a
           high physical. load in hours:
-          <input
+          <InputStyled
             type="number"
             name="activeHours"
             value={activeHours}
             onChange={handleChange}
             placeholder="0"
           />
-        </label>
-        <p>
-          The required amount of water in liters per day:{' '}
-          <span>{roundedWaterNorma} L</span>
-        </p>
+        </InputWrapper>
+        <TextsStyled>
+          <TextStyled>
+            The required amount of water in liters per day:{' '}
+          </TextStyled>
+          <LitersStyled>{roundedWaterNorma} L</LitersStyled>
+        </TextsStyled>
       </form>
     </div>
   );
