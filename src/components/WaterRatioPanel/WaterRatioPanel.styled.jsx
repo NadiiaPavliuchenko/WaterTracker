@@ -25,7 +25,7 @@ export const ProgressContainer = styled.div`
     font-weight: 400;
     line-height: 24px;
     text-align: center;
-    margin-bottom: 18px;
+    margin-bottom: 8px;
     color: var(--primary-blue);
   }
 
@@ -100,12 +100,18 @@ export const ProgressContainer = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    h3 {
+      margin-bottom: 16px;
+    }
     .progress-bar-container {
       width: 336px;
     }
   }
 
   @media screen and (min-width: 1440px) {
+    h3 {
+      margin-bottom: 18px;
+    }
     .progress-bar-container {
       width: 340px;
     }
