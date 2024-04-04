@@ -32,11 +32,13 @@ export const ProgressContainer = styled.div`
   .progress-bar-container {
     display: flex;
     flex-direction: column;
+    width: 280px;
+    margin-bottom: 16px;
   }
 
   .progress-bar {
     position: relative;
-    width: 340px;
+    width: 100%;
     height: 8px;
     background-color: rgba(215, 227, 255, 1);
   }
@@ -95,6 +97,18 @@ export const ProgressContainer = styled.div`
     border: 1px solid rgba(64, 123, 255, 1);
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  @media screen and (min-width: 768px) {
+    .progress-bar-container {
+      width: 336px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .progress-bar-container {
+      width: 340px;
+    }
   }
 `;
 
