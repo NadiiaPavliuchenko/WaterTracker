@@ -21,7 +21,7 @@ const SigninPage = () => {
         <Wrapper>
           <div className='wrapper'>
            <div className='formCont'>
-            <h2 className='title'>SigninPage</h2>
+            <h2 className='title'>Sign In</h2>
              <SignInForm submitFunc={handleSubmit} />
              <Link className='link' to="/signup">Sign Up</Link>
             </div> 

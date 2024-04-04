@@ -45,8 +45,8 @@ color: #407bff;
     .bottle {    
         width: 736px; 
         position: absolute;
-        top: 100px;
-        left: 90px;
+        top: 0;
+        left: 100px;
     }
 
 }
