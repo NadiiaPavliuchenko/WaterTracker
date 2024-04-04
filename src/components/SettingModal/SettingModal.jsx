@@ -25,7 +25,7 @@ import ModalContainer from '../ModalContainer/ModalContainer';
 import { getCurrentUser } from '../../store/auth/authSelectors';
 import {
   changeUserAvatarAPI,
-  changeUserSettingsAPI,
+  // changeUserSettingsAPI,
 } from '../../store/auth/authOperations';
 
 import sprite from '../../assets/sprite.svg';
@@ -124,8 +124,8 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
 
     delete changedValues.repeatedPassword;
 
-    dispatch(changeUserSettingsAPI(changedValues));
-    // console.log(changedValues);
+    // dispatch(changeUserSettingsAPI(changedValues));
+    console.log(changedValues);
     setInitialValues({
       ...values,
       outdatedPassword: '',
@@ -133,7 +133,9 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
       repeatedPassword: '',
     });
 
-    onModalClose();
+    console.log(initialValues);
+
+    // onModalClose();
   };
 
   return (
