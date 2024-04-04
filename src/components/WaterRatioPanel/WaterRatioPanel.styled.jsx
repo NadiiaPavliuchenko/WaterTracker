@@ -116,4 +116,8 @@ export const AddWaterBtn = styled.button`
     text-align: center;
     color: var(--primary-white);
   }
+
+  &:hover {
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+  }
 `;

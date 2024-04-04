@@ -11,8 +11,7 @@ import { getCurrentPercentage } from '../../store/water/waterSelectors';
 
 const WaterRatioPanel = () => {
   const [openList, setOpenList] = useState(false);
-  // const progressPercentage = useSelector(getCurrentPercentage);
-  const progressPercentage = 70;
+  const progressPercentage = useSelector(getCurrentPercentage);
 
   console.log('progressPercentage :>> ', progressPercentage);
   const handleOpenClick = () => {
