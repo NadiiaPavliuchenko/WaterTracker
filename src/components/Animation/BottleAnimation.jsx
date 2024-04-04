@@ -1,6 +1,10 @@
 import { motion, useAnimate } from 'framer-motion';
 import { BottleBox } from './BottleAnimation.styled';
 import { useEffect } from 'react';
+import imgBottle from '/src/assets/animation/bottle.png';
+import imgSplash1 from '/src/assets/animation/splash.png';
+import imgSplash2 from '/src/assets/animation/splash2.png';
+import imgShadow from '/src/assets/animation/shadow.png';
 
 const BottleAnimation = () => {
   const [scope, animate] = useAnimate();
@@ -36,7 +40,7 @@ const BottleAnimation = () => {
         <motion.img
           initial={{ y: -2000, rotateZ: -90 }}
           ref={scope}
-          src="/images/animation/bottle.png"
+          src={imgBottle}
           alt=""
           height="240px"
           width="108px"
@@ -51,7 +55,7 @@ const BottleAnimation = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.5, 1, 0] }}
           transition={{ duration: 2.5, delay: 0.3, ease: 'easeInOut' }}
-          src="/images/animation/splash.png"
+          src={imgSplash1}
           width="254.15px"
           height="83.93px"
           style={{
@@ -66,7 +70,7 @@ const BottleAnimation = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.5, 1, 0] }}
           transition={{ duration: 2.5, delay: 0.4, ease: 'easeInOut' }}
-          src="/images/animation/splash2.png"
+          src={imgSplash2}
           width="169.54px"
           height="103.54px"
           style={{
@@ -83,7 +87,7 @@ const BottleAnimation = () => {
             width: ['100px', '0px', '254px', '90px'],
           }}
           transition={{ duration: 5, delay: 0, ease: 'easeInOut' }}
-          src="/images/animation/shadow.png"
+          src={imgShadow}
           width="254px"
           style={{
             position: 'absolute',
