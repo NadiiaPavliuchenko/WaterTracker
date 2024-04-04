@@ -15,11 +15,26 @@ export const LogoModalMenu = styled.div`
   margin-top: 2px;
   transform-origin: top;
   right: 0;
-  transform: translateX(-24vw) translateY(2.6vw);
+  transform: translateX(-18.5vw) translateY(3.2vw);
 
-  @media screen and (min-width: 1440px) {
-    margin-top: 6px;
-  }
+  // @media screen and (min-width: 1440px) and (min-width: 1920px) {
+  //   transform: translateX(-18.5vw) translateY(3.2vw);
+  // }
+
+  // @media screen and (min-width: 1024px) and (min-width: 1440px) {
+  //   transform: translateX(-18.5vw) translateY(3.2vw);
+  // }
+
+  // @media screen and (min-width: 760px) and (min-width: 1024px) {
+  //   transform: translateX(-18.5vw) translateY(3.2vw);
+  // }
+
+  // @media screen and (min-width: 435px) and (min-width: 760px) {
+  //   transform: translateX(-18.5vw) translateY(3.2vw);
+  // }
+  // @media screen and (min-width: 320px) and (min-width: 435px) {
+  //   transform: translateX(-18.5vw) translateY(3.2vw);
+  // }
 `;
 
 export const ModalMenuBtn = styled.button`
