@@ -230,9 +230,9 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                             type="email"
                             name="email"
                             autoComplete="current-password"
-                            error={formik.errors.name && formik.touched.name}
+                            error={formik.errors.email && formik.touched.email}
                           />
-                          {formik.errors.name && formik.touched.name && (
+                          {formik.errors.email && formik.touched.email && (
                             <RedError
                               className="error"
                               name="email"
@@ -252,7 +252,10 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                             name="outdatedPassword"
                             placeholder="Password"
                             autoComplete="current-password"
-                            error={formik.errors.name && formik.touched.name}
+                            error={
+                              formik.errors.outdatedPassword &&
+                              formik.touched.outdatedPassword
+                            }
                           />
                           <VisibilityIconsWrapper
                             onClick={() => handleShowPassword(0)}
@@ -267,13 +270,14 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                               </StyledSvg>
                             )}
                           </VisibilityIconsWrapper>
-                          {formik.errors.name && formik.touched.name && (
-                            <RedError
-                              className="error"
-                              name="outdatedPassword"
-                              component="div"
-                            />
-                          )}
+                          {formik.errors.outdatedPassword &&
+                            formik.touched.outdatedPassword && (
+                              <RedError
+                                className="error"
+                                name="outdatedPassword"
+                                component="div"
+                              />
+                            )}
                         </PasswordFormGroup>
                         <PasswordFormGroup>
                           <SmallLabel htmlFor="newPassword">
@@ -285,7 +289,9 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                             className="form-control"
                             placeholder="Password"
                             autoComplete="current-password"
-                            error={formik.errors.name && formik.touched.name}
+                            error={
+                              formik.errors.password && formik.touched.password
+                            }
                           />
                           <VisibilityIconsWrapper
                             onClick={() => handleShowPassword(1)}
@@ -300,13 +306,14 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                               </StyledSvg>
                             )}
                           </VisibilityIconsWrapper>
-                          {formik.errors.name && formik.touched.name && (
-                            <RedError
-                              className="error"
-                              name="password"
-                              component="div"
-                            />
-                          )}
+                          {formik.errors.password &&
+                            formik.touched.password && (
+                              <RedError
+                                className="error"
+                                name="password"
+                                component="div"
+                              />
+                            )}
                         </PasswordFormGroup>
                         <PasswordFormGroup>
                           <SmallLabel htmlFor="repeatedPassword">
@@ -318,7 +325,10 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                             className="form-control"
                             placeholder="Password"
                             autoComplete="current-password"
-                            error={formik.errors.name && formik.touched.name}
+                            error={
+                              formik.errors.repeatedPassword &&
+                              formik.touched.repeatedPassword
+                            }
                           />
                           <VisibilityIconsWrapper
                             onClick={() => handleShowPassword(2)}
@@ -333,13 +343,14 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                               </StyledSvg>
                             )}
                           </VisibilityIconsWrapper>
-                          {formik.errors.name && formik.touched.name && (
-                            <RedError
-                              className="error"
-                              name="repeatedPassword"
-                              component="div"
-                            />
-                          )}
+                          {formik.errors.repeatedPassword &&
+                            formik.touched.repeatedPassword && (
+                              <RedError
+                                className="error"
+                                name="repeatedPassword"
+                                component="div"
+                              />
+                            )}
                         </PasswordFormGroup>
                       </div>
                     </FormContentWrapper>
