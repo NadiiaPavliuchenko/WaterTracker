@@ -15,7 +15,7 @@ const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
   // Если разница "delta" между текущим элементом и контейнером меньше 250 пикселей, переменная position устанавливается в "false".
 
   const delta = currentRef - containerRef;
-  if (delta < 250) {
+  if (delta < 200) {
     position = false;
   }
 
@@ -38,7 +38,7 @@ const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
           </p>
         </>
       ) : (
-        <h3>You dont have records of this day.</h3>
+        <h3>You dont have records on this day.</h3>
       )}
     </CalendarModalStyles>
   );
