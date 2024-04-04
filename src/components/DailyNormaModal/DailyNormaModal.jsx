@@ -1,20 +1,16 @@
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import ModalContainer from '../ModalContainer/ModalContainer';
 
-import useModal from '../../customHooks/useModal';
 import { DailyNormaInputForm } from '../DailyNormaInputForm/DailyNormaInputForm';
 import { DailyNormaCalcForm } from '../DailyNormaCalcForm/DailyNormaCalcForm';
+import { ModalStyled } from './DailyNormaModal.styled';
 
-export const DailyNormaModal = ({ isOpen }) => {
-  const { closeModal, handleKeyDown } = useModal();
-
-  document.addEventListener('keydown', handleKeyDown);
-
+export const DailyNormaModal = ({ isModalOpen, closeModal }) => {
   return (
     <>
-      {isOpen && (
+      {isModalOpen && (
         <ModalContainer onClose={closeModal}>
-          <div>
+          <ModalStyled>
             <div>
               <div className="topline">
                 <h2>My daily norm</h2>
@@ -42,9 +38,9 @@ export const DailyNormaModal = ({ isOpen }) => {
             </div>
 
             <div>
-              <DailyNormaInputForm />
+              <DailyNormaInputForm closeModal={closeModal} />
             </div>
-          </div>
+          </ModalStyled>
         </ModalContainer>
       )}
     </>

@@ -8,7 +8,7 @@ import {
   Subtitle,
   Title,
   Tracker,
-  Svg
+  Svg,
 } from './WaterConsumptionTracker.styled';
 import sprite from 'src/assets/sprite.svg';
 
@@ -35,7 +35,7 @@ export const WaterConsumptionTracker = () => {
   }
 
   return (
-      <Tracker>
+    <Tracker>
       <HiddenTitle>Hidden</HiddenTitle>
       <Title>Water consumption tracker</Title>
       <Subtitle>Record daily water intake and track</Subtitle>
@@ -57,4 +57,3 @@ export const WaterConsumptionTracker = () => {
     </Tracker>
   );
 };
-
