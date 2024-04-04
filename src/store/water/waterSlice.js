@@ -10,7 +10,13 @@ import {
 
 const initialState = {
   month: null,
-  dayInfo: {},
+  dayInfo: {
+    consumedTimes: 0,
+    consumedWaterPercentage: 0,
+    dailyWaterGoal: 0,
+    waterIntakes: [],
+    entryDate: null,
+  },
   registerDay: null,
   monthDataLoading: false,
   dayDataLoading: false,
@@ -36,7 +42,7 @@ const waterSlice = createSlice({
       })
       .addCase(getCurrentMonthInfoThunk.fulfilled, (state, { payload }) => {
         state.monthDataLoading = false;
-        state.month = [...payload];
+        state.month = { ...payload };
       })
       .addCase(getCurrentMonthInfoThunk.rejected, (state, { payload }) => {
         state.monthDataLoading = false;
@@ -48,11 +54,12 @@ const waterSlice = createSlice({
       })
       .addCase(getCurrentDayInfoThunk.fulfilled, (state, { payload }) => {
         state.dayDataLoading = false;
-        state.dayInfo = { ...payload.dayInfo };
+        state.dayInfo = { ...payload };
         state.registerDay = payload.startDay;
       })
       .addCase(getCurrentDayInfoThunk.rejected, (state, { payload }) => {
         state.dayDataLoading = false;
+        state.dayInfo = { ...initialState.dayInfo };
         state.dayError = payload;
       })
       .addCase(addWaterThunk.pending, (state) => {
