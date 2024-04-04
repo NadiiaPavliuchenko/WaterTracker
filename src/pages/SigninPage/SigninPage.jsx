@@ -9,8 +9,8 @@ import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage
 
 const SigninPage = () => {
 
-  const dispatch = useDispatch()
-  // const userEmail = useSelector(getUserEmail)
+  const dispatch = useDispatch()  
+
   function handleSubmit(values) {
     dispatch(signInAPI(values))    
   }
@@ -19,14 +19,16 @@ const SigninPage = () => {
     <>
       <SignInPageStyle>
         <Wrapper>
-          <div className='formCont'>
-          <div className='title'>SigninPage</div>
-        <SignInForm submitFunc={handleSubmit} />
-            <Link className='link' to="/signup">Sign Up</Link>
-          </div> 
-        <img className="bottle" alt="bottle of water" src={ bottleImage_mob_1x }></img>  
+          <div className='wrapper'>
+           <div className='formCont'>
+            <h2 className='title'>SigninPage</h2>
+             <SignInForm submitFunc={handleSubmit} />
+             <Link className='link' to="/signup">Sign Up</Link>
+            </div> 
+            <img className="bottle" alt="bottle of water" src={ bottleImage_mob_1x }></img>  
+          </div>
         </Wrapper>
-        </SignInPageStyle>
+      </SignInPageStyle>
     </>
   );
 };
