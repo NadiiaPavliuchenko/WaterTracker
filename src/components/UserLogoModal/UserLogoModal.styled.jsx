@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const LogoModalMenu = styled.div`
   position: absolute;
   border-radius: 10px;
-  z-index: 500;
+  z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.2);
   width: 130px;
   background-color: #ffffff;
@@ -15,6 +15,8 @@ export const LogoModalMenu = styled.div`
   margin-top: 2px;
   transform-origin: top;
   right: 0;
+  transform: translateX(-24vw) translateY(2.6vw);
+
   @media screen and (min-width: 1440px) {
     margin-top: 6px;
   }
@@ -40,10 +42,9 @@ export const ModalMenuBtn = styled.button`
 `;
 
 export const Icon = styled.svg`
-  margin-left: 2px;
-  margin-right: 8px;
-  width: 14px;
-  height: 14px;
+  margin-right: 6px;
+  width: 16px;
+  height: 16px;
   stroke: #407bff;
   fill: #ffffff;
 `;
