@@ -175,14 +175,18 @@ export const VisibilityIconsWrapper = styled.div`
 `;
 
 export const StyledField = styled(Field)`
-  border: 1px solid var(--secondary-pale-blue);
+  border: 1px solid
+    ${(props) =>
+      props.error ? 'var(--secondary-red)' : 'var(--secondary-pale-blue)'};
   border-radius: 6px;
   padding: 12px 10px 12px 10px;
   margin-top: 8px;
-  color: var(--primary-blue);
+  color: ${(props) =>
+    props.error ? 'var(--secondary-red)' : 'var(--primary-blue)'};
   font-size: 16px;
   &::placeholder {
-    color: var(--secondary-sky-blue);
+    color: ${(props) =>
+      props.error ? 'var(--secondary-red)' : 'var(--primary-blue)'};
   }
   &:hover,
   &:focus {

@@ -41,15 +41,16 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
   const user = useSelector(getCurrentUser);
 
   const [showPassword, setShowPassword] = useState([false, false, false]);
-  // const createAvatar = () => {
-  //   const avatar = user.avatarURL.startsWith('avatars')
-  //     ? server + user.avatarURL
-  //     : user.avatarURL;
-  //   return avatar;
-  // };
-
   const [newAvatar, setNewAvatar] = useState(user.avatarURL);
-  const [changedValues, setChangedValues] = useState({});
+  const [initialValues, setInitialValues] = useState({
+    gender: user.gender,
+    name: user.name,
+    email: user.email,
+    avatarURL: user.avatarURL,
+    outdatedPassword: '',
+    password: '',
+    repeatedPassword: '',
+  });
 
   const handleShowPassword = (index) => {
     const newShowPassword = [...showPassword];
@@ -90,7 +91,7 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
         if (typeof outdatedPassword[0] !== 'undefined') {
           return schema
             .notOneOf(
-              [Yup.ref('outdatedPassword')],
+              [Yup.ref('outdatedPassword'), null],
               'New password must not match the old one'
             )
             .required('New password is required');
@@ -107,22 +108,32 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
               [Yup.ref('password')],
               'Repeted password must match new password'
             )
-            .required('Reteted password is required');
+            .required('Repeted password is required');
         }
         return schema;
       }),
   });
 
-  const handleBlur = (fieldName, fieldValue) => {
-    setChangedValues(() => ({
-      [fieldName]: fieldValue,
-    }));
-  };
+  const handleSubmit = (values) => {
+    const changedValues = {};
+    Object.keys(values).forEach((key) => {
+      if (values[key] !== initialValues[key]) {
+        changedValues[key] = values[key];
+      }
+    });
 
-  const handleSubmit = () => {
+    delete changedValues.repeatedPassword;
+
     dispatch(changeUserSettingsAPI(changedValues));
     // console.log(changedValues);
-    // onModalClose();
+    setInitialValues({
+      ...values,
+      outdatedPassword: '',
+      password: '',
+      repeatedPassword: '',
+    });
+
+    onModalClose();
   };
 
   return (
@@ -163,186 +174,179 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
               </FilePickerWrapper>
             </div>
             <Formik
-              initialValues={{
-                gender: user.gender,
-                name: user.name,
-                email: user.email,
-                avatarURL: user.avatarURL,
-                outdatedPassword: '',
-                password: '',
-                repeatedPassword: '',
-              }}
+              initialValues={initialValues}
               validationSchema={UpdateUserSchema}
               onSubmit={handleSubmit}
             >
-              {(formik) => (
-                <Form>
-                  <FormContentWrapper>
-                    <div>
-                      <FormSubtitle id="my-radio-group">
-                        Your gender identity
-                      </FormSubtitle>
-                      <StyledRadioGroup row aria-labelledby="my-radio-group">
-                        <SmallControlLabel
-                          value="woman"
-                          control={<CustomRadio disableTouchRipple />}
-                          label="Woman"
-                          name="gender"
-                          checked={formik.values.gender === 'woman'}
-                          onChange={() =>
-                            formik.setFieldValue('gender', 'woman')
-                          }
-                          onBlur={(e) =>
-                            handleBlur(e.target.name, e.target.value)
-                          }
-                        ></SmallControlLabel>
-                        <SmallControlLabel
-                          value="man"
-                          control={<CustomRadio disableTouchRipple />}
-                          label="Man"
-                          name="gender"
-                          defaultChecked={formik.values.gender === 'man'}
-                          onChange={() => formik.setFieldValue('gender', 'man')}
-                          onBlur={(e) =>
-                            handleBlur(e.target.name, e.target.value)
-                          }
-                        ></SmallControlLabel>
-                      </StyledRadioGroup>
-                      <FormGroup>
-                        <FormLabel htmlFor="name">Your name</FormLabel>
-                        <StyledField
-                          type="name"
-                          name="name"
-                          className="form-control"
-                          autoComplete="current-password"
-                          onBlur={(e) =>
-                            handleBlur(e.target.name, e.target.value)
-                          }
-                        />
-                        <RedError
-                          className="error"
-                          name="name"
-                          component="div"
-                        />
-                      </FormGroup>
-                      <FormGroup>
-                        <FormLabel htmlFor="email">E-mail</FormLabel>
-                        <StyledField
-                          type="email"
-                          name="email"
-                          className="form-control"
-                          autoComplete="current-password"
-                          onBlur={(e) =>
-                            handleBlur(e.target.name, e.target.value)
-                          }
-                        />
-                        <RedError
-                          className="error"
-                          name="email"
-                          component="div"
-                        />
-                      </FormGroup>
-                    </div>
-                    <div>
-                      <FormSubtitle>Password</FormSubtitle>
-                      <PasswordFormGroup>
-                        <SmallLabel htmlFor="outdatedPassword">
-                          Outdated Password:
-                        </SmallLabel>
-                        <StyledField
-                          type={showPassword[0] ? 'text' : 'password'}
-                          name="outdatedPassword"
-                          className="form-control"
-                          placeholder="Password"
-                          autoComplete="current-password"
-                        />
-                        <VisibilityIconsWrapper
-                          onClick={() => handleShowPassword(0)}
-                        >
-                          {showPassword[0] ? (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-opened`} />
-                            </StyledSvg>
-                          ) : (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-closed`} />
-                            </StyledSvg>
+              {(formik) => {
+                return (
+                  <Form>
+                    <FormContentWrapper>
+                      <div>
+                        <FormSubtitle id="my-radio-group">
+                          Your gender identity
+                        </FormSubtitle>
+                        <StyledRadioGroup row aria-labelledby="my-radio-group">
+                          <SmallControlLabel
+                            value="woman"
+                            control={<CustomRadio disableTouchRipple />}
+                            label="Woman"
+                            name="gender"
+                            checked={formik.values.gender === 'woman'}
+                            onChange={() =>
+                              formik.setFieldValue('gender', 'woman')
+                            }
+                          ></SmallControlLabel>
+                          <SmallControlLabel
+                            value="man"
+                            control={<CustomRadio disableTouchRipple />}
+                            label="Man"
+                            name="gender"
+                            defaultChecked={formik.values.gender === 'man'}
+                            onChange={() =>
+                              formik.setFieldValue('gender', 'man')
+                            }
+                          ></SmallControlLabel>
+                        </StyledRadioGroup>
+                        <FormGroup>
+                          <FormLabel htmlFor="name">Your name</FormLabel>
+                          <StyledField
+                            type="name"
+                            name="name"
+                            autoComplete="current-password"
+                            error={formik.errors.name && formik.touched.name}
+                          />
+                          {formik.errors.name && formik.touched.name && (
+                            <RedError
+                              className="error"
+                              name="name"
+                              component="div"
+                            />
                           )}
-                        </VisibilityIconsWrapper>
-                        <RedError
-                          className="error"
-                          name="outdatedPassword"
-                          component="div"
-                        />
-                      </PasswordFormGroup>
-                      <PasswordFormGroup>
-                        <SmallLabel htmlFor="newPassword">
-                          New Password:
-                        </SmallLabel>
-                        <StyledField
-                          type={showPassword[1] ? 'text' : 'password'}
-                          name="password"
-                          className="form-control"
-                          placeholder="Password"
-                          autoComplete="current-password"
-                          onBlur={(e) =>
-                            handleBlur(e.target.name, e.target.value)
-                          }
-                        />
-                        <VisibilityIconsWrapper
-                          onClick={() => handleShowPassword(1)}
-                        >
-                          {showPassword[1] ? (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-opened`} />
-                            </StyledSvg>
-                          ) : (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-closed`} />
-                            </StyledSvg>
+                        </FormGroup>
+                        <FormGroup>
+                          <FormLabel htmlFor="email">E-mail</FormLabel>
+                          <StyledField
+                            type="email"
+                            name="email"
+                            autoComplete="current-password"
+                            error={formik.errors.name && formik.touched.name}
+                          />
+                          {formik.errors.name && formik.touched.name && (
+                            <RedError
+                              className="error"
+                              name="email"
+                              component="div"
+                            />
                           )}
-                        </VisibilityIconsWrapper>
-                        <RedError
-                          className="error"
-                          name="newPassword"
-                          component="div"
-                        />
-                      </PasswordFormGroup>
-                      <PasswordFormGroup>
-                        <SmallLabel htmlFor="repeatedPassword">
-                          Repeat new Password:
-                        </SmallLabel>
-                        <StyledField
-                          type={showPassword[2] ? 'text' : 'password'}
-                          name="repeatedPassword"
-                          className="form-control"
-                          placeholder="Password"
-                          autoComplete="current-password"
-                        />
-                        <VisibilityIconsWrapper
-                          onClick={() => handleShowPassword(2)}
-                        >
-                          {showPassword[2] ? (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-opened`} />
-                            </StyledSvg>
-                          ) : (
-                            <StyledSvg width="16px" height="16px">
-                              <use xlinkHref={`${sprite}#eye-closed`} />
-                            </StyledSvg>
+                        </FormGroup>
+                      </div>
+                      <div>
+                        <FormSubtitle>Password</FormSubtitle>
+                        <PasswordFormGroup>
+                          <SmallLabel htmlFor="outdatedPassword">
+                            Outdated Password:
+                          </SmallLabel>
+                          <StyledField
+                            type={showPassword[0] ? 'text' : 'password'}
+                            name="outdatedPassword"
+                            placeholder="Password"
+                            autoComplete="current-password"
+                            error={formik.errors.name && formik.touched.name}
+                          />
+                          <VisibilityIconsWrapper
+                            onClick={() => handleShowPassword(0)}
+                          >
+                            {showPassword[0] ? (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-opened`} />
+                              </StyledSvg>
+                            ) : (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-closed`} />
+                              </StyledSvg>
+                            )}
+                          </VisibilityIconsWrapper>
+                          {formik.errors.name && formik.touched.name && (
+                            <RedError
+                              className="error"
+                              name="outdatedPassword"
+                              component="div"
+                            />
                           )}
-                        </VisibilityIconsWrapper>
-                        <RedError
-                          className="error"
-                          name="repeatedPassword"
-                          component="div"
-                        />
-                      </PasswordFormGroup>
-                    </div>
-                  </FormContentWrapper>
-                  <SubmitButton type="submit">Save</SubmitButton>
-                </Form>
-              )}
+                        </PasswordFormGroup>
+                        <PasswordFormGroup>
+                          <SmallLabel htmlFor="newPassword">
+                            New Password:
+                          </SmallLabel>
+                          <StyledField
+                            type={showPassword[1] ? 'text' : 'password'}
+                            name="password"
+                            className="form-control"
+                            placeholder="Password"
+                            autoComplete="current-password"
+                            error={formik.errors.name && formik.touched.name}
+                          />
+                          <VisibilityIconsWrapper
+                            onClick={() => handleShowPassword(1)}
+                          >
+                            {showPassword[1] ? (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-opened`} />
+                              </StyledSvg>
+                            ) : (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-closed`} />
+                              </StyledSvg>
+                            )}
+                          </VisibilityIconsWrapper>
+                          {formik.errors.name && formik.touched.name && (
+                            <RedError
+                              className="error"
+                              name="password"
+                              component="div"
+                            />
+                          )}
+                        </PasswordFormGroup>
+                        <PasswordFormGroup>
+                          <SmallLabel htmlFor="repeatedPassword">
+                            Repeat new Password:
+                          </SmallLabel>
+                          <StyledField
+                            type={showPassword[2] ? 'text' : 'password'}
+                            name="repeatedPassword"
+                            className="form-control"
+                            placeholder="Password"
+                            autoComplete="current-password"
+                            error={formik.errors.name && formik.touched.name}
+                          />
+                          <VisibilityIconsWrapper
+                            onClick={() => handleShowPassword(2)}
+                          >
+                            {showPassword[2] ? (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-opened`} />
+                              </StyledSvg>
+                            ) : (
+                              <StyledSvg width="16px" height="16px">
+                                <use xlinkHref={`${sprite}#eye-closed`} />
+                              </StyledSvg>
+                            )}
+                          </VisibilityIconsWrapper>
+                          {formik.errors.name && formik.touched.name && (
+                            <RedError
+                              className="error"
+                              name="repeatedPassword"
+                              component="div"
+                            />
+                          )}
+                        </PasswordFormGroup>
+                      </div>
+                    </FormContentWrapper>
+                    <SubmitButton type="submit">Save</SubmitButton>
+                  </Form>
+                );
+              }}
             </Formik>
           </ModalBox>
         </ModalContainer>
