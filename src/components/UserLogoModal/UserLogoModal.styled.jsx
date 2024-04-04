@@ -5,13 +5,13 @@ export const LogoModalMenu = styled.div`
   border-radius: 10px;
   z-index: 500;
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.2);
-  width: 118px;
+  width: 130px;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 18px;
   margin-top: 2px;
   transform-origin: top;
   right: 0;
@@ -23,12 +23,13 @@ export const LogoModalMenu = styled.div`
 export const ModalMenuBtn = styled.button`
   background-color: #ffffff;
   color: #407bff;
-  width: 86px;
-  height: 20px;
+  width: 90px;
+  height: 22px;
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: 16px;
+  border: none;
   &:not(:last-child) {
     margin-bottom: 16px;
   }
@@ -37,3 +38,20 @@ export const ModalMenuBtn = styled.button`
     transition: color 0.3s ease;
   }
 `;
+
+export const Icon = styled.svg`
+  margin-left: 2px;
+  margin-right: 8px;
+  width: 14px;
+  height: 14px;
+  stroke: #407bff;
+  fill: #ffffff;
+`;
+// margin-right: 8px;
+//   display: flex;
+//   align-items: center;
+//   svg {
+//     width: 16px;
+//     height: 16px;
+//     fill:  #ffffff;
+//     stroke: #407BFF;

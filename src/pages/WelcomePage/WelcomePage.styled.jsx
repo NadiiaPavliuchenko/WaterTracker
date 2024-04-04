@@ -95,6 +95,9 @@ export const TurnOff = styled.div`
   &:hover {
     height: 100px;
   }
+  @media screen and (max-width: 767px) {
+    border-radius: 25px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 120px;
@@ -107,7 +110,7 @@ export const TurnOff = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 140px;
+    width: 160px;
     height: 80px;
     font-size: 24px;
   }

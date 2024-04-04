@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getMonthInfoAPI } from '../../services/getStatistic';
 import { toastError, toastSuccess } from '../../services/notification';
 
-axios.defaults.baseURL = 'https://tracker-of-water-oqqk.onrender.com/api';
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 
 //статистика за поточний місяць
 export const getCurrentMonthInfoThunk = createAsyncThunk(
@@ -29,7 +29,7 @@ export const getCurrentDayInfoThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const date = new Date();
-      const { data } = await axios.get('/today', { date });
+      const { data } = await axios.get('today', { date });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -86,13 +86,13 @@ export const editDrinkThunk = createAsyncThunk(
 
 //редагування денної норми
 export const editDailyNorm = createAsyncThunk(
-  'auth/editDailyNorm',
+  'water/editDailyNorm',
   async (dailyWaterGoal, thunkAPI) => {
     try {
       const date = new Date().toISOString().split('T')[0];
 
       const { data } = await axios.patch(
-        '/waterrate',
+        'waterrate',
         {
           dailyWaterGoal: dailyWaterGoal,
         },
@@ -102,13 +102,12 @@ export const editDailyNorm = createAsyncThunk(
           },
         }
       );
-      console.log('🚀 ~ data:', data);
 
       toastSuccess('Edit successful');
       return data;
     } catch (error) {
-      toastError('Something went wrong');
-      return thunkAPI.rejectWithValue('Something went wrong');
+      toastError(error.response.data.message);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );

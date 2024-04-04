@@ -3,26 +3,21 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import ModalContainer from '../ModalContainer/ModalContainer';
 import { useDispatch } from 'react-redux';
 import { logOutAPI } from '../../store/auth/authOperations';
-import useModal from '../../customHooks/useModal';
 
-const UserLogoutModal = () => {
-  const { isOpen, closeModal, handleKeyDown } = useModal();
-
-  document.addEventListener('keydown', handleKeyDown);
-
+const UserLogoutModal = ({ onModalClose, isModalOpen }) => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logOutAPI());
   };
   return (
     <>
-      {isOpen && (
-        <ModalContainer onClose={closeModal}>
+      {isModalOpen && (
+        <ModalContainer onClose={onModalClose}>
           <ModalBox>
             <div>
               <div className="topline">
                 <h2>Log out</h2>
-                <CloseOutlinedIcon className="close" onClick={closeModal} />
+                <CloseOutlinedIcon className="close" onClick={onModalClose} />
               </div>
               <p>Do you really want to leave?</p>
             </div>
@@ -30,7 +25,7 @@ const UserLogoutModal = () => {
               <button className="confirm" onClick={handleLogout}>
                 Log out
               </button>
-              <button className="cancel" onClick={closeModal}>
+              <button className="cancel" onClick={onModalClose}>
                 Cancel
               </button>
             </ButtonContainer>
