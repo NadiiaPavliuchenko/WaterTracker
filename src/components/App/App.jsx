@@ -11,6 +11,9 @@ const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const SigninPage = lazy(() => import('../../pages/SigninPage/SigninPage'));
 const SignupPage = lazy(() => import('../../pages/SignupPage/SignupPage'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
+const VerificationPage = lazy(() =>
+  import('../../pages/VerificationPage/VerificationPage')
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +47,12 @@ function App() {
           path="signup"
           element={
             <PublicRoute redirectTo="/home" component={<SignupPage />} />
+          }
+        />
+        <Route
+          path="verification/:verificationToken"
+          element={
+            <PublicRoute redirectTo="/home" component={<VerificationPage />} />
           }
         />
         <Route path="*" element={<ErrorPage />} />

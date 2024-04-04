@@ -96,9 +96,13 @@ export const verificateUser = createAsyncThunk(
   async (token, thunkAPI) => {
     try {
       const { data } = await axios.get(`auth/verify/${token}`);
+      toastSuccess(data.message);
+      console.log('🚀 ~ data success:', data);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      // console.log('🚀 ~ error:', error.response.data.message);
+      toastError(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
