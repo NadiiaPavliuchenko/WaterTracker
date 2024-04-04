@@ -1,4 +1,4 @@
-import{b as d,B as h,C as r,j as e,F as m,D as g,E as p,G as l,z as a,u as f,W as b,H as u,I as w}from"./index-5b723813.js";import{b as j,a as y,c as S,d as k}from"./bottle_desk_2x-0e16256e.js";const N=d.div`
+import{b as d,B as h,C as r,j as e,F as m,D as g,E as p,G as l,z as a,u as f,W as b,H as u,I as w}from"./index-183691fa.js";import{b as j,a as y,c as S,d as k}from"./bottle_desk_2x-0e16256e.js";const N=d.div`
 @media screen and (min-width: 320px) {
 .form {
     margin-top: 16px;
@@ -133,8 +133,8 @@ color: #407bff;
     .bottle {    
         width: 736px; 
         position: absolute;
-        top: 100px;
-        left: 90px;
+        top: 0;
+        left: 100px;
     }
 
 }
@@ -159,4 +159,4 @@ color: #407bff;
         position: relative;
     }
 }
-`,I=()=>{const s=f();function o(n){s(w(n))}return e.jsx(e.Fragment,{children:e.jsx(F,{children:e.jsx(b,{children:e.jsxs("div",{className:"wrapper",children:[e.jsxs("div",{className:"formCont",children:[e.jsx("h2",{className:"title",children:"SigninPage"}),e.jsx(v,{submitFunc:o}),e.jsx(u,{className:"link",to:"/signup",children:"Sign Up"})]}),e.jsx("img",{className:"bottle",alt:"bottle of water",src:k})]})})})})};export{I as default};
+`,_=()=>{const s=f();function o(n){s(w(n))}return e.jsx(e.Fragment,{children:e.jsx(F,{children:e.jsx(b,{children:e.jsxs("div",{className:"wrapper",children:[e.jsxs("div",{className:"formCont",children:[e.jsx("h2",{className:"title",children:"Sign In"}),e.jsx(v,{submitFunc:o}),e.jsx(u,{className:"link",to:"/signup",children:"Sign Up"})]}),e.jsx("img",{className:"bottle",alt:"bottle of water",src:k})]})})})})};export{_ as default};
