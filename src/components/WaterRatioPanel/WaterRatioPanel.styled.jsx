@@ -42,7 +42,6 @@ export const ProgressContainer = styled.div`
   }
 
   .progress {
-    position: relative;
     height: 100%;
     background-color: rgba(158, 187, 255, 1);
     text-align: center;
@@ -52,10 +51,10 @@ export const ProgressContainer = styled.div`
 
   .progress-text {
     position: absolute;
-    top: -200%;
+    top: -100%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 20px;
+    font-size: 14px;
     color: var(--primary-blue);
   }
 

@@ -1,5 +1,5 @@
 import TodayListModal from 'components/TodayListModal/TodayListModal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   AddWaterBtn,
   Container,
@@ -12,7 +12,7 @@ import { getCurrentPercentage } from '../../store/water/waterSelectors';
 const WaterRatioPanel = () => {
   const [openList, setOpenList] = useState(false);
   const progressPercentage = useSelector(getCurrentPercentage);
-
+  // const progressPercentage = 80;
   console.log('progressPercentage :>> ', progressPercentage);
   const handleOpenClick = () => {
     setOpenList(true);
@@ -30,14 +30,7 @@ const WaterRatioPanel = () => {
         <h3>Today</h3>
         <div className="progress-bar-container">
           <div className="progress-bar">
-            <div className="progress" style={{ width: `${progress}%` }}>
-              <p className="progress-text">
-                {' '}
-                {progressPercentage > 100
-                  ? `${progressPercentage}%`
-                  : `${progress}%`}
-              </p>
-            </div>
+            <div className="progress" style={{ width: `${progress}%` }}></div>
             <div className="marker-0">0%</div>
             <div className="marker-50">50%</div>
             <div className="marker-100">100%</div>
@@ -46,7 +39,14 @@ const WaterRatioPanel = () => {
               style={{
                 left: `${progress}%`,
               }}
-            ></div>
+            >
+              {' '}
+              <p className="progress-text">
+                {progressPercentage > 100
+                  ? `${progressPercentage}%`
+                  : `${progress}%`}
+              </p>
+            </div>
           </div>
         </div>
       </ProgressContainer>
