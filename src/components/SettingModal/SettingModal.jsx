@@ -40,7 +40,6 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
   const dispatch = useDispatch();
 
   const user = useSelector(getCurrentUser);
-  // console.log(user);
 
   const [showPassword, setShowPassword] = useState([false, false, false]);
   const [newAvatar, setNewAvatar] = useState(user.avatarURL);
@@ -123,18 +122,15 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
 
     delete changedValues.repeatedPassword;
 
-    dispatch(changeUserSettingsAPI(changedValues))
-      .then(() => {
+    if (Object.keys(changedValues).length === 0) {
+      onModalClose();
+    } else {
+      dispatch(changeUserSettingsAPI(changedValues)).then(() => {
         setInitialValues(dispatch(fetchUserData()));
         onModalClose();
-      })
-      .catch((error) => {
-        console.error('Error updating user settings:', error);
       });
-    // console.log(values)
+    }
   };
-
-  // console.log(initialValues);
 
   return (
     <>
