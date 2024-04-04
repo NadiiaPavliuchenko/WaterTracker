@@ -49,7 +49,7 @@ export const ProgressContainer = styled.div`
   .progress-text {
     position: absolute;
     top: -200%;
-    left: 100%;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-size: 20px;
     color: var(--primary-blue);
