@@ -25,7 +25,8 @@ import ModalContainer from '../ModalContainer/ModalContainer';
 import { getCurrentUser } from '../../store/auth/authSelectors';
 import {
   changeUserAvatarAPI,
-  // changeUserSettingsAPI,
+  changeUserSettingsAPI,
+  fetchUserData,
 } from '../../store/auth/authOperations';
 
 import sprite from '../../assets/sprite.svg';
@@ -39,14 +40,12 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
   const dispatch = useDispatch();
 
   const user = useSelector(getCurrentUser);
+  // console.log(user);
 
   const [showPassword, setShowPassword] = useState([false, false, false]);
   const [newAvatar, setNewAvatar] = useState(user.avatarURL);
   const [initialValues, setInitialValues] = useState({
-    gender: user.gender,
-    name: user.name,
-    email: user.email,
-    avatarURL: user.avatarURL,
+    ...user,
     outdatedPassword: '',
     password: '',
     repeatedPassword: '',
@@ -124,19 +123,18 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
 
     delete changedValues.repeatedPassword;
 
-    // dispatch(changeUserSettingsAPI(changedValues));
-    console.log(changedValues);
-    setInitialValues({
-      ...values,
-      outdatedPassword: '',
-      password: '',
-      repeatedPassword: '',
-    });
-
-    console.log(initialValues);
-
-    // onModalClose();
+    dispatch(changeUserSettingsAPI(changedValues))
+      .then(() => {
+        setInitialValues(dispatch(fetchUserData()));
+        onModalClose();
+      })
+      .catch((error) => {
+        console.error('Error updating user settings:', error);
+      });
+    // console.log(values)
   };
+
+  // console.log(initialValues);
 
   return (
     <>
@@ -204,7 +202,7 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                             control={<CustomRadio disableTouchRipple />}
                             label="Man"
                             name="gender"
-                            defaultChecked={formik.values.gender === 'man'}
+                            checked={formik.values.gender === 'man'}
                             onChange={() =>
                               formik.setFieldValue('gender', 'man')
                             }

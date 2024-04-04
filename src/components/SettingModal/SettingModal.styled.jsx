@@ -40,13 +40,15 @@ export const ModalBox = styled(Box)`
   top: 50%;
   left: 50%;
   max-height: 90vh;
-  overflow: scroll;
+  overflow-y: auto;
+  scrollbar-width: none;
   transform: translate(-50%, -50%);
   @media ${device.tablet} {
-    padding: 32px 24px;
+    padding: 32px 24px 64px 24px;
     width: 704px;
   }
   @media ${device.desktop} {
+    padding: 32px 24px;
     width: 1008px;
   }
 `;
