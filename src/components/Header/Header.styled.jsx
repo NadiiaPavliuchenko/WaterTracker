@@ -26,6 +26,25 @@ export const CloseIcon = styled.svg`
   fill: transparent;
 `;
 
+export const UserModalIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+  transition:
+    transform 0.5s ease,
+    fill 0.5s ease;
+
+  &:hover,
+  &:focus {
+    fill: blue;
+    /*transform: scale(1.2);  Збільшення розміру при натисканні */
+  }
+
+  &.active {
+    fill: red;
+    transform: rotate(180deg);
+  }
+`;
+
 export const UserName = styled.span`
   display: flex;
   -webkit-box-align: center;
@@ -51,6 +70,12 @@ export const UserAuthBtn = styled.button`
   padding: 0px;
   color: rgb(64, 123, 255);
   border: 0px;
+  transition: transform 0.5s ease;
+
+  &:hover,
+  &:focus {
+    transition: transform 0.5s ease 0s;
+  }
 
   @media (min-width: 320px) {
     font-size: 16px;
