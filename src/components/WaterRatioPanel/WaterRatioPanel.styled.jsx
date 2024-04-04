@@ -99,13 +99,15 @@ export const ProgressContainer = styled.div`
 `;
 
 export const AddWaterBtn = styled.button`
-  flex: 1;
+  width: 280px;
+  height: 36px;
+  padding: 6px 76px;
+  gap: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 13px;
-  padding: 10px 30px;
   background-color: var(--primary-blue);
   border: none;
   border-radius: 10px;
@@ -122,5 +124,18 @@ export const AddWaterBtn = styled.button`
 
   &:hover {
     box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 44px;
+    gap: 10px;
+    padding: 10px 104px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 178px;
+    height: 44px;
+    padding: 10px 30px;
   }
 `;
