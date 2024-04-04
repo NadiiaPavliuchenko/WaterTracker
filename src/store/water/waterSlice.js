@@ -10,7 +10,7 @@ import {
 
 const initialState = {
   month: null,
-  dayInfo: null,
+  dayInfo: {},
   registerDay: null,
   monthDataLoading: false,
   dayDataLoading: false,

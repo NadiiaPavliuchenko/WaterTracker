@@ -28,8 +28,12 @@ export const getCurrentDayInfoThunk = createAsyncThunk(
   'water/getDay',
   async (_, thunkAPI) => {
     try {
-      const date = new Date();
-      const { data } = await axios.get('today', { date });
+      const date = new Date().toISOString().split('T')[0];
+      const { data } = await axios.get('today', {
+        params: {
+          date,
+        },
+      });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

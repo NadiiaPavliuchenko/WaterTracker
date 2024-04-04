@@ -7,23 +7,14 @@ import sprite from 'src/assets/sprite.svg';
 
 const UserLogoModal = ({ isOpen }) => {
   const modalRef = useRef(null);
-  const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
-  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
 
-  const handleSettingButtonClick = () => {
-    setIsSettingModalOpen(true);
+  const handleModalOpen = (modal) => {
+    setActiveModal(modal);
   };
 
-  const handleLogoutButtonClick = () => {
-    setIsLogoutModalOpen(true);
-  };
-
-  const handleSettingModalClose = () => {
-    setIsSettingModalOpen(false);
-  };
-
-  const handleLogoutModalClose = () => {
-    setIsLogoutModalOpen(false);
+  const handleModalClose = () => {
+    setActiveModal(null);
   };
 
   return (
@@ -35,13 +26,13 @@ const UserLogoModal = ({ isOpen }) => {
           exit="exit"
           ref={modalRef}
         >
-          <ModalMenuBtn onClick={handleSettingButtonClick}>
+          <ModalMenuBtn onClick={() => handleModalOpen('settings')}>
             <Icon>
               <use href={`${sprite}#settings`}></use>
             </Icon>
             Settings
           </ModalMenuBtn>
-          <ModalMenuBtn onClick={handleLogoutButtonClick}>
+          <ModalMenuBtn onClick={() => handleModalOpen('logout')}>
             <Icon>
               <use href={`${sprite}#arrow-right-on-rectangle`}></use>
             </Icon>
@@ -49,14 +40,12 @@ const UserLogoModal = ({ isOpen }) => {
           </ModalMenuBtn>
         </LogoModalMenu>
       )}
-      <SettingModal
-        onModalClose={handleSettingModalClose}
-        isModalOpen={isSettingModalOpen}
-      />
-      <UserLogoutModal
-        onModalClose={handleLogoutModalClose}
-        isModalOpen={isLogoutModalOpen}
-      />
+      {activeModal === 'settings' && (
+        <SettingModal onModalClose={handleModalClose} isModalOpen={true} />
+      )}
+      {activeModal === 'logout' && (
+        <UserLogoutModal onModalClose={handleModalClose} isModalOpen={true} />
+      )}
     </AnimatePresence>
   );
 };
@@ -70,19 +59,17 @@ export default UserLogoModal;
 // import { AnimatePresence } from 'framer-motion';
 // import sprite from 'src/assets/sprite.svg';
 
-// const UserLogoModal = ({ isOpen, onClose }) => {
+// const UserLogoModal = ({ isOpen }) => {
 //   const modalRef = useRef(null);
 //   const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
 //   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
 //   const handleSettingButtonClick = () => {
 //     setIsSettingModalOpen(true);
-//     onClose && onClose();
 //   };
 
 //   const handleLogoutButtonClick = () => {
 //     setIsLogoutModalOpen(true);
-//     onClose && onClose();
 //   };
 
 //   const handleSettingModalClose = () => {
@@ -116,12 +103,14 @@ export default UserLogoModal;
 //           </ModalMenuBtn>
 //         </LogoModalMenu>
 //       )}
-//       {<SettingModal onClose={(handleSettingModalClose, isSettingModalOpen)} />}
-//       {
-//         <UserLogoutModal
-//           onClose={(handleLogoutModalClose, isLogoutModalOpen)}
-//         />
-//       }
+//       <SettingModal
+//         onModalClose={handleSettingModalClose}
+//         isModalOpen={isSettingModalOpen}
+//       />
+//       <UserLogoutModal
+//         onModalClose={handleLogoutModalClose}
+//         isModalOpen={isLogoutModalOpen}
+//       />
 //     </AnimatePresence>
 //   );
 // };
