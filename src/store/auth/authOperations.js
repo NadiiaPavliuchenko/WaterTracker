@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toastError, toastSuccess } from '../../services/notification';
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
+
 const setAuthHeader = (token = null) => {
   if (!token) axios.defaults.headers.common.Authorization = ``;
   else axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -90,19 +91,18 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-//TODO: обработать get "/api/auth/verify/:verificationToken" verificateUser
 export const verificateUser = createAsyncThunk(
   'auth/verificateUser',
   async (token, thunkAPI) => {
     try {
-      const { data } = await axios.get(`auth/verify/${token}`);
+      const { data } = await axios.patch(`auth/verify/${token}`);
+
       toastSuccess(data.message);
-      console.log('🚀 ~ data success:', data);
+
       return data;
     } catch (error) {
-      // console.log('🚀 ~ error:', error.response.data.message);
-      toastError(error.response.data.message);
-      return thunkAPI.rejectWithValue(error.response.data.message);
+      toastError(getErrorMessage(error));
+      return thunkAPI.rejectWithValue(getErrorMessage(error));
     }
   }
 );
@@ -166,3 +166,7 @@ export const fetchUserData = createAsyncThunk(
     }
   }
 );
+
+// TODO опрацювати запит post    "/api/auth/recover-password"                       sendLetterForUserPAssworwRecovery        body: {email}
+
+// TODO patch    "/api/auth/recover-password/:passwordRecoveryToken"                          recoverUserPassword        body: {password}
