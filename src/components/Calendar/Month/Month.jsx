@@ -54,23 +54,23 @@ export const Calendar = (dailyNormaState) => {
     const firstDayOfMonth = new Date(
       currentDate.getFullYear(),
       currentDate.getMonth(),
-      1
+      2
     );
     const lastDayOfMonth = new Date(
       currentDate.getFullYear(),
       currentDate.getMonth() + 1,
-      0
+      1
     );
 
     // Формируем строку для запроса, содержащую начальную и конечную дату месяца
     const startDate = firstDayOfMonth.toISOString().split('T')[0];
     const endDate = lastDayOfMonth.toISOString().split('T')[0];
 
-    const dateRange = `${startDate} , ${endDate}`;
-    // const dateRange = {
-    //   startDate,
-    //   endDate,
-    // };
+    // const dateRange = `${startDate} , ${endDate}`;
+    const dateRange = {
+      startDate,
+      endDate,
+    };
 
     // Вызываем thunk, передавая в него начальную и конечную дату месяца
     dispatch(getCurrentMonthInfoThunk(dateRange));
