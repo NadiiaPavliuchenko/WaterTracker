@@ -1,0 +1,1 @@
+import{r as e,T as n,z as o,a as c,j as u,U as f,V as p}from"./index-979f2925.js";const l=()=>{const[r,i]=e.useState(!0),{verificationToken:s}=n(),a=o(),t=c();return e.useEffect(()=>{(async()=>{try{await t(p(s)).unwrap(),i(!1),a("/signin")}catch{a("/signup")}})()},[t,s,a]),r?u.jsx(f,{}):null};export{l as default};
