@@ -16,6 +16,7 @@ export const LogoModalMenu = styled.div`
   transform-origin: top;
   right: 0;
   transform: translateX(-18.5vw) translateY(3.2vw);
+  
 
   @media screen and (max-width: 1440px) {
     transform: translateX(-9vw) translateY(4vw);
@@ -74,6 +75,7 @@ export const Icon = styled.svg`
   height: 16px;
   stroke: #407bff;
   fill: #ffffff;
+  
 
   @media screen and (max-width: 425px) {
     font-size: 12px;
@@ -82,11 +84,6 @@ export const Icon = styled.svg`
     margin-right: 9px;
   }
 `;
-// margin-right: 8px;
-//   display: flex;
-//   align-items: center;
-//   svg {
-//     width: 16px;
-//     height: 16px;
-//     fill:  #ffffff;
-//     stroke: #407BFF;
+
+
+
