@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import CalendarModal from '../CalendarModal/CalendarModal';
 import { Day, DayCell, DayPercent } from '../Month/Month.styled';
 
-const DayComponent = ({ calendarRef, day, consumedWaterPercentag }) => {
+const DayComponent = ({ calendarRef, day, waterPercentage }) => {
   const [activeModal, setActiveModal] = useState(null);
   const ref = useRef(null);
 
@@ -31,23 +31,19 @@ const DayComponent = ({ calendarRef, day, consumedWaterPercentag }) => {
             key={day}
             calendarRef={calendarRef}
             refData={ref}
-            waterData={consumedWaterPercentag}
+            waterData={waterPercentage}
           />
         )}
       </div>
       <Day
         ref={ref}
         onClick={() => toggleModal(day)}
-        $isOutlineVisible={
-          !consumedWaterPercentag || consumedWaterPercentag.percent < 100
-        }
+        $isOutlineVisible={!waterPercentage || waterPercentage.percent < 100}
       >
         {day}
       </Day>
       <DayPercent>
-        {consumedWaterPercentag
-          ? `${Math.min(consumedWaterPercentag.percent, 100)}%`
-          : '0%'}
+        {waterPercentage ? `${Math.min(waterPercentage.percent, 100)}%` : '0%'}
       </DayPercent>
     </DayCell>
   );
