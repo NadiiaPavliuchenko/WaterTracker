@@ -11,21 +11,23 @@ import {
   Svg,
 } from './WaterConsumptionTracker.styled';
 import sprite from 'src/assets/sprite.svg';
+import { useTranslation } from 'react-i18next';
 
 export const WaterConsumptionTracker = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const benefits = [
     {
-      text: 'Habit drive',
+      text: t('welcome.benefits.1'),
       id: `${sprite}#calendar`,
     },
     {
-      text: 'View statistics',
+      text: t('welcome.benefits.2'),
       id: `${sprite}#presentation-chart-bar`,
     },
     {
-      text: 'Personal rate setting',
+      text: t('welcome.benefits.3'),
       id: `${sprite}#wrench-screwdriver`,
     },
   ];
@@ -33,13 +35,13 @@ export const WaterConsumptionTracker = () => {
   function handleClick() {
     navigate('/signup');
   }
-
+  console.log('Translations:', t('welcome.h1'));
   return (
     <Tracker>
       <HiddenTitle>Hidden</HiddenTitle>
-      <Title>Water consumption tracker</Title>
-      <Subtitle>Record daily water intake and track</Subtitle>
-      <BenefitsTitle>Tracker Benefits</BenefitsTitle>
+      <Title>{t('welcome.h1')}</Title>
+      <Subtitle>{t('welcome.p')}</Subtitle>
+      <BenefitsTitle>{t('welcome.benefits.title')}</BenefitsTitle>
       <Benefits>
         {benefits.map(({ id, text }, index) => (
           <Item key={index}>
@@ -52,7 +54,7 @@ export const WaterConsumptionTracker = () => {
       </Benefits>
 
       <Button type="button" onClick={handleClick}>
-        Try tracker
+        {t('welcome.button')}
       </Button>
     </Tracker>
   );

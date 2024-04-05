@@ -12,6 +12,7 @@ import Wrapper from 'components/Wrapper/Wrapper';
 import imgUrl from '/src/assets/LogoSite.png';
 import UserLogo from '../UserLogo/UserLogo';
 import { getCurrentUser, getToken } from '../../store/auth/authSelectors';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
 
 export const Header = () => {
   const token = useSelector(getToken);
@@ -40,6 +41,7 @@ export const Header = () => {
         ) : (
           <UserLogo name={name} email={email} avatarUrl={avatarUrl} />
         )}
+        <LanguageSelector />
       </ContainerHeader>
     </Wrapper>
   );

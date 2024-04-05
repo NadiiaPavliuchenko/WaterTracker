@@ -1,0 +1,23 @@
+{
+  "welcome": {
+    "h1": "Water consumption tracker",
+    "p": "Record daily water intake and track",
+    "benefits": {
+      "title": "Tracker Benefits",
+      "1": "Habit drive",
+      "2": "View statistics",
+      "3": "Personal rate setting"
+    },
+    "button": "Try tracker",
+    "list": {
+      "title": "Why drink water",
+      "item1": "Supply of nutrients to all organs",
+      "item2": "Providing oxygen to the lungs",
+      "item3": "Maintaining the work of the heart",
+      "item4": "Release of processed substances",
+      "item5": "Ensuring the stability of the internal environment",
+      "item6": "Maintaining within the normal temperature",
+      "item7": "Maintaining an immune system capable of resisting disease"
+    }
+  }
+}
