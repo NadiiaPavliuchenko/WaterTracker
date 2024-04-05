@@ -7,6 +7,15 @@ export const ContainerHeader = styled.div`
   padding-top: 12px;
 `;
 
+export const UserLogo = styled.div`
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+`;
+
 export const WrapHeader = styled.div`
   display: flex;
   align-items: center;

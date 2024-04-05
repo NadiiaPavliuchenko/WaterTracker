@@ -5,7 +5,7 @@ import { useState } from 'react';
 import sprite from 'src/assets/sprite.svg';
 import { ButtonBox, Icon } from './UserLogo.styled';
 
-const UserLogo = ({ name, email, avatarUrl }) => {
+const UserLogo = ({ name, email, avatarURL }) => {
   const [isOpenPopup, setIsOpen] = useState(false);
   const userName = name ? name : email;
 
@@ -17,8 +17,8 @@ const UserLogo = ({ name, email, avatarUrl }) => {
       <ButtonBox onClick={handleClick}>
         <div>{userName}</div>
         <div>
-          {avatarUrl ? (
-            <img src={avatarUrl} alt="avatar" />
+          {avatarURL ? (
+            <img src={avatarURL} alt="avatar" />
           ) : (
             <Icon>
               <use href={`${sprite}#user`}></use>
@@ -44,7 +44,7 @@ export default UserLogo;
 // import sprite from 'src/assets/sprite.svg';
 // import { ButtonBox, Icon } from './UserLogo.styled';
 
-// const UserLogo = ({ name, email, avatarUrl }) => {
+// const UserLogo = ({ name, email, avatarURL }) => {
 //   const [isOpenPopup, setIsOpen] = useState(false);
 //   const userName = name ? name : email;
 
@@ -56,8 +56,8 @@ export default UserLogo;
 //       <ButtonBox onClick={handleClick}>
 //         <div>{userName}</div>
 //         <div>
-//           {avatarUrl ? (
-//             <img src={avatarUrl} alt="avatar" />
+//           {avatarURL ? (
+//             <img src={avatarURL} alt="avatar" />
 //           ) : (
 //             <Icon>
 //               <use href={`${sprite}#user`}></use>
