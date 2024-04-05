@@ -5,6 +5,12 @@ export const ButtonBox = styled.div`
   align-items: center;
   justify-content: center;
   gap: 8px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
 `;
 
 export const Icon = styled.svg`
