@@ -1,15 +1,15 @@
-import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f as M,i as C,h as V,k as S,l as q,W as G}from"./index-620402ba.js";import{b as U}from"./bg_img_bubbles-c11f2eb9.js";const X=n.h3`
+import{u as n,r as x,a as k,j as e,e as A,b as v,g as Y,d as H,M as B,c as V,f as M,i as C,h as q,k as S,l as G,W as U}from"./index-af210d11.js";import{b as X}from"./bg_img_bubbles-c11f2eb9.js";const J=n.h3`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11111;
   color: #2f2f2f;
   margin-bottom: 16px;
-`,J=n.label`
+`,K=n.label`
   display: flex;
   gap: 24px;
   margin-bottom: 16px;
-`,R=n.label`
+`,I=n.label`
   display: flex;
   gap: 8px;
   font-family: 'Roboto', sans-serif;
@@ -17,7 +17,7 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
   font-size: 16px;
   line-height: 1.25;
   color: #2f2f2f;
-`,I=n.label`
+`,L=n.label`
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -75,11 +75,11 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
     line-height: 1.25;
     color: #9ebbff;
   }
-`,K=n.div`
+`,Q=n.div`
   display: flex;
   gap: 6px;
   align-items: center;
-`,Q=n.p`
+`,Z=n.p`
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -90,13 +90,13 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
   @media screen and (min-width: 768px) {
     width: auto;
   }
-`,Z=n.p`
+`,ee=n.p`
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.33333;
   color: #407bff;
-`,ee=n.label`
+`,te=n.label`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -106,7 +106,7 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
   flex-direction: column;
   gap: 16px;
   margin-bottom: 24px;
-`,te=n.button`
+`,ne=n.button`
   border-radius: 10px;
   padding: 8px 30px;
   width: 256px;
@@ -128,7 +128,7 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
 
     width: 160px;
   }
-`,ne=({closeModal:o})=>{const i=30 .toFixed(1),[a,l]=x.useState(""),r=p=>{const{value:h}=p.target,f=/^(\d+([.,]\d{0,1})?)?$/;var b=h;h.match(/^[.,]/)?b="0"+h:b=h.replace(/^0+([^.])/,"$1"),f.test(b)&&l(b)},d=k(),c=async p=>{p.preventDefault();const h=p.target.elements.dailyNorm.value*1e3;try{const{payload:f}=await d(P(h));f.user&&o()}catch(f){console.log("🚀 ~ error:",f)}};return e.jsxs("form",{onSubmit:c,children:[e.jsxs(ee,{children:["Write down how much water you will drink:",e.jsx($,{type:"number",name:"dailyNorm",value:a,onChange:r,placeholder:i})]}),e.jsx(te,{className:"confirm",type:"submit",children:"Save"})]})},oe=()=>{const o=v(A),[t,i]=x.useState(o),[a,l]=x.useState(""),[r,d]=x.useState(""),c=f=>{const{name:b,value:s}=f.target,y=/^(\d+([.,]\d{0,1})?)?$/;var m=s;switch(b){case"gender":i(s);break;case"weight":s.match(/^[.,]/)?m="0"+s:m=s.replace(/^0+([^.])/,"$1"),y.test(m)&&l(m);break;case"activeHours":s.match(/^[.,]/)?m="0"+s:m=s.replace(/^0+([^.])/,"$1"),y.test(m)&&d(m);break}},p=t==="woman"?a*.03+r*.4:a*.04+r*.6,h=Math.round(p*10)/10;return e.jsx("div",{children:e.jsxs("form",{action:"",children:[e.jsx(X,{children:"Calculate your rate:"}),e.jsxs(J,{children:[e.jsxs(R,{children:[e.jsx("input",{type:"radio",name:"gender",value:"woman",checked:t==="woman",onChange:c}),"For woman"]}),e.jsxs(R,{children:[e.jsx("input",{type:"radio",name:"gender",value:"man",checked:t==="man",onChange:c}),"For man"]})]}),e.jsxs(I,{children:["Your weight in kilograms:",e.jsx($,{type:"number",name:"weight",value:a,onChange:c,placeholder:"0"})]}),e.jsxs(I,{children:["The time of active participation in sports or other activities with a high physical. load in hours:",e.jsx($,{type:"number",name:"activeHours",value:r,onChange:c,placeholder:"0"})]}),e.jsxs(K,{children:[e.jsxs(Q,{children:["The required amount of water in liters per day:"," "]}),e.jsxs(Z,{children:[h," L"]})]})]})})},ie=n.div`
+`,oe=({closeModal:o})=>{const i=30 .toFixed(1),[a,l]=x.useState(""),r=p=>{const{value:h}=p.target,f=/^(\d+([.,]\d{0,1})?)?$/;var b=h;h.match(/^[.,]/)?b="0"+h:b=h.replace(/^0+([^.])/,"$1"),f.test(b)&&l(b)},d=k(),c=async p=>{p.preventDefault();const h=p.target.elements.dailyNorm.value*1e3;try{const{payload:f}=await d(A(h));f.user&&o()}catch(f){console.log("🚀 ~ error:",f)}};return e.jsxs("form",{onSubmit:c,children:[e.jsxs(te,{children:["Write down how much water you will drink:",e.jsx($,{type:"number",name:"dailyNorm",value:a,onChange:r,placeholder:i})]}),e.jsx(ne,{className:"confirm",type:"submit",children:"Save"})]})},ie=()=>{const o=v(Y),[t,i]=x.useState(o),[a,l]=x.useState(""),[r,d]=x.useState(""),c=f=>{const{name:b,value:s}=f.target,y=/^(\d+([.,]\d{0,1})?)?$/;var m=s;switch(b){case"gender":i(s);break;case"weight":s.match(/^[.,]/)?m="0"+s:m=s.replace(/^0+([^.])/,"$1"),y.test(m)&&l(m);break;case"activeHours":s.match(/^[.,]/)?m="0"+s:m=s.replace(/^0+([^.])/,"$1"),y.test(m)&&d(m);break}},p=t==="woman"?a*.03+r*.4:a*.04+r*.6,h=Math.round(p*10)/10;return e.jsx("div",{children:e.jsxs("form",{action:"",children:[e.jsx(J,{children:"Calculate your rate:"}),e.jsxs(K,{children:[e.jsxs(I,{children:[e.jsx("input",{type:"radio",name:"gender",value:"woman",checked:t==="woman",onChange:c}),"For woman"]}),e.jsxs(I,{children:[e.jsx("input",{type:"radio",name:"gender",value:"man",checked:t==="man",onChange:c}),"For man"]})]}),e.jsxs(L,{children:["Your weight in kilograms:",e.jsx($,{type:"number",name:"weight",value:a,onChange:c,placeholder:"0"})]}),e.jsxs(L,{children:["The time of active participation in sports or other activities with a high physical. load in hours:",e.jsx($,{type:"number",name:"activeHours",value:r,onChange:c,placeholder:"0"})]}),e.jsxs(Q,{children:[e.jsxs(Z,{children:["The required amount of water in liters per day:"," "]}),e.jsxs(ee,{children:[h," L"]})]})]})})},re=n.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -157,21 +157,21 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
     width: 592px;
     height: 712px;
   }
-`,re=n.div`
+`,ae=n.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
-`,ae=n.h2`
+`,se=n.h2`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 26px;
   line-height: 1.23077;
   color: #2f2f2f;
-`,se=n(Y)`
+`,le=n(H)`
   color: #407bff;
   cursor: pointer;
-`,le=n.div`
+`,de=n.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -181,33 +181,33 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
     flex-direction: row;
     gap: 24px;
   }
-`,L=n.p`
+`,T=n.p`
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
   color: #2f2f2f;
-`,T=n.span`
+`,_=n.span`
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.33333;
   color: #407bff;
-`,de=n.div`
+`,ce=n.div`
   border: 1px solid #d7e3ff;
   border-radius: 10px;
   padding: 10px;
   width: 100%;
   height: auto;
-`,ce=n.p`
+`,pe=n.p`
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33333;
   color: #8f8f8f;
-`,pe=n.span`
+`,he=n.span`
   color: #407bff;
-`,he=({isModalOpen:o,closeModal:t})=>e.jsx(e.Fragment,{children:o&&e.jsx(O,{onClose:t,children:e.jsxs(ie,{children:[e.jsxs("div",{children:[e.jsxs(re,{className:"topline",children:[e.jsx(ae,{children:"My daily norm"}),e.jsx(se,{className:"close",onClick:t})]}),e.jsxs(le,{children:[e.jsxs(L,{children:["For woman: ",e.jsx(T,{children:"V=(M*0,03) + (T*0,4)"})]}),e.jsxs(L,{children:["For man: ",e.jsx(T,{children:"V=(M*0,04) + (T*0,6)"})]})]}),e.jsx(de,{children:e.jsxs(ce,{children:[e.jsx(pe,{children:"*"}),"V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)"]})})]}),e.jsx("div",{children:e.jsx(oe,{})}),e.jsx("div",{children:e.jsx(ne,{closeModal:t})})]})})}),xe=()=>{const{waterRate:o}=v(H),[t,i]=x.useState(!1),a=()=>{i(!0)},l=()=>{i(!1)},r=(o/1e3).toFixed(1)+" L";return e.jsx("div",{children:e.jsxs("div",{children:[e.jsx("h2",{children:"My daily norma: "}),e.jsxs("div",{children:[e.jsx("p",{children:r}),e.jsx("button",{onClick:a,children:"Edit"})]}),e.jsx(he,{isModalOpen:t,closeModal:l})]})})},fe=({isModalOpen:o,closeModal:t})=>e.jsx(e.Fragment,{children:o&&e.jsx(O,{onClose:t,children:e.jsx("div",{})})}),me=n.div`
+`,xe=({isModalOpen:o,closeModal:t})=>e.jsx(e.Fragment,{children:o&&e.jsx(B,{onClose:t,children:e.jsxs(re,{children:[e.jsxs("div",{children:[e.jsxs(ae,{className:"topline",children:[e.jsx(se,{children:"My daily norm"}),e.jsx(le,{className:"close",onClick:t})]}),e.jsxs(de,{children:[e.jsxs(T,{children:["For woman: ",e.jsx(_,{children:"V=(M*0,03) + (T*0,4)"})]}),e.jsxs(T,{children:["For man: ",e.jsx(_,{children:"V=(M*0,04) + (T*0,6)"})]})]}),e.jsx(ce,{children:e.jsxs(pe,{children:[e.jsx(he,{children:"*"}),"V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)"]})})]}),e.jsx("div",{children:e.jsx(ie,{})}),e.jsx("div",{children:e.jsx(oe,{closeModal:t})})]})})}),fe=()=>{const{waterRate:o}=v(V),[t,i]=x.useState(!1),a=()=>{i(!0)},l=()=>{i(!1)},r=(o/1e3).toFixed(1)+" L";return e.jsx("div",{children:e.jsxs("div",{children:[e.jsx("h2",{children:"My daily norma: "}),e.jsxs("div",{children:[e.jsx("p",{children:r}),e.jsx("button",{onClick:a,children:"Edit"})]}),e.jsx(xe,{isModalOpen:t,closeModal:l})]})})},me=({isModalOpen:o,closeModal:t})=>e.jsx(e.Fragment,{children:o&&e.jsx(B,{onClose:t,children:e.jsx("div",{})})}),ge=n.div`
   display: flex;
   height: 90px;
   flex-direction: column;
@@ -242,7 +242,7 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
   @media screen and (min-width: 1440px) {
     margin-top: 466px;
   }
-`,ge=n.div`
+`,ue=n.div`
   */ .progress-bar-container {
     display: flex;
     flex-direction: column;
@@ -336,7 +336,7 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
       width: 340px;
     }
   }
-`,ue=n.button`
+`,be=n.button`
   width: 280px;
   height: 36px;
   padding: 6px 76px;
@@ -376,7 +376,7 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
     height: 44px;
     padding: 10px 30px;
   }
-`;var F={},be=C;Object.defineProperty(F,"__esModule",{value:!0});var W=F.default=void 0,ye=be(M()),we=e;W=F.default=(0,ye.default)((0,we.jsx)("path",{d:"M12 7c-.55 0-1 .45-1 1v3H8c-.55 0-1 .45-1 1s.45 1 1 1h3v3c0 .55.45 1 1 1s1-.45 1-1v-3h3c.55 0 1-.45 1-1s-.45-1-1-1h-3V8c0-.55-.45-1-1-1m0-5C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"}),"ControlPointRounded");const ve=o=>o.water.month,je=o=>{var t;return(t=o.water.dayInfo)==null?void 0:t.consumedWaterPercentage},$e=o=>o.water.dayDataLoading,ke=()=>{const[o,t]=x.useState(!1),i=v(je),a=k(),l=()=>{t(!0)},r=()=>{t(!1)},d=i>100?100:i;return x.useEffect(()=>{a(V())},[a]),e.jsx(e.Fragment,{children:e.jsxs(me,{children:[e.jsx("h3",{children:"Today"}),e.jsxs("div",{className:"box",children:[e.jsx(ge,{children:e.jsx("div",{className:"progress-bar-container",children:e.jsxs("div",{className:"progress-bar",children:[e.jsx("div",{className:"progress",style:{width:`${d}%`}}),e.jsx("div",{className:"marker-0",children:"0%"}),e.jsx("div",{className:"marker-50",children:"50%"}),e.jsx("div",{className:"marker-100",children:"100%"}),e.jsxs("div",{className:"indicator",style:{left:`${d}%`},children:[" ",e.jsx("p",{className:"progress-text",children:i>100?`${i}%`:`${d}%`})]})]})})}),e.jsxs(ue,{onClick:l,children:[e.jsx(W,{sx:{fill:"var(--primary-white)",width:"24px",height:"24px"}})," ",e.jsx("p",{children:"Add Water"})]})]}),o&&e.jsx(fe,{isModalOpen:o,closeModal:r})]})})},Me=()=>e.jsx("div",{children:"TodayWaterList"});var N={},Ce=C;Object.defineProperty(N,"__esModule",{value:!0});var B=N.default=void 0,Se=Ce(M()),Fe=e;B=N.default=(0,Se.default)((0,Fe.jsx)("path",{d:"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"}),"ArrowForwardIos");var D={},Ne=C;Object.defineProperty(D,"__esModule",{value:!0});var E=D.default=void 0,De=Ne(M()),ze=e;E=D.default=(0,De.default)((0,ze.jsx)("path",{d:"M11.67 3.87 9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"}),"ArrowBackIos");const g={colors:{white:"#FFFFFF",black:"#2F2F2F",blue:"#407BFF",red:"#EF5050",orange:"#FF9D43",grey:"#ECF2FF",violet:"#9EBBFF",violet_light:"#D7E3FF"},animation:{duration:"0.3s",cubicBezier:"cubic-bezier(0.5, 0, 0.2, 1)"}},Re=n.div`
+`;var F={},ye=C;Object.defineProperty(F,"__esModule",{value:!0});var W=F.default=void 0,we=ye(M()),ve=e;W=F.default=(0,we.default)((0,ve.jsx)("path",{d:"M12 7c-.55 0-1 .45-1 1v3H8c-.55 0-1 .45-1 1s.45 1 1 1h3v3c0 .55.45 1 1 1s1-.45 1-1v-3h3c.55 0 1-.45 1-1s-.45-1-1-1h-3V8c0-.55-.45-1-1-1m0-5C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"}),"ControlPointRounded");const je=o=>o.water.month,$e=o=>{var t;return(t=o.water.dayInfo)==null?void 0:t.consumedWaterPercentage},ke=o=>o.water.dayDataLoading,Me=()=>{const[o,t]=x.useState(!1),i=v($e),a=k(),l=()=>{t(!0)},r=()=>{t(!1)},d=i>100?100:i;return x.useEffect(()=>{a(q())},[a]),e.jsx(e.Fragment,{children:e.jsxs(ge,{children:[e.jsx("h3",{children:"Today"}),e.jsxs("div",{className:"box",children:[e.jsx(ue,{children:e.jsx("div",{className:"progress-bar-container",children:e.jsxs("div",{className:"progress-bar",children:[e.jsx("div",{className:"progress",style:{width:`${d}%`}}),e.jsx("div",{className:"marker-0",children:"0%"}),e.jsx("div",{className:"marker-50",children:"50%"}),e.jsx("div",{className:"marker-100",children:"100%"}),e.jsxs("div",{className:"indicator",style:{left:`${d}%`},children:[" ",e.jsx("p",{className:"progress-text",children:i>100?`${i}%`:`${d}%`})]})]})})}),e.jsxs(be,{onClick:l,children:[e.jsx(W,{sx:{fill:"var(--primary-white)",width:"24px",height:"24px"}})," ",e.jsx("p",{children:"Add Water"})]})]}),o&&e.jsx(me,{isModalOpen:o,closeModal:r})]})})},Ce=()=>e.jsx("div",{children:"TodayWaterList"});var N={},Se=C;Object.defineProperty(N,"__esModule",{value:!0});var E=N.default=void 0,Fe=Se(M()),Ne=e;E=N.default=(0,Fe.default)((0,Ne.jsx)("path",{d:"M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"}),"ArrowForwardIos");var D={},De=C;Object.defineProperty(D,"__esModule",{value:!0});var P=D.default=void 0,ze=De(M()),Re=e;P=D.default=(0,ze.default)((0,Re.jsx)("path",{d:"M11.67 3.87 9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"}),"ArrowBackIos");const g={colors:{white:"#FFFFFF",black:"#2F2F2F",blue:"#407BFF",red:"#EF5050",orange:"#FF9D43",grey:"#ECF2FF",violet:"#9EBBFF",violet_light:"#D7E3FF"},animation:{duration:"0.3s",cubicBezier:"cubic-bezier(0.5, 0, 0.2, 1)"}},Ie=n.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -423,15 +423,15 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
       line-height: calc(24 / 18);
     }
   }
-`,Ie=({calendarRef:o,refData:t,waterData:i={}})=>{const{dayOfMonth:a,waterRate:l,percent:r,numberRecords:d}=i,c=t==null?void 0:t.current.getBoundingClientRect().left,p=o==null?void 0:o.current.getBoundingClientRect().left;let h=!0;const f=c-p;return f<200&&(h=!1),e.jsx(Re,{$delta:h,$deltaNum:f,children:Object.values(i).length?e.jsxs(e.Fragment,{children:[e.jsx("h3",{children:a}),e.jsxs("p",{children:["Daily norma: ",e.jsxs("span",{children:[l/1e3," L"]})]}),e.jsxs("p",{children:["Fulfillment of the daily norm:"," ",e.jsxs("span",{children:[r>100?100:r,"%"]})]}),e.jsxs("p",{children:["How many servings of water: ",e.jsx("span",{children:d})]})]}):e.jsx("h3",{children:"You dont have records on this day."})})},Le=n.div`
+`,Le=({calendarRef:o,refData:t,waterData:i={}})=>{const{dayOfMonth:a,waterRate:l,percent:r,numberRecords:d}=i,c=t==null?void 0:t.current.getBoundingClientRect().left,p=o==null?void 0:o.current.getBoundingClientRect().left;let h=!0;const f=c-p;return f<200&&(h=!1),e.jsx(Ie,{$delta:h,$deltaNum:f,children:Object.values(i).length?e.jsxs(e.Fragment,{children:[e.jsx("h3",{children:a}),e.jsxs("p",{children:["Daily norma: ",e.jsxs("span",{children:[l/1e3," L"]})]}),e.jsxs("p",{children:["Fulfillment of the daily norm:"," ",e.jsxs("span",{children:[r>100?100:r,"%"]})]}),e.jsxs("p",{children:["How many servings of water: ",e.jsx("span",{children:d})]})]}):e.jsx("h3",{children:"You dont have records on this day."})})},Te=n.div`
   display: flex;
   flex-direction: column;
-`,Te=n.div`
+`,_e=n.div`
   display: flex;
   margin-bottom: 16px;
   justify-content: space-between;
   align-items: center;
-`,_e=n.h2`
+`,Oe=n.h2`
   color: ${g.colors.black};
   font-size: 24px;
   font-weight: 600;
@@ -441,7 +441,7 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
     font-size: 26px;
     line-height: calc(32 / 26);
   }
-`,_=n.button`
+`,O=n.button`
   width: 14px;
   height: 14px;
   padding: 0;
@@ -460,7 +460,7 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
     fill: ${g.colors.violet};
     cursor: not-allowed;
   }
-`,Oe=n.div`
+`,Be=n.div`
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -484,10 +484,10 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
   display: flex;
   align-items: center;
   justify-content: center;
-`,Be=n.span`
+`,Ee=n.span`
   font-size: 16px;
   line-height: 20px;
-`,Ee=n.span`
+`,Pe=n.span`
   color: ${g.colors.violet};
 
   font-size: 10px;
@@ -504,7 +504,7 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
     font-size: 12px;
     line-height: calc(18 / 12);
   }
-`,Pe=n.div`
+`,Ae=n.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -520,14 +520,14 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
   @media screen and (min-width: 1440px) {
     column-gap: 22px;
   }
-`,Ae=n.div`
+`,Ye=n.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-`,Ye=({calendarRef:o,day:t,waterPercentage:i})=>{const[a,l]=x.useState(null),r=x.useRef(null),d=p=>{r.current&&!r.current.contains(p.target)&&l(null)};x.useEffect(()=>(document.addEventListener("click",d),()=>{document.removeEventListener("click",d)}),[]);const c=()=>{l(p=>p===t?null:t)};return e.jsxs(Ae,{children:[e.jsx("div",{children:a===t&&e.jsx(Ie,{calendarRef:o,refData:r,waterData:i},t)}),e.jsx(Oe,{ref:r,onClick:()=>c(),$isOutlineVisible:!i||i.percent<100,children:t}),e.jsx(Ee,{children:i?`${Math.min(i.percent,100)}%`:"0%"})]},t)},He="#4fa94d",Ve={"aria-busy":!0,role:"progressbar"},qe=n.div`
+`,He=({calendarRef:o,day:t,consumedWaterPercentag:i})=>{const[a,l]=x.useState(null),r=x.useRef(null),d=p=>{r.current&&!r.current.contains(p.target)&&l(null)};x.useEffect(()=>(document.addEventListener("click",d),()=>{document.removeEventListener("click",d)}),[]);const c=()=>{l(p=>p===t?null:t)};return e.jsxs(Ye,{children:[e.jsx("div",{children:a===t&&e.jsx(Le,{calendarRef:o,refData:r,waterData:i},t)}),e.jsx(Be,{ref:r,onClick:()=>c(),$isOutlineVisible:!i||i.percent<100,children:t}),e.jsx(Pe,{children:i?`${Math.min(i.percent,100)}%`:"0%"})]},t)},Ve="#4fa94d",qe={"aria-busy":!0,role:"progressbar"},Ge=n.div`
   display: ${o=>o.$visible?"flex":"none"};
-`,Ge="http://www.w3.org/2000/svg",u=242.776657104492,Ue=1.6,Xe=S`
+`,Ue="http://www.w3.org/2000/svg",u=242.776657104492,Xe=1.6,Je=S`
 12.5% {
   stroke-dasharray: ${u*.14}px, ${u}px;
   stroke-dashoffset: -${u*.11}px;
@@ -543,13 +543,13 @@ import{u as n,r as x,a as k,j as e,e as P,b as v,g as A,d as Y,M as O,c as H,f a
 `;n.path`
   stroke-dasharray: ${u*.01}px, ${u};
   stroke-dashoffset: 0;
-  animation: ${Xe} ${Ue}s linear infinite;
-`;const Je=S`
+  animation: ${Je} ${Xe}s linear infinite;
+`;const Ke=S`
 to {
    transform: rotate(360deg);
  }
 `;n.svg`
-  animation: ${Je} 0.75s steps(12, end) infinite;
+  animation: ${Ke} 0.75s steps(12, end) infinite;
   animation-duration: 0.75s;
 `;n.polyline`
   stroke-width: ${o=>o.width}px;
@@ -598,17 +598,17 @@ to {
   &:nth-child(12n + 11) {
     stroke-opacity: 0.92;
   }
-`;const Ke=({height:o=80,width:t=80,radius:i=9,color:a=He,ariaLabel:l="three-dots-loading",wrapperStyle:r,wrapperClass:d,visible:c=!0})=>e.jsx(qe,{style:r,$visible:c,className:d,"data-testid":"three-dots-loading","aria-label":l,...Ve,children:e.jsxs("svg",{width:t,height:o,viewBox:"0 0 120 30",xmlns:Ge,fill:a,"data-testid":"three-dots-svg",children:[e.jsxs("circle",{cx:"15",cy:"15",r:Number(i)+6,children:[e.jsx("animate",{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}),e.jsx("animate",{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"})]}),e.jsxs("circle",{cx:"60",cy:"15",r:i,attributeName:"fill-opacity",from:"1",to:"0.3",children:[e.jsx("animate",{attributeName:"r",from:"9",to:"9",begin:"0s",dur:"0.8s",values:"9;15;9",calcMode:"linear",repeatCount:"indefinite"}),e.jsx("animate",{attributeName:"fill-opacity",from:"0.5",to:"0.5",begin:"0s",dur:"0.8s",values:".5;1;.5",calcMode:"linear",repeatCount:"indefinite"})]}),e.jsxs("circle",{cx:"105",cy:"15",r:Number(i)+6,children:[e.jsx("animate",{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}),e.jsx("animate",{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"})]})]})}),Qe=S`
+`;const Qe=({height:o=80,width:t=80,radius:i=9,color:a=Ve,ariaLabel:l="three-dots-loading",wrapperStyle:r,wrapperClass:d,visible:c=!0})=>e.jsx(Ge,{style:r,$visible:c,className:d,"data-testid":"three-dots-loading","aria-label":l,...qe,children:e.jsxs("svg",{width:t,height:o,viewBox:"0 0 120 30",xmlns:Ue,fill:a,"data-testid":"three-dots-svg",children:[e.jsxs("circle",{cx:"15",cy:"15",r:Number(i)+6,children:[e.jsx("animate",{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}),e.jsx("animate",{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"})]}),e.jsxs("circle",{cx:"60",cy:"15",r:i,attributeName:"fill-opacity",from:"1",to:"0.3",children:[e.jsx("animate",{attributeName:"r",from:"9",to:"9",begin:"0s",dur:"0.8s",values:"9;15;9",calcMode:"linear",repeatCount:"indefinite"}),e.jsx("animate",{attributeName:"fill-opacity",from:"0.5",to:"0.5",begin:"0s",dur:"0.8s",values:".5;1;.5",calcMode:"linear",repeatCount:"indefinite"})]}),e.jsxs("circle",{cx:"105",cy:"15",r:Number(i)+6,children:[e.jsx("animate",{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}),e.jsx("animate",{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"})]})]})}),Ze=S`
 to {
    stroke-dashoffset: 136;
  }
 `;n.polygon`
   stroke-dasharray: 17;
-  animation: ${Qe} 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+  animation: ${Ze} 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
 `;n.svg`
   transform-origin: 50% 65%;
-`;const Ze=o=>{const[t,i]=x.useState(new Date),a=k(),l=x.useRef(null),r=v(ve),d=v($e);x.useEffect(()=>{const s=new Date(t.getFullYear(),t.getMonth(),1),y=new Date(t.getFullYear(),t.getMonth()+1,0),m=s.toISOString().split("T")[0],w=y.toISOString().split("T")[0],j=`${m} , ${w}`;a(q(j)),console.log(j)},[a,t,o]);const c=()=>{const s=new Date(t.getFullYear(),t.getMonth()+1,1);i(s)},p=()=>{const s=new Date(t.getFullYear(),t.getMonth()-1,1);i(s)},h=()=>{const s=new Date;return t.getMonth()===s.getMonth()&&t.getFullYear()===s.getFullYear()},f=()=>new Date(t.getFullYear(),t.getMonth()+1,0).getDate(),b=()=>{const s=f();return Array.from({length:s},(y,m)=>{const w=m+1,j=r==null?void 0:r.find(z=>z.dayOfMonth&&Number(z.dayOfMonth.split(",")[0])===w);return e.jsx(Ye,{calendarRef:l,day:w,waterPercentage:j},w)})};return e.jsxs(Le,{className:"calendar",ref:l,children:[e.jsxs(Te,{children:[e.jsx(_e,{children:"Month"}),d&&e.jsx(Ke,{height:"60",width:"60",radius:"9",color:g.colors.blue,ariaLabel:"three-dots-loading",wrapperStyle:{height:"30px",width:"40px",display:"flex",alignItems:"center",justifyContent:"center"},wrapperClassName:"",visible:!0}),e.jsxs(We,{children:[e.jsx(_,{"aria-label":"Previous month",onClick:p,children:e.jsx(E,{sx:{color:g.colors.blue}})}),e.jsx(Be,{children:`${new Intl.DateTimeFormat("en-US",{month:"long"}).format(t)}, ${t.getFullYear()}`}),e.jsx(_,{"aria-label":"Next month",onClick:c,disabled:h(),children:e.jsx(B,{sx:{color:g.colors.blue}})})]})]}),e.jsx(Pe,{children:b()})]})},et=n.div`
-  background-image: url(${U});
+`;const et=o=>{const[t,i]=x.useState(new Date),a=k(),l=x.useRef(null),r=v(je),d=v(ke);x.useEffect(()=>{const s=new Date(t.getFullYear(),t.getMonth(),1),y=new Date(t.getFullYear(),t.getMonth()+1,0),m=s.toISOString().split("T")[0],w=y.toISOString().split("T")[0],j={startDate:m,endDate:w};a(G(j)),console.log(j)},[a,t,o]);const c=()=>{const s=new Date(t.getFullYear(),t.getMonth()+1,1);i(s)},p=()=>{const s=new Date(t.getFullYear(),t.getMonth()-1,1);i(s)},h=()=>{const s=new Date;return t.getMonth()===s.getMonth()&&t.getFullYear()===s.getFullYear()},f=()=>new Date(t.getFullYear(),t.getMonth()+1,0).getDate(),b=()=>{const s=f();return Array.from({length:s},(y,m)=>{var z;const w=m+1,j=((z=r==null?void 0:r.find(R=>R.dayOfMonth&&Number(R.dayOfMonth.split(",")[0])===w))==null?void 0:z.consumedWaterPercentage)||0;return e.jsx(He,{calendarRef:l,day:w,consumedWaterPercentag:j},w)})};return e.jsxs(Te,{className:"calendar",ref:l,children:[e.jsxs(_e,{children:[e.jsx(Oe,{children:"Month"}),d&&e.jsx(Qe,{height:"60",width:"60",radius:"9",color:g.colors.blue,ariaLabel:"three-dots-loading",wrapperStyle:{height:"30px",width:"40px",display:"flex",alignItems:"center",justifyContent:"center"},wrapperClassName:"",visible:!0}),e.jsxs(We,{children:[e.jsx(O,{"aria-label":"Previous month",onClick:p,children:e.jsx(P,{sx:{color:g.colors.blue}})}),e.jsx(Ee,{children:`${new Intl.DateTimeFormat("en-US",{month:"long"}).format(t)}, ${t.getFullYear()}`}),e.jsx(O,{"aria-label":"Next month",onClick:c,disabled:h(),children:e.jsx(E,{sx:{color:g.colors.blue}})})]})]}),e.jsx(Ae,{children:b()})]})},tt=n.div`
+  background-image: url(${X});
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0;
@@ -620,12 +620,12 @@ to {
   @media screen and (min-width: 1440px) {
     flex-direction: row;
   }
-`,tt=n.div`
+`,nt=n.div`
   flex: 1;
   padding: 30px 0;
   display: flex;
   flex-direction: column;
-`,nt=n.div`
+`,ot=n.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -634,4 +634,4 @@ to {
   @media screen and (min-width: 768px) {
     flex: 1;
   }
-`,rt=()=>e.jsx(G,{children:e.jsxs(et,{children:[e.jsxs(tt,{children:[e.jsx(xe,{}),e.jsx(ke,{})]}),e.jsxs(nt,{children:[e.jsx(Me,{}),e.jsx(Ze,{})]})]})});export{rt as default};
+`,at=()=>e.jsx(U,{children:e.jsxs(tt,{children:[e.jsxs(nt,{children:[e.jsx(fe,{}),e.jsx(Me,{})]}),e.jsxs(ot,{children:[e.jsx(Ce,{}),e.jsx(et,{})]})]})});export{at as default};
