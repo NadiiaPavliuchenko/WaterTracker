@@ -33,13 +33,13 @@ export const Calendar = (dailyNormaState) => {
   const waterForMonth = useSelector(getCurrentMonth);
   const isLoading = useSelector(getIsDayDataLoading);
 
-  useEffect(() => {
-    const month = `${
-      currentDate.getMonth() + 1
-    } - ${currentDate.getFullYear()}`;
+  // useEffect(() => {
+  //   const month = `${
+  //     currentDate.getMonth() + 1
+  //   } - ${currentDate.getFullYear()}`;
 
-    dispatch(getCurrentMonthInfoThunk(month));
-  }, [dispatch, currentDate, dailyNormaState]);
+  //   dispatch(getCurrentMonthInfoThunk(month));
+  // }, [dispatch, currentDate, dailyNormaState]);
 
   // ===============================================================
 
@@ -48,32 +48,33 @@ export const Calendar = (dailyNormaState) => {
 
   // ============================================================================
 
-  // useEffect(() => {
-  //   // Получаем первый и последний день текущего месяца
-  //   const firstDayOfMonth = new Date(
-  //     currentDate.getFullYear(),
-  //     currentDate.getMonth(),
-  //     1
-  //   );
-  //   const lastDayOfMonth = new Date(
-  //     currentDate.getFullYear(),
-  //     currentDate.getMonth() + 1,
-  //     0
-  //   );
+  useEffect(() => {
+    // Получаем первый и последний день текущего месяца
+    const firstDayOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      1
+    );
+    const lastDayOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      0
+    );
 
-  //   // Формируем строку для запроса, содержащую начальную и конечную дату месяца
-  //   const startDate = firstDayOfMonth.toISOString().split('T')[0];
-  //   const endDate = lastDayOfMonth.toISOString().split('T')[0];
-  //   // const dateRange = `${startDate} , ${endDate}`;
-  //   const dateRange = {
-  //     startDate,
-  //     endDate,
-  //   };
+    // Формируем строку для запроса, содержащую начальную и конечную дату месяца
+    const startDate = firstDayOfMonth.toISOString().split('T')[0];
+    const endDate = lastDayOfMonth.toISOString().split('T')[0];
 
-  //   // Вызываем thunk, передавая в него начальную и конечную дату месяца
-  //   dispatch(getCurrentMonthInfoThunk(dateRange));
-  //   console.log(dateRange);
-  // }, [dispatch, currentDate, dailyNormaState]);
+    const dateRange = `${startDate} , ${endDate}`;
+    // const dateRange = {
+    //   startDate,
+    //   endDate,
+    // };
+
+    // Вызываем thunk, передавая в него начальную и конечную дату месяца
+    dispatch(getCurrentMonthInfoThunk(dateRange));
+    console.log(dateRange);
+  }, [dispatch, currentDate, dailyNormaState]);
 
   // =========================================================================
 
