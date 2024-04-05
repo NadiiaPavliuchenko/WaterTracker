@@ -35,11 +35,11 @@ export const LogoModalMenu = styled.div`
   }
 
   @media screen and (max-width: 375px) {
-    transform: translateX(-20vw) translateY(14vw);
+    transform: translateX(-12vw) translateY(16vw);
     width: 120px;
   }
   @media screen and (max-width: 320px) {
-    transform: translateX(-20vw) translateY(20vw);
+    transform: translateX(-5vw) translateY(19vw);
   }
 `;
 
