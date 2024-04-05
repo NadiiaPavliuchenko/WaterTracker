@@ -10,35 +10,35 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 24px 0;
-  height: 50vh;
-  width: 50vw;
-  background-color: rgba(0, 0, 255, 0.5);
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--primary-white);
   z-index: 9999;
-  border-radius: 24px;
-
-  @media screen and (max-width: 319px) {
-    padding: 40% 0;
-    border-radius: 0;
-    height: 100vh;
-    width: 100vw;
-  }
 
   h2 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    color: var(--primary-blue);
     font-size: calc(24px + (36 - 24) * (100vw - 320px) / (1280 - 320));
   }
-
+  @media screen and (max-width: 319px) {
+    padding: 40% 0;
+  }
 `;
 
 export const Bottle = styled.div`
   margin: auto;
   perspective: 25em;
   position: relative;
-  width: 11em;
-  height: 11em;
+  width: 10em;
+  height: 10em;
+  color: var(--primary-blue);
   font-size: calc(24px + (36 - 24) * (100vw - 320px) / (1280 - 320));
   font:
-    bold 1em/1.5 'DM Mono',
+    bold 1.2em/1.5 'DM Mono',
     monospace;
 
   .bottle__sides,

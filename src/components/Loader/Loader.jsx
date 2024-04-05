@@ -1,9 +1,12 @@
 import { Bottle, Wrapper } from './Loader.styled';
 
+import WavesAnimation from '../Animation/WavesAnimation';
+
 const Loader = () => {
   return (
     <Wrapper>
       <h2>Pour water...</h2>
+      <WavesAnimation style={{ zIndex: '9999' }} />
       <Bottle>
         <div className="bottle__sides">
           <div className="bottle__side">
