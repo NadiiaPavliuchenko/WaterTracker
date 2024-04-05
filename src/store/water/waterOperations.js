@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getMonthInfoAPI } from '../../services/getStatistic';
 import { toastError, toastSuccess } from '../../services/notification';
 
 axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
@@ -8,15 +7,16 @@ axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 //статистика за поточний місяць
 export const getCurrentMonthInfoThunk = createAsyncThunk(
   'water/getMonth',
-  async (_, thunkAPI) => {
+  async (date, thunkAPI) => {
+    const { startDate, endDate } = date;
     try {
-      const currentDate = new Date();
-
-      const currentMonth = await getMonthInfoAPI({
-        month: currentDate.getMonth() + 1,
-        year: currentDate.getFullYear(),
+      const { data } = await axios.get('month', {
+        params: {
+          startDate,
+          endDate,
+        },
       });
-      return currentMonth;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
