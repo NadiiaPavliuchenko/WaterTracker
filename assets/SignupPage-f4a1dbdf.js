@@ -1,4 +1,4 @@
-import{u as x,C as m,D as p,K as g,j as e,F as f,E as b,G as l,H as d,A as i,a as u,b as w,N as j,W as y,I as N,O as h,Q as S}from"./index-8c8fb967.js";import{b as k,a as v,c as P,d as F}from"./bottle_desk_2x-0e16256e.js";const _=x.div`
+import{u as x,D as m,E as p,N as g,j as e,F as f,G as b,H as l,I as d,A as i,a as u,b as w,O as j,W as y,J as N,Q as h,S}from"./index-774720a8.js";import{b as k,a as v,c as P,d as F}from"./bottle_desk_2x-0e16256e.js";const _=x.div`
 @media screen and (min-width: 320px) {
 .form {   
     margin-top: 16px;
@@ -163,4 +163,4 @@ color: #407bff;
         position: relative;
     }
 }
-`,E=()=>{const a=u(),o=w(j);function r(n){a(S(n))}return e.jsxs(e.Fragment,{children:[e.jsx(R,{children:e.jsx(y,{children:e.jsx("div",{className:"wrapper",children:e.jsxs("div",{className:"formCont",children:[e.jsx("h2",{className:"title",children:"Sign Up"}),e.jsx(z,{submitFunc:r}),e.jsx(N,{className:"link",to:"/signin",children:"Sign In"}),e.jsx("img",{className:"bottle",alt:"bottle of water",src:F})]})})})}),o?e.jsx(h,{to:"/signin"}):e.jsx(h,{to:"/signup"})]})};export{E as default};
+`,I=()=>{const a=u(),o=w(j);function r(n){a(S(n))}return e.jsxs(e.Fragment,{children:[e.jsx(R,{children:e.jsx(y,{children:e.jsx("div",{className:"wrapper",children:e.jsxs("div",{className:"formCont",children:[e.jsx("h2",{className:"title",children:"Sign Up"}),e.jsx(z,{submitFunc:r}),e.jsx(N,{className:"link",to:"/signin",children:"Sign In"}),e.jsx("img",{className:"bottle",alt:"bottle of water",src:F})]})})})}),o?e.jsx(h,{to:"/signin"}):e.jsx(h,{to:"/signup"})]})};export{I as default};
