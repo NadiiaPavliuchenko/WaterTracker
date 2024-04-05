@@ -60,10 +60,15 @@ export const Calendar = (dailyNormaState) => {
       0
     );
 
+    // lastDayOfMonth.setDate(lastDayOfMonth.getDate() + 1);
     // Формируем строку для запроса, содержащую начальную и конечную дату месяца
     const startDate = firstDayOfMonth.toISOString().split('T')[0];
     const endDate = lastDayOfMonth.toISOString().split('T')[0];
-    const dateRange = `${startDate} , ${endDate}`;
+    // const dateRange = `${startDate} , ${endDate}`;
+    const dateRange = {
+      startDate,
+      endDate,
+    };
 
     // Вызываем thunk, передавая в него начальную и конечную дату месяца
     dispatch(getCurrentMonthInfoThunk(dateRange));
