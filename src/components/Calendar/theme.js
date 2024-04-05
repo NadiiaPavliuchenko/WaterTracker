@@ -10,7 +10,7 @@ export const baseTheme = {
     violet_light: '#D7E3FF',
   },
   animation: {
-    duration: '0.25s',
-    cubicBezier: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    duration: '0.3s',
+    cubicBezier: 'cubic-bezier(0.5, 0, 0.2, 1)',
   },
 };

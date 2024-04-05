@@ -7,6 +7,7 @@ import {
   changeUserAvatarAPI,
   changeUserSettingsAPI,
   fetchUserData,
+  verificateUser,
 } from './authOperations';
 
 const initialState = {
@@ -107,12 +108,19 @@ const authSlice = createSlice({
         state.authIsLoading = true;
       })
       .addCase(fetchUserData.fulfilled, (state, { payload }) => {
-        state.user = { ...state.user, ...payload.user };
-        state.token = payload.token;
+        state.user = { ...state.user, ...payload };
       })
       .addCase(fetchUserData.rejected, (state) => {
         state.user = { ...initialState.user };
         state.token = null;
+      })
+
+      .addCase(verificateUser.pending, (state) => {
+        state.authIsLoading = true;
+      })
+      // .addCase(verificateUser.fulfilled, (state, { payload }) => {})
+      .addCase(verificateUser.rejected, (state) => {
+        state.authIsLoading = false;
       });
   },
 });
