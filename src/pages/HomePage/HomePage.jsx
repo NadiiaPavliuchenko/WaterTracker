@@ -4,7 +4,7 @@ import TodayWaterList from 'components/TodayWaterList/TodayWaterList';
 import { Calendar } from 'components/Calendar/Month/Month';
 import Wrapper from 'components/Wrapper/Wrapper';
 import { HomeSection, HomeStatistics, BottleSection } from './HomePage.styled';
-
+import bg_desk_1x from '../../assets/images/background/RegisterLoginPage/Desk/bg_desk_1x.png';
 
 
 const HomePage = () => {

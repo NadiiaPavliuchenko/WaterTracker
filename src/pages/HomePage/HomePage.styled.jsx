@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
-import backgroundBubbles from '../../assets/images/background/WelcomePage/desktop/bg_img_bubbles.png';
-import bottle from '../../assets/images/background/WelcomePage/desktop/bottle_home_screen.png';
-
+import bg_desk_1x from '../../assets/images/background/RegisterLoginPage/Desk/bg_desk_1x.png';
 
 
 export const HomeSection = styled.div`
-  background-image: url(${backgroundBubbles}); 
+  background-image: url(${bg_desk_1x}); 
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0;
