@@ -1,19 +1,22 @@
 import TodayListModal from 'components/TodayListModal/TodayListModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   AddWaterBtn,
   Container,
   ProgressContainer,
 } from './WaterRatioPanel.styled';
 import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getCurrentPercentage } from '../../store/water/waterSelectors';
+import { getCurrentDayInfoThunk } from '../../store/water/waterOperations';
 
 const WaterRatioPanel = () => {
   const [openList, setOpenList] = useState(false);
   const progressPercentage = useSelector(getCurrentPercentage);
+  const dispatch = useDispatch();
+
   // const progressPercentage = 80;
-  console.log('progressPercentage :>> ', progressPercentage);
+
   const handleOpenClick = () => {
     setOpenList(true);
   };
@@ -22,6 +25,10 @@ const WaterRatioPanel = () => {
     setOpenList(false);
   };
   const progress = progressPercentage > 100 ? 100 : progressPercentage;
+
+  useEffect(() => {
+    dispatch(getCurrentDayInfoThunk());
+  }, [dispatch]);
 
   return (
     <Container>

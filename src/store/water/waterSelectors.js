@@ -14,6 +14,7 @@ export const getIsDeleting = (state) => state.water.isDeleting;
 export const getIsAddingDrink = (state) => state.water.isAddDrinkLoading;
 export const getIsEditingDrink = (state) => state.water.isEditingDrink;
 export const getIsEditingNorm = (state) => state.water.isEditingNorm;
+export const selectorIsLoadingMonth = (state) => state.dataMonth.isLoading;
 
 //Errors
 export const getDayError = (state) => state.water.dayError;

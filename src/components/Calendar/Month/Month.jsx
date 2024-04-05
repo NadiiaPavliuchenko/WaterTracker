@@ -3,7 +3,10 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentMonthInfoThunk } from '../../../store/water/waterOperations';
-import { getCurrentMonth } from '../../../store/water/waterSelectors';
+import {
+  getCurrentMonth,
+  getIsDayDataLoading,
+} from '../../../store/water/waterSelectors';
 
 import DayComponent from '../Day/Day';
 
@@ -23,19 +26,51 @@ import { baseTheme } from '../theme';
 export const Calendar = (dailyNormaState) => {
   // аргумент "dailyNormaState" принимаем информацию о дневной норме потребления воды;
   const [currentDate, setCurrentDate] = useState(new Date()); // текущая дата + функция состояния; currentDate = текущая дата;
-  const [isLoading] = useState(); // состояние загрузки;
+  // const [isLoading] = useState(); // состояние загрузки;
   const dispatch = useDispatch();
   const ref = useRef(null);
   const waterForMonth = useSelector(getCurrentMonth);
-  // const isLoading = useSelector(selectorIsLoadingMonth);
+  const isLoading = useSelector(getIsDayDataLoading);
+
+  // useEffect(() => {
+  //   const month = `${
+  //     currentDate.getMonth() + 1
+  //   } - ${currentDate.getFullYear()}`;
+
+  //   dispatch(getCurrentMonthInfoThunk(month));
+  // }, [dispatch, currentDate, dailyNormaState]);
+
+  // ===============================================================
+
+  // const currentDate = useSelector((state) => state.currentDate); // Предположим, что есть стейт currentDate
+  // const dailyNormaState = useSelector((state) => state.dailyNormaState); // Предположим, что есть стейт dailyNormaState
+
+  // ============================================================================
 
   useEffect(() => {
-    const month = `${
-      currentDate.getMonth() + 1
-    } - ${currentDate.getFullYear()}`;
+    // Получаем первый и последний день текущего месяца
+    const firstDayOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      1
+    );
+    const lastDayOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      0
+    );
 
-    dispatch(getCurrentMonthInfoThunk(month));
+    // Формируем строку для запроса, содержащую начальную и конечную дату месяца
+    const startDate = firstDayOfMonth.toISOString().split('T')[0];
+    const endDate = lastDayOfMonth.toISOString().split('T')[0];
+    const dateRange = `${startDate} , ${endDate}`;
+
+    // Вызываем thunk, передавая в него начальную и конечную дату месяца
+    dispatch(getCurrentMonthInfoThunk(dateRange));
+    console.log(dateRange);
   }, [dispatch, currentDate, dailyNormaState]);
+
+  // =========================================================================
 
   const handleNextMonth = () => {
     // вызове функции handleNextMonth() текущая дата обновляется на первый день следующего месяца;
@@ -93,7 +128,6 @@ export const Calendar = (dailyNormaState) => {
           //TODO: вставить процентаж
 
           waterPercentage={waterPercentage}
-
         />
       );
     });

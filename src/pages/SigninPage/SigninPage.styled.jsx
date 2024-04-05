@@ -30,7 +30,7 @@ line-height: 1.25;
 color: #407bff;
 }
 .bottle {
-    margin-top: 40px;
+    // margin-top: 40px;
     position: relative;
     width: 280px;
     z-index: -10;
@@ -38,11 +38,15 @@ color: #407bff;
 }
 @media screen and (min-width: 768px) {
     background-image: url(${bg_tab_register_1x});
+    .wrapper {
+        width: 100%;
+        position: relative;
+    }
     .bottle {    
         width: 736px; 
         position: absolute;
-        top: 100px;
-        left: 90px;
+        top: 0;
+        left: 100px;
     }
 
 }
@@ -54,13 +58,17 @@ color: #407bff;
     .bottle {    
         width: 916px; 
         position: absolute;
-        top: 80px;
-        left: -51px;
+        top: 30px;
+        left: -100px;
     }
     .formCont {
         position: absolute;
-        top: 200px;
-        right: 216px;
+        top: 120px;
+        right: 90px;
+    }
+    .wrapper {
+        width: 100%;
+        position: relative;
     }
 }
 `
