@@ -26,6 +26,7 @@ import { getCurrentUser } from '../../store/auth/authSelectors';
 import {
   changeUserAvatarAPI,
   changeUserSettingsAPI,
+  fetchUserData,
 } from '../../store/auth/authOperations';
 
 import sprite from '../../assets/sprite.svg';
@@ -43,10 +44,7 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
   const [showPassword, setShowPassword] = useState([false, false, false]);
   const [newAvatar, setNewAvatar] = useState(user.avatarURL);
   const [initialValues, setInitialValues] = useState({
-    gender: user.gender,
-    name: user.name,
-    email: user.email,
-    avatarURL: user.avatarURL,
+    ...user,
     outdatedPassword: '',
     password: '',
     repeatedPassword: '',
@@ -124,16 +122,14 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
 
     delete changedValues.repeatedPassword;
 
-    dispatch(changeUserSettingsAPI(changedValues));
-    // console.log(changedValues);
-    setInitialValues({
-      ...values,
-      outdatedPassword: '',
-      password: '',
-      repeatedPassword: '',
-    });
-
-    onModalClose();
+    if (Object.keys(changedValues).length === 0) {
+      onModalClose();
+    } else {
+      dispatch(changeUserSettingsAPI(changedValues)).then(() => {
+        setInitialValues(dispatch(fetchUserData()));
+        onModalClose();
+      });
+    }
   };
 
   return (
@@ -202,7 +198,7 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                             control={<CustomRadio disableTouchRipple />}
                             label="Man"
                             name="gender"
-                            defaultChecked={formik.values.gender === 'man'}
+                            checked={formik.values.gender === 'man'}
                             onChange={() =>
                               formik.setFieldValue('gender', 'man')
                             }
