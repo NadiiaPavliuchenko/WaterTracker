@@ -97,7 +97,7 @@ const authSlice = createSlice({
         state.isDataUpdating = true;
       })
       .addCase(changeUserSettingsAPI.fulfilled, (state, { payload }) => {
-        state.user = { ...state.user, ...payload.user };
+        state.user = { ...state.user, ...payload };
         state.isDataUpdating = false;
       })
       .addCase(changeUserSettingsAPI.rejected, (state) => {
@@ -108,8 +108,7 @@ const authSlice = createSlice({
         state.authIsLoading = true;
       })
       .addCase(fetchUserData.fulfilled, (state, { payload }) => {
-        state.user = { ...state.user, ...payload.user };
-        state.token = payload.token;
+        state.user = { ...state.user, ...payload };
       })
       .addCase(fetchUserData.rejected, (state) => {
         state.user = { ...initialState.user };

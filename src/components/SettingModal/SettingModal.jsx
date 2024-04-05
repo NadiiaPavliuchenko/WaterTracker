@@ -26,6 +26,7 @@ import { getCurrentUser } from '../../store/auth/authSelectors';
 import {
   changeUserAvatarAPI,
   changeUserSettingsAPI,
+  fetchUserData,
 } from '../../store/auth/authOperations';
 
 import sprite from '../../assets/sprite.svg';
@@ -43,12 +44,11 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
   const [showPassword, setShowPassword] = useState([false, false, false]);
   const [newAvatar, setNewAvatar] = useState(user.avatarURL);
   const [initialValues, setInitialValues] = useState({
-    gender: user.gender,
     name: user.name,
     email: user.email,
-    avatarURL: user.avatarURL,
-    outdatedPassword: '',
-    password: '',
+    gender: user.gender,
+    oldPassword: '',
+    newPassword: '',
     repeatedPassword: '',
   });
 
@@ -81,17 +81,17 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
     name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
     email: Yup.string().email('Invalid email'),
     gender: Yup.string().matches(/(woman|man)/),
-    outdatedPassword: Yup.string()
+    oldPassword: Yup.string()
       .min(8, 'Password must be at least 8 characters')
       .max(64),
-    password: Yup.string()
+    newPassword: Yup.string()
       .min(8, 'Password must be at least 8 characters')
       .max(64)
-      .when('outdatedPassword', (outdatedPassword, schema) => {
-        if (typeof outdatedPassword[0] !== 'undefined') {
+      .when('oldPassword', (oldPassword, schema) => {
+        if (typeof oldPassword[0] !== 'undefined') {
           return schema
             .notOneOf(
-              [Yup.ref('outdatedPassword'), null],
+              [Yup.ref('oldPassword'), null],
               'New password must not match the old one'
             )
             .required('New password is required');
@@ -101,11 +101,11 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
     repeatedPassword: Yup.string()
       .min(8, 'Password must be at least 8 characters')
       .max(64)
-      .when('password', (password, schema) => {
-        if (typeof password[0] !== 'undefined') {
+      .when('newPassword', (newPassword, schema) => {
+        if (typeof newPassword[0] !== 'undefined') {
           return schema
             .oneOf(
-              [Yup.ref('password')],
+              [Yup.ref('newPassword')],
               'Repeted password must match new password'
             )
             .required('Repeted password is required');
@@ -115,25 +115,28 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
   });
 
   const handleSubmit = (values) => {
-    const changedValues = {};
+    const payload = { basicInfo: {} };
     Object.keys(values).forEach((key) => {
-      if (values[key] !== initialValues[key]) {
-        changedValues[key] = values[key];
+      if (values[key] !== '') {
+        if (['name', 'gender', 'email'].includes(key)) {
+          payload.basicInfo[key] = values[key];
+        } else if (['oldPassword', 'newPassword'].includes(key)) {
+          if (!payload.securityCredentials) {
+            payload.securityCredentials = {};
+          }
+          payload.securityCredentials[key] = values[key];
+        }
       }
     });
 
-    delete changedValues.repeatedPassword;
+    delete payload.repeatedPassword;
 
-    dispatch(changeUserSettingsAPI(changedValues));
-    // console.log(changedValues);
-    setInitialValues({
-      ...values,
-      outdatedPassword: '',
-      password: '',
-      repeatedPassword: '',
+    console.log(payload);
+
+    dispatch(changeUserSettingsAPI(payload)).then(() => {
+      setInitialValues(dispatch(fetchUserData()));
+      onModalClose();
     });
-
-    onModalClose();
   };
 
   return (
@@ -202,7 +205,7 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                             control={<CustomRadio disableTouchRipple />}
                             label="Man"
                             name="gender"
-                            defaultChecked={formik.values.gender === 'man'}
+                            checked={formik.values.gender === 'man'}
                             onChange={() =>
                               formik.setFieldValue('gender', 'man')
                             }
@@ -244,17 +247,17 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                       <div>
                         <FormSubtitle>Password</FormSubtitle>
                         <PasswordFormGroup>
-                          <SmallLabel htmlFor="outdatedPassword">
+                          <SmallLabel htmlFor="oldPassword">
                             Outdated Password:
                           </SmallLabel>
                           <StyledField
                             type={showPassword[0] ? 'text' : 'password'}
-                            name="outdatedPassword"
+                            name="oldPassword"
                             placeholder="Password"
                             autoComplete="current-password"
                             error={
-                              formik.errors.outdatedPassword &&
-                              formik.touched.outdatedPassword
+                              formik.errors.oldPassword &&
+                              formik.touched.oldPassword
                             }
                           />
                           <VisibilityIconsWrapper
@@ -270,11 +273,11 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                               </StyledSvg>
                             )}
                           </VisibilityIconsWrapper>
-                          {formik.errors.outdatedPassword &&
-                            formik.touched.outdatedPassword && (
+                          {formik.errors.oldPassword &&
+                            formik.touched.oldPassword && (
                               <RedError
                                 className="error"
-                                name="outdatedPassword"
+                                name="oldPassword"
                                 component="div"
                               />
                             )}
@@ -285,12 +288,13 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                           </SmallLabel>
                           <StyledField
                             type={showPassword[1] ? 'text' : 'password'}
-                            name="password"
+                            name="newPassword"
                             className="form-control"
                             placeholder="Password"
                             autoComplete="current-password"
                             error={
-                              formik.errors.password && formik.touched.password
+                              formik.errors.newPassword &&
+                              formik.touched.newPassword
                             }
                           />
                           <VisibilityIconsWrapper
@@ -306,11 +310,11 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                               </StyledSvg>
                             )}
                           </VisibilityIconsWrapper>
-                          {formik.errors.password &&
-                            formik.touched.password && (
+                          {formik.errors.newPassword &&
+                            formik.touched.newPassword && (
                               <RedError
                                 className="error"
-                                name="password"
+                                name="newPassword"
                                 component="div"
                               />
                             )}
