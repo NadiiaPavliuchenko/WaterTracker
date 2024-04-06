@@ -9,30 +9,53 @@ const TodayWaterList = () => {
   console.log(dayInfoTrunks)
   console.log(dayInfoTrunks.waterIntakes)
   const TestDateDailyInfo = [
-    { "14:00" : "200ml" },
-    { "14:30": "300ml" },
-    { "14:30": "300ml" },
-    {"14:30": "300ml"}
+    {
+      id: 1,
+      volume: "200 ml",
+      date: 14.02
+    },
+    {
+      id: 2,
+      volume: "200 ml",
+      date: 14.45
+    },
+    {
+      id: 3,
+      volume: "150 ml",
+      date: 16.10
+    },
+    {
+      id: 4,
+      volume: "50 ml",
+      date: 18.00
+    },
+    {
+      id: 5,
+      volume: "300 ml",
+      date: 19.00
+    },
+    {
+      id: 6,
+      volume: "100 ml",
+      date: 21.00
+    }
   ]
-// const start = Date.now()
-// console.log(start)
-  const time = Object.keys(TestDateDailyInfo)
-  const value = Object.values(TestDateDailyInfo)
-  console.log(time)
-  console.log(value)
+  const data = TestDateDailyInfo.map((item) =>
+    ([item.id, item.date, item.volume]))
+  console.log(data)
 
 
   return <>
     <h3>Today</h3>
     <ul>
-      {}
-    <li>     
+      {TestDateDailyInfo.length > 0 ? TestDateDailyInfo.map((item) => (
+        <li key={ item.id}>     
       <svg width="17" height="22" stroke="#9ebbff" fill="none">
           <use href={ sprite + "#water-glass" }></use>
       </svg>
       <div>
-      <span>200 ml</span>
-        <span>14:00 PM</span>
+            <span>{item.volume }</span>
+        <span>{item.date }</span>
       </div>
       <div>
         <svg width="16" height="16" stroke="#9ebbff" fill="none">
@@ -43,7 +66,8 @@ const TodayWaterList = () => {
           <use href={sprite + "#trash"}></use>
         </svg>
         </div>
-      </li>
+      </li>)): <p>you haven't drinks on that day</p>}
+    
       </ul>
     <h3>+ Add water</h3>
     </>
