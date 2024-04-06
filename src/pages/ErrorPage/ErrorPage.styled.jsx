@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 
   p {
     font-size: 18px;
-    margin-top: 0;
+    margin-bottom: 20px;
     color: #407bff;
   }
 
