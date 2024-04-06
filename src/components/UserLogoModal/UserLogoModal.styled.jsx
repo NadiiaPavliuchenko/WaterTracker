@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const LogoModalMenu = styled.div`
   position: absolute;
   border-radius: 10px;
@@ -15,8 +16,14 @@ export const LogoModalMenu = styled.div`
   margin-top: 2px;
   transform-origin: top;
   right: 0;
+
+
   /* transform: translateX(-18.5vw) translateY(3.2vw); */
   transform: translateX(-27vw) translateY(2.5vw);
+
+  @media screen and (max-width: 1920px) {
+    transform: translateX(-16vw) translateY(3.8vw);
+  }
  
   @media screen and (max-width: 1440px) {
     transform: translateX(-9vw) translateY(4.2vw);
