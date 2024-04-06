@@ -42,6 +42,7 @@ const defaultTheme = {
   device: {
     mobile: '(min-width: 320px)',
     tablet: '(min-width: 768px)',
+    tabletMax: '(max-width: 767px)',
     desktop: '(min-width: 1440px)',
   },
 };
