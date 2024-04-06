@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const LogoModalMenu = styled.div`
   position: absolute;
   border-radius: 10px;
@@ -15,15 +16,21 @@ export const LogoModalMenu = styled.div`
   margin-top: 2px;
   transform-origin: top;
   right: 0;
-  transform: translateX(-18.5vw) translateY(3.2vw);
-  
 
+
+  /* transform: translateX(-18.5vw) translateY(3.2vw); */
+  transform: translateX(-27vw) translateY(2.5vw);
+
+  @media screen and (max-width: 1920px) {
+    transform: translateX(-16vw) translateY(3.8vw);
+  }
+ 
   @media screen and (max-width: 1440px) {
-    transform: translateX(-9vw) translateY(4vw);
+    transform: translateX(-9vw) translateY(4.2vw);
   }
 
   @media screen and (max-width: 1024px) {
-    transform: translateX(-16vw) translateY(5.7vw);
+    transform: translateX(-16vw) translateY(6vw);
   }
 
   @media screen and (max-width: 768px) {
@@ -31,7 +38,7 @@ export const LogoModalMenu = styled.div`
   }
 
   @media screen and (max-width: 425px) {
-    transform: translateX(-17vw) translateY(14vw);
+    transform: translateX(-17vw) translateY(14.2vw);
     width: 120px;
   }
 

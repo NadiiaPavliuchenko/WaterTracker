@@ -10,6 +10,7 @@ export const LabelStyled = styled.label`
   flex-direction: column;
   gap: 16px;
   margin-bottom: 24px;
+  position: relative;
 `;
 
 export const ButtonStyled = styled.button`
@@ -34,4 +35,12 @@ export const ButtonStyled = styled.button`
 
     width: 160px;
   }
+`;
+
+export const MessageOfError = styled.p`
+  color: red; /* Set the text color to red */
+  position: absolute; /* Position out of the document flow */
+  bottom: -20px; /* Position below the input */
+  left: 0; /* Align to the left of the input */
+  font-size: 0.8rem; /* Smaller font size */
 `;

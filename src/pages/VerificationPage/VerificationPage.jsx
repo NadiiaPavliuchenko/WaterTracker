@@ -12,19 +12,20 @@ const VerificationPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const verify = async () => {
+    const verifyUser = async () => {
       try {
         await dispatch(verificateUser(verificationToken)).unwrap();
 
-        setLoading(false);
         navigate('/signin');
       } catch (error) {
         navigate('/signup');
+      } finally {
+        setLoading(false);
       }
     };
 
-    verify();
-  }, [dispatch, verificationToken, navigate]);
+    verifyUser();
+  }, [dispatch, navigate, verificationToken]);
 
   if (loading) {
     return <Loader />;

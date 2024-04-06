@@ -31,10 +31,8 @@ export const signUpAPI = createAsyncThunk(
       );
       return res.data;
     } catch (error) {
-      toastError(
-        `Something went wrong. Please try again or log in`,
-        getErrorMessage(error)
-      );
+      console.log('error during sign up', getErrorMessage(error));
+      toastError(getErrorMessage(error).toString());
 
       throw error;
     }
@@ -91,6 +89,17 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
+/**
+ * Thunk action for user verification.
+ *
+ * @param {String} token - The verification token associated with the user's account.
+ * @param {Function} thunkAPI - The thunk API for dispatching actions and reading state.
+ *
+ * Sends a PATCH request to the server's verification endpoint with the provided token.
+ *
+ * This action is typically dispatched when a user attempts to verify their account using a token received via email.
+ */
+
 export const verificateUser = createAsyncThunk(
   'auth/verificateUser',
   async (token, thunkAPI) => {
@@ -106,15 +115,28 @@ export const verificateUser = createAsyncThunk(
     }
   }
 );
-//TODO: обработать post "/api/auth/verify" reVerificateUser body: {email}
+
+/**
+ * Thunk action for user re-verification.
+ *
+ * @param {String} email - The email address of the user to be re-verified.
+ * @param {Function} thunkAPI - The thunk API for dispatching actions and reading state.
+ *
+ * Sends a POST request to the server's email verification endpoint with the user's email.
+ *
+ * This action is typically dispatched when a user needs to re-verify their email address, possibly due to the initial verification link expiring.
+ */
+
 export const reVerificateUser = createAsyncThunk(
   'auth/reVerificateUser',
   async (email, thunkAPI) => {
     try {
       const { data } = await axios.post('auth/verify', email);
+
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      toastError(getErrorMessage(error));
+      return thunkAPI.rejectWithValue(getErrorMessage(error));
     }
   }
 );
@@ -167,6 +189,56 @@ export const fetchUserData = createAsyncThunk(
   }
 );
 
-// TODO опрацювати запит post    "/api/auth/recover-password"                       sendLetterForUserPAssworwRecovery        body: {email}
+/**
+ * Thunk action for sending a password recovery email.
+ *
+ * @param {String} email - The email address to which the recovery email will be sent.
+ * @param {Function} thunkAPI - The thunk API for dispatching actions and reading state.
+ *
+ * Sends a POST request to the server's password recovery endpoint with the user's email.
+ *
+ * This action is typically dispatched when a user requests to recover their password, triggering an email with instructions on how to reset it.
+ */
 
-// TODO patch    "/api/auth/recover-password/:passwordRecoveryToken"                          recoverUserPassword        body: {password}
+export const sendRecoveryEmail = createAsyncThunk(
+  'auth/sendRecoveryEmail',
+  async (email, thunkAPI) => {
+    try {
+      const { data } = await axios.post('auth/recover', email);
+
+      toastSuccess(data.message);
+
+      return data;
+    } catch (error) {
+      toastError(getErrorMessage(error));
+      return thunkAPI.rejectWithValue(getErrorMessage(error));
+    }
+  }
+);
+
+/**
+ * Thunk action for password recovery.
+ *
+ * @param {Object} payload - An object containing the verification token and new password.
+ * @param {Function} thunkAPI - The thunk API for dispatching actions and reading state.
+ *
+ * Sends a PATCH request to the server's password verification endpoint with the token and new password.
+ *
+ * This action is typically dispatched when a user attempts to recover their password using a token received via email.
+ */
+
+export const recoverPassword = createAsyncThunk(
+  'auth/recoverPassword',
+  async ({ token, password }, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`auth/recover/${token}`, { password });
+
+      toastSuccess(data.message);
+
+      return data;
+    } catch (error) {
+      toastError(getErrorMessage(error));
+      return thunkAPI.rejectWithValue(getErrorMessage(error));
+    }
+  }
+);

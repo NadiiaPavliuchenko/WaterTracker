@@ -1,13 +1,19 @@
 import UserLogoModal from 'components/UserLogoModal/UserLogoModal';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState } from 'react';
 import sprite from 'src/assets/sprite.svg';
-import { ButtonBox, Icon } from './UserLogo.styled';
+import { ButtonBox, AvatarStile, Icon, IconStyle } from './UserLogo.styled';
 
-const UserLogo = ({ name, email, avatarUrl }) => {
+const UserLogo = ({ name, email, avatarURL }) => {
   const [isOpenPopup, setIsOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
   const userName = name ? name : email;
+
+  const handleError = () => {
+    setHasError(true);
+  };
 
   const handleClick = () => {
     setIsOpen(!isOpenPopup);
@@ -16,16 +22,25 @@ const UserLogo = ({ name, email, avatarUrl }) => {
     <>
       <ButtonBox onClick={handleClick}>
         <div>{userName}</div>
-        <div>
-          {avatarUrl ? (
-            <img src={avatarUrl} alt="avatar" />
-          ) : (
-            <Icon>
-              <use href={`${sprite}#user`}></use>
-            </Icon>
-          )}
-        </div>
-        {isOpenPopup ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+
+        {!hasError ? (
+          <AvatarStile>
+            <div>
+              <IconStyle src={avatarURL} alt="avatar" onError={handleError} />
+            </div>
+          </AvatarStile>
+        ) : (
+          <Icon>
+            <use href={`${sprite}#user`}></use>
+          </Icon>
+        )}
+
+        <KeyboardArrowUpIcon
+          style={{
+            transform: isOpenPopup ? 'rotate(180deg)' : 'rotate(0deg)',
+            transition: 'transform 0.5s ease-in-out',
+          }}
+        />
         {/* {isOpenPopup && <UserLogoModal />} */}
       </ButtonBox>
       {isOpenPopup && (
@@ -44,7 +59,7 @@ export default UserLogo;
 // import sprite from 'src/assets/sprite.svg';
 // import { ButtonBox, Icon } from './UserLogo.styled';
 
-// const UserLogo = ({ name, email, avatarUrl }) => {
+// const UserLogo = ({ name, email, avatarURL }) => {
 //   const [isOpenPopup, setIsOpen] = useState(false);
 //   const userName = name ? name : email;
 
@@ -56,8 +71,8 @@ export default UserLogo;
 //       <ButtonBox onClick={handleClick}>
 //         <div>{userName}</div>
 //         <div>
-//           {avatarUrl ? (
-//             <img src={avatarUrl} alt="avatar" />
+//           {avatarURL ? (
+//             <img src={avatarURL} alt="avatar" />
 //           ) : (
 //             <Icon>
 //               <use href={`${sprite}#user`}></use>

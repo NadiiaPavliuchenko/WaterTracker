@@ -35,6 +35,7 @@ export const InputWrapper = styled.label`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  position: relative;
 `;
 
 export const InputStyled = styled.input`

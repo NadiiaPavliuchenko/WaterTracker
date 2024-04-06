@@ -131,8 +131,6 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
 
     delete payload.repeatedPassword;
 
-    console.log(payload);
-
     dispatch(changeUserSettingsAPI(payload)).then(() => {
       setInitialValues(dispatch(fetchUserData()));
       onModalClose();

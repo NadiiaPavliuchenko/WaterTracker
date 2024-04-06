@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Wrapper } from './ErrorPage.styled';
+import BubblesAnimation from '../../components/Animation/BubblesAnimation';
 
 const ErrorPage = () => {
   const handleGoBack = () => {
@@ -8,11 +9,7 @@ const ErrorPage = () => {
 
   return (
     <Wrapper>
-      <div className="bubble"></div>
-      <div className="bubble"></div>
-      <div className="bubble"></div>
-      <div className="bubble"></div>
-      <div className="bubble"></div>
+      <BubblesAnimation />
       <div className="main">
         <h1>404</h1>
         <p>
