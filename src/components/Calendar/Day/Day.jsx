@@ -31,7 +31,7 @@ const DayComponent = ({ calendarRef, day, consumedWaterPercentage }) => {
             key={day}
             calendarRef={calendarRef}
             refData={ref}
-            waterData={consumedWaterPercentage}
+            waterDay={consumedWaterPercentage}
           />
         )}
       </div>
