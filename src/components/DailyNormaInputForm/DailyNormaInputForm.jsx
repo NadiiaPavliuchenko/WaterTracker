@@ -1,14 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { getCurrentNorm } from '../../store/water/waterSelectors';
 import { editDailyNorm } from '../../store/water/waterOperations';
 import { useState } from 'react';
 import { InputStyled } from '../DailyNormaCalcForm/DailyNormaCalcFormStyled';
 import { ButtonStyled, LabelStyled } from './DailyNormaInputFormStyled';
-import { getCurrentNorm } from '../../store/water/waterSelectors';
 
 export const DailyNormaInputForm = ({ closeModal }) => {
-  const dailyNorm = useSelector(getCurrentNorm);
-
+  // const dailyNorm = useSelector(getCurrentNorm);
+  const dailyNorm = 30000;
   const dailyNormLiters = (dailyNorm / 1000).toFixed(1);
 
   const [dailyWaterNorm, setDailyWaterNorm] = useState('');
