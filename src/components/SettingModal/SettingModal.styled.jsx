@@ -6,18 +6,6 @@ import Radio from '@mui/material/Radio';
 import { Box } from '@mui/material';
 import { Field, ErrorMessage } from 'formik';
 
-const size = {
-  mobile: '320px',
-  tablet: '768px',
-  desktop: '1440px',
-};
-
-const device = {
-  mobile: `(min-width: ${size.mobile})`,
-  tablet: `(min-width: ${size.tablet})`,
-  desktop: `(min-width: ${size.desktop})`,
-};
-
 export const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
   clipPath: 'inset(50%)',
@@ -32,22 +20,21 @@ export const VisuallyHiddenInput = styled('input')({
 
 export const ModalBox = styled(Box)`
   border-radius: 10px;
-  border: 1px solid black;
   padding: 32px 12px;
   width: 280px;
   position: absolute;
-  background-color: var(--primary-white);
+  background-color: ${({ theme }) => theme.color.white};
   top: 50%;
   left: 50%;
   max-height: 90vh;
   overflow-y: auto;
   scrollbar-width: none;
   transform: translate(-50%, -50%);
-  @media ${device.tablet} {
+  @media ${({ theme }) => theme.device.tablet} {
     padding: 32px 24px 64px 24px;
     width: 704px;
   }
-  @media ${device.desktop} {
+  @media ${({ theme }) => theme.device.desktop} {
     padding: 32px 24px;
     width: 1008px;
   }
@@ -66,36 +53,36 @@ export const TitleWrapper = styled.div`
 
 export const Title = styled.h2`
   font-size: 26px;
-  font-family: var(--roboto-bold);
+  font-family: 'Roboto-Bold';
 `;
 
 export const StyledCloseSvg = styled.svg`
   fill: transparent;
-  stroke: var(--primary-blue);
+  stroke: ${({ theme }) => theme.color.blue};
   transform: rotate(45deg);
   cursor: pointer;
 `;
 
 export const FormSubtitle = styled.h3`
   font-size: 18px;
-  font-family: var(--roboto-bold);
+  font-family: 'Roboto-Bold';
   margin-bottom: 12px;
 `;
 
 export const FormLabel = styled.label`
   font-size: 18px;
-  font-family: var(--roboto-bold);
+  font-family: 'Roboto-Bold';
 `;
 
 export const SmallControlLabel = styled(FormControlLabel)`
   font-size: 16px;
   height: 14px;
-  font-family: var(--roboto-regular);
+  font-family: 'Roboto-Regular';
 `;
 
 export const SmallLabel = styled.label`
   font-size: 16px;
-  font-family: var(--roboto-regular);
+  font-family: 'Roboto-Regular';
 `;
 
 export const FilePickerWrapper = styled.div`
@@ -117,26 +104,26 @@ export const FilePickerLink = styled(Link)`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  color: var(--primary-blue);
-  font-family: var(--roboto-medium);
+  color: ${({ theme }) => theme.color.blue};
+  font-family: 'Roboto-Medium';
   font-size: 14px;
 `;
 
 export const StyledRadioGroup = styled(RadioGroup)`
   margin-bottom: 24px;
-  @media ${device.desktop} {
+  @media ${({ theme }) => theme.device.desktop} {
     margin-bottom: 52px;
   }
 `;
 
 export const CustomRadio = styled(Radio)`
   &.Mui-checked {
-    color: var(--primary-blue);
+    color: ${({ theme }) => theme.color.blue};
   }
   && .MuiSvgIcon-root {
     width: 14px;
     height: 14px;
-    color: var(--primary-blue);
+    color: ${({ theme }) => theme.color.blue};
   }
 
   &&:hover,
@@ -158,7 +145,7 @@ export const PasswordFormGroup = styled.div`
   &:not(:last-child) {
     margin-bottom: 12px;
   }
-  @media ${device.mobile} {
+  @media ${({ theme }) => theme.device.mobile} {
     &:last-child {
       margin-bottom: 24px;
     }
@@ -169,65 +156,64 @@ export const VisibilityIconsWrapper = styled.div`
   position: absolute;
   top: 40px;
   left: 229px;
-  @media ${device.tablet} {
+  @media ${({ theme }) => theme.device.tablet} {
     top: 40px;
     left: 365px;
   }
-  color: var(--primary-blue);
+  color: ${({ theme }) => theme.color.blue};
 `;
 
 export const StyledField = styled(Field)`
   border: 1px solid
-    ${(props) =>
-      props.error ? 'var(--secondary-red)' : 'var(--secondary-pale-blue)'};
+    ${({ theme, error }) => (error ? theme.color.red : theme.color.paleBlue)};
   border-radius: 6px;
   padding: 12px 10px 12px 10px;
   margin-top: 8px;
-  color: ${(props) =>
-    props.error ? 'var(--secondary-red)' : 'var(--primary-blue)'};
+  background-color: transparent;
+  color: ${({ theme, error }) => (error ? theme.color.red : theme.color.blue)};
   font-size: 16px;
   &::placeholder {
-    color: ${(props) =>
-      props.error ? 'var(--secondary-red)' : 'var(--primary-blue)'};
+    color: ${({ theme, error }) =>
+      error ? theme.color.red : theme.color.blue};
   }
   &:hover,
   &:focus {
     outline: none;
   }
-  @media ${device.tablet} {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 392px;
     height: 44px;
   }
 `;
 
 export const FormContentWrapper = styled.div`
-  @media ${device.desktop} {
+  @media ${({ theme }) => theme.device.desktop} {
     display: flex;
     gap: 24px;
   }
 `;
 
 export const SubmitButton = styled.button`
-  background-color: var(--primary-blue);
+  background-color: ${({ theme }) => theme.color.blue};
   border: none;
   border-radius: 10px;
   padding: 8px 30px;
   width: 256px;
   height: 36px;
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
-  font-family: var(--roboto-bold);
+  box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
+  font-family: 'Roboto-Bold';
   font-size: 18px;
   text-align: center;
-  color: var(--primary-white);
+  color: ${({ theme }) => theme.color.white};
   &:hover,
   &:focus {
-    box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
+    box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
   }
   &:active {
-    box-shadow: none;
+    box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
   }
 
-  @media ${device.tablet} {
+  @media ${({ theme }) => theme.device.tablet} {
     float: right;
     width: 160px;
   }
@@ -235,9 +221,9 @@ export const SubmitButton = styled.button`
 
 export const StyledSvg = styled.svg`
   fill: transparent;
-  stroke: var(--primary-blue);
+  stroke: ${({ theme }) => theme.color.blue};
 `;
 
 export const RedError = styled(ErrorMessage)`
-  color: var(--secondary-red);
+  color: ${({ theme }) => theme.color.red};
 `;
