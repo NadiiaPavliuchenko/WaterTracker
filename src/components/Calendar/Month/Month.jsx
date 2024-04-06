@@ -137,10 +137,19 @@ export const Calendar = () => {
 
       // }
 
+      // const renderDays = () => {
+      //   const daysInMonth = getDaysInMonth();
+      //   return Array.from({ length: daysInMonth }, (_, index) => {
+      //     const day = index + 1;
+      //     const consumedWaterPercentage = waterForMonth?.find(
+      //       (item) =>
+      //         item.dayOfMonth && Number(item.dayOfMonth.split(',')[0]) === day
+      //     );
+
       return (
         <DayComponent
           key={day}
-          dailyWaterGoal={ref}
+          calendarRef={ref}
           day={day}
           //TODO: вставить процентаж
 
