@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const ContainerHeader = styled.div`
   display: flex;
@@ -78,7 +78,7 @@ export const UserAuthBtn = styled.button`
   background-color: transparent;
   padding: 0px;
   color: rgb(64, 123, 255);
-  border: 0px;
+  border: 0px solid transparent;
   transition: transform 0.5s ease;
 
   &:hover,
