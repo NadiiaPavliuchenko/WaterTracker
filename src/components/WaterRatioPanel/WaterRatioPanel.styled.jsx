@@ -4,32 +4,41 @@ export const Container = styled.div`
   display: flex;
   height: 90px;
   flex-direction: column;
-  align-items: center;
-  gap: 23px;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 232px;
+  margin-bottom: 40px;
 
+  h3 {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: var(--primary-blue);
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    gap: 43px;
+  }
   @media screen and (min-width: 768px) {
-    flex-direction: row;
+    margin-top: 326px;
+
+    .box {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 466px;
   }
 `;
 
 export const ProgressContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  /* justify-content: center; */
-  height: 100%;
-
-  h3 {
-    font-family: inherit;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    margin-bottom: 8px;
-    color: var(--primary-blue);
-  }
-
-  .progress-bar-container {
+  */ .progress-bar-container {
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -56,7 +65,7 @@ export const ProgressContainer = styled.div`
     top: -100%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 14px;
+    font-size: 12px;
     color: var(--primary-blue);
   }
 
@@ -65,8 +74,14 @@ export const ProgressContainer = styled.div`
   .marker-100 {
     position: absolute;
     bottom: -20px;
+
+    color: var(--primary-blue);
+
+    font-family: inherit;
     font-size: 12px;
-    color: #666666;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
   }
   .marker-100 {
     right: -50px;

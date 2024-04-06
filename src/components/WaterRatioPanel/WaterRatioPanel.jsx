@@ -31,44 +31,58 @@ const WaterRatioPanel = () => {
   }, [dispatch]);
 
   return (
-    <Container>
-      {/* Progress Bar */}
-      <ProgressContainer>
+    <>
+      <Container>
+        {/* Progress Bar */}
         <h3>Today</h3>
-        <div className="progress-bar-container">
-          <div className="progress-bar">
-            <div className="progress" style={{ width: `${progress}%` }}></div>
-            <div className="marker-0">0%</div>
-            <div className="marker-50">50%</div>
-            <div className="marker-100">100%</div>
-            <div
-              className="indicator"
-              style={{
-                left: `${progress}%`,
-              }}
-            >
-              {' '}
-              <p className="progress-text">
-                {progressPercentage > 100
-                  ? `${progressPercentage}%`
-                  : `${progress}%`}
-              </p>
+        <div className="box">
+          <ProgressContainer>
+            <div className="progress-bar-container">
+              <div className="progress-bar">
+                <div
+                  className="progress"
+                  style={{ width: `${progress}%` }}
+                ></div>
+                <div className="marker-0">0%</div>
+                <div className="marker-50">50%</div>
+                <div className="marker-100">100%</div>
+                <div
+                  className="indicator"
+                  style={{
+                    left: `${progress}%`,
+                  }}
+                >
+                  {' '}
+                  <p className="progress-text">
+                    {progressPercentage > 100
+                      ? `${progressPercentage}%`
+                      : `${progress}%`}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </ProgressContainer>
+          </ProgressContainer>
 
-      {/* Add Water Button */}
-      <AddWaterBtn onClick={handleOpenClick}>
-        <ControlPointRoundedIcon
-          sx={{ fill: 'var(--primary-white)', width: '24px', height: '24px' }}
-        />{' '}
-        <p>Add Water</p>
-      </AddWaterBtn>
-      {openList && (
-        <TodayListModal isModalOpen={openList} closeModal={handleCloseClick} />
-      )}
-    </Container>
+          {/* Add Water Button */}
+          <AddWaterBtn onClick={handleOpenClick}>
+            <ControlPointRoundedIcon
+              sx={{
+                fill: 'var(--primary-white)',
+                width: '24px',
+                height: '24px',
+              }}
+            />{' '}
+            <p>Add Water</p>
+          </AddWaterBtn>
+        </div>
+        {openList && (
+          <TodayListModal
+            isModalOpen={openList}
+            closeModal={handleCloseClick}
+          />
+        )}
+      </Container>
+    </>
   );
 };
 
