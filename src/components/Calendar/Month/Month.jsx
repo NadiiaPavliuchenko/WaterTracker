@@ -122,8 +122,20 @@ export const Calendar = (dailyNormaState) => {
     const daysInMonth = getDaysInMonth();
     return Array.from({ length: daysInMonth }, (_, index) => {
       const day = index + 1;
-      const waterPercentage =
+      const consumedWaterPercentage =
         waterForMonth && waterForMonth[index]?.consumedWaterPercentage;
+
+      // const renderDays = () => {
+      //   const daysInMonth = getDaysInMonth();
+      //   const renderedDays = [];
+
+      //   for (let i = 1; i <= daysInMonth; i++) {
+      //     const consumedWaterPercentage = waterForMonth && waterForMonth[i - 1]?.consumedWaterPercentage;
+      //     renderedDays.push({ day: i, consumedWaterPercentage });
+      //   }
+      //   return renderedDays;
+
+      // }
 
       return (
         <DayComponent
@@ -132,7 +144,7 @@ export const Calendar = (dailyNormaState) => {
           day={day}
           //TODO: вставить процентаж
 
-          consumedWaterPercentage={waterPercentage}
+          consumedWaterPercentage={consumedWaterPercentage}
         />
       );
     });
