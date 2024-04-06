@@ -169,4 +169,35 @@ export const fetchUserData = createAsyncThunk(
 
 // TODO опрацювати запит post    "/api/auth/recover-password"                       sendLetterForUserPAssworwRecovery        body: {email}
 
+export const recoverUserPassword = createAsyncThunk(
+  'auth/recoverUserPassword',
+  async (email, thunkAPI) => {
+    try {
+      const { data } = await axios.post('auth/recover-password', email);
+      toastSuccess(data.message);
+      return data;
+    } catch (error) {
+      toastError(getErrorMessage(error));
+      return thunkAPI.rejectWithValue(getErrorMessage(error));
+    }
+  }
+);
+
 // TODO patch    "/api/auth/recover-password/:passwordRecoveryToken"                          recoverUserPassword        body: {password}
+
+export const recoverUserPasswordAPI = createAsyncThunk(
+  'auth/recoverUserPasswordAPI',
+  async (password, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(
+        'auth/recover-password/:passwordRecoveryToken',
+        password
+      );
+      toastSuccess(data.message);
+      return data;
+    } catch (error) {
+      toastError(getErrorMessage(error));
+      return thunkAPI.rejectWithValue(getErrorMessage(error));
+    }
+  }
+);
