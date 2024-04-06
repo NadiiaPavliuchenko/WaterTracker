@@ -1,4 +1,4 @@
-import{u as t,r as f,a as k,j as e,e as P,b as w,g as A,d as Y,M as W,c as H,f as M,i as C,h as V,k as F,l as q,W as G}from"./index-55d1f774.js";import{b as U}from"./bg_img_bubbles-c11f2eb9.js";const X=t.h3`
+import{u as t,r as f,a as k,j as e,e as P,b as w,g as A,d as Y,M as W,c as H,f as M,i as C,h as V,k as F,l as q,W as G}from"./index-6ada348d.js";import{b as U}from"./bg_img_bubbles-c11f2eb9.js";const X=t.h3`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -254,7 +254,7 @@ import{u as t,r as f,a as k,j as e,e as P,b as w,g as A,d as Y,M as W,c as H,f a
 `,ue=t.div`
  display: flex;
   gap: 12px;
-`,be=()=>{const{waterRate:o}=w(H),[n,i]=f.useState(!1),a=()=>{i(!0)},l=()=>{i(!1)},r=(o/1e3).toFixed(1)+" L";return e.jsxs(xe,{children:[e.jsx(fe,{children:"My daily norma: "}),e.jsxs(ue,{children:[e.jsx(me,{children:r}),e.jsx(ge,{onClick:a,children:"Edit"})]}),e.jsx(he,{isModalOpen:n,closeModal:l})]})},ye=({isModalOpen:o,closeModal:n})=>e.jsx(e.Fragment,{children:o&&e.jsx(W,{onClose:n,children:e.jsx("div",{})})}),we=t.div`
+`,be=()=>{const{dailyWaterGoal:o}=w(H),[n,i]=f.useState(!1),a=()=>{i(!0)},l=()=>{i(!1)},r=(o/1e3).toFixed(1)+" L";return e.jsxs(xe,{children:[e.jsx(fe,{children:"My daily norma: "}),e.jsxs(ue,{children:[e.jsx(me,{children:r}),e.jsx(ge,{onClick:a,children:"Edit"})]}),e.jsx(he,{isModalOpen:n,closeModal:l})]})},ye=({isModalOpen:o,closeModal:n})=>e.jsx(e.Fragment,{children:o&&e.jsx(W,{onClose:n,children:e.jsx("div",{})})}),we=t.div`
   display: flex;
   height: 90px;
   flex-direction: column;
