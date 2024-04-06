@@ -20,7 +20,6 @@ export const VisuallyHiddenInput = styled('input')({
 
 export const ModalBox = styled(Box)`
   border-radius: 10px;
-  border: 1px solid black;
   padding: 32px 12px;
   width: 280px;
   position: absolute;
