@@ -1,4 +1,4 @@
-import{u as t,j as e,K as n}from"./index-860af842.js";const b=t.div`
+import{u as e,j as t,K as n}from"./index-36b3b7d7.js";import{B as o}from"./BubblesAnimation-ffad0607.js";const b=e.div`
   height: 100%;
   display: flex;
   justify-content: center;
@@ -22,7 +22,7 @@ import{u as t,j as e,K as n}from"./index-860af842.js";const b=t.div`
 
   p {
     font-size: 18px;
-    margin-top: 0;
+    margin-bottom: 20px;
     color: #407bff;
   }
 
@@ -125,4 +125,4 @@ import{u as t,j as e,K as n}from"./index-860af842.js";const b=t.div`
     bottom: 5vmin;
     left: -25vmin;
   }
-`,l=()=>{const i=()=>{window.history.back()};return e.jsxs(b,{children:[e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsx("div",{className:"bubble"}),e.jsxs("div",{className:"main",children:[e.jsx("h1",{children:"404"}),e.jsxs("p",{children:["It looks like you're lost...",e.jsx("br",{}),"That's a trouble?"]}),e.jsxs("div",{className:"buttons",children:[e.jsx(n,{to:"/home",children:e.jsx("button",{children:"Go to Home"})}),e.jsx("button",{onClick:i,children:"Go back"})]})]})]})};export{l as default};
+`,l=()=>{const i=()=>{window.history.back()};return t.jsxs(b,{children:[t.jsx(o,{}),t.jsxs("div",{className:"main",children:[t.jsx("h1",{children:"404"}),t.jsxs("p",{children:["It looks like you're lost...",t.jsx("br",{}),"That's a trouble?"]}),t.jsxs("div",{className:"buttons",children:[t.jsx(n,{to:"/home",children:t.jsx("button",{children:"Go to Home"})}),t.jsx("button",{onClick:i,children:"Go back"})]})]})]})};export{l as default};
