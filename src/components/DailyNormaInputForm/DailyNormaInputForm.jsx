@@ -4,6 +4,7 @@ import { editDailyNorm } from '../../store/water/waterOperations';
 import { useState } from 'react';
 import { InputStyled } from '../DailyNormaCalcForm/DailyNormaCalcFormStyled';
 import { ButtonStyled, LabelStyled } from './DailyNormaInputFormStyled';
+import { fetchUserData } from '../../store/auth/authOperations';
 
 export const DailyNormaInputForm = ({ closeModal }) => {
   // const dailyNorm = useSelector(getCurrentNorm);
@@ -40,6 +41,7 @@ export const DailyNormaInputForm = ({ closeModal }) => {
       const { payload } = await dispatch(editDailyNorm(newNorm));
 
       if (payload.user) {
+        dispatch(fetchUserData());
         closeModal();
       }
     } catch (error) {
