@@ -37,7 +37,7 @@ const UserLogo = ({ name, email, avatarURL }) => {
 
         <KeyboardArrowUpIcon
           style={{
-            transform: isOpenPopup ? 'rotate(180deg)' : 'rotate(0deg)',
+            transform: isOpenPopup ? 'rotate(0deg)' : 'rotate(-180deg)',
             transition: 'transform 0.5s ease-in-out',
           }}
         />
