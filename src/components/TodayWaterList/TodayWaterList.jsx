@@ -1,6 +1,7 @@
 import sprite from "../../assets/sprite.svg" 
 import { useDispatch, useSelector } from 'react-redux'
-import {getCurrentDay} from "../../store/water/waterSelectors"
+import { getCurrentDay } from "../../store/water/waterSelectors"
+import { WaterTodayListStyle } from "./TodayWaterList.styled"
 import { getCurrentDayInfoThunk, deleteDrinkThunk, editDrinkThunk } from '../../store/water/waterOperations.js'
 
 
@@ -46,19 +47,20 @@ const TodayWaterList = () => {
 
 
   return <>
-    <h3>Today</h3>
-    <ul>
+    <WaterTodayListStyle>
+    <h3 className="title">Today</h3>
+    <ul className="waterList">
       {TestDateDailyInfo.length > 0 ? TestDateDailyInfo.map((item) => (
-        <li key={ item.id}>     
-      <svg width="17" height="22" stroke="#9ebbff" fill="none">
+        <li className="waterItem" key={ item.id}>     
+      <div className="volumeAdnDate">
+      <svg width="26" height="18" stroke="#9ebbff" fill="none">
           <use href={ sprite + "#water-glass" }></use>
       </svg>
-      <div>
-            <span>{item.volume }</span>
-        <span>{item.date }</span>
+            <span className="waterVolume">{item.volume }</span>
+        <span className="waterTime">{item.date }</span>
       </div>
-      <div>
-        <svg width="16" height="16" stroke="#9ebbff" fill="none">
+      <div className="editDelete">
+        <svg width="16" height="13" stroke="#9ebbff" fill="none">
           <use href={sprite + "#pencil-square"}>
           </use>
         </svg>
@@ -69,7 +71,8 @@ const TodayWaterList = () => {
       </li>)): <p>you haven't drinks on that day</p>}
     
       </ul>
-    <h3>+ Add water</h3>
+      <h3>+ Add water</h3>
+      </WaterTodayListStyle>
     </>
 };
 
