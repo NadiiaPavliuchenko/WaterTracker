@@ -48,9 +48,8 @@ export const DailyNormaCalcForm = () => {
 
         // Перевіряємо, чи введене значення не більше обмеження
         setIsLessThanWeightLimit(
-          parseFloat(
-            formattedValue === '' || formattedValue.replace(',', '.')
-          ) <= weightLimit
+          formattedValue === '' ||
+            parseFloat(formattedValue.replace(',', '.')) <= weightLimit
         );
 
         if (regex.test(formattedValue)) {
@@ -69,9 +68,8 @@ export const DailyNormaCalcForm = () => {
 
         // Перевіряємо, чи введене значення не більше обмеження
         setIsLessThanActiveHoursLimit(
-          parseFloat(
-            formattedValue === '' || formattedValue.replace(',', '.')
-          ) <= activeHoursLimit
+          formattedValue === '' ||
+            parseFloat(formattedValue.replace(',', '.')) <= activeHoursLimit
         );
 
         if (regex.test(formattedValue)) {
