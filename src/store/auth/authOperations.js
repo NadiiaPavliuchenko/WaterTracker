@@ -31,10 +31,8 @@ export const signUpAPI = createAsyncThunk(
       );
       return res.data;
     } catch (error) {
-      toastError(
-        `Something went wrong. Please try again or log in`,
-        getErrorMessage(error)
-      );
+      console.log('error during sign up', getErrorMessage(error));
+      toastError(getErrorMessage(error).toString());
 
       throw error;
     }
@@ -207,6 +205,9 @@ export const sendRecoveryEmail = createAsyncThunk(
   async (email, thunkAPI) => {
     try {
       const { data } = await axios.post('auth/recover', email);
+
+      toastSuccess(data.message);
+
       return data;
     } catch (error) {
       toastError(getErrorMessage(error));
@@ -230,42 +231,10 @@ export const recoverPassword = createAsyncThunk(
   'auth/recoverPassword',
   async ({ token, password }, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`auth/verify/${token}`, { password });
+      const { data } = await axios.patch(`auth/recover/${token}`, { password });
 
       toastSuccess(data.message);
-      return data;
-    } catch (error) {
-      toastError(getErrorMessage(error));
-      return thunkAPI.rejectWithValue(getErrorMessage(error));
-    }
-  }
-);
 
-export const recoverUserPassword = createAsyncThunk(
-  'auth/recoverUserPassword',
-  async (email, thunkAPI) => {
-    try {
-      const { data } = await axios.post('auth/recover-password', email);
-      toastSuccess(data.message);
-      return data;
-    } catch (error) {
-      toastError(getErrorMessage(error));
-      return thunkAPI.rejectWithValue(getErrorMessage(error));
-    }
-  }
-);
-
-// TODO patch    "/api/auth/recover-password/:passwordRecoveryToken"                          recoverUserPassword        body: {password}
-
-export const recoverUserPasswordAPI = createAsyncThunk(
-  'auth/recoverUserPasswordAPI',
-  async (password, thunkAPI) => {
-    try {
-      const { data } = await axios.patch(
-        'auth/recover-password/:passwordRecoveryToken',
-        password
-      );
-      toastSuccess(data.message);
       return data;
     } catch (error) {
       toastError(getErrorMessage(error));
