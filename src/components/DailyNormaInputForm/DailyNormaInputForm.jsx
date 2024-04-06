@@ -1,17 +1,24 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { getCurrentNorm } from '../../store/water/waterSelectors';
 import { editDailyNorm } from '../../store/water/waterOperations';
 import { useState } from 'react';
 import { InputStyled } from '../DailyNormaCalcForm/DailyNormaCalcFormStyled';
-import { ButtonStyled, LabelStyled } from './DailyNormaInputFormStyled';
+import {
+  ButtonStyled,
+  LabelStyled,
+  MessageOfError,
+} from './DailyNormaInputFormStyled';
 import { fetchUserData } from '../../store/auth/authOperations';
+import { getCurrentNorm } from '../../store/water/waterSelectors';
 
 export const DailyNormaInputForm = ({ closeModal }) => {
-  // const dailyNorm = useSelector(getCurrentNorm);
-  const dailyNorm = 30000;
+  const dailyNorm = useSelector(getCurrentNorm);
+
   const dailyNormLiters = (dailyNorm / 1000).toFixed(1);
 
   const [dailyWaterNorm, setDailyWaterNorm] = useState('');
+  const [isLessThanLimit, setIsLessThanLimit] = useState(true);
+  const limit = 15;
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -25,6 +32,13 @@ export const DailyNormaInputForm = ({ closeModal }) => {
       // Обрізаємо нулі на початку, якщо за ними не йде крапка
       formattedValue = value.replace(/^0+([^.])/, '$1');
     }
+
+    // Перевіряємо, чи введене значення не більше обмеження
+
+    setIsLessThanLimit(
+      formattedValue === '' ||
+        parseFloat(formattedValue.replace(',', '.')) <= limit
+    );
 
     if (regex.test(formattedValue)) {
       setDailyWaterNorm(formattedValue);
@@ -60,6 +74,11 @@ export const DailyNormaInputForm = ({ closeModal }) => {
           onChange={handleChange}
           placeholder={dailyNormLiters}
         />
+        {!isLessThanLimit && (
+          <MessageOfError>
+            {`The water rate cannot exceed ${limit} liters`}
+          </MessageOfError>
+        )}
       </LabelStyled>
 
       <ButtonStyled className="confirm" type="submit">

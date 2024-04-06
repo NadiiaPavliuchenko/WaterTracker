@@ -11,6 +11,7 @@ import {
   TextsStyled,
   TitleStyled,
 } from './DailyNormaCalcFormStyled';
+import { MessageOfError } from '../DailyNormaInputForm/DailyNormaInputFormStyled';
 
 export const DailyNormaCalcForm = () => {
   const initialGender = useSelector(getUserGender);
@@ -18,12 +19,18 @@ export const DailyNormaCalcForm = () => {
   const [gender, setGender] = useState(initialGender);
   const [weight, setWeight] = useState('');
   const [activeHours, setActiveHours] = useState('');
+  const [isLessThanWeightLimit, setIsLessThanWeightLimit] = useState(true);
+  const [isLessThanActiveHoursLimit, setIsLessThanActiveHoursLimit] =
+    useState(true);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     // Регулярний вираз для перевірки цілого числа або числа з одним десятковим знаком
     const regex = /^(\d+([.,]\d{0,1})?)?$/;
     var formattedValue = value;
+    const weightLimit = 200;
+    const activeHoursLimit = 12;
 
     switch (name) {
       case 'gender':
@@ -39,6 +46,13 @@ export const DailyNormaCalcForm = () => {
           formattedValue = value.replace(/^0+([^.])/, '$1');
         }
 
+        // Перевіряємо, чи введене значення не більше обмеження
+        setIsLessThanWeightLimit(
+          parseFloat(
+            formattedValue === '' || formattedValue.replace(',', '.')
+          ) <= weightLimit
+        );
+
         if (regex.test(formattedValue)) {
           setWeight(formattedValue);
         }
@@ -52,6 +66,13 @@ export const DailyNormaCalcForm = () => {
           // Обрізаємо нулі на початку, якщо за ними не йде крапка
           formattedValue = value.replace(/^0+([^.])/, '$1');
         }
+
+        // Перевіряємо, чи введене значення не більше обмеження
+        setIsLessThanActiveHoursLimit(
+          parseFloat(
+            formattedValue === '' || formattedValue.replace(',', '.')
+          ) <= activeHoursLimit
+        );
 
         if (regex.test(formattedValue)) {
           setActiveHours(formattedValue);
@@ -107,6 +128,11 @@ export const DailyNormaCalcForm = () => {
             onChange={handleChange}
             placeholder="0"
           />
+          {!isLessThanWeightLimit && (
+            <MessageOfError>
+              The water rate cannot exceed 15 liters
+            </MessageOfError>
+          )}
         </InputWrapper>
 
         <InputWrapper>
@@ -119,6 +145,11 @@ export const DailyNormaCalcForm = () => {
             onChange={handleChange}
             placeholder="0"
           />
+          {!isLessThanActiveHoursLimit && (
+            <MessageOfError>
+              The water rate cannot exceed 15 liters
+            </MessageOfError>
+          )}
         </InputWrapper>
         <TextsStyled>
           <TextStyled>
