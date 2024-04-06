@@ -15,7 +15,7 @@ import { getCurrentUser, getToken } from '../../store/auth/authSelectors';
 
 export const Header = () => {
   const token = useSelector(getToken);
-  const { name, email, avatarUrl } = useSelector(getCurrentUser);
+  const { name, email, avatarURL } = useSelector(getCurrentUser);
 
   return (
     <Wrapper>
@@ -38,7 +38,7 @@ export const Header = () => {
             </NavLink>
           </UserName>
         ) : (
-          <UserLogo name={name} email={email} avatarUrl={avatarUrl} />
+          <UserLogo name={name} email={email} avatarURL={avatarURL} />
         )}
       </ContainerHeader>
     </Wrapper>

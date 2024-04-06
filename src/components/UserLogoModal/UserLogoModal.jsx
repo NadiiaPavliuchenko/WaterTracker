@@ -38,6 +38,8 @@ const UserLogoModal = ({ isOpen }) => {
             </Icon>
             Log out
           </ModalMenuBtn>
+
+          
         </LogoModalMenu>
       )}
       {activeModal === 'settings' && (
@@ -52,6 +54,10 @@ const UserLogoModal = ({ isOpen }) => {
 
 export default UserLogoModal;
 
+
+
+
+
 // import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
 // import SettingModal from 'components/SettingModal/SettingModal';
 // import { useRef, useState } from 'react';
@@ -61,23 +67,14 @@ export default UserLogoModal;
 
 // const UserLogoModal = ({ isOpen }) => {
 //   const modalRef = useRef(null);
-//   const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
-//   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+//   const [activeModal, setActiveModal] = useState(null);
 
-//   const handleSettingButtonClick = () => {
-//     setIsSettingModalOpen(true);
+//   const handleModalOpen = (modal) => {
+//     setActiveModal(modal);
 //   };
 
-//   const handleLogoutButtonClick = () => {
-//     setIsLogoutModalOpen(true);
-//   };
-
-//   const handleSettingModalClose = () => {
-//     setIsSettingModalOpen(false);
-//   };
-
-//   const handleLogoutModalClose = () => {
-//     setIsLogoutModalOpen(false);
+//   const handleModalClose = () => {
+//     setActiveModal(null);
 //   };
 
 //   return (
@@ -89,13 +86,13 @@ export default UserLogoModal;
 //           exit="exit"
 //           ref={modalRef}
 //         >
-//           <ModalMenuBtn onClick={handleSettingButtonClick}>
+//           <ModalMenuBtn onClick={() => handleModalOpen('settings')}>
 //             <Icon>
 //               <use href={`${sprite}#settings`}></use>
 //             </Icon>
 //             Settings
 //           </ModalMenuBtn>
-//           <ModalMenuBtn onClick={handleLogoutButtonClick}>
+//           <ModalMenuBtn onClick={() => handleModalOpen('logout')}>
 //             <Icon>
 //               <use href={`${sprite}#arrow-right-on-rectangle`}></use>
 //             </Icon>
@@ -103,16 +100,15 @@ export default UserLogoModal;
 //           </ModalMenuBtn>
 //         </LogoModalMenu>
 //       )}
-//       <SettingModal
-//         onModalClose={handleSettingModalClose}
-//         isModalOpen={isSettingModalOpen}
-//       />
-//       <UserLogoutModal
-//         onModalClose={handleLogoutModalClose}
-//         isModalOpen={isLogoutModalOpen}
-//       />
+//       {activeModal === 'settings' && (
+//         <SettingModal onModalClose={handleModalClose} isModalOpen={true} />
+//       )}
+//       {activeModal === 'logout' && (
+//         <UserLogoutModal onModalClose={handleModalClose} isModalOpen={true} />
+//       )}
 //     </AnimatePresence>
 //   );
 // };
 
 // export default UserLogoModal;
+
