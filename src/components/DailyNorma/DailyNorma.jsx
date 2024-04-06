@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from '../../store/auth/authSelectors';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DailyNormaModal } from '../DailyNormaModal/DailyNormaModal';
 import {
   ModalDaily,
@@ -9,10 +9,12 @@ import {
   DailyLitr,
   DailyEditContainer,
 } from './DailyNorma.styled';
+import { fetchUserData } from '../../store/auth/authOperations';
 
 const DailyNorma = () => {
   const { dailyWaterGoal } = useSelector(getCurrentUser);
   const [isModalOpen, setModalOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const openModal = () => {
     setModalOpen(true);
@@ -24,6 +26,10 @@ const DailyNorma = () => {
 
   // Перетворення мл у л
   const dailyWaterGoalL = (dailyWaterGoal / 1000).toFixed(1) + ' L';
+
+  useEffect(() => {
+    dispatch(fetchUserData());
+  }, [dispatch]);
 
   return (
     <ModalDaily>
