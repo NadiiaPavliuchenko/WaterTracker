@@ -3,11 +3,17 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState } from 'react';
 import sprite from 'src/assets/sprite.svg';
-import { ButtonBox, Icon } from './UserLogo.styled';
+import { ButtonBox, AvatarStile, Icon, IconStyle } from './UserLogo.styled';
 
 const UserLogo = ({ name, email, avatarURL }) => {
   const [isOpenPopup, setIsOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
   const userName = name ? name : email;
+
+  const handleError = () => {
+    setHasError(true);
+  };
 
   const handleClick = () => {
     setIsOpen(!isOpenPopup);
@@ -16,15 +22,19 @@ const UserLogo = ({ name, email, avatarURL }) => {
     <>
       <ButtonBox onClick={handleClick}>
         <div>{userName}</div>
-        <div>
-          {avatarURL ? (
-            <img src={avatarURL} alt="avatar" />
-          ) : (
-            <Icon>
-              <use href={`${sprite}#user`}></use>
-            </Icon>
-          )}
-        </div>
+
+        {!hasError ? (
+          <AvatarStile>
+            <div>
+              <IconStyle src={avatarURL} alt="avatar" onError={handleError} />
+            </div>
+          </AvatarStile>
+        ) : (
+          <Icon>
+            <use href={`${sprite}#user`}></use>
+          </Icon>
+        )}
+
         {isOpenPopup ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
         {/* {isOpenPopup && <UserLogoModal />} */}
       </ButtonBox>

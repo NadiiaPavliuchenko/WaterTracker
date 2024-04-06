@@ -13,6 +13,18 @@ export const ButtonBox = styled.div`
   }
 `;
 
+export const AvatarStile = styled.div`
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  border-radius: 50%;
+`;
+
+export const IconStyle = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
 export const Icon = styled.svg`
   margin-left: 8px;
   width: 28px;
