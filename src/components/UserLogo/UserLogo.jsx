@@ -1,5 +1,5 @@
 import UserLogoModal from 'components/UserLogoModal/UserLogoModal';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState } from 'react';
 import sprite from 'src/assets/sprite.svg';
@@ -35,7 +35,12 @@ const UserLogo = ({ name, email, avatarURL }) => {
           </Icon>
         )}
 
-        {isOpenPopup ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+        <KeyboardArrowUpIcon
+          style={{
+            transform: isOpenPopup ? 'rotate(180deg)' : 'rotate(0deg)',
+            transition: 'transform 0.5s ease-in-out',
+          }}
+        />
         {/* {isOpenPopup && <UserLogoModal />} */}
       </ButtonBox>
       {isOpenPopup && (
