@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ModalContainer from '../components/ModalContainer/ModalContainer';
-import { recoverUserPassword } from '../store/auth/authOperations';
+import { sendRecoveryEmail } from '../store/auth/authOperations';
 import { useDispatch } from 'react-redux';
 import { RecoveryModalContainer } from './RecoveryModal.styled';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
@@ -15,9 +15,9 @@ export const RecoveryModal = ({ isModalOpen, closeModal }) => {
   };
   const dispatch = useDispatch();
 
-  const sendMail = (email, actions) => {
-    dispatch(recoverUserPassword(email));
-    actions.resetForm();
+  const sendMail = (email) => {
+    dispatch(sendRecoveryEmail(email));
+    closeModal();
   };
 
   return (
