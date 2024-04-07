@@ -4,13 +4,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCurrentDay } from "../../store/water/waterSelectors"
 import { WaterTodayListStyle } from "./TodayWaterList.styled"
 import TodayListModal from '../TodayListModal/TodayListModal'
+import AddWaterModal from '../AddWaterModal/AddWaterModal'
 import { getCurrentDayInfoThunk, deleteDrinkThunk, editDrinkThunk } from '../../store/water/waterOperations.js'
 
 
 
 const TodayWaterList = () => {
   const [isEditOpen, setIsEditOpen] = useState(false)
+  const [isAddWaterOpen, setIsAddWaterOpen] = useState(false)
   const dayInfoTrunks = useSelector(getCurrentDay)
+  console.log(dayInfoTrunks)
   const dispatch = useDispatch()
    
   const TestDateDailyInfo = [
@@ -53,15 +56,19 @@ const TodayWaterList = () => {
 
   const handleWaterEdit = (evt) => { 
     setIsEditOpen(true)
-    // console.dir(evt.target.closest('LI').id)
-    
-    
+    // console.dir(evt.target.closest('LI').id)    
   }
-  const handleCloseClick = () => {
+  const handleCloseWaterEdit = () => {
     setIsEditOpen(false)
   }
+  const handleOpenAddWater = () => {
+    setIsAddWaterOpen(true)
+  }
+  const handleCloseAddWater = () => {
+    setIsAddWaterOpen(false)
+  }
   const handleDelete = (evt) => {
-    console.dir(evt.target.closest('LI').id)
+    // console.dir(evt.target.closest('LI').id)
     dispatch(deleteDrinkThunk(evt.target.closest('LI').id))
   }
   
@@ -89,10 +96,13 @@ const TodayWaterList = () => {
           </div>
         </li>)): <p>You don't have records on this day</p>}    
       </ul>
-      <h3 className="addWater">+ Add water</h3>
+      <h2 className="addWater" onClick={handleOpenAddWater }>+ Add water</h2>
     </WaterTodayListStyle>
     {isEditOpen && (
-          <TodayListModal isModalOpen={isEditOpen} closeModal={handleCloseClick} />
+          <TodayListModal isModalOpen={isEditOpen} closeModal={handleCloseWaterEdit} />
+    )}
+    {isAddWaterOpen && (
+          <AddWaterModal isModalOpen={isAddWaterOpen} closeModal={handleCloseAddWater} />
         )}
     </>
 };
