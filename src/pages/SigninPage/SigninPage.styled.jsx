@@ -18,6 +18,7 @@ export const SignInPageStyle = styled.div`
 
   button {
     border: none;
+    background-color: transparent;
   }
   @media ${({ theme }) => theme.device.mobile} {
     .title {
