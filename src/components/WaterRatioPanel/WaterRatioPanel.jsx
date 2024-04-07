@@ -5,7 +5,7 @@ import {
   ProgressContainer,
   ControlPointRoundedIcon,
 } from './WaterRatioPanel.styled';
-// import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { getCurrentPercentage } from '../../store/water/waterSelectors';
 import { getCurrentDayInfoThunk } from '../../store/water/waterOperations';
@@ -16,8 +16,6 @@ const WaterRatioPanel = () => {
   const [openList, setOpenList] = useState(false);
   const progressPercentage = useSelector(getCurrentPercentage);
   const dispatch = useDispatch();
-
-  // const progressPercentage = 80;
 
   const handleOpenClick = () => {
     setOpenList(true);
@@ -35,7 +33,6 @@ const WaterRatioPanel = () => {
   return (
     <>
       <Container>
-        {/* Progress Bar */}
         <h3>Today</h3>
         <div className="box">
           <ProgressContainer>
@@ -45,6 +42,9 @@ const WaterRatioPanel = () => {
                   className="progress"
                   style={{ width: `${progress}%` }}
                 ></div>
+                <div className="line-0">|</div>
+                <div className="line-50">|</div>
+                <div className="line-100">|</div>
                 <div className="marker-0">0%</div>
                 <div className="marker-50">50%</div>
                 <div className="marker-100">100%</div>
@@ -54,7 +54,6 @@ const WaterRatioPanel = () => {
                     left: `${progress}%`,
                   }}
                 >
-                  {' '}
                   <p className="progress-text">
                     {progressPercentage > 100
                       ? `${progressPercentage}%`
@@ -65,7 +64,6 @@ const WaterRatioPanel = () => {
             </div>
           </ProgressContainer>
 
-          {/* Add Water Button */}
           <AddWaterBtn onClick={handleOpenClick}>
             <ControlPointRoundedIcon width="20px" height="20px">
               <use xlinkHref={`${sprite}#plus-circle`} />
