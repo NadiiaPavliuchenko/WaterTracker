@@ -1,4 +1,3 @@
-import TodayListModal from 'components/TodayListModal/TodayListModal';
 import { useEffect, useState } from 'react';
 import {
   AddWaterBtn,
@@ -11,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCurrentPercentage } from '../../store/water/waterSelectors';
 import { getCurrentDayInfoThunk } from '../../store/water/waterOperations';
 import sprite from '../../assets/sprite.svg';
+import AddWaterModal from '../AddWaterModal/AddWaterModal';
 
 const WaterRatioPanel = () => {
   const [openList, setOpenList] = useState(false);
@@ -74,10 +74,7 @@ const WaterRatioPanel = () => {
           </AddWaterBtn>
         </div>
         {openList && (
-          <TodayListModal
-            isModalOpen={openList}
-            closeModal={handleCloseClick}
-          />
+          <AddWaterModal isModalOpen={openList} closeModal={handleCloseClick} />
         )}
       </Container>
     </>
