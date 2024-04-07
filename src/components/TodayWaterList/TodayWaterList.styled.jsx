@@ -5,16 +5,16 @@ export const WaterTodayListStyle = styled.div`
     width: 4px;
   }
   *::-webkit-scrollbar-track {
-    background: #d7e3ff;
+    background: ${({ theme }) => theme.color.paleBlue};
   }
   *::-webkit-scrollbar-thumb {
-    background-color: blue;
+    background-color: ${({ theme }) => theme.color.blue};
     border-radius: 8px;
-    border: 3px solid #9ebbff;
+    border: 3px solid ${({ theme }) => theme.color.skyBlue};
   }
 
   @media screen and (min-width: 320px) {
-    background-color: #ecf2ff;
+    background-color: ${({ theme }) => theme.color.lavender};
 
     min-width: 280 px;
 
@@ -23,7 +23,7 @@ export const WaterTodayListStyle = styled.div`
       font-weight: 500;
       font-size: 24px;
       line-height: 1.25;
-      color: #2f2f2f;
+      /* color: #2f2f2f; */
     }
     .waterList {
       overflow-y: scroll;
@@ -47,7 +47,7 @@ export const WaterTodayListStyle = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      border-bottom: 1px solid #d7e3ff;
+      border-bottom: 1px solid ${({ theme }) => theme.color.paleBlue};
       align-items: center;
       // gap: 38px;
       // padding: 12px 0;
@@ -72,14 +72,14 @@ export const WaterTodayListStyle = styled.div`
       font-weight: 400;
       font-size: 18px;
       line-height: 1.33333;
-      color: #407bff;
+      color: ${({ theme }) => theme.color.blue};
     }
     .waterTime {
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 12px;
       line-height: 2;
-      color: #2f2f2f;
+      /* color: #2f2f2f; */
     }
     .editDelete {
       display: flex;
@@ -93,7 +93,7 @@ export const WaterTodayListStyle = styled.div`
       font-weight: 500;
       font-size: 16px;
       line-height: 1.25;
-      color: #407bff;
+      color: ${({ theme }) => theme.color.blue};
     }
   }
   @media screen and (min-width: 768px) {
