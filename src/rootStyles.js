@@ -34,16 +34,6 @@ const GlobalStyle = createGlobalStyle`
         height: 100vh;
         margin: 0;
     }
-    /* body::-webkit-scrollbar {
-        /* width: 20px; */
-    /* }
-    body::-webkit-scrollbar-track {
-        background: ${({ theme }) => theme.color.lavender}; 
-    } */
-    /* body::-webkit-scrollbar-thumb {
-        background-color: ${({ theme }) => theme.color.blue}; 
-    } */ 
-
     h1,
     h2,
     h3,

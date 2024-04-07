@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import backgroundMobile from '../../assets/images/background/WelcomePage/mob/bg_mob.png';
-import backgroundTablet from '../../assets/images/background/WelcomePage/tab/bg_tab.png';
-import backgroundDesktop from '../../assets/images/background/WelcomePage/desktop/bg_img.png';
-import backgroundBubbles from '../../assets/images/background/WelcomePage/desktop/bg_img_bubbles.png';
+// import backgroundMobile from '../../assets/images/background/WelcomePage/mob/bg_mob.png';
+// import backgroundTablet from '../../assets/images/background/WelcomePage/tab/bg_tab.png';
+// import backgroundDesktop from '../../assets/images/background/WelcomePage/desktop/bg_img.png';
+// import backgroundBubbles from '../../assets/images/background/WelcomePage/desktop/bg_img_bubbles.png';
 
 export const BackgroundWrapper = styled.div`
   position: absolute;
@@ -20,17 +20,17 @@ export const BackgroundWrapper = styled.div`
   min-height: 100vh;
 
   // мобіл
-  background-image: url(${backgroundMobile});
+  background-image: ${({ theme }) => theme.backgroundImage.welcomeMob};
 
   // табл
   @media ${({ theme }) => theme.device.tablet} {
-    background-image: url(${backgroundTablet});
+    background-image: ${({ theme }) => theme.backgroundImage.welcomeTab};
     min-height: 100vh;
   }
 
   // деск
   @media ${({ theme }) => theme.device.desktop} {
-    background-image: url(${backgroundDesktop});
+    background-image: ${({ theme }) => theme.backgroundImage.welcomeDesk};
     min-height: 100vh;
   }
 `;
@@ -54,18 +54,16 @@ export const Bubble = styled.div`
   // табл
   @media ${({ theme }) => theme.device.tablet} {
     padding-top: 40px;
+
     // padding-bottom: 50px;
     min-height: calc(100vh - 50px);
-
-    background-image: url(${backgroundBubbles});
   }
 
   // деск
   @media ${({ theme }) => theme.device.desktop} {
     padding-top: 49px;
     // padding-bottom: 109px;
-
-    background-image: url(${backgroundBubbles});
+    background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
     min-height: calc(100vh - 109px);
   }
 `;
