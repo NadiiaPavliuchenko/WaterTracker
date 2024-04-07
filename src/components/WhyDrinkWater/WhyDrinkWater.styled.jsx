@@ -39,9 +39,9 @@ export const Item = styled.li`
 export const OutlineContainer = styled.div`
   display: block;
   margin: 0;
-  @media ${({ theme }) => theme.device.mobile} {
+  /* @media ${({ theme }) => theme.device.mobile} {
     margin-bottom: 40px;
-  }
+  } */
 `;
 
 export const Container = styled.div`
