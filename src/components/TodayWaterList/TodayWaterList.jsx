@@ -1,17 +1,18 @@
 import sprite from "../../assets/sprite.svg" 
+import { useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { getCurrentDay } from "../../store/water/waterSelectors"
 import { WaterTodayListStyle } from "./TodayWaterList.styled"
+import TodayListModal from '../TodayListModal/TodayListModal'
 import { getCurrentDayInfoThunk, deleteDrinkThunk, editDrinkThunk } from '../../store/water/waterOperations.js'
 
 
+
 const TodayWaterList = () => {
+  const [isEditOpen, setIsEditOpen] = useState(false)
   const dayInfoTrunks = useSelector(getCurrentDay)
   const dispatch = useDispatch()
-  
-  // console.log(dayInfoTrunks)
-  // console.log(dayInfoTrunks.waterIntakes)
-  // const TestDateDailyInfo = [];
+   
   const TestDateDailyInfo = [
     {
       id: 1,
@@ -49,9 +50,15 @@ const TodayWaterList = () => {
       date: 22.05
     }
   ]
+
   const handleWaterEdit = (evt) => { 
-    console.dir(evt.target.closest('LI').id)
-    console.log('Edit')
+    setIsEditOpen(true)
+    // console.dir(evt.target.closest('LI').id)
+    
+    
+  }
+  const handleCloseClick = () => {
+    setIsEditOpen(false)
   }
   const handleDelete = (evt) => {
     console.dir(evt.target.closest('LI').id)
@@ -83,7 +90,10 @@ const TodayWaterList = () => {
         </li>)): <p>You don't have records on this day</p>}    
       </ul>
       <h3 className="addWater">+ Add water</h3>
-      </WaterTodayListStyle>
+    </WaterTodayListStyle>
+    {isEditOpen && (
+          <TodayListModal isModalOpen={isEditOpen} closeModal={handleCloseClick} />
+        )}
     </>
 };
 
