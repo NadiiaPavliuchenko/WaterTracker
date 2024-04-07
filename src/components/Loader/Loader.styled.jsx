@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   padding: 24px 0;
   height: 100vh;
   width: 100vw;
-  background-color: var(--primary-white);
+  background-color: ${({ theme }) => theme.color.white};
   z-index: 9999;
 
   h2 {
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: var(--primary-blue);
+    color: ${({ theme }) => theme.color.blue};
     font-size: calc(24px + (36 - 24) * (100vw - 320px) / (1280 - 320));
   }
   @media screen and (max-width: 319px) {
@@ -35,7 +35,7 @@ export const Bottle = styled.div`
   position: relative;
   width: 10em;
   height: 10em;
-  color: var(--primary-blue);
+  color: ${({ theme }) => theme.color.blue};
   font-size: calc(24px + (36 - 24) * (100vw - 320px) / (1280 - 320));
   font:
     bold 1.2em/1.5 'DM Mono',

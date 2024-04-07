@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SignInForm from 'components/SignInForm/SignInForm';
 import { signInAPI } from '../../store/auth/authOperations';
@@ -6,7 +6,7 @@ import { SignInPageStyle } from './SigninPage.styled';
 import Wrapper from '../../components/Wrapper/Wrapper';
 import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_2x.png';
 import { useState } from 'react';
-import { RecoveryModal } from '../../RecoveryModal/RecoveryModal';
+import { RecoveryModal } from '../../components/RecoveryModal/RecoveryModal';
 
 const SigninPage = () => {
   const dispatch = useDispatch();

@@ -29,7 +29,7 @@ export const Icon = styled.svg`
   margin-left: 8px;
   width: 28px;
   height: 28px;
-  stroke: rgb(47, 47, 47);
+  stroke: ${({ theme }) => theme.color.blue};
   fill: transparent;
 `;
 

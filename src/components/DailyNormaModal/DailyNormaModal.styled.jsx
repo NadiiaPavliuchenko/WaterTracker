@@ -15,7 +15,7 @@ export const ModalStyled = styled.div`
   height: 816px;
   padding: 24px 12px;
 
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.color.white};
   border-radius: 10px;
 
   z-index: 4;
@@ -40,15 +40,15 @@ export const TopLineStyled = styled.div`
 `;
 
 export const TitleStyled = styled.h2`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-family: 'Roboto-Medium';
+  /* font-weight: 500; */
   font-size: 26px;
   line-height: 1.23077;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
 `;
 
 export const CloseOutlinedIconStyled = styled(CloseOutlinedIcon)`
-  color: #407bff;
+  color: ${({ theme }) => theme.color.blue};
   cursor: pointer;
 `;
 export const FormulesStyles = styled.div`
@@ -64,23 +64,23 @@ export const FormulesStyles = styled.div`
 `;
 
 export const FormuleStyled = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-family: 'Roboto-Regular';
+  /* font-weight: 400; */
   font-size: 16px;
   line-height: 1.25;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
 `;
 
 export const SpanStyled = styled.span`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-family: 'Roboto-Regular';
+  /* font-weight: 400; */
   font-size: 18px;
   line-height: 1.33333;
-  color: #407bff;
+  color: ${({ theme }) => theme.color.blue};
 `;
 
 export const MarkStyled = styled.div`
-  border: 1px solid #d7e3ff;
+  border: 1px solid ${({ theme }) => theme.color.paleBlue};
   border-radius: 10px;
   padding: 10px;
   width: 100%;
@@ -88,13 +88,13 @@ export const MarkStyled = styled.div`
 `;
 
 export const TextStyled = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-family: 'Roboto-Regular';
+  /* font-weight: 400; */
   font-size: 12px;
   line-height: 1.33333;
   color: #8f8f8f;
 `;
 
 export const StarStyled = styled.span`
-  color: #407bff;
+  color: ${({ theme }) => theme.color.blue};
 `;

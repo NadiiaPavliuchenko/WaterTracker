@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import ModalContainer from '../components/ModalContainer/ModalContainer';
-import { sendRecoveryEmail } from '../store/auth/authOperations';
+import ModalContainer from 'components/ModalContainer/ModalContainer';
+import { sendRecoveryEmail } from '../../store/auth/authOperations';
 import { useDispatch } from 'react-redux';
 import { RecoveryModalContainer } from './RecoveryModal.styled';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
