@@ -44,10 +44,9 @@ export const getCurrentDayInfoThunk = createAsyncThunk(
 //додавання води
 export const addWaterThunk = createAsyncThunk(
   'water/add',
-  async (data, thunkAPI) => {
-    const { ml, date } = data;
+  async (body, thunkAPI) => {
     try {
-      const { data } = await axios.post(`water/${date}`, ml);
+      const { data } = await axios.post(`water`, body);
       toastSuccess('Drink has been added successful');
       return data;
     } catch (error) {

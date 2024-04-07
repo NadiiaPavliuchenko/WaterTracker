@@ -13,10 +13,12 @@ export const SignInPageStyle = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 280px;
   }
 
   button {
     border: none;
+    background-color: transparent;
   }
   @media ${({ theme }) => theme.device.mobile} {
     .title {
@@ -55,6 +57,9 @@ export const SignInPageStyle = styled.div`
       top: 0;
       left: 100px;
     }
+    .link-container {
+      width: 336px;
+    }
   }
   @media screen and (min-width: 1440px) {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
@@ -75,6 +80,9 @@ export const SignInPageStyle = styled.div`
     .wrapper {
       width: 100%;
       position: relative;
+    }
+    .link-container {
+      width: 384px;
     }
   }
 `;

@@ -9,6 +9,17 @@ export const SignUpPageStyle = styled.div`
   background-repeat: no-repeat;
   background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesMob};
 
+  .link-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 280px;
+  }
+  button {
+    border: none;
+    background-color: transparent;
+  }
+
   @media ${({ theme }) => theme.device.mobile} {
     .title {
       font-family: 'Roboto', sans-serif;
@@ -44,6 +55,9 @@ export const SignUpPageStyle = styled.div`
       top: 10px;
       right: -150px;
     }
+    .link-container {
+      width: 336px;
+    }
   }
   @media ${({ theme }) => theme.device.desktop} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
@@ -64,6 +78,9 @@ export const SignUpPageStyle = styled.div`
     .wrapper {
       width: 100%;
       position: relative;
+    }
+    .link-container {
+      width: 384px;
     }
   }
 `;
