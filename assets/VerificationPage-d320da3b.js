@@ -1,0 +1,1 @@
+import{r as t,Q as n,y as o,c,j as u,S as f,T as p}from"./index-bf1695e6.js";const y=()=>{const[r,i]=t.useState(!0),{verificationToken:a}=n(),s=o(),e=c();return t.useEffect(()=>{(async()=>{try{await e(p(a)).unwrap(),s("/signin")}catch{s("/signup")}finally{i(!1)}})()},[e,s,a]),r?u.jsx(f,{}):null};export{y as default};
