@@ -12,6 +12,7 @@ import { ModalBox } from './AddWaterModal.styled';
 const AddWaterModal = ({ isModalOpen, closeModal }) => {
   const [waterAmount, setWaterAmount] = useState(50);
   const [selectedTime, setSelectedTime] = useState('');
+
   const dispatch = useDispatch();
 
   const handleIncrement = () => {
@@ -30,14 +31,18 @@ const AddWaterModal = ({ isModalOpen, closeModal }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
+    const timeZoneOffset = selectedTime.getTimezoneOffset();
+
     const data = {
-      time: selectedTime,
+      date: selectedTime,
       ml: waterAmount,
+      timeZoneOffset,
     };
-    console.log(data);
 
     dispatch(addWaterThunk(data));
   };
+
   const handleChangeWaterAmount = (e) => {
     const amount = parseInt(e.target.value);
     setWaterAmount(amount);
