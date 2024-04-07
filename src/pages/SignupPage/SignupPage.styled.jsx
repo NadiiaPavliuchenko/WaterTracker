@@ -15,6 +15,10 @@ export const SignUpPageStyle = styled.div`
     justify-content: space-between;
     width: 280px;
   }
+  button {
+    border: none;
+    background-color: transparent;
+  }
 
   @media ${({ theme }) => theme.device.mobile} {
     .title {
@@ -53,10 +57,6 @@ export const SignUpPageStyle = styled.div`
     }
     .link-container {
       width: 336px;
-    }
-    button {
-      border: none;
-      background-color: transparent;
     }
   }
   @media ${({ theme }) => theme.device.desktop} {
