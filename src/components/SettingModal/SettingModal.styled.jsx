@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Link } from '@mui/material';
-import RadioGroup from '@mui/material/RadioGroup';
+// import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Radio from '@mui/material/Radio';
+// import Radio from '@mui/material/Radio';
 import { Box } from '@mui/material';
 import { Field, ErrorMessage } from 'formik';
 
@@ -66,7 +66,7 @@ export const StyledCloseSvg = styled.svg`
 export const FormSubtitle = styled.h3`
   font-size: 18px;
   font-family: 'Roboto-Bold';
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 `;
 
 export const FormLabel = styled.label`
@@ -109,28 +109,28 @@ export const FilePickerLink = styled(Link)`
   font-size: 14px;
 `;
 
-export const StyledRadioGroup = styled(RadioGroup)`
-  margin-bottom: 24px;
-  @media ${({ theme }) => theme.device.desktop} {
-    margin-bottom: 52px;
-  }
-`;
+// export const StyledRadioGroup = styled(RadioGroup)`
+//   margin-bottom: 24px;
+//   @media ${({ theme }) => theme.device.desktop} {
+//     margin-bottom: 52px;
+//   }
+// `;
 
-export const CustomRadio = styled(Radio)`
-  &.Mui-checked {
-    color: ${({ theme }) => theme.color.blue};
-  }
-  && .MuiSvgIcon-root {
-    width: 14px;
-    height: 14px;
-    color: ${({ theme }) => theme.color.blue};
-  }
+// export const CustomRadio = styled(Radio)`
+//   &.Mui-checked {
+//     color: ${({ theme }) => theme.color.blue};
+//   }
+//   && .MuiSvgIcon-root {
+//     width: 14px;
+//     height: 14px;
+//     color: ${({ theme }) => theme.color.blue};
+//   }
 
-  &&:hover,
-  &&:focus {
-    background: none;
-  }
-`;
+//   &&:hover,
+//   &&:focus {
+//     background: none;
+//   }
+// `;
 
 export const FormGroup = styled.div`
   display: flex;
@@ -226,4 +226,70 @@ export const StyledSvg = styled.svg`
 
 export const RedError = styled(ErrorMessage)`
   color: ${({ theme }) => theme.color.red};
+`;
+
+export const RadiosWrapper = styled.label`
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  @media ${({ theme }) => theme.device.desktop} {
+    margin-bottom: 50px;
+  }
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+`;
+
+export const RadioWrapper = styled.label`
+  display: flex;
+  gap: 8px;
+  font-family: 'Roboto-Regular';
+  /* font-weight: 400; */
+  font-size: 16px;
+  /* line-height: 1.25; */
+  /* color: #2f2f2f; */
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+`;
+
+export const RadioInput = styled.input`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+`;
+
+export const RadioLabel = styled.label`
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+`;
+
+export const RadioInputCustom = styled.span`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+`;
+
+export const RadioStyled = styled.svg`
+  width: 11px;
+  height: 11px;
 `;

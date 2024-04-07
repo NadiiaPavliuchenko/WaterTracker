@@ -9,17 +9,23 @@ import {
   ImgThumb,
   FilePickerWrapper,
   FilePickerLink,
-  StyledRadioGroup,
-  SmallControlLabel,
+  // StyledRadioGroup,
+  // SmallControlLabel,
   StyledField,
   FormGroup,
   PasswordFormGroup,
   FormContentWrapper,
-  CustomRadio,
+  // CustomRadio,
   SubmitButton,
   VisibilityIconsWrapper,
   StyledSvg,
   RedError,
+  RadioInput,
+  RadioInputCustom,
+  RadioLabel,
+  RadioStyled,
+  RadioWrapper,
+  RadiosWrapper,
 } from './SettingModal.styled';
 import ModalContainer from '../ModalContainer/ModalContainer';
 import { getCurrentUser } from '../../store/auth/authSelectors';
@@ -35,6 +41,7 @@ import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// import { getIsDarkTheme } from '../../store/theme/themeSelectors';
 
 const SettingModal = ({ onModalClose, isModalOpen }) => {
   const dispatch = useDispatch();
@@ -51,6 +58,12 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
     newPassword: '',
     repeatedPassword: '',
   });
+
+  // const color = useSelector(getIsDarkTheme) ? 'dark' : 'light';
+  // const statusWoman = user.gender === 'woman' ? 'active' : 'inactive';
+  // const iconIdWoman = `radio-${statusWoman}-${color}`;
+  // const statusMan = user.gender === 'man' ? 'active' : 'inactive';
+  // const iconIdMan = `radio-${statusMan}-${color}`;
 
   const handleShowPassword = (index) => {
     const newShowPassword = [...showPassword];
@@ -187,28 +200,61 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                         <FormSubtitle id="my-radio-group">
                           Your gender identity
                         </FormSubtitle>
-                        <StyledRadioGroup row aria-labelledby="my-radio-group">
-                          <SmallControlLabel
-                            value="woman"
-                            control={<CustomRadio disableTouchRipple />}
-                            label="Woman"
-                            name="gender"
-                            checked={formik.values.gender === 'woman'}
-                            onChange={() =>
-                              formik.setFieldValue('gender', 'woman')
-                            }
-                          ></SmallControlLabel>
-                          <SmallControlLabel
-                            value="man"
-                            control={<CustomRadio disableTouchRipple />}
-                            label="Man"
-                            name="gender"
-                            checked={formik.values.gender === 'man'}
-                            onChange={() =>
-                              formik.setFieldValue('gender', 'man')
-                            }
-                          ></SmallControlLabel>
-                        </StyledRadioGroup>
+                        <RadiosWrapper>
+                          <RadioWrapper>
+                            <RadioInput
+                              id="woman"
+                              type="radio"
+                              name="gender"
+                              value="woman"
+                              checked={formik.values.gender === 'woman'}
+                              onChange={() =>
+                                formik.setFieldValue('gender', 'woman')
+                              }
+                            />
+                            <RadioLabel htmlFor="woman">
+                              <RadioInputCustom>
+                                <RadioStyled>
+                                  <use
+                                    href={`${sprite}#${
+                                      formik.values.gender === 'woman'
+                                        ? 'radio-active-light'
+                                        : 'radio-inactive-light'
+                                    }`}
+                                  />
+                                </RadioStyled>
+                              </RadioInputCustom>
+                              Woman
+                            </RadioLabel>
+                          </RadioWrapper>
+
+                          <RadioWrapper>
+                            <RadioInput
+                              id="man"
+                              type="radio"
+                              name="gender"
+                              value="man"
+                              checked={formik.values.gender === 'man'}
+                              onChange={() =>
+                                formik.setFieldValue('gender', 'man')
+                              }
+                            />
+                            <RadioLabel htmlFor="man">
+                              <RadioInputCustom>
+                                <RadioStyled>
+                                  <use
+                                    href={`${sprite}#${
+                                      formik.values.gender === 'man'
+                                        ? 'radio-active-light'
+                                        : 'radio-inactive-light'
+                                    }`}
+                                  />
+                                </RadioStyled>
+                              </RadioInputCustom>
+                              Man
+                            </RadioLabel>
+                          </RadioWrapper>
+                        </RadiosWrapper>
                         <FormGroup>
                           <FormLabel htmlFor="name">Your name</FormLabel>
                           <StyledField
