@@ -7,8 +7,11 @@ import { getCurrentDayInfoThunk, deleteDrinkThunk, editDrinkThunk } from '../../
 
 const TodayWaterList = () => {
   const dayInfoTrunks = useSelector(getCurrentDay)
-  console.log(dayInfoTrunks)
-  console.log(dayInfoTrunks.waterIntakes)
+  const dispatch = useDispatch()
+  
+  // console.log(dayInfoTrunks)
+  // console.log(dayInfoTrunks.waterIntakes)
+  // const TestDateDailyInfo = [];
   const TestDateDailyInfo = [
     {
       id: 1,
@@ -23,55 +26,63 @@ const TodayWaterList = () => {
     {
       id: 3,
       volume: "150 ml",
-      date: 16.10
+      date: 16.12
     },
     {
       id: 4,
       volume: "50 ml",
-      date: 18.00
+      date: 18.01
     },
     {
       id: 5,
       volume: "300 ml",
-      date: 19.00
+      date: 19.03
     },
     {
       id: 6,
       volume: "100 ml",
-      date: 21.00
+      date: 21.05
+    },
+    {
+      id: 7,
+      volume: "5 ml",
+      date: 22.05
     }
   ]
-  const data = TestDateDailyInfo.map((item) =>
-    ([item.id, item.date, item.volume]))
-  console.log(data)
-
-
+  const handleWaterEdit = (evt) => { 
+    console.dir(evt.target.closest('LI').id)
+    console.log('Edit')
+  }
+  const handleDelete = (evt) => {
+    console.dir(evt.target.closest('LI').id)
+    dispatch(deleteDrinkThunk(evt.target.closest('LI').id))
+  }
+  
   return <>
     <WaterTodayListStyle>
-    <h3 className="title">Today</h3>
-    <ul className="waterList">
+      <h3 className="title">Today</h3>
+      <ul className="waterList">
       {TestDateDailyInfo.length > 0 ? TestDateDailyInfo.map((item) => (
-        <li className="waterItem" key={ item.id}>     
-      <div className="volumeAdnDate">
-      <svg width="26" height="18" stroke="#9ebbff" fill="none">
-          <use href={ sprite + "#water-glass" }></use>
-      </svg>
+        <li className="waterItem" key={ item.id} id={ item.id}>     
+          <div className="volumeAdnDate">
+            <svg className="waterGlass" width="26" height="26" stroke="#9ebbff" fill="none">
+              <use href={ sprite + "#water-glass" }></use>
+            </svg>
             <span className="waterVolume">{item.volume }</span>
-        <span className="waterTime">{item.date }</span>
-      </div>
-      <div className="editDelete">
-        <svg width="16" height="13" stroke="#9ebbff" fill="none">
-          <use href={sprite + "#pencil-square"}>
-          </use>
-        </svg>
-        <svg width="16" height="16" stroke="#ef5050" fill="none">
-          <use href={sprite + "#trash"}></use>
-        </svg>
-        </div>
-      </li>)): <p>you haven't drinks on that day</p>}
-    
+            <span className="waterTime">{item.date }</span>
+          </div>
+          <div className="editDelete">
+            <svg onClick={ handleWaterEdit } width="16" height="13" stroke="#9ebbff" fill="none">
+              <use href={sprite + "#pencil-square"}>
+              </use>
+            </svg>
+            <svg onClick={ handleDelete } width="16" height="16" stroke="#ef5050" fill="none">
+              <use href={sprite + "#trash"}></use>
+            </svg>
+          </div>
+        </li>)): <p>You don't have records on this day</p>}    
       </ul>
-      <h3>+ Add water</h3>
+      <h3 className="addWater">+ Add water</h3>
       </WaterTodayListStyle>
     </>
 };
