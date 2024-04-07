@@ -47,6 +47,7 @@ export const ProgressContainer = styled.div`
 
   .progress-bar {
     position: relative;
+    border-radius: 10px;
     width: 100%;
     height: 8px;
     background-color: ${({ theme }) => theme.color.paleBlue};
@@ -69,9 +70,9 @@ export const ProgressContainer = styled.div`
     color: ${({ theme }) => theme.color.blue};
   }
 
-  .marker-0,
-  .marker-50,
-  .marker-100 {
+  .line-0,
+  .line-50,
+  .line-100 {
     position: absolute;
     bottom: -20px;
 
@@ -83,8 +84,34 @@ export const ProgressContainer = styled.div`
     line-height: 16px;
     text-align: center;
   }
+
+  .line-0 {
+    left: 0;
+  }
+
+  .line-50 {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .line-100 {
+    right: 0;
+    transform: translateX(50%);
+  }
+
+  .marker-0,
+  .marker-50,
   .marker-100 {
-    right: -50px;
+    position: absolute;
+    bottom: -36px;
+
+    color: ${({ theme }) => theme.color.blue};
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
   }
 
   .marker-0 {

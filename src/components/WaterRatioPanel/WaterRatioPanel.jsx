@@ -45,6 +45,9 @@ const WaterRatioPanel = () => {
                   className="progress"
                   style={{ width: `${progress}%` }}
                 ></div>
+                <div className="line-0">|</div>
+                <div className="line-50">|</div>
+                <div className="line-100">|</div>
                 <div className="marker-0">0%</div>
                 <div className="marker-50">50%</div>
                 <div className="marker-100">100%</div>
