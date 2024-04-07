@@ -1,11 +1,11 @@
-import{u as e,j as t,N as n}from"./index-1e311379.js";import{B as o}from"./BubblesAnimation-a7e8f9ed.js";const b=e.div`
+import{u as o,j as i,N as e}from"./index-136a0ee2.js";import{B as n}from"./BubblesAnimation-574c1efb.js";const r=o.div`
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: #fff;
-  font-family: 'Varela Round', Sans-serif;
+  color: ${({theme:t})=>t.color.white};
+  font-family: 'Roboto', sans-serif;
   text-shadow: 0 30px 10px rgba(0, 0, 0, 0.15);
 
   .main {
@@ -23,13 +23,13 @@ import{u as e,j as t,N as n}from"./index-1e311379.js";import{B as o}from"./Bubbl
   p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #407bff;
+    color: ${({theme:t})=>t.color.blue};
   }
 
   h1 {
     font-size: 95px;
     margin: 0;
-    color: #407bff;
+    color: ${({theme:t})=>t.color.blue};
   }
   .buttons {
     display: flex;
@@ -37,13 +37,16 @@ import{u as e,j as t,N as n}from"./index-1e311379.js";import{B as o}from"./Bubbl
     gap: 12px;
   }
   button {
-    background: linear-gradient(#9ebbff, #407bff);
+    background: linear-gradient(
+      ${({theme:t})=>t.color.skyBlue},
+      ${({theme:t})=>t.color.blue}
+    );
     padding: 12px;
     border: none;
     border-radius: 20px;
     box-shadow: 0 30px 15px rgba(0, 0, 0, 0.15);
     outline: none;
-    color: #fff;
+    color: ${({theme:t})=>t.color.white};
     margin-bottom: 12px;
     text-transform: uppercase;
 
@@ -51,7 +54,10 @@ import{u as e,j as t,N as n}from"./index-1e311379.js";import{B as o}from"./Bubbl
   }
 
   .bubble {
-    background: linear-gradient(#ecf2ff, #9ebbff);
+    background: linear-gradient(
+      ${({theme:t})=>t.color.skyBlue},
+      ${({theme:t})=>t.color.blue}
+    );
     border-radius: 50%;
     box-shadow: 0 30px 15px rgba(0, 0, 0, 0.15);
     position: absolute;
@@ -59,7 +65,10 @@ import{u as e,j as t,N as n}from"./index-1e311379.js";import{B as o}from"./Bubbl
   .bubble:before,
   .bubble:after {
     content: '';
-    background: linear-gradient(#ecf2ff, #9ebbff);
+    background: linear-gradient(
+      ${({theme:t})=>t.color.skyBlue},
+      ${({theme:t})=>t.color.blue}
+    );
     border-radius: 50%;
     box-shadow: 0 30px 15px rgba(0, 0, 0, 0.15);
     position: absolute;
@@ -125,4 +134,4 @@ import{u as e,j as t,N as n}from"./index-1e311379.js";import{B as o}from"./Bubbl
     bottom: 5vmin;
     left: -25vmin;
   }
-`,l=()=>{const i=()=>{window.history.back()};return t.jsxs(b,{children:[t.jsx(o,{}),t.jsxs("div",{className:"main",children:[t.jsx("h1",{children:"404"}),t.jsxs("p",{children:["It looks like you're lost...",t.jsx("br",{}),"That's a trouble?"]}),t.jsxs("div",{className:"buttons",children:[t.jsx(n,{to:"/home",children:t.jsx("button",{children:"Go to Home"})}),t.jsx("button",{onClick:i,children:"Go back"})]})]})]})};export{l as default};
+`,h=()=>{const t=()=>{window.history.back()};return i.jsxs(r,{children:[i.jsx(n,{}),i.jsxs("div",{className:"main",children:[i.jsx("h1",{children:"404"}),i.jsxs("p",{children:["It looks like you're lost...",i.jsx("br",{}),"That's a trouble?"]}),i.jsxs("div",{className:"buttons",children:[i.jsx(e,{to:"/home",children:i.jsx("button",{children:"Go to Home"})}),i.jsx("button",{onClick:t,children:"Go back"})]})]})]})};export{h as default};
