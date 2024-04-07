@@ -1,1 +1,0 @@
-const e="/WaterTrackerFrontend/assets/bg_mob_register_1x-c3f32c7f.png",s="/WaterTrackerFrontend/assets/bg_tab_1x-d69bd0ff.png",t="/WaterTrackerFrontend/assets/bg_desk_1x-4890b716.png",r="/WaterTrackerFrontend/assets/bottle_desk_2x-fcff8706.png";export{s as a,e as b,t as c,r as d};
