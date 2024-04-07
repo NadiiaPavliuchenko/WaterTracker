@@ -1,4 +1,4 @@
-import{u as h,O as x,Q as c,j as o,S as m,T as u,U as p,V as d,s as l,c as b,M as g,X as f,r as w,W as j,Y as v,Z as y}from"./index-5aff460d.js";import{b as S,a as k,c as $,d as N}from"./bottle_desk_2x-0e16256e.js";const R=h.div`
+import{u as h,O as x,Q as c,j as o,S as m,T as u,U as p,V as d,s as l,c as b,M as g,X as f,r as w,W as j,Y as v,Z as y}from"./index-0ee53f84.js";import{b as S,a as k,c as $,d as N}from"./bottle_desk_2x-0e16256e.js";const R=h.div`
   @media ${({theme:e})=>e.device.mobile} {
     .form {
       margin-top: 16px;
@@ -111,6 +111,7 @@ import{u as h,O as x,Q as c,j as o,S as m,T as u,U as p,V as d,s as l,c as b,M a
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 280px;
   }
 
   button {
@@ -153,6 +154,9 @@ import{u as h,O as x,Q as c,j as o,S as m,T as u,U as p,V as d,s as l,c as b,M a
       top: 0;
       left: 100px;
     }
+    .link-container {
+      width: 336px;
+    }
   }
   @media screen and (min-width: 1440px) {
     background-image: url(${$});
@@ -173,6 +177,9 @@ import{u as h,O as x,Q as c,j as o,S as m,T as u,U as p,V as d,s as l,c as b,M a
     .wrapper {
       width: 100%;
       position: relative;
+    }
+    .link-container {
+      width: 384px;
     }
   }
 `,C=h.div`
