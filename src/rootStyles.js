@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         background-color: ${({ theme }) => theme.color.white};
-        font-family: var(--roboto-regular);
+        font-family: 'Roboto-Regular';
         font-weight: 400;
         font-style: normal;
         color: ${({ theme }) => theme.color.black};
@@ -34,6 +34,16 @@ const GlobalStyle = createGlobalStyle`
         height: 100vh;
         margin: 0;
     }
+    /* body::-webkit-scrollbar {
+        /* width: 20px; */
+    /* }
+    body::-webkit-scrollbar-track {
+        background: ${({ theme }) => theme.color.lavender}; 
+    } */
+    /* body::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.color.blue}; 
+    } */ 
+
     h1,
     h2,
     h3,

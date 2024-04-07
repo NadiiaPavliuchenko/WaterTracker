@@ -8,6 +8,7 @@ const lightTheme = {
     paleBlue: '#d7e3ff',
     red: '#ef5050',
     orange: '#ff9d43',
+    lightPurple: '#8baeff',
   },
   shadows: {
     normalButton: '0 4px 8px 0 rgba(64, 123, 255, 0.34)',
@@ -23,11 +24,12 @@ const darkTheme = {
     white: '#1C1D26',
     black: '#D5DFF5',
     blue: '#5082F2',
-    lavender: '#010101',
+    lavender: '#1F2438',
     skyBlue: '#2F3875',
     paleBlue: '#2A3052',
     red: '#F16161',
     orange: '#FFA756',
+    lightPurple: '#8baeff',
   },
   shadows: {
     normalButton: '0 4px 8px 0 rgba(0, 0, 0, 0.34)',

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { baseTheme } from '../theme';
+// import { baseTheme } from '../theme';
 
 export const CalendarModalStyles = styled.div`
   display: flex;
@@ -9,9 +9,9 @@ export const CalendarModalStyles = styled.div`
   position: absolute;
   bottom: 54px;
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.color.white};
   border-radius: 10px;
-  box-shadow: ${({ theme }) => theme.shadows.popoverShadow};
+  box-shadow: ${({ theme }) => theme.boxShadow.popoverShadow};
   padding: 24px 13px;
   transform-origin: bottom;
   z-index: 2;

@@ -9,15 +9,15 @@ export const ModalDaily = styled.div`
   /* align-items: flex-start; */
   gap: 12px;
   border-radius: 10px;
-  border: 1px solid var(--Secondary-color-2, #ecf2ff);
-  background: #fff;
-  box-shadow: 0px 4px 8px 0px rgba(158, 187, 255, 0.12);
+  border: 1px solid ${({ theme }) => theme.color.lavender};
+  background: ${({ theme }) => theme.color.white};
+  box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
 
   /* margin-bottom: 232px; */
 `;
 
 export const DailyTitle = styled.h2`
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
   font-size: 15px;
   font-weight: 500;
   line-height: 1.33;
@@ -26,7 +26,7 @@ export const DailyTitle = styled.h2`
 export const DailyBtn = styled.button`
   display: block;
   padding: 0;
-  color: #8baeff;
+  color: ${({ theme }) => theme.color.lightPurple};
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
@@ -35,25 +35,24 @@ export const DailyBtn = styled.button`
   border: none;
 
   &:hover {
-    color: #ff9d43;
+    color: ${({ theme }) => theme.color.orange};
     transition: color 0.3s ease;
   }
 
   &:focus {
-    color: #ff9d43;
+    color: ${({ theme }) => theme.color.orange};
     transition: color 0.3s ease;
   }
 `;
 
-
 export const DailyLitr = styled.p`
- color:  #407bff;
+  color: ${({ theme }) => theme.color.blue};
   font-size: 22px;
   font-weight: 700;
   line-height: 1;
 `;
 
 export const DailyEditContainer = styled.div`
- display: flex;
+  display: flex;
   gap: 12px;
 `;

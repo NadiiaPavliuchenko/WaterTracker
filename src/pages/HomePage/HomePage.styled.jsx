@@ -13,7 +13,7 @@ export const HomeSection = styled.div`
   gap: 20px;
   width: 100%;
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     flex-direction: row;
   }
 `;
@@ -31,7 +31,7 @@ export const HomeStatistics = styled.div`
   gap: 24px;
   width: 100%;
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     flex: 1;
   }
 `;

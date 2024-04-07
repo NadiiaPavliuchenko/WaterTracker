@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const LabelStyled = styled.label`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-family: 'Roboto-Medium';
+  /* font-weight: 500; */
   font-size: 18px;
   line-height: 1.11111;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -18,17 +18,24 @@ export const ButtonStyled = styled.button`
   padding: 8px 30px;
   width: 256px;
   height: 36px;
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
-  background: #407bff;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
+  background: ${({ theme }) => theme.color.blue};
+  font-family: 'Roboto-Medium', sans-serif;
+  /* font-weight: 500; */
   font-size: 16px;
   line-height: 1.25;
   text-align: center;
-  color: #fff;
+  color: ${({ theme }) => theme.color.white};
   border: none;
+  &:hover,
+  &:focus {
+    box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
+  }
+  &:active {
+    box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
+  }
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     padding: 10px 30px;
     margin-left: auto;
     display: block;
@@ -38,7 +45,7 @@ export const ButtonStyled = styled.button`
 `;
 
 export const MessageOfError = styled.p`
-  color: red; /* Set the text color to red */
+  color: ${({ theme }) => theme.color.red}; /* Set the text color to red */
   position: absolute; /* Position out of the document flow */
   bottom: -20px; /* Position below the input */
   left: 0; /* Align to the left of the input */

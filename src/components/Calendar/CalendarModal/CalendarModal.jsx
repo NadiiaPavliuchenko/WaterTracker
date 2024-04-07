@@ -38,7 +38,7 @@ const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
           </p>
         </>
       ) : (
-        <h3>You dont have records on this day.</h3>
+        <h3>{`You don't have records on this day.`}</h3>
       )}
     </CalendarModalStyles>
   );
