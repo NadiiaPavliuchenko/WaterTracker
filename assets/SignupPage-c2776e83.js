@@ -1,4 +1,4 @@
-import{u as m,E as x,F as l,Q as u,j as e,G as g,H as b,I as p,J as d,s as i,b as f,a as w,S as j,W as v,N as S,T as h,U as y}from"./index-136a0ee2.js";import{b as k,a as N,c as $,d as P}from"./bottle_desk_2x-0e16256e.js";const F=m.div`
+import{u as m,F as x,G as l,S as u,j as e,H as g,I as b,J as p,K as d,s as i,b as f,a as w,T as j,W as v,O as S,U as h,V as y}from"./index-561b3964.js";import{b as k,a as $,c as N,d as P}from"./bottle_desk_2x-0e16256e.js";const F=m.div`
   @media ${({theme:o})=>o.device.mobile} {
     .form {
       margin-top: 16px;
@@ -135,7 +135,7 @@ import{u as m,E as x,F as l,Q as u,j as e,G as g,H as b,I as p,J as d,s as i,b a
     }
   }
   @media ${({theme:o})=>o.device.tablet} {
-    background-image: url(${N});
+    background-image: url(${$});
     .wrapper {
       width: 100%;
       position: relative;
@@ -148,7 +148,7 @@ import{u as m,E as x,F as l,Q as u,j as e,G as g,H as b,I as p,J as d,s as i,b a
     }
   }
   @media ${({theme:o})=>o.device.desktop} {
-    background-image: url(${$});
+    background-image: url(${N});
     background-size: 1404px, 582px;
     background-position-y: 0px;
     background-position-x: -30px;
@@ -168,4 +168,4 @@ import{u as m,E as x,F as l,Q as u,j as e,G as g,H as b,I as p,J as d,s as i,b a
       position: relative;
     }
   }
-`,E=()=>{const o=f(),a=w(j);function r(n){o(y(n))}return e.jsxs(e.Fragment,{children:[e.jsx(_,{children:e.jsx(v,{children:e.jsx("div",{className:"wrapper",children:e.jsxs("div",{className:"formCont",children:[e.jsx("h2",{className:"title",children:"Sign Up"}),e.jsx(U,{submitFunc:r}),e.jsx(S,{className:"link",to:"/signin",children:"Sign In"}),e.jsx("img",{className:"bottle",alt:"bottle of water",src:P})]})})})}),a?e.jsx(h,{to:"/signin"}):e.jsx(h,{to:"/signup"})]})};export{E as default};
+`,I=()=>{const o=f(),a=w(j);function r(n){o(y(n))}return e.jsxs(e.Fragment,{children:[e.jsx(_,{children:e.jsx(v,{children:e.jsx("div",{className:"wrapper",children:e.jsxs("div",{className:"formCont",children:[e.jsx("h2",{className:"title",children:"Sign Up"}),e.jsx(U,{submitFunc:r}),e.jsx(S,{className:"link",to:"/signin",children:"Sign In"}),e.jsx("img",{className:"bottle",alt:"bottle of water",src:P})]})})})}),a?e.jsx(h,{to:"/signin"}):e.jsx(h,{to:"/signup"})]})};export{I as default};
