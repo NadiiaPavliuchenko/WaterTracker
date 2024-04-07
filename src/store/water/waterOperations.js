@@ -23,12 +23,16 @@ export const getCurrentMonthInfoThunk = createAsyncThunk(
   }
 );
 
-//дані поточного дня
+// TODO дані поточного дня
 export const getCurrentDayInfoThunk = createAsyncThunk(
   'water/getDay',
   async (_, thunkAPI) => {
     try {
-      const date = new Date().toISOString().split('T')[0];
+      const isoDate = new Date();
+      const timeZoneOffset = isoDate.getTimezoneOffset();
+      isoDate.setMinutes(isoDate.getMinutes() - timeZoneOffset);
+      const date = isoDate.toISOString().split('T')[0];
+
       const { data } = await axios.get('today', {
         params: {
           date,
@@ -87,12 +91,15 @@ export const editDrinkThunk = createAsyncThunk(
   }
 );
 
-//редагування денної норми
+// TODO редагування денної норми
 export const editDailyNorm = createAsyncThunk(
   'water/editDailyNorm',
   async (dailyWaterGoal, thunkAPI) => {
     try {
-      const date = new Date().toISOString().split('T')[0];
+      const isoDate = new Date();
+      const timeZoneOffset = isoDate.getTimezoneOffset();
+      isoDate.setMinutes(isoDate.getMinutes() - timeZoneOffset);
+      const date = isoDate.toISOString().split('T')[0];
 
       const { data } = await axios.patch(
         'waterrate',

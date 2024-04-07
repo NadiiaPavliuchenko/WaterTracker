@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentMonthInfoThunk } from '../../../store/water/waterOperations';
 import {
   getCurrentMonth,
+  getCurrentNorm,
+  getCurrentPercentage,
   getIsDayDataLoading,
 } from '../../../store/water/waterSelectors';
 
@@ -26,12 +28,15 @@ import { baseTheme } from '../theme';
 export const Calendar = () => {
   // аргумент "dailyNormaState" принимаем информацию о дневной норме потребления воды;
   const [currentDate, setCurrentDate] = useState(new Date()); // текущая дата + функция состояния; currentDate = текущая дата;
+
   // const [isLoading] = useState(); // состояние загрузки;
   const dispatch = useDispatch();
   const ref = useRef(null);
   // const consumedWaterPercentage = useSelector(getCurrentPercentage);
-  const dailyNormaState = useSelector((state) => state.getCurrentNorm);
+  const todayPercentage = useSelector(getCurrentPercentage);
+
   const waterForMonth = useSelector(getCurrentMonth);
+
   const isLoading = useSelector(getIsDayDataLoading);
 
   // useEffect(() => {
@@ -51,19 +56,28 @@ export const Calendar = () => {
 
   useEffect(() => {
     // Получаем первый и последний день текущего месяца
+
+    const timeZoneOffset = currentDate.getTimezoneOffset();
+
     const firstDayOfMonth = new Date(
       currentDate.getFullYear(),
       currentDate.getMonth(),
-      2
-    );
-    const lastDayOfMonth = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth() + 1,
       1
     );
 
+    firstDayOfMonth.setMinutes(firstDayOfMonth.getMinutes() - timeZoneOffset);
+
+    const lastDayOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      0
+    );
+
+    lastDayOfMonth.setMinutes(lastDayOfMonth.getMinutes() - timeZoneOffset);
+
     // Формируем строку для запроса, содержащую начальную и конечную дату месяца
     const startDate = firstDayOfMonth.toISOString().split('T')[0];
+
     const endDate = lastDayOfMonth.toISOString().split('T')[0];
 
     // const dateRange = `${startDate} , ${endDate}`;
@@ -75,7 +89,7 @@ export const Calendar = () => {
     // Вызываем thunk, передавая в него начальную и конечную дату месяца
     dispatch(getCurrentMonthInfoThunk(dateRange));
     console.log(dateRange);
-  }, [dispatch, currentDate, dailyNormaState]);
+  }, [dispatch, currentDate, todayPercentage]);
 
   // =========================================================================
 
@@ -118,12 +132,42 @@ export const Calendar = () => {
     ).getDate(); // Определяем по getDaysInMonth количества дней в текущем месяце, через текущий год, месяц и день месяца из объекта "Date".
   };
 
+  const getMonth = () => {
+    const monthNumber = new Date(currentDate).getMonth();
+    const monthName = new Date(currentDate).toLocaleString('en-US', {
+      month: 'long',
+    });
+    return { monthNumber, monthName };
+  };
+
+  const getYear = () => {
+    return new Date(currentDate).getFullYear();
+  };
+
   const renderDays = () => {
     const daysInMonth = getDaysInMonth();
+
+    const month = getMonth();
+
+    const year = getYear();
+
     return Array.from({ length: daysInMonth }, (_, index) => {
       const day = index + 1;
+
       const consumedWaterPercentage =
-        waterForMonth && waterForMonth[index]?.consumedWaterPercentage;
+        waterForMonth && waterForMonth[index]
+          ? waterForMonth[index]?.consumedWaterPercentage
+          : 0;
+
+      const dailyNorma =
+        waterForMonth && waterForMonth[index]
+          ? waterForMonth[index].dailyWaterGoal
+          : 0;
+
+      const intakesNumber =
+        waterForMonth && waterForMonth[index]
+          ? waterForMonth[index].consumedTimes
+          : 0;
 
       // const renderDays = () => {
       //   const daysInMonth = getDaysInMonth();
@@ -140,11 +184,12 @@ export const Calendar = () => {
       return (
         <DayComponent
           key={day}
-          dailyWaterGoal={ref}
           day={day}
-          //TODO: вставить процентаж
-
+          month={month}
+          year={year}
+          dailyWaterGoal={dailyNorma}
           consumedWaterPercentage={consumedWaterPercentage}
+          consumedTimes={intakesNumber}
         />
       );
     });

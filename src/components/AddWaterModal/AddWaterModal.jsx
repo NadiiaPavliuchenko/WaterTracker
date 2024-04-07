@@ -41,6 +41,8 @@ const AddWaterModal = ({ isModalOpen, closeModal }) => {
     };
 
     dispatch(addWaterThunk(data));
+
+    closeModal();
   };
 
   const handleChangeWaterAmount = (e) => {

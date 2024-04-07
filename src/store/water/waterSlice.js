@@ -66,8 +66,9 @@ const waterSlice = createSlice({
         state.isAddDrinkLoading = true;
       })
       .addCase(addWaterThunk.fulfilled, (state, { payload }) => {
+        console.log('🚀 ~ payload:', payload);
         state.isAddDrinkLoading = false;
-        state.dayInfo = { ...payload };
+        state.dayInfo = payload.newDailyWater;
       })
       .addCase(addWaterThunk.rejected, (state) => {
         state.isAddDrinkLoading = false;
@@ -94,6 +95,7 @@ const waterSlice = createSlice({
       })
 
       .addCase(editDailyNorm.fulfilled, (state, { payload }) => {
+        console.log('🚀 ~ payload:', payload);
         state.dayInfo = payload.newDailyWater;
         state.isEditingNorm = false;
       })
