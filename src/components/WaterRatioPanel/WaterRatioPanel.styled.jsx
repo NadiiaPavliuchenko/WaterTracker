@@ -108,7 +108,7 @@ export const ProgressContainer = styled.div`
     color: ${({ theme }) => theme.color.blue};
 
     font-family: inherit;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 16px;
     text-align: center;
@@ -116,11 +116,12 @@ export const ProgressContainer = styled.div`
 
   .marker-0 {
     left: 0;
+    transform: translateX(-10%);
   }
 
   .marker-50 {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-30%);
   }
 
   .marker-100 {
@@ -135,10 +136,9 @@ export const ProgressContainer = styled.div`
     transform: translate(-50%, -50%);
     width: 14px;
     height: 14px;
-    background-color: ${({ theme }) => theme.color.white}; /* Цвет бегунка */
+    background-color: ${({ theme }) => theme.color.white};
     border: 1px solid ${({ theme }) => theme.color.blue};
     border-radius: 50%;
-    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
   }
 
   @media ${({ theme }) => theme.device.tablet} {
@@ -147,6 +147,9 @@ export const ProgressContainer = styled.div`
     }
     .progress-bar-container {
       width: 336px;
+    }
+    .progress-text {
+      font-size: 16px;
     }
   }
 
