@@ -17,6 +17,7 @@ export const DailyNormaInputForm = ({ closeModal }) => {
   const dailyNormLiters = (dailyNorm / 1000).toFixed(1);
 
   const [dailyWaterNorm, setDailyWaterNorm] = useState('');
+  console.log('🚀 ~ dailyWaterNorm:', dailyWaterNorm);
   const [isLessThanLimit, setIsLessThanLimit] = useState(true);
   const limit = 15;
 
@@ -49,6 +50,11 @@ export const DailyNormaInputForm = ({ closeModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!isLessThanLimit || dailyWaterNorm <= 0) {
+      return;
+    }
+
     const newNorm = e.target.elements.dailyNorm.value * 1000;
 
     try {
@@ -68,6 +74,7 @@ export const DailyNormaInputForm = ({ closeModal }) => {
       <LabelStyled>
         Write down how much water you will drink:
         <InputStyled
+          className={!isLessThanLimit && dailyWaterNorm <= 0 ? 'error' : ''}
           type="number"
           name="dailyNorm"
           value={dailyWaterNorm}
@@ -78,6 +85,12 @@ export const DailyNormaInputForm = ({ closeModal }) => {
           <MessageOfError>
             {`The water rate cannot exceed ${limit} liters`}
           </MessageOfError>
+        )}
+        {dailyWaterNorm < 0 && (
+          <MessageOfError>{`The water rate cannot be negative`}</MessageOfError>
+        )}
+        {parseFloat(dailyWaterNorm) === 0 && (
+          <MessageOfError>{`The water rate cannot be 0`}</MessageOfError>
         )}
       </LabelStyled>
 
