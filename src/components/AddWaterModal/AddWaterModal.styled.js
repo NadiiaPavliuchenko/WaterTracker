@@ -90,7 +90,7 @@ export const ModalBox = styled.div`
 
   .input {
     display: flex;
-    width: 544px;
+    width: 100%;
     height: 44px;
     padding: 12px 10px;
 
