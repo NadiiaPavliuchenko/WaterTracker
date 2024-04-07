@@ -18,22 +18,23 @@ export const SignInPageStyle = styled.div`
   button {
     border: none;
   }
-  @media screen and (min-width: 320px) {
+  @media ${({ theme }) => theme.device.mobile} {
     .title {
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
       font-size: 26px;
       line-height: 1.23077;
-      color: #2f2f2f;
+      /* color: #2f2f2f; */
       margin-top: 20px;
     }
     .link {
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 16px;
+      background-color: transparent;
 
       line-height: 1.25;
-      color: #407bff;
+      color: ${({ theme }) => theme.color.blue};
     }
     .bottle {
       // margin-top: 40px;
@@ -42,7 +43,7 @@ export const SignInPageStyle = styled.div`
       z-index: -10;
     }
   }
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     background-image: url(${bg_tab_register_1x});
     .wrapper {
       width: 100%;

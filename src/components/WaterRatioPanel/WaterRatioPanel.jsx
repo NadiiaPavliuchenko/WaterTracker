@@ -1,14 +1,16 @@
-import TodayListModal from 'components/TodayListModal/TodayListModal';
 import { useEffect, useState } from 'react';
 import {
   AddWaterBtn,
   Container,
   ProgressContainer,
+  ControlPointRoundedIcon,
 } from './WaterRatioPanel.styled';
-import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
+// import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCurrentPercentage } from '../../store/water/waterSelectors';
 import { getCurrentDayInfoThunk } from '../../store/water/waterOperations';
+import sprite from '../../assets/sprite.svg';
+import AddWaterModal from '../AddWaterModal/AddWaterModal';
 
 const WaterRatioPanel = () => {
   const [openList, setOpenList] = useState(false);
@@ -65,21 +67,14 @@ const WaterRatioPanel = () => {
 
           {/* Add Water Button */}
           <AddWaterBtn onClick={handleOpenClick}>
-            <ControlPointRoundedIcon
-              sx={{
-                fill: 'var(--primary-white)',
-                width: '24px',
-                height: '24px',
-              }}
-            />{' '}
+            <ControlPointRoundedIcon width="20px" height="20px">
+              <use xlinkHref={`${sprite}#plus-circle`} />
+            </ControlPointRoundedIcon>{' '}
             <p>Add Water</p>
           </AddWaterBtn>
         </div>
         {openList && (
-          <TodayListModal
-            isModalOpen={openList}
-            closeModal={handleCloseClick}
-          />
+          <AddWaterModal isModalOpen={openList} closeModal={handleCloseClick} />
         )}
       </Container>
     </>

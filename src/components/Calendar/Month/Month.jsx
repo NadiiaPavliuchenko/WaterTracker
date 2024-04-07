@@ -23,14 +23,14 @@ import {
 import { ThreeDots } from 'react-loader-spinner';
 import { baseTheme } from '../theme';
 
-export const Calendar = (dailyNormaState) => {
+export const Calendar = () => {
   // аргумент "dailyNormaState" принимаем информацию о дневной норме потребления воды;
   const [currentDate, setCurrentDate] = useState(new Date()); // текущая дата + функция состояния; currentDate = текущая дата;
   // const [isLoading] = useState(); // состояние загрузки;
   const dispatch = useDispatch();
   const ref = useRef(null);
   // const consumedWaterPercentage = useSelector(getCurrentPercentage);
-  // const dailyNormaState = useSelector((state) => state.dailyNormaState);
+  const dailyNormaState = useSelector((state) => state.getCurrentNorm);
   const waterForMonth = useSelector(getCurrentMonth);
   const isLoading = useSelector(getIsDayDataLoading);
 
@@ -122,17 +122,29 @@ export const Calendar = (dailyNormaState) => {
     const daysInMonth = getDaysInMonth();
     return Array.from({ length: daysInMonth }, (_, index) => {
       const day = index + 1;
-      const waterPercentage =
+      const consumedWaterPercentage =
         waterForMonth && waterForMonth[index]?.consumedWaterPercentage;
+
+      // const renderDays = () => {
+      //   const daysInMonth = getDaysInMonth();
+      //   const renderedDays = [];
+
+      //   for (let i = 1; i <= daysInMonth; i++) {
+      //     const consumedWaterPercentage = waterForMonth && waterForMonth[i - 1]?.consumedWaterPercentage;
+      //     renderedDays.push({ day: i, consumedWaterPercentage });
+      //   }
+      //   return renderedDays;
+
+      // }
 
       return (
         <DayComponent
           key={day}
-          calendarRef={ref}
+          dailyWaterGoal={ref}
           day={day}
           //TODO: вставить процентаж
 
-          consumedWaterPercentage={waterPercentage}
+          consumedWaterPercentage={consumedWaterPercentage}
         />
       );
     });

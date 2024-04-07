@@ -8,13 +8,13 @@ export const WelcomePageStyles = styled.div`
   align-items: center;
   margin-top: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     gap: 60px;
     align-items: stretch;
     margin-top: 40px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;

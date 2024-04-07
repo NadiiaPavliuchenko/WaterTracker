@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { baseTheme } from '../theme';
+// import { baseTheme } from '../theme';
 
 export const CalendarModalStyles = styled.div`
   display: flex;
@@ -9,18 +9,18 @@ export const CalendarModalStyles = styled.div`
   position: absolute;
   bottom: 54px;
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.color.white};
   border-radius: 10px;
-  box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
+  box-shadow: ${({ theme }) => theme.boxShadow.popoverShadow};
   padding: 24px 13px;
   transform-origin: bottom;
   z-index: 2;
 
-  @media screen and (max-width: 767px) {
+  @media ${({ theme }) => theme.device.tabletMax} {
     left: ${(props) => -7 - props.$deltaNum}px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     right: ${(props) => (props.$delta ? '17px' : '')};
     left: ${(props) => (props.$delta ? '' : '17px')};
     padding: 24px 16px;
@@ -28,21 +28,21 @@ export const CalendarModalStyles = styled.div`
     bottom: 58px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     bottom: 56px;
   }
 
   h3 {
-    color: ${baseTheme.colors.blue};
+    color: ${({ theme }) => theme.color.blue};
     font-size: '16px';
     line-height: calc(20 / 16);
   }
   p {
-    color: ${baseTheme.colors.black};
+    color: ${({ theme }) => theme.color.black};
     font-size: '16px';
     line-height: calc(20 / 16);
     span {
-      color: ${baseTheme.colors.blue};
+      color: ${({ theme }) => theme.color.blue};
       font-size: '18px';
       font-weight: 500;
       line-height: calc(24 / 18);

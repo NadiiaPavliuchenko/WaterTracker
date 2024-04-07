@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  color: #fff;
-  font-family: 'Varela Round', Sans-serif;
+  color: ${({ theme }) => theme.color.white};
+  font-family: 'Roboto', sans-serif;
   text-shadow: 0 30px 10px rgba(0, 0, 0, 0.15);
 
   .main {
@@ -25,13 +25,13 @@ export const Wrapper = styled.div`
   p {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #407bff;
+    color: ${({ theme }) => theme.color.blue};
   }
 
   h1 {
     font-size: 95px;
     margin: 0;
-    color: #407bff;
+    color: ${({ theme }) => theme.color.blue};
   }
   .buttons {
     display: flex;
@@ -39,13 +39,16 @@ export const Wrapper = styled.div`
     gap: 12px;
   }
   button {
-    background: linear-gradient(#9ebbff, #407bff);
+    background: linear-gradient(
+      ${({ theme }) => theme.color.skyBlue},
+      ${({ theme }) => theme.color.blue}
+    );
     padding: 12px;
     border: none;
     border-radius: 20px;
     box-shadow: 0 30px 15px rgba(0, 0, 0, 0.15);
     outline: none;
-    color: #fff;
+    color: ${({ theme }) => theme.color.white};
     margin-bottom: 12px;
     text-transform: uppercase;
 
@@ -53,7 +56,10 @@ export const Wrapper = styled.div`
   }
 
   .bubble {
-    background: linear-gradient(#ecf2ff, #9ebbff);
+    background: linear-gradient(
+      ${({ theme }) => theme.color.skyBlue},
+      ${({ theme }) => theme.color.blue}
+    );
     border-radius: 50%;
     box-shadow: 0 30px 15px rgba(0, 0, 0, 0.15);
     position: absolute;
@@ -61,7 +67,10 @@ export const Wrapper = styled.div`
   .bubble:before,
   .bubble:after {
     content: '';
-    background: linear-gradient(#ecf2ff, #9ebbff);
+    background: linear-gradient(
+      ${({ theme }) => theme.color.skyBlue},
+      ${({ theme }) => theme.color.blue}
+    );
     border-radius: 50%;
     box-shadow: 0 30px 15px rgba(0, 0, 0, 0.15);
     position: absolute;

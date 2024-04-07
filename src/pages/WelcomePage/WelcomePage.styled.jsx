@@ -23,13 +23,13 @@ export const BackgroundWrapper = styled.div`
   background-image: url(${backgroundMobile});
 
   // табл
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     background-image: url(${backgroundTablet});
     min-height: 100vh;
   }
 
   // деск
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     background-image: url(${backgroundDesktop});
     min-height: 100vh;
   }
@@ -52,7 +52,7 @@ export const Bubble = styled.div`
   min-height: calc(100vh - 40px);
 
   // табл
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     padding-top: 40px;
     // padding-bottom: 50px;
     min-height: calc(100vh - 50px);
@@ -61,7 +61,7 @@ export const Bubble = styled.div`
   }
 
   // деск
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     padding-top: 49px;
     // padding-bottom: 109px;
 
@@ -82,9 +82,9 @@ export const TurnOff = styled.div`
   right: 4px;
   padding: 12px;
   margin: 0;
-  background-color: var(--secondary-sky-blue);
-  border: 2px solid var(--primary-blue);
-  color: var(--primary-blue);
+  background-color: ${({ theme }) => theme.color.skyBlue};
+  border: 2px solid ${({ theme }) => theme.color.blue};
+  color: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Bold';
   font-size: 18px;
   text-align: center;
@@ -95,11 +95,11 @@ export const TurnOff = styled.div`
   &:hover {
     height: 100px;
   }
-  @media screen and (max-width: 767px) {
+  @media ${({ theme }) => theme.device.tabletMax} {
     border-radius: 25px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 120px;
     height: 80px;
     font-size: 20px;
@@ -109,7 +109,7 @@ export const TurnOff = styled.div`
     }
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     width: 160px;
     height: 80px;
     font-size: 24px;

@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-
 export const LogoModalMenu = styled.div`
   position: absolute;
   border-radius: 10px;
   z-index: 1;
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.2);
+  box-shadow: ${({ theme }) => theme.boxShadow.popoverShadow};
+
   width: 130px;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.color.white};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,14 +17,13 @@ export const LogoModalMenu = styled.div`
   transform-origin: top;
   right: 0;
 
-
   /* transform: translateX(-18.5vw) translateY(3.2vw); */
   transform: translateX(-27vw) translateY(2.5vw);
 
   @media screen and (max-width: 1920px) {
     transform: translateX(-16vw) translateY(3.8vw);
   }
- 
+
   @media screen and (max-width: 1440px) {
     transform: translateX(-9vw) translateY(4.2vw);
   }
@@ -52,8 +51,8 @@ export const LogoModalMenu = styled.div`
 `;
 
 export const ModalMenuBtn = styled.button`
-  background-color: #ffffff;
-  color: #407bff;
+  background-color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.color.blue};
   width: 90px;
   height: 22px;
   display: flex;
@@ -65,7 +64,7 @@ export const ModalMenuBtn = styled.button`
     margin-bottom: 16px;
   }
   &:hover {
-    color: #ff9d43;
+    color: ${({ theme }) => theme.color.orange};
     transition: color 0.3s ease;
   }
   @media screen and (max-width: 425px) {
@@ -80,9 +79,8 @@ export const Icon = styled.svg`
   margin-right: 6px;
   width: 16px;
   height: 16px;
-  stroke: #407bff;
-  fill: #ffffff;
-  
+  stroke: ${({ theme }) => theme.color.blue};
+  fill: transparent;
 
   @media screen and (max-width: 425px) {
     font-size: 12px;
@@ -91,6 +89,3 @@ export const Icon = styled.svg`
     margin-right: 9px;
   }
 `;
-
-
-

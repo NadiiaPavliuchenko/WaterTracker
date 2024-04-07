@@ -7,11 +7,11 @@ export const HiddenTitle = styled.h1`
 export const Title = styled.h2`
   font-weight: 700;
   font-size: 28px;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
   line-height: 32px;
   margin-bottom: 16px;
 
-  @media screen and(min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     font-size: 36px;
     line-height: 42px;
   }
@@ -19,11 +19,11 @@ export const Title = styled.h2`
 
 export const Subtitle = styled.p`
   font-size: 24px;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
   line-height: 30px;
   margin-bottom: 24px;
 
-  @media screen and(min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     font-size: 26px;
     line-height: 32px;
   }
@@ -34,16 +34,16 @@ export const Benefits = styled.ul`
   flex-direction: column;
   gap: 16px;
   font-size: 16px;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
   line-height: 20px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     flex-direction: row;
     justify-content: space-between;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     flex-direction: column;
     justify-content: center;
   }
@@ -61,12 +61,12 @@ export const Tracker = styled.div`
   width: 100%;
   margin: 0;
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 100%;
     margin: 0;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     width: 439px;
   }
 `;
@@ -74,7 +74,7 @@ export const Tracker = styled.div`
 export const BenefitsTitle = styled.h3`
   font-weight: 500;
   font-size: 18px;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
   line-height: 20px;
   margin-bottom: 12px;
 `;
@@ -82,41 +82,43 @@ export const BenefitsTitle = styled.h3`
 export const Button = styled.button`
   width: 100%;
   padding: 8px 30px;
-  color: #fff;
-  font-weight: 500;
+  color: ${({ theme }) => theme.color.white};
+  font-family: 'Roboto-Medium';
+  /* font-weight: 500; */
   font-size: 16px;
   line-height: 20px;
-  background-color: #407bff;
-  box-shadow: 0 4px 8px rgba(64, 123, 255, 0.34);
+  border: none;
+  background-color: ${({ theme }) => theme.color.blue};
+  box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
   border-radius: 10px;
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0 4px 14px rgba(64, 123, 255, 0.54);
+    box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
   }
   &:active {
-    box-shadow: none;
+    box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
   }
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 336px;
     font-size: 18px;
     line-height: 24px;
     padding: 10px 30px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     width: 384px;
   }
 `;
 
 export const Svg = styled.svg`
-  stroke: #407bff;
+  stroke: ${({ theme }) => theme.color.blue};
   fill: none;
   width: 32px;
   height: 32px;
 
-  @media screen and(min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 40px;
     height: 40px;
   }
