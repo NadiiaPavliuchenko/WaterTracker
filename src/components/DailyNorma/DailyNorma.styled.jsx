@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledBottleImage = styled.img`
   width: 280px;
-  height: auto;
+  height: 208px;
 
   @media ${({ theme }) => theme.device.tablet} {
     width: 518px;
@@ -14,8 +14,11 @@ export const StyledBottleImage = styled.img`
   }
 
   @media ${({ theme }) => theme.device.desktop} {
-    width: 592px;
+    width: 738px;
     height: 548px;
+    top: 0;
+    left: 0;
+    transform: translate(15%, 10%);
   }
 `;
 
