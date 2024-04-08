@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentMonthInfoThunk } from '../../../store/water/waterOperations';
 import {
   getCurrentMonth,
-  getCurrentNorm,
   getCurrentPercentage,
   getIsDayDataLoading,
 } from '../../../store/water/waterSelectors';
@@ -20,6 +19,7 @@ import {
   MonthControl,
   Month,
   MonthTitle,
+  ArrowBackIos,
 } from './Month.styled';
 
 import { ThreeDots } from 'react-loader-spinner';
@@ -47,12 +47,7 @@ export const Calendar = () => {
   //   dispatch(getCurrentMonthInfoThunk(month));
   // }, [dispatch, currentDate, dailyNormaState]);
 
-  // ===============================================================
-
-  // const currentDate = useSelector((state) => state.currentDate); // Предположим, что есть стейт currentDate
-  // const dailyNormaState = useSelector((state) => state.dailyNormaState); // Предположим, что есть стейт dailyNormaState
-
-  // ============================================================================
+  // =======================================================================
 
   useEffect(() => {
     // Получаем первый и последний день текущего месяца
@@ -170,27 +165,6 @@ export const Calendar = () => {
 
       const intakesNumber = currentDay ? currentDay.consumedTimes : 0;
 
-      // const renderDays = () => {
-      //   const daysInMonth = getDaysInMonth();
-      //   const renderedDays = [];
-
-      //   for (let i = 1; i <= daysInMonth; i++) {
-      //     const consumedWaterPercentage = waterForMonth && waterForMonth[i - 1]?.consumedWaterPercentage;
-      //     renderedDays.push({ day: i, consumedWaterPercentage });
-      //   }
-      //   return renderedDays;
-
-      // }
-
-      // const renderDays = () => {
-      //   const daysInMonth = getDaysInMonth();
-      //   return Array.from({ length: daysInMonth }, (_, index) => {
-      //     const day = index + 1;
-      //     const consumedWaterPercentage = waterForMonth?.find(
-      //       (item) =>
-      //         item.dayOfMonth && Number(item.dayOfMonth.split(',')[0]) === day
-      //     );
-
       return (
         <DayComponent
           key={day}
@@ -229,7 +203,9 @@ export const Calendar = () => {
         )}
         <MonthControl>
           <ArrowButton aria-label="Previous month" onClick={handlePrevMonth}>
-            <ArrowBackIosIcon sx={{ color: baseTheme.colors.blue }} />
+            <ArrowBackIos>
+              <ArrowBackIosIcon sx={{ color: baseTheme.colors.blue }} />
+            </ArrowBackIos>
           </ArrowButton>
 
           <Month>
@@ -241,6 +217,7 @@ export const Calendar = () => {
             aria-label="Next month"
             onClick={handleNextMonth}
             disabled={isCurrentMonth()}
+            hidden={isCurrentMonth()}
           >
             <ArrowForwardIosIcon sx={{ color: baseTheme.colors.blue }} />
           </ArrowButton>
