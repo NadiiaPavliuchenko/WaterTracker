@@ -192,7 +192,12 @@ export const FormContentWrapper = styled.div`
     gap: 24px;
   }
 `;
-
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+`;
 export const SubmitButton = styled.button`
   background-color: ${({ theme }) => theme.color.blue};
   border: none;
@@ -216,6 +221,33 @@ export const SubmitButton = styled.button`
   @media ${({ theme }) => theme.device.tablet} {
     float: right;
     width: 160px;
+  }
+`;
+
+export const DeleteButton = styled.button`
+  background-color: ${({ theme }) => theme.color.red};
+  border: none;
+  border-radius: 10px;
+  padding: 8px 30px;
+  width: 256px;
+  height: 36px;
+  box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
+  font-family: 'Roboto-Bold';
+  font-size: 12px;
+  text-align: center;
+  color: ${({ theme }) => theme.color.white};
+  &:hover,
+  &:focus {
+    box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
+  }
+  &:active {
+    box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
+    float: right;
+    width: 160px;
+    font-size: 18px;
   }
 `;
 
