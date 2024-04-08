@@ -1,4 +1,4 @@
-import{u as o,j as i,L as e}from"./index-fa040950.js";import{B as n}from"./BubblesAnimation-c3c7ba2b.js";const r=o.div`
+import{u as o,j as i,L as e}from"./index-a5ca9e2f.js";import{B as n}from"./BubblesAnimation-d54c7f62.js";const r=o.div`
   height: 100%;
   display: flex;
   justify-content: center;
