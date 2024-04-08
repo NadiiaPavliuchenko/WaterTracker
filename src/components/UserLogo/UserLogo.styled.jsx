@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+export const ModalBox = styled.div`
+  position: relative;
+`;
+
 export const ButtonBox = styled.div`
-position: relative;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +37,6 @@ export const Icon = styled.svg`
   stroke: ${({ theme }) => theme.color.blue};
   fill: transparent;
 `;
-
 
 // import styled from 'styled-components';
 

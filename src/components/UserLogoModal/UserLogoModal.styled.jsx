@@ -13,40 +13,17 @@ export const ModalBox = styled.div`
   align-items: center;
   justify-content: center;
   padding: 18px;
-  /* margin-top: 2px; */
-  /* transform-origin: top; */
-  /* right:280px;
-  top: 50px; */
 
   @media ${({ theme }) => theme.device.mobile} {
-    /* right: 4000px; */
-  top: 50px;
+    top: 50px;
+    right: 0;
   }
-
-  @media ${({ theme }) => theme.device.tablet} {
-    right: 25px;
-  /* top: 50px; */
-  }
-
-  @media ${({ theme }) => theme.device.tabletMax} {
-    right:10px;
-  /* top: 50px; */
-  }
-
-  @media ${({ theme }) => theme.device.desktop} {
-    right: 134px;
-  /* top: 50px; */
-  }
-
 
   /* mobile: '(min-width: 320px)',
     tablet: '(min-width: 768px)',
     tabletMax: '(max-width: 767px)',
     desktop: '(min-width: 1440px)',
   }, */
-
-
-
 `;
 
 export const ModalMenuBtn = styled.button`
@@ -88,8 +65,6 @@ export const Icon = styled.svg`
     margin-right: 9px;
   }
 `;
-
-
 
 // import styled from 'styled-components';
 

@@ -3,7 +3,13 @@ import UserLogoModal from 'components/UserLogoModal/UserLogoModal';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState } from 'react';
 import sprite from 'src/assets/sprite.svg';
-import { ButtonBox, AvatarStile, Icon, IconStyle } from './UserLogo.styled';
+import {
+  ButtonBox,
+  AvatarStile,
+  Icon,
+  IconStyle,
+  ModalBox,
+} from './UserLogo.styled';
 
 const UserLogo = ({ name, email, avatarURL }) => {
   const [isOpenPopup, setIsOpen] = useState(false);
@@ -19,7 +25,7 @@ const UserLogo = ({ name, email, avatarURL }) => {
     setIsOpen(!isOpenPopup);
   };
   return (
-    <>
+    <ModalBox>
       <ButtonBox onClick={handleClick}>
         <div>{userName}</div>
 
@@ -46,7 +52,7 @@ const UserLogo = ({ name, email, avatarURL }) => {
       {isOpenPopup && (
         <UserLogoModal isOpen={isOpenPopup} onClose={() => setIsOpen(false)} />
       )}
-    </>
+    </ModalBox>
   );
 };
 
