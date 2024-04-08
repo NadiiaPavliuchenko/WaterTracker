@@ -1,23 +1,31 @@
 import styled from 'styled-components';
 
+export const DailySection = styled.div`
+  position: relative;
+`;
+
 export const ModalDaily = styled.div`
   display: inline-flex;
   padding: 8px 20px;
   height: 74px;
   width: 150px;
   flex-direction: column;
-  /* align-items: flex-start; */
   gap: 12px;
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.color.lavender};
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
-  position: relative;
-  /* margin-bottom: 232px; */
+
+  @media ${({ theme }) => theme.device.tablet} {
+    margin-top: 16px;
+  }
+
+  @media ${({ theme }) => theme.device.desktop} {
+    margin-top: 30px;
+  }
 `;
 
 export const DailyTitle = styled.h2`
-  /* color: #2f2f2f; */
   font-size: 15px;
   font-weight: 500;
   line-height: 1.33;
@@ -30,6 +38,7 @@ export const DailyBtn = styled.button`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
+  z-index: 1;
 
   background: transparent;
   border: none;
@@ -58,23 +67,18 @@ export const DailyEditContainer = styled.div`
 `;
 
 export const StyledBottleImage = styled.img`
-  width: 280px;
-  height: 208px;
   position: absolute;
   top: 80px;
   left: 5px;
+  /* z-index: -1; */
 
   @media ${({ theme }) => theme.device.tablet} {
-    width: 518px;
-    height: 386px;
     top: 0;
-    left: 130px;
+    left: 90px;
   }
 
   @media ${({ theme }) => theme.device.desktop} {
-    width: 738px;
-    height: 548px;
     top: -10px;
-    left: -80px;
+    left: -110px;
   }
 `;
