@@ -20,13 +20,13 @@ const UserLogoModal = ({ isOpen, onClose }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
-        handleModalClose();
+        onClose();
       }
     };
 
     const handleKeyDown = (event) => {
       if (event.code === 'Escape') {
-        handleModalClose();
+        onClose();
       }
     };
 
@@ -71,4 +71,3 @@ const UserLogoModal = ({ isOpen, onClose }) => {
 };
 
 export default UserLogoModal;
-

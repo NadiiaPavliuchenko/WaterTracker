@@ -2,24 +2,27 @@ import { ButtonContainer, ModalBox } from './DeleteWaterIntakesModal.styled';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import ModalContainer from '../ModalContainer/ModalContainer';
 import { useDispatch } from 'react-redux';
-import {deleteDrinkThunk} from '../../store/water/waterOperations'
+import { deleteDrinkThunk } from '../../store/water/waterOperations';
 
-
-const DeleteWaterIntakesModal = ({ onModalClose, isModalOpen, currentIntakes }) => {
-  const dispatch = useDispatch();    
-  const handleDelete = (evt) => { 
+const DeleteWaterIntakesModal = ({
+  onModalClose,
+  isModalOpen,
+  currentIntakes,
+}) => {
+  const dispatch = useDispatch();
+  const handleDelete = () => {
     const timeZoneOffset = new Date(currentIntakes.time).getTimezoneOffset();
     // console.log(new Date(currentIntakes.time))
     // console.log(typeof(new Date(currentIntakes.time)))
-        const data = {
-          id: currentIntakes.id,
-          body: {
-            date: currentIntakes.time,
-            timeZoneOffset
-          }
-      }       
-    dispatch(deleteDrinkThunk(data))
-  }
+    const data = {
+      id: currentIntakes.id,
+      body: {
+        date: currentIntakes.time,
+        timeZoneOffset,
+      },
+    };
+    dispatch(deleteDrinkThunk(data));
+  };
   return (
     <>
       {isModalOpen && (
