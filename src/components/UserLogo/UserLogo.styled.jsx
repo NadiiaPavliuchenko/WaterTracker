@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ButtonBox = styled.div`
-position: relative;
+position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
