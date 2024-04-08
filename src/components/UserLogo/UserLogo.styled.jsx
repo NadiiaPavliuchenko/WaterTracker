@@ -5,7 +5,10 @@ export const ModalBox = styled.div`
 `;
 
 export const ButtonBox = styled.div`
+
+
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
