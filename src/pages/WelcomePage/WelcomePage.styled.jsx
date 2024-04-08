@@ -73,7 +73,7 @@ export const TurnOff = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  width: 60px;
   height: 60px;
   border-radius: 25px 25px 0 0;
   bottom: 0;
@@ -84,7 +84,7 @@ export const TurnOff = styled.div`
   border: 2px solid ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Bold';
-  font-size: 18px;
+  font-size: 12px;
   text-align: center;
   z-index: 50;
   cursor: pointer;
