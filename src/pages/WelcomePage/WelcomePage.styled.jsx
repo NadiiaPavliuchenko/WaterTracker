@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-import backgroundMobile from '../../assets/images/background/WelcomePage/mob/bg_mob.png';
-import backgroundTablet from '../../assets/images/background/WelcomePage/tab/bg_tab.png';
-import backgroundDesktop from '../../assets/images/background/WelcomePage/desktop/bg_img.png';
-import backgroundBubbles from '../../assets/images/background/WelcomePage/desktop/bg_img_bubbles.png';
+// import backgroundMobile from '../../assets/images/background/WelcomePage/mob/bg_mob.png';
+// import backgroundTablet from '../../assets/images/background/WelcomePage/tab/bg_tab.png';
+// import backgroundDesktop from '../../assets/images/background/WelcomePage/desktop/bg_img.png';
+// import backgroundBubbles from '../../assets/images/background/WelcomePage/desktop/bg_img_bubbles.png';
 
 export const BackgroundWrapper = styled.div`
   position: absolute;
   display: block;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   top: 0;
   left: 0;
   z-index: -1;
@@ -20,17 +20,17 @@ export const BackgroundWrapper = styled.div`
   min-height: 100vh;
 
   // мобіл
-  background-image: url(${backgroundMobile});
+  background-image: ${({ theme }) => theme.backgroundImage.welcomeMob};
 
   // табл
-  @media screen and (min-width: 768px) {
-    background-image: url(${backgroundTablet});
+  @media ${({ theme }) => theme.device.tablet} {
+    background-image: ${({ theme }) => theme.backgroundImage.welcomeTab};
     min-height: 100vh;
   }
 
   // деск
-  @media screen and (min-width: 1440px) {
-    background-image: url(${backgroundDesktop});
+  @media ${({ theme }) => theme.device.desktop} {
+    background-image: ${({ theme }) => theme.backgroundImage.welcomeDesk};
     min-height: 100vh;
   }
 `;
@@ -52,20 +52,18 @@ export const Bubble = styled.div`
   min-height: calc(100vh - 40px);
 
   // табл
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     padding-top: 40px;
+
     // padding-bottom: 50px;
     min-height: calc(100vh - 50px);
-
-    background-image: url(${backgroundBubbles});
   }
 
   // деск
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     padding-top: 49px;
     // padding-bottom: 109px;
-
-    background-image: url(${backgroundBubbles});
+    background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
     min-height: calc(100vh - 109px);
   }
 `;
@@ -75,18 +73,18 @@ export const TurnOff = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
+  width: 60px;
   height: 60px;
   border-radius: 25px 25px 0 0;
   bottom: 0;
   right: 4px;
   padding: 12px;
   margin: 0;
-  background-color: var(--secondary-sky-blue);
-  border: 2px solid var(--primary-blue);
-  color: var(--primary-blue);
+  background-color: ${({ theme }) => theme.color.skyBlue};
+  border: 2px solid ${({ theme }) => theme.color.blue};
+  color: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Bold';
-  font-size: 18px;
+  font-size: 12px;
   text-align: center;
   z-index: 50;
   cursor: pointer;
@@ -95,11 +93,11 @@ export const TurnOff = styled.div`
   &:hover {
     height: 100px;
   }
-  @media screen and (max-width: 767px) {
+  @media ${({ theme }) => theme.device.tabletMax} {
     border-radius: 25px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 120px;
     height: 80px;
     font-size: 20px;
@@ -109,7 +107,7 @@ export const TurnOff = styled.div`
     }
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     width: 160px;
     height: 80px;
     font-size: 24px;

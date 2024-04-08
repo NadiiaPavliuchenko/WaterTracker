@@ -23,12 +23,16 @@ export const getCurrentMonthInfoThunk = createAsyncThunk(
   }
 );
 
-//дані поточного дня
+// TODO дані поточного дня
 export const getCurrentDayInfoThunk = createAsyncThunk(
   'water/getDay',
   async (_, thunkAPI) => {
     try {
-      const date = new Date().toISOString().split('T')[0];
+      const isoDate = new Date();
+      const timeZoneOffset = isoDate.getTimezoneOffset();
+      isoDate.setMinutes(isoDate.getMinutes() - timeZoneOffset);
+      const date = isoDate.toISOString().split('T')[0];
+
       const { data } = await axios.get('today', {
         params: {
           date,
@@ -44,10 +48,9 @@ export const getCurrentDayInfoThunk = createAsyncThunk(
 //додавання води
 export const addWaterThunk = createAsyncThunk(
   'water/add',
-  async (data, thunkAPI) => {
-    const { ml, date } = data;
+  async (body, thunkAPI) => {
     try {
-      const { data } = await axios.post(`water/${date}`, ml);
+      const { data } = await axios.post(`water`, body);
       toastSuccess('Drink has been added successful');
       return data;
     } catch (error) {
@@ -88,12 +91,15 @@ export const editDrinkThunk = createAsyncThunk(
   }
 );
 
-//редагування денної норми
+// TODO редагування денної норми
 export const editDailyNorm = createAsyncThunk(
   'water/editDailyNorm',
   async (dailyWaterGoal, thunkAPI) => {
     try {
-      const date = new Date().toISOString().split('T')[0];
+      const isoDate = new Date();
+      const timeZoneOffset = isoDate.getTimezoneOffset();
+      isoDate.setMinutes(isoDate.getMinutes() - timeZoneOffset);
+      const date = isoDate.toISOString().split('T')[0];
 
       const { data } = await axios.patch(
         'waterrate',

@@ -9,7 +9,7 @@ export const ModalBox = styled.div`
   width: 280px;
   height: 260px;
   padding: 32px 24px;
-  background-color: var(--primary-white);
+  background-color: ${({ theme }) => theme.color.white};
   border-radius: 10px;
 
   h2 {
@@ -35,11 +35,11 @@ export const ModalBox = styled.div`
     margin-bottom: 24px;
   }
   .close {
-    fill: var(--primary-blue);
+    fill: ${({ theme }) => theme.color.blue};
     cursor: pointer;
   }
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 592px;
     height: 208px;
   }
@@ -68,28 +68,28 @@ export const ButtonContainer = styled.div`
     padding: 8px 30px 8px 30px;
     border: none;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.341);
+    box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
   }
 
   button:hover {
-    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.541);
+    box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
   }
 
   button:active {
-    box-shadow: none;
+    box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
   }
 
   .confirm {
-    color: var(--primary-white);
-    background-color: var(--secondary-red);
+    color: ${({ theme }) => theme.color.white};
+    background-color: ${({ theme }) => theme.color.red};
   }
 
   .cancel {
-    color: var(--primary-blue);
-    background-color: var(--secondary-pale-blue);
+    color: ${({ theme }) => theme.color.blue};
+    background-color: ${({ theme }) => theme.color.paleBlue};
   }
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 344px;
     margin-left: 200px;
     flex-direction: row-reverse;

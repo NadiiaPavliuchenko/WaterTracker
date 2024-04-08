@@ -1,7 +1,19 @@
 import { CalendarModalStyles } from './CalendarModal.styled';
 
-const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
-  const { dayOfMonth, waterRate, percent, numberRecords } = waterData;
+const CalendarModal = ({
+  calendarRef,
+  refData,
+  // waterData = {},
+  day,
+  month,
+
+  dailyWaterGoal,
+  consumedWaterPercentage,
+  consumedTimes,
+}) => {
+  const dayOfMonth = `${day}, ${month}`;
+
+  // const { dayOfMonth, waterRate, percent, numberRecords } = waterData;
 
   //  Здесь получаем значение "left" для текущего элемента и контейнера с помощью метода "getBoundingClientRect()".
   // Вычисляем "delta", которая определяет положение модального окна относительно контейнера.
@@ -23,23 +35,18 @@ const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
   // в противном случае отображается сообщение о том, что записей за этот день нет.
   return (
     <CalendarModalStyles $delta={position} $deltaNum={delta}>
-      {Object.values(waterData).length ? (
-        <>
-          <h3>{dayOfMonth}</h3>
-          <p>
-            Daily norma: <span>{waterRate / 1000} L</span>
-          </p>
-          <p>
-            Fulfillment of the daily norm:{' '}
-            <span>{percent > 100 ? 100 : percent}%</span>
-          </p>
-          <p>
-            How many servings of water: <span>{numberRecords}</span>
-          </p>
-        </>
-      ) : (
-        <h3>You dont have records on this day.</h3>
-      )}
+      <>
+        <h3>{dayOfMonth}</h3>
+        <p>
+          Daily norma: <span>{dailyWaterGoal / 1000} L</span>
+        </p>
+        <p>
+          Fulfillment of the daily norm: <span>{consumedWaterPercentage}%</span>
+        </p>
+        <p>
+          How many servings of water: <span>{consumedTimes}</span>
+        </p>
+      </>
     </CalendarModalStyles>
   );
 };

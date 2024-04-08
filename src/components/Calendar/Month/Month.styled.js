@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { baseTheme } from '../theme';
+// import { baseTheme } from '../theme';
 
 export const CalendarContainer = styled.div`
   display: flex;
@@ -14,12 +14,12 @@ export const MonthNav = styled.div`
 `;
 
 export const MonthTitle = styled.h2`
-  color: ${baseTheme.colors.black};
+  color: ${({ theme }) => theme.color.black};
   font-size: 24px;
   font-weight: 600;
   line-height: calc(30 / 24);
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     font-size: 26px;
     line-height: calc(32 / 26);
   }
@@ -33,7 +33,7 @@ export const ArrowButton = styled.button`
   margin: 0 10px;
   background-color: transparent;
   border: none;
-  fill: ${baseTheme.colors.blue};
+  fill: ${({ theme }) => theme.color.blue};
 
   & svg {
     width: 14px;
@@ -41,7 +41,7 @@ export const ArrowButton = styled.button`
   }
 
   &:disabled {
-    fill: ${baseTheme.colors.violet};
+    fill: ${({ theme }) => theme.color.skyBlue};
     cursor: not-allowed;
   }
 `;
@@ -50,17 +50,22 @@ export const Day = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.color.white};
   display: flex;
   align-items: center;
   justify-content: center;
   outline: ${(props) =>
-    props.$isOutlineVisible ? `1px solid ${baseTheme.colors.orange}` : 'none'};
+    props.$isOutlineVisible ? `1px solid ${props.theme.color.orange}` : 'none'};
   cursor: pointer;
   font-size: 14px;
   line-height: 18px;
 
-  @media screen and (min-width: 768px) {
+  &:hover,
+  &:focus {
+    box-shadow: ${({ theme }) => theme.boxShadow.calendarDayShadow};
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
     gap: 34px;
     row-gap: 20px;
     width: 34px;
@@ -69,7 +74,7 @@ export const Day = styled.div`
 `;
 
 export const MonthControl = styled.div`
-  color: ${baseTheme.colors.blue};
+  color: ${({ theme }) => theme.color.blue};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +86,7 @@ export const Month = styled.span`
 `;
 
 export const DayPercent = styled.span`
-  color: ${baseTheme.colors.violet};
+  color: ${({ theme }) => theme.color.skyBlue};
 
   font-size: 10px;
   font-style: normal;
@@ -89,11 +94,11 @@ export const DayPercent = styled.span`
   align-items: center;
   margin-top: 4px;
   line-height: calc(16 / 10);
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     font-size: 13px;
     line-height: calc(20 / 13);
   }
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     font-size: 12px;
     line-height: calc(18 / 12);
   }
@@ -107,12 +112,12 @@ export const DaysContainer = styled.div`
   column-gap: 26px;
   row-gap: 16px;
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     column-gap: 34px;
     row-gap: 20px;
     column-gap: 34px;
   }
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     column-gap: 22px;
   }
 `;

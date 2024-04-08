@@ -5,7 +5,7 @@ export const RecoveryModalContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--primary-white);
+  background-color: ${({ theme }) => theme.color.white};
   width: 280px;
   padding: 20px 40px;
   border-radius: 10px;
@@ -21,28 +21,33 @@ export const RecoveryModalContainer = styled.div`
     font-weight: 400;
     font-size: 18px;
     line-height: 1.33333;
-    color: #2f2f2f;
+    /* color: #2f2f2f; */
   }
   input {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
-    color: #000;
+    color: ${({ theme }) => theme.color.blue};
+    background-color: transparent;
 
-    border: 1px solid #d7e3ff;
+    border: 1px solid ${({ theme }) => theme.color.paleBlue};
     border-radius: 6px;
     padding: 12px 10px;
     margin-top: 8px;
     width: 250px;
     height: 44px;
   }
+  input:hover,
+  input:focus {
+    outline: none;
+  }
   input::placeholder {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
-    color: #9ebbff;
+    color: ${({ theme }) => theme.color.skyBlue};
   }
 
   button {
@@ -51,15 +56,22 @@ export const RecoveryModalContainer = styled.div`
     margin-bottom: 16px;
     width: 200px;
     height: 36px;
-    box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
-    background: #407bff;
+    box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
+    background: ${({ theme }) => theme.color.blue};
 
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.25;
     text-align: center;
-    color: #fff;
+    color: ${({ theme }) => theme.color.white};
+  }
+  button:hover,
+  button:focus {
+    box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
+  }
+  button:active {
+    box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
   }
   .error {
     color: red;

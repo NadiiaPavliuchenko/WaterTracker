@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
 export const LabelStyled = styled.label`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-family: 'Roboto-Medium';
+  /* font-weight: 500; */
   font-size: 18px;
   line-height: 1.11111;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-bottom: 24px;
   position: relative;
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 `;
 
 export const ButtonStyled = styled.button`
@@ -18,29 +23,44 @@ export const ButtonStyled = styled.button`
   padding: 8px 30px;
   width: 256px;
   height: 36px;
-  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
-  background: #407bff;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
+  background: ${({ theme }) => theme.color.blue};
+  font-family: 'Roboto-Medium', sans-serif;
+  /* font-weight: 500; */
   font-size: 16px;
   line-height: 1.25;
   text-align: center;
-  color: #fff;
+  color: ${({ theme }) => theme.color.white};
   border: none;
+  transition: box-shadow 0.3s ease;
 
-  @media screen and (min-width: 768px) {
+  &:hover,
+  &:focus {
+    box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
+  }
+
+  &:active {
+    box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
+  }
+
+  @media ${({ theme }) => theme.device.tablet} {
     padding: 10px 30px;
     margin-left: auto;
     display: block;
+    font-size: 18px;
 
     width: 160px;
   }
 `;
 
 export const MessageOfError = styled.p`
-  color: red; /* Set the text color to red */
-  position: absolute; /* Position out of the document flow */
-  bottom: -20px; /* Position below the input */
-  left: 0; /* Align to the left of the input */
-  font-size: 0.8rem; /* Smaller font size */
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: ${({ theme }) => theme.color.red};
 `;

@@ -5,6 +5,10 @@ import {
   InputStyled,
   InputWrapper,
   LitersStyled,
+  RadioInput,
+  RadioInputCustom,
+  RadioLabel,
+  RadioStyled,
   RadioWrapper,
   RadiosWrapper,
   TextStyled,
@@ -12,6 +16,8 @@ import {
   TitleStyled,
 } from './DailyNormaCalcFormStyled';
 import { MessageOfError } from '../DailyNormaInputForm/DailyNormaInputFormStyled';
+import sprite from '../../assets/sprite.svg';
+import { getIsDarkTheme } from '../../store/theme/themeSelectors';
 
 export const DailyNormaCalcForm = () => {
   const initialGender = useSelector(getUserGender);
@@ -23,14 +29,22 @@ export const DailyNormaCalcForm = () => {
   const [isLessThanActiveHoursLimit, setIsLessThanActiveHoursLimit] =
     useState(true);
 
+  // Defines the names of the icons for the radiobuttons
+  const color = useSelector(getIsDarkTheme) ? 'dark' : 'light';
+  const statusWoman = gender === 'woman' ? 'active' : 'inactive';
+  const iconIdWoman = `radio-${statusWoman}-${color}`;
+  const statusMan = gender === 'man' ? 'active' : 'inactive';
+  const iconIdMan = `radio-${statusMan}-${color}`;
+
+  const weightLimit = 300;
+  const activeHoursLimit = 12;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     // Регулярний вираз для перевірки цілого числа або числа з одним десятковим знаком
     const regex = /^(\d+([.,]\d{0,1})?)?$/;
     var formattedValue = value;
-    const weightLimit = 200;
-    const activeHoursLimit = 12;
 
     switch (name) {
       case 'gender':
@@ -96,30 +110,48 @@ export const DailyNormaCalcForm = () => {
 
         <RadiosWrapper>
           <RadioWrapper>
-            <input
+            <RadioInput
+              id="woman"
               type="radio"
               name="gender"
               value="woman"
               checked={gender === 'woman'}
               onChange={handleChange}
             />
-            For woman
+            <RadioLabel htmlFor="woman">
+              <RadioInputCustom>
+                <RadioStyled>
+                  <use href={`${sprite}#${iconIdWoman}`} />
+                </RadioStyled>
+              </RadioInputCustom>
+              For woman
+            </RadioLabel>
           </RadioWrapper>
+
           <RadioWrapper>
-            <input
+            <RadioInput
+              id="man"
               type="radio"
               name="gender"
               value="man"
               checked={gender === 'man'}
               onChange={handleChange}
             />
-            For man
+            <RadioLabel htmlFor="man">
+              <RadioInputCustom>
+                <RadioStyled>
+                  <use href={`${sprite}#${iconIdMan}`} />
+                </RadioStyled>
+              </RadioInputCustom>
+              For man
+            </RadioLabel>
           </RadioWrapper>
         </RadiosWrapper>
 
         <InputWrapper>
           Your weight in kilograms:
           <InputStyled
+            className={!isLessThanWeightLimit ? 'error' : ''}
             type="number"
             name="weight"
             value={weight}
@@ -128,7 +160,7 @@ export const DailyNormaCalcForm = () => {
           />
           {!isLessThanWeightLimit && (
             <MessageOfError>
-              The water rate cannot exceed 15 liters
+              {`Weight cannot exceed ${weightLimit} kg`}
             </MessageOfError>
           )}
         </InputWrapper>
@@ -137,6 +169,7 @@ export const DailyNormaCalcForm = () => {
           The time of active participation in sports or other activities with a
           high physical. load in hours:
           <InputStyled
+            className={!isLessThanActiveHoursLimit ? 'error' : ''}
             type="number"
             name="activeHours"
             value={activeHours}
@@ -145,7 +178,7 @@ export const DailyNormaCalcForm = () => {
           />
           {!isLessThanActiveHoursLimit && (
             <MessageOfError>
-              The water rate cannot exceed 15 liters
+              {`Active hours cannot exceed ${activeHoursLimit} hours`}
             </MessageOfError>
           )}
         </InputWrapper>
@@ -153,7 +186,9 @@ export const DailyNormaCalcForm = () => {
           <TextStyled>
             The required amount of water in liters per day:{' '}
           </TextStyled>
-          <LitersStyled>{roundedWaterNorma} L</LitersStyled>
+          {isLessThanWeightLimit && isLessThanActiveHoursLimit && (
+            <LitersStyled>{roundedWaterNorma} L</LitersStyled>
+          )}
         </TextsStyled>
       </form>
     </div>

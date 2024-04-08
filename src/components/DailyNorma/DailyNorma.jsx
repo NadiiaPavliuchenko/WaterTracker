@@ -8,8 +8,10 @@ import {
   DailyBtn,
   DailyLitr,
   DailyEditContainer,
+  StyledBottleImage,
 } from './DailyNorma.styled';
 import { fetchUserData } from '../../store/auth/authOperations';
+import bottle_desk_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_1x.png';
 
 const DailyNorma = () => {
   const { dailyWaterGoal } = useSelector(getCurrentUser);
@@ -39,6 +41,7 @@ const DailyNorma = () => {
         <DailyBtn onClick={openModal}>Edit</DailyBtn>
       </DailyEditContainer>
       <DailyNormaModal isModalOpen={isModalOpen} closeModal={closeModal} />
+      <StyledBottleImage src={bottle_desk_1x} alt="Bottle" />
     </ModalDaily>
   );
 };

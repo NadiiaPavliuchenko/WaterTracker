@@ -31,7 +31,7 @@ export const CloseIcon = styled.svg`
   margin-left: 8px;
   width: 28px;
   height: 28px;
-  stroke: rgb(47, 47, 47);
+  stroke: ${({ theme }) => theme.color.black};
   fill: transparent;
 `;
 
@@ -44,12 +44,12 @@ export const UserModalIcon = styled.svg`
 
   &:hover,
   &:focus {
-    fill: blue;
+    fill: ${({ theme }) => theme.color.blue};
     /*transform: scale(1.2);  Збільшення розміру при натисканні */
   }
 
   &.active {
-    fill: red;
+    fill: ${({ theme }) => theme.color.red};
     transform: rotate(180deg);
   }
 `;
@@ -60,11 +60,11 @@ export const UserName = styled.span`
   align-items: center;
   gap: 40px;
 
-  @media (min-width: 320px) {
+  @media ${({ theme }) => theme.device.mobile} {
     gap: 10px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     gap: 40px;
   }
 `;
@@ -77,7 +77,7 @@ export const UserAuthBtn = styled.button`
   line-height: 1.33em;
   background-color: transparent;
   padding: 0px;
-  color: rgb(64, 123, 255);
+  color: ${({ theme }) => theme.color.blue};
   border: 0px solid transparent;
   transition: transform 0.5s ease;
 
@@ -86,15 +86,21 @@ export const UserAuthBtn = styled.button`
     transition: transform 0.5s ease 0s;
   }
 
-  @media (min-width: 320px) {
+  @media ${({ theme }) => theme.device.mobile} {
     font-size: 16px;
     line-height: 1.25em;
   }
 
   &:hover,
   &:focus {
-    color: rgb(255, 157, 67);
+    color: ${({ theme }) => theme.color.orange};
   }
+`;
+
+export const HeaderContent = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
 `;
 // export const Container = styled.div`
 //   margin: 0 auto;

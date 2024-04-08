@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
+export const ModalBox = styled.div`
+  position: relative;
+`;
+
 export const ButtonBox = styled.div`
+
+
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,12 +37,6 @@ export const Icon = styled.svg`
   margin-left: 8px;
   width: 28px;
   height: 28px;
-  stroke: rgb(47, 47, 47);
+  stroke: ${({ theme }) => theme.color.blue};
   fill: transparent;
 `;
-
-// export const KeyboardArrowUpIcon = styled.buttonBox`
-//   transform: ${(props) =>
-//     props.isOpenPopup ? 'rotate(180deg)' : 'rotate(0deg)'};
-//   transition: transform 0.5s ease-in-out;
-// `;

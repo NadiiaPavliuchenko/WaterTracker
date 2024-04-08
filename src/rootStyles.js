@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         background-color: ${({ theme }) => theme.color.white};
-        font-family: var(--roboto-regular);
+        font-family: 'Roboto-Regular';
         font-weight: 400;
         font-style: normal;
         color: ${({ theme }) => theme.color.black};

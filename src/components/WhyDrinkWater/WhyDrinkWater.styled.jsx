@@ -3,13 +3,13 @@ import styled from 'styled-components';
 export const Title = styled.h2`
   font-weight: 600;
   font-size: 18px;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
   margin-bottom: 12px;
 `;
 
 export const Item = styled.li`
   font-size: 16px;
-  color: #2f2f2f;
+  /* color: #2f2f2f; */
   line-height: 20px;
 
   margin-bottom: 16px;
@@ -28,7 +28,7 @@ export const Item = styled.li`
     transform: translateY(-50%);
     width: 8px;
     height: 8px;
-    background-color: #407bff;
+    background-color: ${({ theme }) => theme.color.blue};
     border-radius: 50%;
   }
 
@@ -38,8 +38,10 @@ export const Item = styled.li`
 `;
 export const OutlineContainer = styled.div`
   display: block;
-
   margin: 0;
+  /* @media ${({ theme }) => theme.device.mobile} {
+    margin-bottom: 40px;
+  } */
 `;
 
 export const Container = styled.div`
@@ -50,11 +52,11 @@ export const Container = styled.div`
   width: 280px;
 
   padding: 24px 16px;
-  background-color: #ecf2ff;
-  box-shadow: 0 4px 14px rgba(64, 123, 255, 0.3);
+  background-color: ${({ theme }) => theme.color.lavender};
+  box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
   border-radius: 10px;
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     padding: 32px 24px;
     width: auto;
     list-style-position: inside;
