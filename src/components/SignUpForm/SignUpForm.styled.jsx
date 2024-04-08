@@ -9,8 +9,7 @@ export const FormRegisterStyles = styled.div`
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 18px;
-      line-height: 1.33333;
-      /* color: #2f2f2f; */
+      line-height: 1.33333;      
     }
     .input-container {
       position: relative;
@@ -23,7 +22,6 @@ export const FormRegisterStyles = styled.div`
       font-size: 16px;
       line-height: 1.25;
       background-color: ${({ theme }) => theme.color.white};
-      /* color: #000; */
       color: ${({ theme }) => theme.color.blue};
       border: 1px solid ${({ theme }) => theme.color.paleBlue};
       border-radius: 6px;
@@ -47,10 +45,8 @@ export const FormRegisterStyles = styled.div`
       position: absolute;
       right: 20px;
       top: 50%;
-      transform: translate(0%, -50%);
-      /* z-index: 10; */
+      transform: translate(0%, -50%);      
     }
-
     .buttonSignUp {
       border-radius: 10px;
       padding: 8px 30px;
@@ -62,7 +58,7 @@ export const FormRegisterStyles = styled.div`
       background-color: ${({ theme }) => theme.color.blue};
 
       font-family: 'Roboto-medium';
-      /* font-weight: 500; */
+      font-weight: 500;
       font-size: 16px;
       line-height: 1.25;
       text-align: center;

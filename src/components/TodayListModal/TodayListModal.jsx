@@ -10,10 +10,11 @@ import { ModalBox } from './TodayListModal.styled';
 import { getDrinks } from '../../store/water/waterSelectors';
 import { editDrinkThunk } from '../../store/water/waterOperations';
 
-const TodayListModal = ({ isModalOpen, closeModal }) => {
-  const [waterAmount, setWaterAmount] = useState(50);
-  const [selectedTime, setSelectedTime] = useState('');
-  const { id, ml, time } = useSelector(getDrinks);
+const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
+  const [waterAmount, setWaterAmount] = useState(currentIntakes.ml);
+  const [selectedTime, setSelectedTime] = useState(''); 
+  const drinks = useSelector(getDrinks)
+  
 
   const dispatch = useDispatch();
 
@@ -33,13 +34,13 @@ const TodayListModal = ({ isModalOpen, closeModal }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      time: selectedTime,
+    const timeZoneOffset = new Date(selectedTime).getTimezoneOffset()
+    const body = {
+      date: selectedTime,
       ml: waterAmount,
+      timeZoneOffset
     };
-    console.log(data);
-
-    dispatch(editDrinkThunk({ id, data }));
+    dispatch(editDrinkThunk({ id: currentIntakes.id, body }));    
   };
   const handleChangeWaterAmount = (e) => {
     const amount = parseInt(e.target.value);
@@ -55,8 +56,8 @@ const TodayListModal = ({ isModalOpen, closeModal }) => {
               <CloseOutlinedIcon className="close" onClick={closeModal} />
             </div>
             {/* TODO вставить данные существующей записи */}
-            <span className="amount">{ml}ml</span>
-            {time}
+            <span className="amount">{currentIntakes.ml}ml</span>
+            {currentIntakes.time.slice(11,16)}
             <p>Correct entered data:</p>
             <form onSubmit={handleFormSubmit}>
               <label>
@@ -107,8 +108,7 @@ const TodayListModal = ({ isModalOpen, closeModal }) => {
                 <button
                   className="confirm"
                   type="submit"
-                  onClick={handleFormSubmit}
-                >
+                  onClick={handleFormSubmit}>
                   Save
                 </button>
               </div>

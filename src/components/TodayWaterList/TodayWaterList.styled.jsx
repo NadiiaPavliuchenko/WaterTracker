@@ -23,6 +23,7 @@ export const WaterTodayListStyle = styled.div`
       font-weight: 500;
       font-size: 24px;
       line-height: 1.25;
+      height: 40px;
       /* color: #2f2f2f; */
     }
     .waterList {
@@ -74,6 +75,15 @@ export const WaterTodayListStyle = styled.div`
       line-height: 1.33333;
       color: ${({ theme }) => theme.color.blue};
     }
+    .waterVolumeMl {
+      display: flex;
+      justify-content: end;      
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.33333;
+      color: ${({ theme }) => theme.color.blue};
+    }
     .waterTime {
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
@@ -89,10 +99,14 @@ export const WaterTodayListStyle = styled.div`
       gap: 18px;
     }
     .addWater {
+      cursor: pointer;
+      height: 30px;
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
       font-size: 16px;
       line-height: 1.25;
+      display: flex;
+      align-items: end;
       color: ${({ theme }) => theme.color.blue};
     }
   }
