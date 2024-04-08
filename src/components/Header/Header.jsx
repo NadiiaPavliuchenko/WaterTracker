@@ -6,6 +6,7 @@ import {
   CloseIcon,
   UserName,
   UserModalIcon,
+  HeaderContent,
 } from './Header.styled';
 import sprite from 'src/assets/sprite.svg';
 import Wrapper from 'components/Wrapper/Wrapper';
@@ -24,24 +25,26 @@ export const Header = () => {
         <NavLink to={token ? '/home' : '/'} className="logoBox">
           <img src={imgUrl} alt="iconHome" />
         </NavLink>
-        <ToggleTheme />
-        {!token ? (
-          <UserName>
-            <NavLink className="textSignIn" to="/signin" type="button">
-              <UserAuthBtn>
-                Sign in
-                <CloseIcon>
-                  <use href={`${sprite}#user`}></use>
-                </CloseIcon>
-                <UserModalIcon>
-                  {token && <use href={`${sprite}#arrow-down`}></use>}
-                </UserModalIcon>
-              </UserAuthBtn>
-            </NavLink>
-          </UserName>
-        ) : (
-          <UserLogo name={name} email={email} avatarURL={avatarURL} />
-        )}
+        <HeaderContent>
+          <ToggleTheme />
+          {!token ? (
+            <UserName>
+              <NavLink className="textSignIn" to="/signin" type="button">
+                <UserAuthBtn>
+                  Sign in
+                  <CloseIcon>
+                    <use href={`${sprite}#user`}></use>
+                  </CloseIcon>
+                  <UserModalIcon>
+                    {token && <use href={`${sprite}#arrow-down`}></use>}
+                  </UserModalIcon>
+                </UserAuthBtn>
+              </NavLink>
+            </UserName>
+          ) : (
+            <UserLogo name={name} email={email} avatarURL={avatarURL} />
+          )}
+        </HeaderContent>
       </ContainerHeader>
     </Wrapper>
   );

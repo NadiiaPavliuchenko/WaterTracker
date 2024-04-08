@@ -11,7 +11,7 @@ import { ModalBox } from './AddWaterModal.styled';
 
 const AddWaterModal = ({ isModalOpen, closeModal }) => {
   const [waterAmount, setWaterAmount] = useState(50);
-  const [selectedTime, setSelectedTime] = useState('');
+  const [selectedTime, setSelectedTime] = useState(new Date());
 
   const dispatch = useDispatch();
 
@@ -41,6 +41,8 @@ const AddWaterModal = ({ isModalOpen, closeModal }) => {
     };
 
     dispatch(addWaterThunk(data));
+
+    closeModal();
   };
 
   const handleChangeWaterAmount = (e) => {

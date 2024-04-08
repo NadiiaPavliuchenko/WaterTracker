@@ -12,16 +12,15 @@ export const ModalBox = styled.div`
   padding: 24px 12px;
   gap: 24px;
   border-radius: 10px;
-  background-color: white;
-  color: black;
+  background-color: ${({ theme }) => theme.color.white};
 
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 704px;
     height: 504px;
     padding: 32px 24px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     width: 592px;
   }
   label {
@@ -34,7 +33,7 @@ export const ModalBox = styled.div`
   h2 {
     font-family: 'Roboto-Medium', sans-serif;
     font-size: 26px;
-    font-weight: 500;
+    /* font-weight: 500; */
     line-height: 32px;
     text-align: left;
   }
@@ -42,7 +41,7 @@ export const ModalBox = styled.div`
   p {
     font-family: 'Roboto-Medium', sans-serif;
     font-size: 18px;
-    font-weight: 500;
+    /* font-weight: 500; */
     line-height: 20px;
     text-align: left;
   }
@@ -62,11 +61,14 @@ export const ModalBox = styled.div`
     gap: 12px;
   }
   .counterBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 44px;
     height: 44px;
-    border: 1px solid #9ebbff;
+    border: 1px solid ${({ theme }) => theme.color.skyBlue};
     border-radius: 50%;
-    color: #407bff;
+    color: ${({ theme }) => theme.color.blue};
     background-color: transparent;
   }
 
@@ -77,32 +79,33 @@ export const ModalBox = styled.div`
     width: 92px;
     height: 36px;
     padding: 6px, 10px;
-    background-color: #d7e3ff;
-    color: #407bff;
+    background-color: ${({ theme }) => theme.color.paleBlue};
+    color: ${({ theme }) => theme.color.blue};
     border-radius: 40px;
     border: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto-Bold', sans-serif;
     font-size: 18px;
-    font-weight: 700;
+    /* font-weight: 700; */
     line-height: 24px;
     text-align: center;
   }
 
   .input {
     display: flex;
-    width: 544px;
+    width: 100%;
     height: 44px;
     padding: 12px 10px;
+    background-color: transparent;
 
     border-radius: 6px;
-    border: 1px solid #d7e3ff;
-    color: #407bff;
+    border: 1px solid ${({ theme }) => theme.color.paleBlue};
+    color: ${({ theme }) => theme.color.blue};
   }
   .amount {
-    color: #407bff;
+    color: ${({ theme }) => theme.color.blue};
     font-family: 'Roboto-Bold';
     font-size: 18px;
-    font-weight: 700;
+    /* font-weight: 700; */
     line-height: 24px;
     text-align: center;
   }
@@ -118,17 +121,20 @@ export const ModalBox = styled.div`
     padding: 10px 30px;
     border: none;
     border-radius: 10px;
-    background-color: #407bff;
-    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-    font-family: 'Roboto', sans-serif;
+    background-color: ${({ theme }) => theme.color.blue};
+    box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
+    font-family: 'Roboto-Medium', sans-serif;
     font-size: 18px;
-    font-weight: 500;
+    /* font-weight: 500; */
     line-height: 24px;
     text-align: center;
-    color: white;
+    color: ${({ theme }) => theme.color.white};
   }
 
   .confirm:hover {
-    box-shadow: 0px 4px 14px 0px #407bff8a;
+    box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
+  }
+  .confirm:active {
+    box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
   }
 `;

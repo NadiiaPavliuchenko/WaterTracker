@@ -96,6 +96,12 @@ export const UserAuthBtn = styled.button`
     color: ${({ theme }) => theme.color.orange};
   }
 `;
+
+export const HeaderContent = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+`;
 // export const Container = styled.div`
 //   margin: 0 auto;
 //   padding-right: 20px;
