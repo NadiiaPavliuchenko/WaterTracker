@@ -1,5 +1,5 @@
 import UserLogoModal from 'components/UserLogoModal/UserLogoModal';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState } from 'react';
 import sprite from 'src/assets/sprite.svg';

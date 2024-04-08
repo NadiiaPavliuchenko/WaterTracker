@@ -18,12 +18,6 @@ export const ModalBox = styled.div`
     top: 50px;
     right: 0;
   }
-
-  /* mobile: '(min-width: 320px)',
-    tablet: '(min-width: 768px)',
-    tabletMax: '(max-width: 767px)',
-    desktop: '(min-width: 1440px)',
-  }, */
 `;
 
 export const ModalMenuBtn = styled.button`
