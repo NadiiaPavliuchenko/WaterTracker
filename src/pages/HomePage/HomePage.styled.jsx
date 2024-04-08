@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-// import backgroundBubbles from '../../assets/images/background/WelcomePage/desktop/bg_img_bubbles.png';
-// import bottle from '../../assets/images/background/WelcomePage/desktop/bottle_home_screen.png';
-
 export const HomeWrapper = styled.div`
   background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesMob};
   background-repeat: no-repeat;
@@ -23,8 +20,6 @@ export const HomeWrapper = styled.div`
 `;
 
 export const HomeSection = styled.div`
-  /* background-repeat: no-repeat;
-  background-size: cover; */
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -58,18 +53,18 @@ export const BlueFrame = styled.div`
   background-color: ${({ theme }) => theme.color.lavender};
   padding: 24px 8px;
   width: 280px;
-  /* margin-bottom: 40px; */
+  height: 836px;
   border-radius: 10px;
   box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
 
   @media ${({ theme }) => theme.device.tablet} {
     padding: 32px 24px;
     width: 704px;
-    /* margin-bottom: 44px; */
+    height: 688px;
   }
 
   @media ${({ theme }) => theme.device.desktop} {
     width: 592px;
-    /* margin-bottom: 0; */
+    height: 680px;
   }
 `;
