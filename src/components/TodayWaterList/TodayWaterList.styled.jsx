@@ -67,7 +67,7 @@ export const WaterTodayListStyle = styled.div`
     .waterVolume {
         display: flex;
         justify-content: end;
-        min-width: 60px;
+        min-width: 40px;
         font-family: "Roboto", sans-serif;
         font-weight: 400;
         font-size: 18px;
