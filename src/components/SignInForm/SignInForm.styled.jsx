@@ -7,21 +7,19 @@ export const FormLoginStyles = styled.div`
     }
     .label {
       font-family: 'Roboto-Regular';
-      /* font-weight: 400; */
+      font-weight: 400;
       font-size: 18px;
-      line-height: 1.33333;
-      /* color: #2f2f2f; */
+      line-height: 1.33333;     
     }
     .input-container {
       position: relative;
       width: 280px;
     }
     .input {
-      font-family: 'Roboto-Regular';
-      /* font-weight: 400; */
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
       font-size: 16px;
-      line-height: 1.25;
-      /* color: #000; */
+      line-height: 1.25;     
       background-color: ${({ theme }) => theme.color.white};
       color: ${({ theme }) => theme.color.blue};
       border: 1px solid ${({ theme }) => theme.color.paleBlue};
@@ -37,7 +35,7 @@ export const FormLoginStyles = styled.div`
     }
     .input::placeholder {
       font-family: 'Roboto-Regular';
-      /* font-weight: 400; */
+      font-weight: 400;
       font-size: 16px;
       line-height: 1.25;
       color: ${({ theme }) => theme.color.skyBlue};
@@ -47,7 +45,6 @@ export const FormLoginStyles = styled.div`
       right: 20px;
       top: 55%;
       transform: translate(0%, -50%);
-      /* z-index: 10; */
     }
     .buttonSignUp {
       border-radius: 10px;
@@ -55,11 +52,12 @@ export const FormLoginStyles = styled.div`
       margin-bottom: 16px;
       width: 280px;
       height: 36px;
+      border: none;
       box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
       background-color: ${({ theme }) => theme.color.blue};
 
       font-family: 'Roboto-Medium';
-      /* font-weight: 500; */
+      font-weight: 500; 
       font-size: 16px;
       line-height: 1.25;
       text-align: center;

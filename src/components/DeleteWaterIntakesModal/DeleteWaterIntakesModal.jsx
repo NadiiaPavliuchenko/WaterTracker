@@ -6,13 +6,19 @@ import {deleteDrinkThunk} from '../../store/water/waterOperations'
 
 
 const DeleteWaterIntakesModal = ({ onModalClose, isModalOpen, currentIntakes }) => {
-  const dispatch = useDispatch();
-     
-    const handleDelete = (evt) => {  
+  const dispatch = useDispatch();    
+  const handleDelete = (evt) => { 
+    const timeZoneOffset = new Date(currentIntakes.time).getTimezoneOffset();
+    // console.log(new Date(currentIntakes.time))
+    // console.log(typeof(new Date(currentIntakes.time)))
         const data = {
-            time: currentIntakes.id,
-        }    
-    dispatch(deleteDrinkThunk(data ))
+          id: currentIntakes.id,
+          body: {
+            date: currentIntakes.time,
+            timeZoneOffset
+          }
+      }       
+    dispatch(deleteDrinkThunk(data))
   }
   return (
     <>

@@ -25,8 +25,7 @@ export const SignUpPageStyle = styled.div`
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
       font-size: 26px;
-      line-height: 1.23077;
-      /* color: #2f2f2f; */
+      line-height: 1.23077;     
       margin-top: 20px;
     }
     .link {
@@ -45,6 +44,7 @@ export const SignUpPageStyle = styled.div`
   }
   @media ${({ theme }) => theme.device.tablet} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
+    
     .wrapper {
       width: 100%;
       position: relative;

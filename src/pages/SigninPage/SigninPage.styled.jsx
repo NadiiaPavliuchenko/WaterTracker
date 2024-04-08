@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 export const SignInPageStyle = styled.div`
   background-size: 100%;
-  background-position: center;
+  background-position: 0, 10px;
   background-repeat: no-repeat;
   background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesMob};
 
@@ -26,20 +26,17 @@ export const SignInPageStyle = styled.div`
       font-weight: 500;
       font-size: 26px;
       line-height: 1.23077;
-      /* color: #2f2f2f; */
       margin-top: 20px;
     }
     .link {
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 16px;
-      background-color: transparent;
-
+      
       line-height: 1.25;
       color: ${({ theme }) => theme.color.blue};
     }
     .bottle {
-      // margin-top: 40px;
       position: relative;
       width: 280px;
       z-index: -10;
@@ -47,6 +44,7 @@ export const SignInPageStyle = styled.div`
   }
   @media ${({ theme }) => theme.device.tablet} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
+ 
     .wrapper {
       width: 100%;
       position: relative;
@@ -54,23 +52,23 @@ export const SignInPageStyle = styled.div`
     .bottle {
       width: 736px;
       position: absolute;
-      top: 0;
-      left: 100px;
+      top: 10px;
+      right: -150px;
     }
     .link-container {
       width: 336px;
     }
   }
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.desktop} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
-    background-size: 100%;
+    background-size: 1404px, 582px;
     background-position-y: 0px;
     background-position-x: -30px;
     .bottle {
       width: 916px;
       position: absolute;
-      top: 30px;
-      left: -100px;
+      top: -100px;
+      left: -210%;
     }
     .formCont {
       position: absolute;

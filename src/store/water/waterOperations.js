@@ -61,11 +61,30 @@ export const addWaterThunk = createAsyncThunk(
 );
 
 //видалення води
+// export const deleteDrinkThunk = createAsyncThunk(
+//   'water/delete',
+//   async (waterRecordId, thunkAPI) => {
+//     try {
+//       const { data } = await axios.delete(`water/${waterRecordId}`);
+//       toastSuccess('Drink has been deleted successful');
+//       return data;
+//     } catch (error) {
+//       toastError('Sorry, something went wrong. Please, try again');
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 export const deleteDrinkThunk = createAsyncThunk(
   'water/delete',
-  async (waterRecordId, thunkAPI) => {
+  async (waterRecord, thunkAPI) => {
+    const body = {
+      date: new Date(waterRecord.body.date),
+      timeZoneOffset: waterRecord.body.timeZoneOffset,
+    };
+    console.log(body);
+    console.log(waterRecord.id);
     try {
-      const { data } = await axios.delete(`water/${waterRecordId}`);
+      const { data } = await axios.delete(`water/${waterRecord.id}`, body);
       toastSuccess('Drink has been deleted successful');
       return data;
     } catch (error) {
@@ -78,10 +97,11 @@ export const deleteDrinkThunk = createAsyncThunk(
 //редагування води
 export const editDrinkThunk = createAsyncThunk(
   'water/edit',
-  async (waterRecirdId, thunkAPI) => {
-    const { id, time, ml } = waterRecirdId;
+  async (waterRecird, thunkAPI) => {
+    const { id, body } = waterRecird;
+
     try {
-      const { data } = await axios.put(`water/${id}`, { time, ml });
+      const { data } = await axios.put(`water/${id}`, body);
       toastSuccess('Drink has been edited successful');
       return data;
     } catch (error) {

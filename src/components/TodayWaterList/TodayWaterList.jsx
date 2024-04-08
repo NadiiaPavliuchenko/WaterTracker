@@ -1,6 +1,6 @@
 import sprite from "../../assets/sprite.svg" 
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from 'react-redux'
+import { useState } from "react"
+import { useSelector } from 'react-redux'
 import { getCurrentDay } from "../../store/water/waterSelectors"
 import { WaterTodayListStyle } from "./TodayWaterList.styled"
 import TodayListModal from '../TodayListModal/TodayListModal'
@@ -12,27 +12,23 @@ import { getCurrentDayInfoThunk, deleteDrinkThunk, editDrinkThunk } from '../../
 
 const TodayWaterList = () => {
   
+  // const [trunkList, setTrunkList] = useState([])
   const [isEditOpen, setIsEditOpen] = useState(false)
   const [isAddWaterOpen, setIsAddWaterOpen] = useState(false)
   const [isCheckModalOpen, setIsCheckModalOpen] = useState(false)
   const [currentIntakes, setCurrentIntakes] = useState({})
+  const dayInfoTrunks = useSelector(getCurrentDay) 
+  // setTrunkList(dayInfoTrunks)
+  console.log(dayInfoTrunks)
 
-  const dispatch = useDispatch()
-
-  const dayInfoTrunks = useSelector(getCurrentDay)  
-  console.log(dayInfoTrunks.waterIntakes)
- 
-  // useEffect(() => {
-  //   dispatch(getCurrentDayInfoThunk)
-  //   console.log('dispatch')
-  // },[])
 
   const handleWaterEdit = (evt) => { 
     const current = {
       id: evt.target.closest('LI').id,
-      ml: evt.target.closest('LI')
+      ml: Number(evt.target.closest('LI').childNodes[0].childNodes[1].textContent),
+      time: evt.target.closest('LI').attributes.time.value
     }
-    console.log(evt.target.closest('LI').childNodes[0].childNodes[1].textContent)
+    setCurrentIntakes(current)    
     setIsEditOpen(true)      
   }
   const handleCloseWaterEdit = () => {
@@ -45,29 +41,28 @@ const TodayWaterList = () => {
     setIsAddWaterOpen(false)
   }
   const handleOpenCheckDelete = (evt) => { 
-    
-    // console.log(evt.target.closest('LI').id)
-    setCurrentIntakes({id : evt.target.closest('LI').id})
+    const current = {
+      id: evt.target.closest('LI').id,      
+      time: evt.target.closest('LI').attributes.time.value
+    }    
+    setCurrentIntakes(current)   
     setIsCheckModalOpen(true)
   }
   const handleCloseCheckDelete = () => { 
     setIsCheckModalOpen(false)
   }
-
-
- 
- 
+  
   return <>
     <WaterTodayListStyle>
       <h3 className="title">Today</h3>
       <ul className="waterList">
       {dayInfoTrunks.waterIntakes.length>0? dayInfoTrunks.waterIntakes.map((item) => (
-        <li className="waterItem" key={ item._id} id={ item.consumedAt}>     
+        <li className="waterItem" key={item._id} id={item._id } time={ item.consumedAt}>     
           <div className="volumeAdnDate">
             <svg className="waterGlass" width="26" height="26" stroke="#9ebbff" fill="none">
               <use href={ sprite + "#water-glass" }></use>
             </svg>
-            <span className="waterVolume">{item.ml }</span>
+            <span className="waterVolume">{item.ml } </span><span className="waterVolumeMl">ml</span>
             <span className="waterTime">{item.consumedAt.slice(11,16) }</span>
           </div>
           <div className="editDelete">
@@ -84,7 +79,10 @@ const TodayWaterList = () => {
       <h2 className="addWater" onClick={handleOpenAddWater }>+ Add water</h2>
     </WaterTodayListStyle>
     {isEditOpen && (
-          <TodayListModal isModalOpen={isEditOpen} closeModal={handleCloseWaterEdit} />
+      <TodayListModal
+        isModalOpen={isEditOpen}
+        closeModal={handleCloseWaterEdit}
+        currentIntakes={currentIntakes} />
     )}
 
     {isAddWaterOpen && (
