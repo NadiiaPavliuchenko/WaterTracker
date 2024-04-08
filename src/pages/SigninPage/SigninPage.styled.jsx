@@ -1,25 +1,26 @@
 import styled from 'styled-components';
-// import bg_mob_register_1x from '../../assets/images/background/RegisterLoginPage/mob/bg_mob_register_1x.png';
-// import bg_tab_register_1x from '../../assets/images/background/RegisterLoginPage/tab/bg_tab_1x.png';
-// import bg_desk_register_1x from '../../assets/images/background/RegisterLoginPage/Desk/bg_desk_1x.png';
 
 export const SignInPageStyle = styled.div`
-  background-size: 100%;
+  background-size: 100vw, contain;
   background-position: 0, 10px;
   background-repeat: no-repeat;
   background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesMob};
-
+  
+  .wrapper {
+    width: 100%;
+    position: relative;
+  }
   .link-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 280px;
   }
-
   button {
     border: none;
     background-color: transparent;
   }
+
   @media ${({ theme }) => theme.device.mobile} {
     .title {
       font-family: 'Roboto', sans-serif;
@@ -37,7 +38,7 @@ export const SignInPageStyle = styled.div`
       color: ${({ theme }) => theme.color.blue};
     }
     .bottle {
-      position: relative;
+      // position: relative;
       width: 280px;
       z-index: -10;
     }
@@ -45,14 +46,17 @@ export const SignInPageStyle = styled.div`
   @media ${({ theme }) => theme.device.tablet} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
  
-    .wrapper {
-      width: 100%;
-      position: relative;
+    
+    .formCont {
+      width: 336px;
+      position: absolute;
+      top: 25px;
     }
     .bottle {
       width: 736px;
+      height: 548px;
       position: absolute;
-      top: 10px;
+      top: 60px;
       right: -150px;
     }
     .link-container {
@@ -66,19 +70,17 @@ export const SignInPageStyle = styled.div`
     background-position-x: -30px;
     .bottle {
       width: 916px;
+      height: 680px;
       position: absolute;
-      top: -100px;
-      left: -210%;
+      top: 0px;
+      left:  -70px;
     }
     .formCont {
       position: absolute;
-      top: 120px;
-      right: 90px;
+      top: 113px;
+      right: 198px;
     }
-    .wrapper {
-      width: 100%;
-      position: relative;
-    }
+    
     .link-container {
       width: 384px;
     }

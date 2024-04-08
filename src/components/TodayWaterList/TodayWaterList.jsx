@@ -12,16 +12,12 @@ import { getCurrentDayInfoThunk, deleteDrinkThunk, editDrinkThunk } from '../../
 
 const TodayWaterList = () => {
   
-  // const [trunkList, setTrunkList] = useState([])
   const [isEditOpen, setIsEditOpen] = useState(false)
   const [isAddWaterOpen, setIsAddWaterOpen] = useState(false)
   const [isCheckModalOpen, setIsCheckModalOpen] = useState(false)
   const [currentIntakes, setCurrentIntakes] = useState({})
   const dayInfoTrunks = useSelector(getCurrentDay) 
-  // setTrunkList(dayInfoTrunks)
-  console.log(dayInfoTrunks)
-
-
+  
   const handleWaterEdit = (evt) => { 
     const current = {
       id: evt.target.closest('LI').id,

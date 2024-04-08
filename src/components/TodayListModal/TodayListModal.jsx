@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import sprite from "../../assets/sprite.svg" 
 import ModalContainer from '../ModalContainer/ModalContainer';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import AddIcon from '@mui/icons-material/Add';
@@ -56,8 +57,13 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
               <CloseOutlinedIcon className="close" onClick={closeModal} />
             </div>
             {/* TODO вставить данные существующей записи */}
+            <div className="currentDrink">
+            <svg className="waterGlass" width="36" height="36" stroke="#9ebbff" fill="none">
+              <use href={ sprite + "#water-glass" }></use>
+            </svg>
             <span className="amount">{currentIntakes.ml}ml</span>
-            {currentIntakes.time.slice(11,16)}
+            <span className="currentTime">{currentIntakes.time.slice(11, 16)}</span>
+            </div>
             <p>Correct entered data:</p>
             <form onSubmit={handleFormSubmit}>
               <label>
@@ -104,7 +110,7 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
                 />
               </label>
               <div className="buttons">
-                <span className="amount">{waterAmount}ml</span>
+                <span className="waterAmountConfirm">{waterAmount}ml</span>
                 <button
                   className="confirm"
                   type="submit"

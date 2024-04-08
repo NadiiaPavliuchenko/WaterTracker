@@ -15,14 +15,105 @@ export const ModalBox = styled.div`
   background-color: white;
   color: black;
 
-  @media screen and (min-width: 768px) {
-    width: 704px;
-    height: 504px;
-    padding: 32px 24px;
+  width: 280px;
+  height: 648px;
+
+
+  @media ${({ theme }) => theme.device.mobile} {
+    .close {
+      position: absolute;
+      right: 12px;
+      top: 24px;
+    }
+    .currentDrink {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+      gap: 12px;
+      background-color: ${({ theme }) => theme.color.paleBlue};
+      border-radius: 10px;
+      padding: 8px 24px;      
+      height: 52px;
+    }
+    .amount {
+      font-size: 18px;
+      line-height: 1.33333;
+      font-weight: 400;
+      color: ${({ theme }) => theme.color.blue};
+    }
+    .currentTime {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 2;
+    }
+    .input {
+      border: 1px solid #d7e3ff;
+      border-radius: 6px;
+      padding: 12px 10px;
+      width: 256px;
+      height: 44px;
+    }
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .waterAmountConfirm {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.33333;
+      text-align: center;
+      color: ${({ theme }) => theme.color.blue};
+    }
+    .confirm {
+      border-radius: 10px;
+      padding: 8px 30px;
+      width: 256px;
+      height: 36px;
+      background-color: ${({ theme }) => theme.color.blue};
+      border: none;
+      box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);    
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24px;
+      text-align: center;
+      color: white;
+    }
+    .confirm:hover {
+    box-shadow: 0px 4px 14px 0px #407bff8a;
+    }
   }
 
-  @media screen and (min-width: 1440px) {
+  @media ${({ theme }) => theme.device.tablet} {    
+    width: 704px;
+    height: 648px;    
+    padding: 32px 24px;
+    .currentDrink {
+      width: 254px;
+    }
+    .input {
+      width: 544px;
+    }
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: 24px;
+    }
+    .confirm {
+      width: 160px;
+      height: 44px;
+    }
+
+  }
+
+  @media ${({ theme }) => theme.device.desktop} {
     width: 592px;
+    height: 580px;
   }
   label {
     display: flex;
@@ -90,45 +181,16 @@ export const ModalBox = styled.div`
 
   .input {
     display: flex;
-    width: 544px;
-    height: 44px;
     padding: 12px 10px;
-
     border-radius: 6px;
     border: 1px solid #d7e3ff;
     color: #407bff;
   }
-  .amount {
-    color: #407bff;
-    font-family: 'Roboto-Bold';
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 24px;
-    text-align: center;
-  }
-
   .buttons {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 24px;
   }
-  .confirm {
-    width: 160px;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 10px;
-    background-color: #407bff;
-    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: center;
-    color: white;
-  }
-
-  .confirm:hover {
-    box-shadow: 0px 4px 14px 0px #407bff8a;
-  }
+  
 `;
