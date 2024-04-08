@@ -17,11 +17,33 @@ const UserLogoModal = ({ isOpen, onClose }) => {
     setActiveModal(null);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.code === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
   return (
     <>
       {isOpen && (
         <ModalBox>
-          <div>
+          <div ref={modalRef}>
             <ModalMenuBtn onClick={() => handleModalOpen('settings')}>
               <Icon>
                 <use href={`${sprite}#settings`}></use>
@@ -37,6 +59,7 @@ const UserLogoModal = ({ isOpen, onClose }) => {
           </div>
         </ModalBox>
       )}
+
       {activeModal === 'settings' && (
         <SettingModal onModalClose={handleModalClose} isModalOpen={true} />
       )}
