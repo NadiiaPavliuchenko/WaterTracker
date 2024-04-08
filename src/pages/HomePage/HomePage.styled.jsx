@@ -6,6 +6,7 @@ export const HomeWrapper = styled.div`
   background-size: 100%;
   padding-top: 24px;
   padding-bottom: 40px;
+  margin: auto;
 
   @media ${({ theme }) => theme.device.tablet} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
@@ -16,6 +17,8 @@ export const HomeWrapper = styled.div`
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
     padding-top: 20px;
     padding-bottom: 40px;
+    width: 1404px;
+    height: 582px;
   }
 `;
 
@@ -33,7 +36,6 @@ export const HomeSection = styled.div`
 
 export const BottleSection = styled.div`
   flex: 1;
-  /* padding: 30px 0; */
   display: flex;
   flex-direction: column;
 `;
