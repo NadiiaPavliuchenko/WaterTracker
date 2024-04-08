@@ -17,7 +17,7 @@ export const DailyNormaInputForm = ({ closeModal }) => {
   const dailyNormLiters = (dailyNorm / 1000).toFixed(1);
 
   const [dailyWaterNorm, setDailyWaterNorm] = useState('');
-  console.log('🚀 ~ dailyWaterNorm:', dailyWaterNorm);
+
   const [isLessThanLimit, setIsLessThanLimit] = useState(true);
   const limit = 15;
 

@@ -152,22 +152,23 @@ export const Calendar = () => {
     const year = getYear();
 
     return Array.from({ length: daysInMonth }, (_, index) => {
+      if (!waterForMonth) {
+        return;
+      }
+
       const day = index + 1;
 
-      const consumedWaterPercentage =
-        waterForMonth && waterForMonth[index]
-          ? waterForMonth[index]?.consumedWaterPercentage
-          : 0;
+      const currentDay = waterForMonth.find(
+        ({ entryDate }) => day === new Date(entryDate).getDate()
+      );
 
-      const dailyNorma =
-        waterForMonth && waterForMonth[index]
-          ? waterForMonth[index].dailyWaterGoal
-          : 0;
+      const consumedWaterPercentage = currentDay
+        ? currentDay.consumedWaterPercentage
+        : 0;
 
-      const intakesNumber =
-        waterForMonth && waterForMonth[index]
-          ? waterForMonth[index].consumedTimes
-          : 0;
+      const dailyNorma = currentDay ? currentDay.dailyWaterGoal : 0;
+
+      const intakesNumber = currentDay ? currentDay.consumedTimes : 0;
 
       // const renderDays = () => {
       //   const daysInMonth = getDaysInMonth();

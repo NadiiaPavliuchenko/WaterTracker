@@ -42,7 +42,7 @@ const waterSlice = createSlice({
       })
       .addCase(getCurrentMonthInfoThunk.fulfilled, (state, { payload }) => {
         state.monthDataLoading = false;
-        state.month = { ...payload };
+        state.month = payload;
       })
       .addCase(getCurrentMonthInfoThunk.rejected, (state, { payload }) => {
         state.monthDataLoading = false;
@@ -66,7 +66,6 @@ const waterSlice = createSlice({
         state.isAddDrinkLoading = true;
       })
       .addCase(addWaterThunk.fulfilled, (state, { payload }) => {
-        console.log('🚀 ~ payload:', payload);
         state.isAddDrinkLoading = false;
         state.dayInfo = payload.newDailyWater;
       })
@@ -95,7 +94,6 @@ const waterSlice = createSlice({
       })
 
       .addCase(editDailyNorm.fulfilled, (state, { payload }) => {
-        console.log('🚀 ~ payload:', payload);
         state.dayInfo = payload.newDailyWater;
         state.isEditingNorm = false;
       })
