@@ -1,27 +1,5 @@
 import styled from 'styled-components';
 
-export const StyledBottleImage = styled.img`
-  width: 280px;
-  height: 208px;
-
-  @media ${({ theme }) => theme.device.tablet} {
-    width: 518px;
-    height: 386px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(30%, 20%);
-  }
-
-  @media ${({ theme }) => theme.device.desktop} {
-    width: 738px;
-    height: 548px;
-    top: 0;
-    left: 0;
-    transform: translate(15%, 10%);
-  }
-`;
-
 export const ModalDaily = styled.div`
   display: inline-flex;
   padding: 8px 20px;
@@ -34,7 +12,7 @@ export const ModalDaily = styled.div`
   border: 1px solid ${({ theme }) => theme.color.lavender};
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
-
+  position: relative;
   /* margin-bottom: 232px; */
 `;
 
@@ -77,4 +55,26 @@ export const DailyLitr = styled.p`
 export const DailyEditContainer = styled.div`
   display: flex;
   gap: 12px;
+`;
+
+export const StyledBottleImage = styled.img`
+  width: 280px;
+  height: 208px;
+  position: absolute;
+  top: 80px;
+  left: 5px;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    width: 518px;
+    height: 386px;
+    top: 0;
+    left: 130px;
+  }
+
+  @media ${({ theme }) => theme.device.desktop} {
+    width: 738px;
+    height: 548px;
+    top: -10px;
+    left: -80px;
+  }
 `;
