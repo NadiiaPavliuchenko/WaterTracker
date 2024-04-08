@@ -5,14 +5,21 @@ import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
   background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesMob};
-  @media ${({ theme }) => theme.device.tablet} {
-    background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
-  }
-  @media ${({ theme }) => theme.device.desktop} {
-    background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
-  }
   background-repeat: no-repeat;
   background-size: 100%;
+  padding-top: 24px;
+  padding-bottom: 40px;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
+    padding-bottom: 44px;
+  }
+
+  @media ${({ theme }) => theme.device.desktop} {
+    background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
 `;
 
 export const HomeSection = styled.div`
@@ -51,18 +58,18 @@ export const BlueFrame = styled.div`
   background-color: ${({ theme }) => theme.color.lavender};
   padding: 24px 8px;
   width: 280px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   border-radius: 10px;
   box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
 
   @media ${({ theme }) => theme.device.tablet} {
     padding: 32px 24px;
     width: 704px;
-    margin-bottom: 44px;
+    /* margin-bottom: 44px; */
   }
 
   @media ${({ theme }) => theme.device.desktop} {
     width: 592px;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
   }
 `;
