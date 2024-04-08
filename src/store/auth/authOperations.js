@@ -242,3 +242,17 @@ export const recoverPassword = createAsyncThunk(
     }
   }
 );
+
+export const deleteUserAccount = createAsyncThunk(
+  'auth/deleteUserAccount',
+  async (_id, thunkAPI) => {
+    try {
+      const { data } = await axios.delete('user/delete/$_id');
+      toastSuccess(data.message);
+      return data;
+    } catch (error) {
+      toastError(getErrorMessage(error));
+      return thunkAPI.rejectWithValue(getErrorMessage(error));
+    }
+  }
+);
