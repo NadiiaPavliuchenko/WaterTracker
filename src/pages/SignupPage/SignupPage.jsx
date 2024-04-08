@@ -34,7 +34,7 @@ const SignupPage = () => {
               <h2 className="title">Sign Up</h2>
               <SignUpForm submitFunc={handleSubmit} />
               <div className="link-container">
-                {' '}
+                {/* {' '} */}
                 <Link className="link" to="/signin">
                   Sign In
                 </Link>

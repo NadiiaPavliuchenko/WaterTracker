@@ -1,7 +1,7 @@
 //Data
 export const getCurrentMonth = (state) => state.water.month;
 export const getCurrentDay = (state) => state.water.dayInfo;
-export const getDrinks = (state) => state.water.dayInfo?.drinks;
+export const getDrinks = (state) => state.water.dayInfo?.waterIntakes;
 export const getRegisterDay = (state) => state.water.registerDay;
 export const getCurrentPercentage = (state) =>
   state.water.dayInfo?.consumedWaterPercentage;
