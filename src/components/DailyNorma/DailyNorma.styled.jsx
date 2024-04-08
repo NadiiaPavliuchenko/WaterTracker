@@ -1,4 +1,29 @@
 import styled from 'styled-components';
+import bottle_desk_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_1x.png';
+
+
+export const StyledBottleImage = styled.img`
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  
+  @media screen and (min-width: 1440px) {
+    width: 592px;
+    height: 548px;
+  }
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 386px; 
+    background-position: center center;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 280px; 
+    height: auto; 
+  }
+`;
+
 
 export const ModalDaily = styled.div`
   display: inline-flex;
