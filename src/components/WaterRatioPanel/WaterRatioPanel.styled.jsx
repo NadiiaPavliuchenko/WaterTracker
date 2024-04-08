@@ -59,6 +59,7 @@ export const ProgressContainer = styled.div`
     text-align: center;
     line-height: 20px;
     font-size: 12px;
+    border-radius: 10px;
   }
 
   .progress-text {
