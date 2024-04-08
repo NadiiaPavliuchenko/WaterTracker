@@ -8,6 +8,7 @@ import {
   HomeStatistics,
   BottleSection,
   HomeWrapper,
+  BlueFrame,
 } from './HomePage.styled';
 
 const HomePage = () => {
@@ -20,8 +21,10 @@ const HomePage = () => {
             <WaterRatioPanel />
           </BottleSection>
           <HomeStatistics>
-            <TodayWaterList />
-            <Calendar />
+            <BlueFrame>
+              <TodayWaterList />
+              <Calendar />
+            </BlueFrame>
           </HomeStatistics>
         </HomeSection>
       </Wrapper>
