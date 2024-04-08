@@ -54,8 +54,8 @@ export const Icon = styled.svg`
 
   @media screen and (max-width: 425px) {
     font-size: 12px;
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     margin-right: 9px;
   }
 `;
