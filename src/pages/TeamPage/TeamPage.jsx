@@ -1,4 +1,3 @@
-import React from 'react';
 import Wrapper from 'components/Wrapper/Wrapper';
 import { Container, Title } from './TeamPage.styled';
 
@@ -29,7 +28,11 @@ const TeamPage = () => {
               </a>
             </li>
             <li className="member">
-              <a href="">
+              <a
+                href="https://www.linkedin.com/in/andrii-koliadenko/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src="" alt="" />
                 <h3>Andrii Koliadenko</h3>
                 <p></p>
@@ -65,7 +68,11 @@ const TeamPage = () => {
               </a>
             </li>
             <li className="member">
-              <a href="">
+              <a
+                href="https://www.linkedin.com/in/dana-dobryshkina-ua"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src="" alt="" />
                 <h3>Dana Dobryshkina</h3>
                 <p></p>
