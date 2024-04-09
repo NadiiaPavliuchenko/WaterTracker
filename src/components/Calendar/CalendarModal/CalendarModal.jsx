@@ -3,20 +3,13 @@ import { CalendarModalStyles } from './CalendarModal.styled';
 const CalendarModal = ({
   calendarRef,
   refData,
-  // waterData = {},
-  day,
+   day,
   month,
-
   dailyWaterGoal,
   consumedWaterPercentage,
   consumedTimes,
 }) => {
   const dayOfMonth = `${day}, ${month}`;
-
-  // const { dayOfMonth, waterRate, percent, numberRecords } = waterData;
-
-  //  Здесь получаем значение "left" для текущего элемента и контейнера с помощью метода "getBoundingClientRect()".
-  // Вычисляем "delta", которая определяет положение модального окна относительно контейнера.
 
   const currentRef = refData?.current.getBoundingClientRect().left;
   const containerRef = calendarRef?.current.getBoundingClientRect().left;

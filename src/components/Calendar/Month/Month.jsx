@@ -3,6 +3,8 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentMonthInfoThunk } from '../../../store/water/waterOperations';
+import { ThreeDots } from 'react-loader-spinner';
+import { baseTheme } from '../theme';
 import {
   getCurrentDay,
   getCurrentMonth,
@@ -22,11 +24,9 @@ import {
   MonthTitle,
 } from './Month.styled';
 
-import { ThreeDots } from 'react-loader-spinner';
-import { baseTheme } from '../theme';
 
 export const Calendar = () => {
-  // аргумент "dailyNormaState" принимаем информацию о дневной норме потребления воды;
+ 
   const [currentDate, setCurrentDate] = useState(new Date()); // текущая дата + функция состояния; currentDate = текущая дата;
 
   // const [isLoading] = useState(); // состояние загрузки;
@@ -38,21 +38,6 @@ export const Calendar = () => {
   const waterForMonth = useSelector(getCurrentMonth);
 
   const isLoading = useSelector(getIsDayDataLoading);
-
-  // useEffect(() => {
-  //   const month = `${
-  //     currentDate.getMonth() + 1
-  //   } - ${currentDate.getFullYear()}`;
-
-  //   dispatch(getCurrentMonthInfoThunk(month));
-  // }, [dispatch, currentDate, dailyNormaState]);
-
-  // ===============================================================
-
-  // const currentDate = useSelector((state) => state.currentDate); // Предположим, что есть стейт currentDate
-  // const dailyNormaState = useSelector((state) => state.dailyNormaState); // Предположим, что есть стейт dailyNormaState
-
-  // ============================================================================
 
   useEffect(() => {
     // Получаем первый и последний день текущего месяца
@@ -90,8 +75,6 @@ export const Calendar = () => {
     dispatch(getCurrentMonthInfoThunk(dateRange));
     console.log(dateRange);
   }, [dispatch, currentDate, currentDay]);
-
-  // =========================================================================
 
   const handleNextMonth = () => {
     // вызове функции handleNextMonth() текущая дата обновляется на первый день следующего месяца;
@@ -169,18 +152,6 @@ export const Calendar = () => {
       const dailyNorma = currentDay ? currentDay.dailyWaterGoal : 0;
 
       const intakesNumber = currentDay ? currentDay.consumedTimes : 0;
-
-      // const renderDays = () => {
-      //   const daysInMonth = getDaysInMonth();
-      //   const renderedDays = [];
-
-      //   for (let i = 1; i <= daysInMonth; i++) {
-      //     const consumedWaterPercentage = waterForMonth && waterForMonth[i - 1]?.consumedWaterPercentage;
-      //     renderedDays.push({ day: i, consumedWaterPercentage });
-      //   }
-      //   return renderedDays;
-
-      // }
 
       return (
         <DayComponent
