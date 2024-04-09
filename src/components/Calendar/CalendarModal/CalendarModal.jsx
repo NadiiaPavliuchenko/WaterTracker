@@ -27,7 +27,7 @@ const CalendarModal = ({
   // Если разница "delta" между текущим элементом и контейнером меньше 250 пикселей, переменная position устанавливается в "false".
 
   const delta = currentRef - containerRef;
-  if (delta < 200) {
+  if (delta < 250) {
     position = false;
   }
 
@@ -36,15 +36,54 @@ const CalendarModal = ({
   return (
     <CalendarModalStyles $delta={position} $deltaNum={delta}>
       <>
-        <h3>{dayOfMonth}</h3>
-        <p>
-          Daily norma: <span>{dailyWaterGoal / 1000} L</span>
+        <h3 style={{ fontSize: '16px', lineHeight: 'calc(20 / 16)' }}>
+          {dayOfMonth}
+        </h3>
+        <p style={{ fontSize: '16px', lineHeight: 'calc(20 / 16)' }}>
+          Daily norma:{' '}
+          <span
+            style={{
+              fontSize: '18px',
+              lineHeight: 'calc(24 / 18)',
+              fontWeight: '600',
+            }}
+          >
+            {dailyWaterGoal / 1000} L
+          </span>
         </p>
-        <p>
-          Fulfillment of the daily norm: <span>{consumedWaterPercentage}%</span>
+        <p
+          style={{
+            fontSize: '16px',
+            lineHeight: 'calc(20 / 16)',
+          }}
+        >
+          Fulfillment of the daily norm:{' '}
+          <span
+            style={{
+              fontSize: '18px',
+              lineHeight: 'calc(24 / 18)',
+              fontWeight: '600',
+            }}
+          >
+            {consumedWaterPercentage}%
+          </span>
         </p>
-        <p>
-          How many servings of water: <span>{consumedTimes}</span>
+        <p
+          style={{
+            fontSize: '16px',
+            lineHeight: 'calc(20 / 16)',
+          }}
+        >
+          How many servings of water:{' '}
+          <span
+            style={{
+              fontSize: '18px',
+              lineHeight: 'calc(24 / 18)',
+              fontWeight: '600',
+            }}
+          >
+            {consumedTimes}
+          </span>
         </p>
       </>
     </CalendarModalStyles>
