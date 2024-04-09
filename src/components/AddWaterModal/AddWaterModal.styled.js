@@ -96,10 +96,10 @@ export const ModalBox = styled.div`
     height: 44px;
     padding: 12px 10px;
     background-color: transparent;
-
     border-radius: 6px;
     border: 1px solid ${({ theme }) => theme.color.paleBlue};
     color: ${({ theme }) => theme.color.blue};
+    outline: none;
   }
   .amount {
     color: ${({ theme }) => theme.color.blue};
