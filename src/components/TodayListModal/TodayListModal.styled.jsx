@@ -18,7 +18,6 @@ export const ModalBox = styled.div`
   width: 280px;
   height: 648px;
 
-
   @media ${({ theme }) => theme.device.mobile} {
     .close {
       position: absolute;
@@ -33,7 +32,7 @@ export const ModalBox = styled.div`
       gap: 12px;
       background-color: ${({ theme }) => theme.color.paleBlue};
       border-radius: 10px;
-      padding: 8px 24px;      
+      padding: 8px 24px;
       height: 52px;
     }
     .amount {
@@ -75,7 +74,7 @@ export const ModalBox = styled.div`
       height: 36px;
       background-color: ${({ theme }) => theme.color.blue};
       border: none;
-      box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);    
+      box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
       font-size: 18px;
       font-weight: 500;
       line-height: 24px;
@@ -83,13 +82,13 @@ export const ModalBox = styled.div`
       color: white;
     }
     .confirm:hover {
-    box-shadow: 0px 4px 14px 0px #407bff8a;
+      box-shadow: 0px 4px 14px 0px #407bff8a;
     }
   }
 
-  @media ${({ theme }) => theme.device.tablet} {    
+  @media ${({ theme }) => theme.device.tablet} {
     width: 704px;
-    height: 648px;    
+    height: 648px;
     padding: 32px 24px;
     .currentDrink {
       width: 254px;
@@ -108,7 +107,6 @@ export const ModalBox = styled.div`
       width: 160px;
       height: 44px;
     }
-
   }
 
   @media ${({ theme }) => theme.device.desktop} {
@@ -119,7 +117,7 @@ export const ModalBox = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     font-size: 16px;
   }
   h2 {
@@ -151,6 +149,7 @@ export const ModalBox = styled.div`
     justify-content: flex-start;
     align-items: center;
     gap: 12px;
+    margin-bottom: 12px;
   }
   .counterBtn {
     width: 44px;
@@ -192,5 +191,4 @@ export const ModalBox = styled.div`
     align-items: center;
     gap: 24px;
   }
-  
 `;

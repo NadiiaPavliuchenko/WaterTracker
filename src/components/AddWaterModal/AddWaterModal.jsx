@@ -61,26 +61,26 @@ const AddWaterModal = ({ isModalOpen, closeModal }) => {
 
             <p>Choose of water:</p>
             <form onSubmit={handleFormSubmit}>
-              <label>
-                Amount of water:
-                <div className="counter">
-                  <button
-                    className="counterBtn"
-                    type="button"
-                    onClick={handleDecrement}
-                  >
-                    <RemoveIcon />
-                  </button>
-                  <span className="waterAmount">{waterAmount}ml</span>
-                  <button
-                    className="counterBtn"
-                    type="button"
-                    onClick={handleIncrement}
-                  >
-                    <AddIcon />
-                  </button>
-                </div>
-              </label>
+              <label>Amount of water:</label>
+              <div className="counter">
+                <button
+                  className="counterBtn"
+                  type="button"
+                  onClick={handleDecrement}
+                >
+                  <RemoveIcon />
+                </button>
+
+                <div className="waterAmount">{waterAmount}ml</div>
+
+                <button
+                  className="counterBtn"
+                  type="button"
+                  onClick={handleIncrement}
+                >
+                  <AddIcon />
+                </button>
+              </div>
 
               <label>
                 Recording time:

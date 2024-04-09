@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import sprite from "../../assets/sprite.svg" 
+import sprite from '../../assets/sprite.svg';
 import ModalContainer from '../ModalContainer/ModalContainer';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import AddIcon from '@mui/icons-material/Add';
@@ -66,34 +66,42 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
             </div>
             {/* TODO вставить данные существующей записи */}
             <div className="currentDrink">
-            <svg className="waterGlass" width="36" height="36" stroke="#9ebbff" fill="none">
-              <use href={ sprite + "#water-glass" }></use>
-            </svg>
-            <span className="amount">{currentIntakes.ml}ml</span>
-            <span className="currentTime">{currentIntakes.time.slice(11, 16)}</span>
+              <svg
+                className="waterGlass"
+                width="36"
+                height="36"
+                stroke="#9ebbff"
+                fill="none"
+              >
+                <use href={sprite + '#water-glass'}></use>
+              </svg>
+              <span className="amount">{currentIntakes.ml}ml</span>
+              <span className="currentTime">
+                {currentIntakes.time.slice(11, 16)}
+              </span>
             </div>
             <p>Correct entered data:</p>
             <form onSubmit={handleFormSubmit}>
-              <label>
-                Amount of water:
-                <div className="counter">
-                  <button
-                    className="counterBtn"
-                    type="button"
-                    onClick={handleIncrement}
-                  >
-                    <AddIcon />
-                  </button>
-                  <span className="waterAmount">{waterAmount}ml</span>
-                  <button
-                    className="counterBtn"
-                    type="button"
-                    onClick={handleDecrement}
-                  >
-                    <RemoveIcon />
-                  </button>
-                </div>
-              </label>
+              <label>Amount of water:</label>
+              <div className="counter">
+                <button
+                  className="counterBtn"
+                  type="button"
+                  onClick={handleDecrement}
+                >
+                  <RemoveIcon />
+                </button>
+
+                <div className="waterAmount">{waterAmount}ml</div>
+
+                <button
+                  className="counterBtn"
+                  type="button"
+                  onClick={handleIncrement}
+                >
+                  <AddIcon />
+                </button>
+              </div>
 
               <label>
                 Recording time:
