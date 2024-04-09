@@ -37,23 +37,16 @@ export const SignUpPageStyle = styled.div`
       color: ${({ theme }) => theme.color.blue};
     }
     .bottle {
-      position: relative;
-      width: 280px;
-      z-index: -10;
     }
   }
   @media ${({ theme }) => theme.device.tablet} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
-
+    margin-top: 40px;
     .wrapper {
-      width: 100%;
-      position: relative;
+      display: flex;
     }
-    .bottle {
-      width: 736px;
-      position: absolute;
-      top: 10px;
-      right: -150px;
+    .formCont {
+      width: 336px;
     }
     .link-container {
       width: 336px;
@@ -71,27 +64,19 @@ export const SignUpPageStyle = styled.div`
   }
   @media ${({ theme }) => theme.device.desktop} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
-    background-size: 1404px, 582px;
-    background-position-y: 0px;
-    background-position-x: -30px;
     margin-top: 0;
 
     .bottle {
-      width: 916px;
-      position: absolute;
-      top: -100px;
-      left: -210%;
+      order: 1;
+      margin-left: -70px;
     }
     .formCont {
       order: 2;
       position: absolute;
-      top: 120px;
-      right: 90px;
+      top: 130px;
+      right: 150px;
     }
-    .wrapper {
-      width: 100%;
-      position: relative;
-    }
+
     .link-container {
       width: 384px;
     }
