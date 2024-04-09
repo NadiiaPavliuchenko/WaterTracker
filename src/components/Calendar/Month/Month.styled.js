@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-// import { baseTheme } from '../theme';
 
 export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 24px 0;
+  height: 380px;
 `;
 
 export const MonthNav = styled.div`
