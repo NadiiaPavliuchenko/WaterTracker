@@ -4,8 +4,6 @@ import { baseTheme } from '../theme';
 export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* width: 544px;
-  height: 332px; */
 `;
 
 export const MonthNav = styled.div`
@@ -13,6 +11,7 @@ export const MonthNav = styled.div`
   margin-bottom: 16px;
   justify-content: space-between;
   align-items: center;
+  width: auto;
 `;
 
 export const MonthTitle = styled.h2`
@@ -50,7 +49,7 @@ export const ArrowButton = styled.button`
 
 export const ArrowBackIos = styled.div`
   position: fixed;
-  top: 26%;
+  top: 25%;
   left: 70.5%;
 
   @media screen and (max-width: 767px) {
