@@ -245,14 +245,26 @@ export const recoverPassword = createAsyncThunk(
   }
 );
 
+export const verifyUserPassword = createAsyncThunk(
+  'auth/verifyUserPassword',
+  async (payload, thunkAPI) => {
+    try {
+      const { data } = await axios.post(`user/validate`, payload);
+      return data;
+    } catch (error) {
+      toastError(getErrorMessage(error));
+      return thunkAPI.rejectWithValue(getErrorMessage(error));
+    }
+  }
+);
+
 export const deleteUserAccount = createAsyncThunk(
   'auth/deleteUserAccount',
-  async ({ id, password }, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`user/delete/${id}`, {
-        password,
-      });
+      const { data } = await axios.delete(`user`);
       toastSuccess(data.message);
+      console.log('🚀 ~ data:', data);
       return data;
     } catch (error) {
       toastError(getErrorMessage(error));

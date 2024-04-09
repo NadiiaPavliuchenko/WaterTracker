@@ -14,10 +14,10 @@ import { addTimeZoneToTime } from '../../services/dateAndTime';
 
 const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
   const [waterAmount, setWaterAmount] = useState(currentIntakes.ml);
-  console.log('🚀 ~ waterAmount:', waterAmount);
+
   const oldTime = addTimeZoneToTime(currentIntakes.time);
   const [selectedTime, setSelectedTime] = useState(new Date(oldTime));
-  console.log('🚀 ~ selectedTime:', selectedTime);
+
   // const drinks = useSelector(getDrinks);
 
   const dispatch = useDispatch();
