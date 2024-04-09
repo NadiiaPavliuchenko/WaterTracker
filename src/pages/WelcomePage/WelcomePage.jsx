@@ -8,7 +8,7 @@ import { useState } from 'react';
 import Wrapper from '../../components/Wrapper/Wrapper';
 
 const WelcomePage = () => {
-  const [onAnimation, setOnAnimation] = useState(true);
+  const [onAnimation, setOnAnimation] = useState(false);
 
   const handleOnAnimation = () => {
     setOnAnimation(!onAnimation);
