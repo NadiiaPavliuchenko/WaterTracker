@@ -67,17 +67,17 @@ const AddWaterModal = ({ isModalOpen, closeModal }) => {
                   <button
                     className="counterBtn"
                     type="button"
-                    onClick={handleIncrement}
+                    onClick={handleDecrement}
                   >
-                    <AddIcon />
+                    <RemoveIcon />
                   </button>
                   <span className="waterAmount">{waterAmount}ml</span>
                   <button
                     className="counterBtn"
                     type="button"
-                    onClick={handleDecrement}
+                    onClick={handleIncrement}
                   >
-                    <RemoveIcon />
+                    <AddIcon />
                   </button>
                 </div>
               </label>

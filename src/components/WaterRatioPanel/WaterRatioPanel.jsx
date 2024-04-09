@@ -15,6 +15,7 @@ import AddWaterModal from '../AddWaterModal/AddWaterModal';
 const WaterRatioPanel = () => {
   const [openList, setOpenList] = useState(false);
   const progressPercentage = useSelector(getCurrentPercentage);
+
   const dispatch = useDispatch();
 
   const handleOpenClick = () => {

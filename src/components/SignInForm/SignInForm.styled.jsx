@@ -46,6 +46,7 @@ export const FormLoginStyles = styled.div`
       right: 20px;
       top: 55%;
       transform: translate(0%, -50%);
+      cursor: pointer;
     }
     .buttonSignUp {
       border-radius: 10px;
