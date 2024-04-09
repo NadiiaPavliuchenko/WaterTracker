@@ -47,6 +47,7 @@ export const RecoveryFormStyles = styled.div`
       right: 20px;
       top: 50%;
       transform: translate(0%, -50%);
+      cursor: pointer;
     }
     .buttonSignUp {
       border-radius: 10px;
