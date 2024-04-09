@@ -17,7 +17,7 @@ export const toastSuccess = (message) => {
 
 export const toastError = (message, errorMessage) => {
   Swal.fire({
-    position: 'top-end',
+    position: 'center',
     icon: 'error',
     title: message,
     text: errorMessage,

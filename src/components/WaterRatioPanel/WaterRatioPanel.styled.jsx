@@ -5,7 +5,6 @@ export const Container = styled.div`
   height: 90px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
   margin-top: 232px;
   margin-bottom: 40px;
 
@@ -63,6 +62,7 @@ export const ProgressContainer = styled.div`
     text-align: center;
     line-height: 20px;
     font-size: 12px;
+    border-radius: 10px;
   }
 
   .progress-text {

@@ -247,9 +247,11 @@ export const recoverPassword = createAsyncThunk(
 
 export const deleteUserAccount = createAsyncThunk(
   'auth/deleteUserAccount',
-  async (_id, thunkAPI) => {
+  async ({ id, password }, thunkAPI) => {
     try {
-      const { data } = await axios.delete('user/delete/$_id');
+      const { data } = await axios.delete(`user/delete/${id}`, {
+        password,
+      });
       toastSuccess(data.message);
       return data;
     } catch (error) {
