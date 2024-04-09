@@ -31,10 +31,12 @@ export const ArrowButton = styled.button`
   height: 14px;
   padding: 0;
   cursor: pointer;
-  margin: 0 10px;
   background-color: transparent;
   border: none;
   fill: ${({ theme }) => theme.color.blue};
+  position: absolute;
+  top: 0;
+  left: 125px;
 
   & svg {
     width: 14px;
@@ -44,6 +46,25 @@ export const ArrowButton = styled.button`
   &:disabled {
     fill: ${({ theme }) => theme.color.skyBlue};
     cursor: not-allowed;
+  }
+`;
+
+export const ArrowLeftButton = styled.button`
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  cursor: pointer;
+  /* margin: 0 12px; */
+  background-color: transparent;
+  border: none;
+  fill: ${({ theme }) => theme.color.blue};
+  position: absolute;
+  top: 0;
+  left: -20px;
+
+  & svg {
+    width: 14px;
+    height: 14px;
   }
 `;
 
@@ -82,11 +103,21 @@ export const MonthControl = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: -8px;
+  left: 20px;
+  @media ${({ theme }) => theme.device.tablet} {
+    left: 30px;
+  }
+  width: 168px;
 `;
 
 export const Month = styled.span`
   font-size: 16px;
   line-height: 20px;
+  position: absolute;
+  top: -2px;
+  right: 45px;
 `;
 
 export const DayPercent = styled.span`
