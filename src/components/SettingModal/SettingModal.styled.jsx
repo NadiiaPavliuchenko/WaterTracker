@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { Link } from '@mui/material';
-// import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-// import Radio from '@mui/material/Radio';
 import { Box } from '@mui/material';
 import { Field, ErrorMessage } from 'formik';
 
@@ -108,6 +106,10 @@ export const FilePickerLink = styled(Link)`
   font-family: 'Roboto-Medium';
   font-size: 14px;
   cursor: pointer;
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.color.orange};
+  }
 `;
 
 export const FormGroup = styled.div`
@@ -233,6 +235,10 @@ export const StyledSvg = styled.svg`
   fill: transparent;
   stroke: ${({ theme }) => theme.color.blue};
   cursor: pointer;
+  ${FilePickerLink}:hover &,
+  ${FilePickerLink}:focus & {
+    stroke: ${({ theme }) => theme.color.orange};
+  }
 `;
 
 export const RedError = styled(ErrorMessage)`
