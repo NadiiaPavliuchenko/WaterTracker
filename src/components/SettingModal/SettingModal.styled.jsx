@@ -156,6 +156,7 @@ export const VisibilityIconsWrapper = styled.div`
   position: absolute;
   top: 40px;
   left: 229px;
+  cursor: pointer;
   @media ${({ theme }) => theme.device.tablet} {
     top: 40px;
     left: 365px;
