@@ -12,8 +12,10 @@ export const ModalStyled = styled.div`
   transform: translate(-50%, -50%);
 
   width: 280px;
-  height: 816px;
   padding: 24px 12px;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: none;
 
   background-color: ${({ theme }) => theme.color.white};
   border-radius: 10px;

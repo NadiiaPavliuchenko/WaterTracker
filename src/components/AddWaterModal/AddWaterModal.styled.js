@@ -27,7 +27,7 @@ export const ModalBox = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     font-size: 16px;
   }
   h2 {
@@ -54,11 +54,13 @@ export const ModalBox = styled.div`
     fill: ${({ theme }) => theme.color.blue};
     cursor: pointer;
   }
+
   .counter {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 12px;
+    margin-bottom: 12px;
   }
   .counterBtn {
     display: flex;
@@ -85,7 +87,6 @@ export const ModalBox = styled.div`
     border: none;
     font-family: 'Roboto-Bold', sans-serif;
     font-size: 18px;
-    /* font-weight: 700; */
     line-height: 24px;
     text-align: center;
   }
@@ -96,10 +97,10 @@ export const ModalBox = styled.div`
     height: 44px;
     padding: 12px 10px;
     background-color: transparent;
-
     border-radius: 6px;
     border: 1px solid ${({ theme }) => theme.color.paleBlue};
     color: ${({ theme }) => theme.color.blue};
+    outline: none;
   }
   .amount {
     color: ${({ theme }) => theme.color.blue};

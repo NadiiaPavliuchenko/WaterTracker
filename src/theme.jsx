@@ -87,6 +87,7 @@ const defaultTheme = {
     mobile: '(min-width: 320px)',
     tablet: '(min-width: 768px)',
     tabletMax: '(max-width: 767px)',
+    tabletAndDesktop: '(min-width: 768px) and (max-width: 1439px)',
     desktop: '(min-width: 1440px)',
   },
 };

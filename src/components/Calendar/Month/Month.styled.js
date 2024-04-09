@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-// import { baseTheme } from '../theme';
 
 export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 24px 0;
+  height: 380px;
 `;
 
 export const MonthNav = styled.div`
@@ -30,10 +31,12 @@ export const ArrowButton = styled.button`
   height: 14px;
   padding: 0;
   cursor: pointer;
-  margin: 0 10px;
   background-color: transparent;
   border: none;
   fill: ${({ theme }) => theme.color.blue};
+  position: absolute;
+  top: 0;
+  left: 125px;
 
   & svg {
     width: 14px;
@@ -46,11 +49,33 @@ export const ArrowButton = styled.button`
   }
 `;
 
+export const ArrowLeftButton = styled.button`
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  cursor: pointer;
+  /* margin: 0 12px; */
+  background-color: transparent;
+  border: none;
+  fill: ${({ theme }) => theme.color.blue};
+  position: absolute;
+  top: 0;
+  left: -20px;
+
+  & svg {
+    width: 14px;
+    height: 14px;
+  }
+`;
+
 export const Day = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.color.white};
+  background-color: ${(props) =>
+    props.$isToday
+      ? `${props.theme.color.paleBlue}`
+      : `${props.theme.color.white}`};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,11 +103,21 @@ export const MonthControl = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: -8px;
+  left: 20px;
+  @media ${({ theme }) => theme.device.tablet} {
+    left: 30px;
+  }
+  width: 168px;
 `;
 
 export const Month = styled.span`
   font-size: 16px;
   line-height: 20px;
+  position: absolute;
+  top: -2px;
+  right: 45px;
 `;
 
 export const DayPercent = styled.span`

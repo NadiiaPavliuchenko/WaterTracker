@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const SignUpPageStyle = styled.div`
-  background-size: 100vw, contain;
-  background-position: 0, 10px;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesMob};
+  margin-top: 24px;
 
   .wrapper {
     width: 100%;
@@ -20,14 +20,17 @@ export const SignUpPageStyle = styled.div`
     border: none;
     background-color: transparent;
   }
+  .link:hover,
+  .link:focus {
+    color: ${({ theme }) => theme.color.orange};
+  }
 
   @media ${({ theme }) => theme.device.mobile} {
     .title {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Roboto-Medium', sans-serif;
       font-weight: 500;
       font-size: 26px;
-      line-height: 1.23077;     
-      margin-top: 20px;
+      line-height: 1.23077;
     }
     .link {
       font-family: 'Roboto', sans-serif;
@@ -38,49 +41,46 @@ export const SignUpPageStyle = styled.div`
       color: ${({ theme }) => theme.color.blue};
     }
     .bottle {
-      // position: relative;
-      width: 280px;
-      z-index: -10;
     }
   }
   @media ${({ theme }) => theme.device.tablet} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
-    
-    
+    margin-top: 40px;
+    .wrapper {
+      display: flex;
+    }
     .formCont {
       width: 336px;
-      position: absolute;
-      top: 25px;
-    }
-    .bottle {
-      width: 736px;
-      height: 548px;
-      position: absolute;
-      top: 60px;
-      right: -150px;
     }
     .link-container {
       width: 336px;
     }
   }
+  @media ${({ theme }) => theme.device.tabletAndDesktop} {
+    .formCont {
+      z-index: 1;
+    }
+    .bottle {
+      position: absolute;
+      top: 30px;
+      right: -15px;
+    }
+  }
   @media ${({ theme }) => theme.device.desktop} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
-    background-size: 1404px, 582px;
-    background-position-y: 0px;
-    background-position-x: -30px;
+    margin-top: 0;
+
     .bottle {
-      width: 916px;
-      height: 680px;
-      position: absolute;
-      top: 0px;
-      left: -70px;
+      order: 1;
+      margin-left: -70px;
     }
     .formCont {
+      order: 2;
       position: absolute;
-      top: 113px;
-      right: 198px;
+      top: 130px;
+      right: 150px;
     }
-    
+
     .link-container {
       width: 384px;
     }

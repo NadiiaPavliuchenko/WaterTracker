@@ -7,7 +7,6 @@ export const ModalBox = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 280px;
-  height: 260px;
   padding: 32px 24px;
   background-color: ${({ theme }) => theme.color.white};
   border-radius: 10px;
@@ -39,9 +38,51 @@ export const ModalBox = styled.div`
     cursor: pointer;
   }
 
+  .label {
+    font-family: 'Roboto-Regular';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.33333;
+  }
+  .input-container {
+    position: relative;
+    width: 100%;
+  }
+  .input {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    background-color: ${({ theme }) => theme.color.white};
+    color: ${({ theme }) => theme.color.blue};
+    border: 1px solid ${({ theme }) => theme.color.paleBlue};
+    border-radius: 6px;
+    padding: 12px 10px;
+    margin-top: 8px;
+    width: 100%;
+    height: 44px;
+  }
+  .input:hover,
+  .input:focus {
+    outline: none;
+  }
+  .input::placeholder {
+    font-family: 'Roboto-Regular';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: ${({ theme }) => theme.color.skyBlue};
+  }
+  .watchPasswordIcon {
+    position: absolute;
+    right: 20px;
+    top: 55%;
+    transform: translate(0%, -50%);
+    cursor: pointer;
+  }
+
   @media ${({ theme }) => theme.device.tablet} {
     width: 592px;
-    height: 208px;
   }
 
   h2 {
@@ -59,7 +100,8 @@ export const ButtonContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
+  margin-top: 16px;
 
   button {
     font-family: 'Roboto-Medium', sans-serif;

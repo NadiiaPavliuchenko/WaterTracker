@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const FormLoginStyles = styled.div`
+export const RecoveryFormStyles = styled.div`
   @media ${({ theme }) => theme.device.mobile} {
     .form {
       margin-top: 16px;
     }
     .label {
-      font-family: 'Roboto-Regular';
+      font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 18px;
       line-height: 1.33333;
@@ -15,6 +15,7 @@ export const FormLoginStyles = styled.div`
       position: relative;
       width: 280px;
     }
+
     .input {
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
@@ -35,7 +36,7 @@ export const FormLoginStyles = styled.div`
       outline: none;
     }
     .input::placeholder {
-      font-family: 'Roboto-Regular';
+      font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 1.25;
@@ -44,7 +45,7 @@ export const FormLoginStyles = styled.div`
     .watchPasswordIcon {
       position: absolute;
       right: 20px;
-      top: 55%;
+      top: 50%;
       transform: translate(0%, -50%);
       cursor: pointer;
     }
@@ -58,7 +59,7 @@ export const FormLoginStyles = styled.div`
       box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
       background-color: ${({ theme }) => theme.color.blue};
 
-      font-family: 'Roboto-Medium';
+      font-family: 'Roboto-medium';
       font-weight: 500;
       font-size: 16px;
       line-height: 1.25;
@@ -76,6 +77,7 @@ export const FormLoginStyles = styled.div`
       color: ${({ theme }) => theme.color.red};
     }
   }
+
   @media ${({ theme }) => theme.device.tablet} {
     .input-container {
       width: 336px;

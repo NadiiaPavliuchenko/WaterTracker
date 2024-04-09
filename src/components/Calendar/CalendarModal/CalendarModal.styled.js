@@ -1,13 +1,15 @@
 import styled from 'styled-components';
-// import { baseTheme } from '../theme';
 
 export const CalendarModalStyles = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 280px;
-  position: absolute;
+  width: 294px;
   bottom: 54px;
+  transform: translate(50%, -50%);
+  left: -15em;
+  right: 1em;
 
   background-color: ${({ theme }) => theme.color.white};
   border-radius: 10px;
@@ -21,8 +23,7 @@ export const CalendarModalStyles = styled.div`
   }
 
   @media ${({ theme }) => theme.device.tablet} {
-    right: ${(props) => (props.$delta ? '17px' : '')};
-    left: ${(props) => (props.$delta ? '' : '17px')};
+    left: -12em;
     padding: 24px 16px;
     width: 292px;
     bottom: 58px;
@@ -30,6 +31,9 @@ export const CalendarModalStyles = styled.div`
 
   @media ${({ theme }) => theme.device.desktop} {
     bottom: 56px;
+    transform: none;
+    left: -5em;
+    bottom: 70px;
   }
 
   h3 {

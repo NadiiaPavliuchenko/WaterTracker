@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import sprite from "../../assets/sprite.svg" 
+import sprite from '../../assets/sprite.svg';
 import ModalContainer from '../ModalContainer/ModalContainer';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import AddIcon from '@mui/icons-material/Add';
@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ModalBox } from './TodayListModal.styled';
 import { getDrinks } from '../../store/water/waterSelectors';
 import { editDrinkThunk } from '../../store/water/waterOperations';
-import { addTimeZoneToTime } from '../../services/time';
+import { addTimeZoneToTime } from '../../services/dateAndTime';
 
 const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
   const [waterAmount, setWaterAmount] = useState(currentIntakes.ml);
@@ -39,13 +39,17 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const timeZoneOffset = new Date(selectedTime).getTimezoneOffset();
+    console.log('🚀 ~ selectedTime:', selectedTime);
     const body = {
       date: selectedTime,
       ml: waterAmount,
       timeZoneOffset,
     };
+    console.log('🚀 ~ edit intake body:', body);
     dispatch(editDrinkThunk({ id: currentIntakes.id, body }));
+    closeModal();
   };
+
   const handleChangeWaterAmount = (e) => {
     const amount = parseInt(e.target.value);
     setWaterAmount(amount);
@@ -62,34 +66,42 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
             </div>
             {/* TODO вставить данные существующей записи */}
             <div className="currentDrink">
-            <svg className="waterGlass" width="36" height="36" stroke="#9ebbff" fill="none">
-              <use href={ sprite + "#water-glass" }></use>
-            </svg>
-            <span className="amount">{currentIntakes.ml}ml</span>
-            <span className="currentTime">{currentIntakes.time.slice(11, 16)}</span>
+              <svg
+                className="waterGlass"
+                width="36"
+                height="36"
+                stroke="#9ebbff"
+                fill="none"
+              >
+                <use href={sprite + '#water-glass'}></use>
+              </svg>
+              <span className="amount">{currentIntakes.ml}ml</span>
+              <span className="currentTime">
+                {currentIntakes.time.slice(11, 16)}
+              </span>
             </div>
             <p>Correct entered data:</p>
             <form onSubmit={handleFormSubmit}>
-              <label>
-                Amount of water:
-                <div className="counter">
-                  <button
-                    className="counterBtn"
-                    type="button"
-                    onClick={handleIncrement}
-                  >
-                    <AddIcon />
-                  </button>
-                  <span className="waterAmount">{waterAmount}ml</span>
-                  <button
-                    className="counterBtn"
-                    type="button"
-                    onClick={handleDecrement}
-                  >
-                    <RemoveIcon />
-                  </button>
-                </div>
-              </label>
+              <label>Amount of water:</label>
+              <div className="counter">
+                <button
+                  className="counterBtn"
+                  type="button"
+                  onClick={handleDecrement}
+                >
+                  <RemoveIcon />
+                </button>
+
+                <div className="waterAmount">{waterAmount}ml</div>
+
+                <button
+                  className="counterBtn"
+                  type="button"
+                  onClick={handleIncrement}
+                >
+                  <AddIcon />
+                </button>
+              </div>
 
               <label>
                 Recording time:

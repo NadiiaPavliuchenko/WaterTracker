@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ModalBox = styled.div`
   position: absolute;
   border-radius: 10px;
-  z-index: 0;
+  z-index: 1;
   box-shadow: ${({ theme }) => theme.boxShadow.popoverShadow};
 
   width: 130px;
@@ -59,4 +59,3 @@ export const Icon = styled.svg`
     margin-right: 9px;
   }
 `;
-

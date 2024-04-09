@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SignInPageStyle = styled.div`
+export const RecoveryPageStyle = styled.div`
   background-size: 100%;
   background-repeat: no-repeat;
   background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesMob};
@@ -19,10 +19,6 @@ export const SignInPageStyle = styled.div`
   button {
     border: none;
     background-color: transparent;
-  }
-  .link:hover,
-  .link:focus {
-    color: ${({ theme }) => theme.color.orange};
   }
 
   @media ${({ theme }) => theme.device.mobile} {
@@ -57,7 +53,7 @@ export const SignInPageStyle = styled.div`
     }
   }
   @media ${({ theme }) => theme.device.tabletAndDesktop} {
-    .formCont {
+    .link {
       z-index: 1;
     }
     .bottle {

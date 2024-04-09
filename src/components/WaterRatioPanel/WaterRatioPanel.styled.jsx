@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 90px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
   margin-top: 232px;
   margin-bottom: 40px;
 
@@ -38,6 +38,9 @@ export const Container = styled.div`
 `;
 
 export const ProgressContainer = styled.div`
+  padding-left: 12px;
+  padding-right: 12px;
+
   */ .progress-bar-container {
     display: flex;
     flex-direction: column;
@@ -54,16 +57,18 @@ export const ProgressContainer = styled.div`
   }
 
   .progress {
+    border-radius: 10px;
     height: 100%;
     background-color: ${({ theme }) => theme.color.skyBlue};
     text-align: center;
     line-height: 20px;
     font-size: 12px;
+    border-radius: 10px;
   }
 
   .progress-text {
     position: absolute;
-    top: -100%;
+    top: -65%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 12px;

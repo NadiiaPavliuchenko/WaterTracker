@@ -229,9 +229,11 @@ export const sendRecoveryEmail = createAsyncThunk(
 
 export const recoverPassword = createAsyncThunk(
   'auth/recoverPassword',
-  async ({ token, password }, thunkAPI) => {
+  async ({ recoveryToken, password }, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`auth/recover/${token}`, { password });
+      const { data } = await axios.patch(`auth/recover/${recoveryToken}`, {
+        password,
+      });
 
       toastSuccess(data.message);
 
@@ -245,9 +247,11 @@ export const recoverPassword = createAsyncThunk(
 
 export const deleteUserAccount = createAsyncThunk(
   'auth/deleteUserAccount',
-  async (_id, thunkAPI) => {
+  async ({ id, password }, thunkAPI) => {
     try {
-      const { data } = await axios.delete('user/delete/$_id');
+      const { data } = await axios.delete(`user/delete/${id}`, {
+        password,
+      });
       toastSuccess(data.message);
       return data;
     } catch (error) {
