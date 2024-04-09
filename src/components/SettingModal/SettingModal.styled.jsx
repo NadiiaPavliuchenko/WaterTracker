@@ -107,30 +107,8 @@ export const FilePickerLink = styled(Link)`
   color: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Medium';
   font-size: 14px;
+  cursor: pointer;
 `;
-
-// export const StyledRadioGroup = styled(RadioGroup)`
-//   margin-bottom: 24px;
-//   @media ${({ theme }) => theme.device.desktop} {
-//     margin-bottom: 52px;
-//   }
-// `;
-
-// export const CustomRadio = styled(Radio)`
-//   &.Mui-checked {
-//     color: ${({ theme }) => theme.color.blue};
-//   }
-//   && .MuiSvgIcon-root {
-//     width: 14px;
-//     height: 14px;
-//     color: ${({ theme }) => theme.color.blue};
-//   }
-
-//   &&:hover,
-//   &&:focus {
-//     background: none;
-//   }
-// `;
 
 export const FormGroup = styled.div`
   display: flex;
@@ -254,6 +232,7 @@ export const DeleteButton = styled.button`
 export const StyledSvg = styled.svg`
   fill: transparent;
   stroke: ${({ theme }) => theme.color.blue};
+  cursor: pointer;
 `;
 
 export const RedError = styled(ErrorMessage)`
