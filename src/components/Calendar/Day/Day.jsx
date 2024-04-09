@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-
 import CalendarModal from '../CalendarModal/CalendarModal';
 import { Day, DayCell, DayPercent } from '../Month/Month.styled';
 import { isSameDay } from '../../../services/dateAndTime';
