@@ -13,6 +13,7 @@ import DayComponent from '../Day/Day';
 
 import {
   ArrowButton,
+  ArrowLeftButton,
   CalendarContainer,
   DaysContainer,
   MonthNav,
@@ -218,9 +219,12 @@ export const Calendar = () => {
           />
         )}
         <MonthControl>
-          <ArrowButton aria-label="Previous month" onClick={handlePrevMonth}>
+          <ArrowLeftButton
+            aria-label="Previous month"
+            onClick={handlePrevMonth}
+          >
             <ArrowBackIosIcon sx={{ color: baseTheme.colors.blue }} />
-          </ArrowButton>
+          </ArrowLeftButton>
 
           <Month>
             {`${new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
