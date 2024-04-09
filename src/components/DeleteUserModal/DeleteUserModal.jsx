@@ -11,7 +11,7 @@ import sprite from '../../assets/sprite.svg';
 
 export const DeleteUserModal = ({ onModalClose, isModalOpen }) => {
   const dispatch = useDispatch();
-  const { _id } = useSelector(getCurrentUser);
+  const { id } = useSelector(getCurrentUser);
   const passwordSchema = yup.object({
     password: yup.string().min(6).max(64).required(),
   });
