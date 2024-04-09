@@ -10,12 +10,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ModalBox } from './TodayListModal.styled';
 import { getDrinks } from '../../store/water/waterSelectors';
 import { editDrinkThunk } from '../../store/water/waterOperations';
+import { addTimeZoneToTime } from '../../services/time';
 
 const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
   const [waterAmount, setWaterAmount] = useState(currentIntakes.ml);
-  const [selectedTime, setSelectedTime] = useState(''); 
-  const drinks = useSelector(getDrinks)
-  
+  console.log('🚀 ~ waterAmount:', waterAmount);
+  const oldTime = addTimeZoneToTime(currentIntakes.time);
+  const [selectedTime, setSelectedTime] = useState(new Date(oldTime));
+  console.log('🚀 ~ selectedTime:', selectedTime);
+  // const drinks = useSelector(getDrinks);
 
   const dispatch = useDispatch();
 
@@ -35,18 +38,19 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const timeZoneOffset = new Date(selectedTime).getTimezoneOffset()
+    const timeZoneOffset = new Date(selectedTime).getTimezoneOffset();
     const body = {
       date: selectedTime,
       ml: waterAmount,
-      timeZoneOffset
+      timeZoneOffset,
     };
-    dispatch(editDrinkThunk({ id: currentIntakes.id, body }));    
+    dispatch(editDrinkThunk({ id: currentIntakes.id, body }));
   };
   const handleChangeWaterAmount = (e) => {
     const amount = parseInt(e.target.value);
     setWaterAmount(amount);
   };
+
   return (
     <>
       {isModalOpen && (
@@ -114,7 +118,8 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
                 <button
                   className="confirm"
                   type="submit"
-                  onClick={handleFormSubmit}>
+                  onClick={handleFormSubmit}
+                >
                   Save
                 </button>
               </div>

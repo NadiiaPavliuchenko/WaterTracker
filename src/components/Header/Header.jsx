@@ -10,7 +10,6 @@ import {
 } from './Header.styled';
 import sprite from 'src/assets/sprite.svg';
 import Wrapper from 'components/Wrapper/Wrapper';
-import imgUrl from '/src/assets/LogoSite.png';
 import UserLogo from '../UserLogo/UserLogo';
 import { getCurrentUser, getToken } from '../../store/auth/authSelectors';
 import ToggleTheme from '../ToggleTheme/ToggleTheme';
@@ -23,7 +22,9 @@ export const Header = () => {
     <Wrapper>
       <ContainerHeader>
         <NavLink to={token ? '/home' : '/'} className="logoBox">
-          <img src={imgUrl} alt="iconHome" />
+          <svg className="iconHome" width="102px" height="48px">
+            <use xlinkHref={`${sprite}#Logo-1`}></use>
+          </svg>
         </NavLink>
         <HeaderContent>
           <ToggleTheme />

@@ -26,6 +26,8 @@ import {
   RadioStyled,
   RadioWrapper,
   RadiosWrapper,
+  DeleteButton,
+  ButtonsWrapper,
 } from './SettingModal.styled';
 import ModalContainer from '../ModalContainer/ModalContainer';
 import { getCurrentUser } from '../../store/auth/authSelectors';
@@ -41,9 +43,12 @@ import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { DeleteUserModal } from '../DeleteUserModal/DeleteUserModal';
 // import { getIsDarkTheme } from '../../store/theme/themeSelectors';
 
 const SettingModal = ({ onModalClose, isModalOpen }) => {
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
   const dispatch = useDispatch();
 
   const user = useSelector(getCurrentUser);
@@ -58,6 +63,14 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
     newPassword: '',
     repeatedPassword: '',
   });
+
+  const handleOpenDeleteModal = () => {
+    setOpenDeleteModal(true);
+  };
+
+  const handleCloseDeleteModal = () => {
+    setOpenDeleteModal(false);
+  };
 
   // const color = useSelector(getIsDarkTheme) ? 'dark' : 'light';
   // const statusWoman = user.gender === 'woman' ? 'active' : 'inactive';
@@ -402,12 +415,27 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                         </PasswordFormGroup>
                       </div>
                     </FormContentWrapper>
-                    <SubmitButton type="submit">Save</SubmitButton>
+                    <ButtonsWrapper>
+                      {' '}
+                      <DeleteButton
+                        type="button"
+                        onClick={handleOpenDeleteModal}
+                      >
+                        Delete user
+                      </DeleteButton>
+                      <SubmitButton type="submit">Save</SubmitButton>
+                    </ButtonsWrapper>
                   </Form>
                 );
               }}
             </Formik>
           </ModalBox>
+          {openDeleteModal && (
+            <DeleteUserModal
+              onModalClose={handleCloseDeleteModal}
+              isModalOpen={openDeleteModal}
+            />
+          )}
         </ModalContainer>
       )}
     </>

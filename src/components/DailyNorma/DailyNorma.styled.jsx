@@ -1,29 +1,8 @@
 import styled from 'styled-components';
-import bottle_desk_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_1x.png';
 
-
-export const StyledBottleImage = styled.img`
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 100%;
-  
-  @media screen and (min-width: 1440px) {
-    width: 592px;
-    height: 548px;
-  }
-
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-    width: 386px; 
-    background-position: center center;
-  }
-
-  @media screen and (max-width: 767px) {
-    width: 280px; 
-    height: auto; 
-  }
+export const DailySection = styled.div`
+  position: relative;
 `;
-
 
 export const ModalDaily = styled.div`
   display: inline-flex;
@@ -31,18 +10,22 @@ export const ModalDaily = styled.div`
   height: 74px;
   width: 150px;
   flex-direction: column;
-  /* align-items: flex-start; */
   gap: 12px;
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.color.lavender};
   background: ${({ theme }) => theme.color.white};
   box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
 
-  /* margin-bottom: 232px; */
+  @media ${({ theme }) => theme.device.tablet} {
+    margin-top: 16px;
+  }
+
+  @media ${({ theme }) => theme.device.desktop} {
+    margin-top: 30px;
+  }
 `;
 
 export const DailyTitle = styled.h2`
-  /* color: #2f2f2f; */
   font-size: 15px;
   font-weight: 500;
   line-height: 1.33;
@@ -55,6 +38,7 @@ export const DailyBtn = styled.button`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
+  z-index: 1;
 
   background: transparent;
   border: none;
@@ -80,4 +64,21 @@ export const DailyLitr = styled.p`
 export const DailyEditContainer = styled.div`
   display: flex;
   gap: 12px;
+`;
+
+export const StyledBottleImage = styled.img`
+  position: absolute;
+  top: 80px;
+  left: 5px;
+  /* z-index: -1; */
+
+  @media ${({ theme }) => theme.device.tablet} {
+    top: 0;
+    left: 90px;
+  }
+
+  @media ${({ theme }) => theme.device.desktop} {
+    top: -10px;
+    left: -110px;
+  }
 `;
