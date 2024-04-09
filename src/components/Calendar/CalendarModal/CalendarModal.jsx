@@ -27,7 +27,7 @@ const CalendarModal = ({
   // Если разница "delta" между текущим элементом и контейнером меньше 250 пикселей, переменная position устанавливается в "false".
 
   const delta = currentRef - containerRef;
-  if (delta < 200) {
+  if (delta < 250) {
     position = false;
   }
 
@@ -35,18 +35,23 @@ const CalendarModal = ({
   // в противном случае отображается сообщение о том, что записей за этот день нет.
   return (
     <CalendarModalStyles $delta={position} $deltaNum={delta}>
-      <>
-        <h3>{dayOfMonth}</h3>
-        <p>
-          Daily norma: <span>{dailyWaterGoal / 1000} L</span>
-        </p>
-        <p>
-          Fulfillment of the daily norm: <span>{consumedWaterPercentage}%</span>
-        </p>
-        <p>
-          How many servings of water: <span>{consumedTimes}</span>
-        </p>
-      </>
+      {Object.entries(dayOfMonth).length > 0 ? (
+        <>
+          <h3>{dayOfMonth}</h3>
+          <p>
+            Daily norma: <span>{dailyWaterGoal / 1000} L</span>
+          </p>
+          <p>
+            Fulfillment of the daily norm:{' '}
+            <span>{consumedWaterPercentage}%</span>
+          </p>
+          <p>
+            How many servings of water: <span>{consumedTimes}</span>
+          </p>
+        </>
+      ) : (
+        <h3>You dont have records on this day.</h3>
+      )}
     </CalendarModalStyles>
   );
 };
