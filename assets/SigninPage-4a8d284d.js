@@ -1,4 +1,4 @@
-import{u as h,B as x,C as c,j as o,F as m,D as u,E as d,G as p,s as l,c as b,M as g,H as f,r as w,W as j,L as y,I as v}from"./index-1e23ba39.js";import{b as k}from"./bottle_desk_2x-46bac030.js";const S=h.div`
+import{u as h,B as x,C as c,j as o,F as m,D as u,E as p,G as d,s as l,c as b,M as g,H as f,r as w,W as j,L as y,I as v}from"./index-b69230a1.js";import{b as k}from"./bottle_desk_2x-46bac030.js";const S=h.div`
   @media ${({theme:e})=>e.device.mobile} {
     .form {
       margin-top: 16px;
@@ -99,23 +99,27 @@ import{u as h,B as x,C as c,j as o,F as m,D as u,E as d,G as p,s as l,c as b,M a
       height: 44px;
     }
   }
-`,$=({submitFunc:e})=>{const n=x({email:c().email().required(),password:c().min(6).max(64).required()}),a={email:"",password:""};function s(i,t){e(i),t.resetForm()}function r(i){const t=i.target.closest(".watchPasswordIcon").previousSibling;if(t.type==="password"){t.type="text",i.target.closest("SVG").firstChild.href.baseVal=l+"#eye-opened";return}if(t.type==="text"){t.type="password",i.target.closest("SVG").firstChild.href.baseVal=l+"#eye-closed";return}}return o.jsx(o.Fragment,{children:o.jsx(S,{children:o.jsx(m,{initialValues:a,validationSchema:n,onSubmit:s,children:o.jsxs(u,{className:"form",autoComplete:"off",children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(d,{className:"input",type:"text",name:"email",placeholder:"Email"})}),o.jsx(p,{className:"error",name:"email",component:"div"})]}),o.jsx("br",{}),o.jsxs("label",{className:"label",htmlFor:"password",children:["Enter your password",o.jsxs("div",{className:"input-container",children:[o.jsx(d,{className:"input",type:"password",name:"password",placeholder:"Password"}),o.jsx("svg",{className:"watchPasswordIcon",onClick:r,width:"16",height:"14",stroke:"#9ebbff",fill:"none",children:o.jsx("use",{href:l+"#eye-closed"})})]}),o.jsx(p,{className:"error",name:"password",component:"div"})]}),o.jsx("br",{}),o.jsx("button",{className:"buttonSignUp",type:"submit",children:"Sign In"})]})})})})},N=h.div`
-  background-size: 100%;
+`,$=({submitFunc:e})=>{const n=x({email:c().email().required(),password:c().min(6).max(64).required()}),a={email:"",password:""};function s(i,t){e(i),t.resetForm()}function r(i){const t=i.target.closest(".watchPasswordIcon").previousSibling;if(t.type==="password"){t.type="text",i.target.closest("SVG").firstChild.href.baseVal=l+"#eye-opened";return}if(t.type==="text"){t.type="password",i.target.closest("SVG").firstChild.href.baseVal=l+"#eye-closed";return}}return o.jsx(o.Fragment,{children:o.jsx(S,{children:o.jsx(m,{initialValues:a,validationSchema:n,onSubmit:s,children:o.jsxs(u,{className:"form",autoComplete:"off",children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(p,{className:"input",type:"text",name:"email",placeholder:"Email"})}),o.jsx(d,{className:"error",name:"email",component:"div"})]}),o.jsx("br",{}),o.jsxs("label",{className:"label",htmlFor:"password",children:["Enter your password",o.jsxs("div",{className:"input-container",children:[o.jsx(p,{className:"input",type:"password",name:"password",placeholder:"Password"}),o.jsx("svg",{className:"watchPasswordIcon",onClick:r,width:"16",height:"14",stroke:"#9ebbff",fill:"none",children:o.jsx("use",{href:l+"#eye-closed"})})]}),o.jsx(d,{className:"error",name:"password",component:"div"})]}),o.jsx("br",{}),o.jsx("button",{className:"buttonSignUp",type:"submit",children:"Sign In"})]})})})})},N=h.div`
+  background-size: 100vw, contain;
   background-position: 0, 10px;
   background-repeat: no-repeat;
   background-image: ${({theme:e})=>e.backgroundImage.bodyBubblesMob};
-
+  
+  .wrapper {
+    width: 100%;
+    position: relative;
+  }
   .link-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 280px;
   }
-
   button {
     border: none;
     background-color: transparent;
   }
+
   @media ${({theme:e})=>e.device.mobile} {
     .title {
       font-family: 'Roboto', sans-serif;
@@ -133,7 +137,7 @@ import{u as h,B as x,C as c,j as o,F as m,D as u,E as d,G as p,s as l,c as b,M a
       color: ${({theme:e})=>e.color.blue};
     }
     .bottle {
-      position: relative;
+      // position: relative;
       width: 280px;
       z-index: -10;
     }
@@ -141,14 +145,17 @@ import{u as h,B as x,C as c,j as o,F as m,D as u,E as d,G as p,s as l,c as b,M a
   @media ${({theme:e})=>e.device.tablet} {
     background-image: ${({theme:e})=>e.backgroundImage.bodyBubblesTab};
  
-    .wrapper {
-      width: 100%;
-      position: relative;
+    
+    .formCont {
+      width: 336px;
+      position: absolute;
+      top: 25px;
     }
     .bottle {
       width: 736px;
+      height: 548px;
       position: absolute;
-      top: 10px;
+      top: 60px;
       right: -150px;
     }
     .link-container {
@@ -162,19 +169,17 @@ import{u as h,B as x,C as c,j as o,F as m,D as u,E as d,G as p,s as l,c as b,M a
     background-position-x: -30px;
     .bottle {
       width: 916px;
+      height: 680px;
       position: absolute;
-      top: -100px;
-      left: -210%;
+      top: 0px;
+      left:  -70px;
     }
     .formCont {
       position: absolute;
-      top: 120px;
-      right: 90px;
+      top: 113px;
+      right: 198px;
     }
-    .wrapper {
-      width: 100%;
-      position: relative;
-    }
+    
     .link-container {
       width: 384px;
     }
@@ -259,4 +264,4 @@ import{u as h,B as x,C as c,j as o,F as m,D as u,E as d,G as p,s as l,c as b,M a
     font-size: 16px;
     text-align: center;
   }
-`,F=({isModalOpen:e,closeModal:n})=>{const a=x({email:c().email().required()}),s={email:""},r=b(),i=t=>{r(f(t)),n()};return o.jsx(o.Fragment,{children:e&&o.jsx(g,{onClose:n,children:o.jsx(R,{children:o.jsx(m,{initialValues:s,validationSchema:a,onSubmit:i,children:o.jsxs(u,{className:"form",autoComplete:"off",noValidate:!0,children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your registered mail:",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(d,{className:"input",type:"email",name:"email",placeholder:"Email"})}),o.jsx(p,{className:"error",name:"email",component:"div"})]}),o.jsx("button",{type:"submit",children:"Send"})]})})})})})},B=()=>{const e=b(),[n,a]=w.useState(!1),s=()=>{a(!0)},r=()=>{a(!1)};function i(t){e(v(t))}return o.jsx(o.Fragment,{children:o.jsx(N,{children:o.jsxs(j,{children:[o.jsxs("div",{className:"wrapper",children:[o.jsxs("div",{className:"formCont",children:[o.jsx("h2",{className:"title",children:"Sign In"}),o.jsx($,{submitFunc:i}),o.jsxs("div",{className:"link-container",children:[o.jsx(y,{className:"link",to:"/signup",children:"Sign Up"}),o.jsx("button",{className:"link",onClick:s,children:"Forgot Password"})]})]}),o.jsx("img",{className:"bottle",alt:"bottle of water",src:k})]}),n&&o.jsx(F,{isModalOpen:n,closeModal:r})]})})})};export{B as default};
+`,C=({isModalOpen:e,closeModal:n})=>{const a=x({email:c().email().required()}),s={email:""},r=b(),i=t=>{r(f(t)),n()};return o.jsx(o.Fragment,{children:e&&o.jsx(g,{onClose:n,children:o.jsx(R,{children:o.jsx(m,{initialValues:s,validationSchema:a,onSubmit:i,children:o.jsxs(u,{className:"form",autoComplete:"off",noValidate:!0,children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your registered mail:",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(p,{className:"input",type:"email",name:"email",placeholder:"Email"})}),o.jsx(d,{className:"error",name:"email",component:"div"})]}),o.jsx("button",{type:"submit",children:"Send"})]})})})})})},B=()=>{const e=b(),[n,a]=w.useState(!1),s=()=>{a(!0)},r=()=>{a(!1)};function i(t){e(v(t))}return o.jsx(o.Fragment,{children:o.jsx(N,{children:o.jsxs(j,{children:[o.jsxs("div",{className:"wrapper",children:[o.jsxs("div",{className:"formCont",children:[o.jsx("h2",{className:"title",children:"Sign In"}),o.jsx($,{submitFunc:i}),o.jsxs("div",{className:"link-container",children:[o.jsx(y,{className:"link",to:"/signup",children:"Sign Up"}),o.jsx("button",{className:"link",onClick:s,children:"Forgot Password"})]})]}),o.jsx("img",{className:"bottle",alt:"bottle of water",src:k})]}),n&&o.jsx(C,{isModalOpen:n,closeModal:r})]})})})};export{B as default};

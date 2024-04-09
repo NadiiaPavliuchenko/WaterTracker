@@ -1,4 +1,4 @@
-import{u as h,B as m,C as d,J as w,j as o,F as u,D as b,E as p,G as c,s as l,c as g,M as j,K as k,b as v,N as y,r as S,W as $,L as N,O as x,P as R}from"./index-1e23ba39.js";import{b as C}from"./bottle_desk_2x-46bac030.js";const F=h.div`
+import{u as h,B as m,C as d,J as w,j as o,F as u,D as b,E as p,G as c,s as l,c as g,M as j,K as k,b as y,N as v,r as S,W as $,L as N,O as x,P as R}from"./index-b69230a1.js";import{b as C}from"./bottle_desk_2x-46bac030.js";const F=h.div`
   @media ${({theme:e})=>e.device.mobile} {
     .form {
       margin-top: 16px;
@@ -107,6 +107,10 @@ import{u as h,B as m,C as d,J as w,j as o,F as u,D as b,E as p,G as c,s as l,c a
   background-repeat: no-repeat;
   background-image: ${({theme:e})=>e.backgroundImage.bodyBubblesMob};
 
+  .wrapper {
+    width: 100%;
+    position: relative;
+  }
   .link-container {
     display: flex;
     flex-direction: row;
@@ -135,7 +139,7 @@ import{u as h,B as m,C as d,J as w,j as o,F as u,D as b,E as p,G as c,s as l,c a
       color: ${({theme:e})=>e.color.blue};
     }
     .bottle {
-      position: relative;
+      // position: relative;
       width: 280px;
       z-index: -10;
     }
@@ -143,14 +147,17 @@ import{u as h,B as m,C as d,J as w,j as o,F as u,D as b,E as p,G as c,s as l,c a
   @media ${({theme:e})=>e.device.tablet} {
     background-image: ${({theme:e})=>e.backgroundImage.bodyBubblesTab};
     
-    .wrapper {
-      width: 100%;
-      position: relative;
+    
+    .formCont {
+      width: 336px;
+      position: absolute;
+      top: 25px;
     }
     .bottle {
       width: 736px;
+      height: 548px;
       position: absolute;
-      top: 10px;
+      top: 60px;
       right: -150px;
     }
     .link-container {
@@ -164,19 +171,17 @@ import{u as h,B as m,C as d,J as w,j as o,F as u,D as b,E as p,G as c,s as l,c a
     background-position-x: -30px;
     .bottle {
       width: 916px;
+      height: 680px;
       position: absolute;
-      top: -100px;
-      left: -210%;
+      top: 0px;
+      left: -70px;
     }
     .formCont {
       position: absolute;
-      top: 120px;
-      right: 90px;
+      top: 113px;
+      right: 198px;
     }
-    .wrapper {
-      width: 100%;
-      position: relative;
-    }
+    
     .link-container {
       width: 384px;
     }
@@ -261,4 +266,4 @@ import{u as h,B as m,C as d,J as w,j as o,F as u,D as b,E as p,G as c,s as l,c a
     font-size: 16px;
     text-align: center;
   }
-`,U=({isModalOpen:e,closeModal:s})=>{const a=m({email:d().email().required()}),n={email:""},r=g(),t=i=>{r(k(i)),s()};return o.jsx(o.Fragment,{children:e&&o.jsx(j,{onClose:s,children:o.jsx(B,{children:o.jsx(u,{initialValues:n,validationSchema:a,onSubmit:t,children:o.jsxs(b,{className:"form",autoComplete:"off",noValidate:!0,children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email for re-send code:",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(p,{className:"input",type:"email",name:"email",placeholder:"Email"})}),o.jsx(c,{className:"error",name:"email",component:"div"})]}),o.jsx("button",{type:"submit",children:"Send"})]})})})})})},M=()=>{const e=g(),s=v(y),[a,n]=S.useState(!1),r=()=>{n(!0)},t=()=>{n(!1)};function i(f){e(R(f))}return o.jsxs(o.Fragment,{children:[o.jsx(z,{children:o.jsxs($,{children:[o.jsx("div",{className:"wrapper",children:o.jsxs("div",{className:"formCont",children:[o.jsx("h2",{className:"title",children:"Sign Up"}),o.jsx(P,{submitFunc:i}),o.jsxs("div",{className:"link-container",children:[o.jsx(N,{className:"link",to:"/signin",children:"Sign In"}),o.jsx("button",{className:"link",onClick:r,children:"Re-send code"})]}),o.jsx("img",{className:"bottle",alt:"bottle of water",src:C})]})}),a&&o.jsx(U,{isModalOpen:a,closeModal:t})]})}),s?o.jsx(x,{to:"/signin"}):o.jsx(x,{to:"/signup"})]})};export{M as default};
+`,U=({isModalOpen:e,closeModal:s})=>{const a=m({email:d().email().required()}),n={email:""},r=g(),t=i=>{r(k(i)),s()};return o.jsx(o.Fragment,{children:e&&o.jsx(j,{onClose:s,children:o.jsx(B,{children:o.jsx(u,{initialValues:n,validationSchema:a,onSubmit:t,children:o.jsxs(b,{className:"form",autoComplete:"off",noValidate:!0,children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email for re-send code:",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(p,{className:"input",type:"email",name:"email",placeholder:"Email"})}),o.jsx(c,{className:"error",name:"email",component:"div"})]}),o.jsx("button",{type:"submit",children:"Send"})]})})})})})},M=()=>{const e=g(),s=y(v),[a,n]=S.useState(!1),r=()=>{n(!0)},t=()=>{n(!1)};function i(f){e(R(f))}return o.jsxs(o.Fragment,{children:[o.jsx(z,{children:o.jsxs($,{children:[o.jsxs("div",{className:"wrapper",children:[o.jsxs("div",{className:"formCont",children:[o.jsx("h2",{className:"title",children:"Sign Up"}),o.jsx(P,{submitFunc:i}),o.jsxs("div",{className:"link-container",children:[o.jsx(N,{className:"link",to:"/signin",children:"Sign In"}),o.jsx("button",{className:"link",onClick:r,children:"Re-send code"})]})]}),o.jsx("img",{className:"bottle",alt:"bottle of water",src:C})]}),a&&o.jsx(U,{isModalOpen:a,closeModal:t})]})}),s?o.jsx(x,{to:"/signin"}):o.jsx(x,{to:"/signup"})]})};export{M as default};
