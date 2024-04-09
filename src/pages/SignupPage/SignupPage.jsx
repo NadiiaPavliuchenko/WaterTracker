@@ -42,13 +42,11 @@ const SignupPage = () => {
                   Re-send code
                 </button>
               </div>
-
+            </div>
               <img
                 className="bottle"
                 alt="bottle of water"
-                src={bottleImage_mob_1x}
-              ></img>
-            </div>
+                src={bottleImage_mob_1x}></img>
           </div>
           {openResendModal && (
             <ResendCodeModal
