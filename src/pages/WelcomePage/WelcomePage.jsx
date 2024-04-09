@@ -1,10 +1,11 @@
 import BottleAnimation from '../../components/Animation/BottleAnimation';
 import { MainContent } from '../../components/Main/MainContent';
-import { WrapperBox } from '../../components/Wrapper/Wrapper.styled';
+
 import { BackgroundWrapper, Bubble, TurnOff } from './WelcomePage.styled';
 import WavesAnimation from '../../components/Animation/WavesAnimation';
 import BubblesAnimation from '../../components/Animation/BubblesAnimation';
 import { useState } from 'react';
+import Wrapper from '../../components/Wrapper/Wrapper';
 
 const WelcomePage = () => {
   const [onAnimation, setOnAnimation] = useState(true);
@@ -25,12 +26,12 @@ const WelcomePage = () => {
           <Bubble></Bubble>
         </BackgroundWrapper>
       )}
-      <WrapperBox>
+      <Wrapper>
         <MainContent />
         <TurnOff onClick={handleOnAnimation}>
           {onAnimation ? 'Turn off animation' : 'Turn on animation'}
         </TurnOff>
-      </WrapperBox>
+      </Wrapper>
     </>
   );
 };
