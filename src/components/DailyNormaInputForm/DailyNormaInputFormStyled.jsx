@@ -2,10 +2,8 @@ import styled from 'styled-components';
 
 export const LabelStyled = styled.label`
   font-family: 'Roboto-Medium';
-  /* font-weight: 500; */
   font-size: 18px;
   line-height: 1.11111;
-  /* color: #2f2f2f; */
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -26,13 +24,14 @@ export const ButtonStyled = styled.button`
   box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
   background: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Medium', sans-serif;
-  /* font-weight: 500; */
   font-size: 16px;
   line-height: 1.25;
-  text-align: center;
   color: ${({ theme }) => theme.color.white};
   border: none;
   transition: box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover,
   &:focus {
@@ -46,7 +45,6 @@ export const ButtonStyled = styled.button`
   @media ${({ theme }) => theme.device.tablet} {
     padding: 10px 30px;
     margin-left: auto;
-    display: block;
     font-size: 18px;
 
     width: 160px;
