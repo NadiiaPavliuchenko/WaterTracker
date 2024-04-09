@@ -12,6 +12,7 @@ export const HomeWrapper = styled.div`
   @media ${({ theme }) => theme.device.tablet} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
     padding-bottom: 44px;
+    z-index: -10;
   }
 
   @media ${({ theme }) => theme.device.desktop} {
