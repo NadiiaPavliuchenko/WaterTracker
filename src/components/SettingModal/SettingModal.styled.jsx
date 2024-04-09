@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { Link } from '@mui/material';
-// import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-// import Radio from '@mui/material/Radio';
 import { Box } from '@mui/material';
 import { Field, ErrorMessage } from 'formik';
 
@@ -107,30 +105,12 @@ export const FilePickerLink = styled(Link)`
   color: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Medium';
   font-size: 14px;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.color.orange};
+  }
 `;
-
-// export const StyledRadioGroup = styled(RadioGroup)`
-//   margin-bottom: 24px;
-//   @media ${({ theme }) => theme.device.desktop} {
-//     margin-bottom: 52px;
-//   }
-// `;
-
-// export const CustomRadio = styled(Radio)`
-//   &.Mui-checked {
-//     color: ${({ theme }) => theme.color.blue};
-//   }
-//   && .MuiSvgIcon-root {
-//     width: 14px;
-//     height: 14px;
-//     color: ${({ theme }) => theme.color.blue};
-//   }
-
-//   &&:hover,
-//   &&:focus {
-//     background: none;
-//   }
-// `;
 
 export const FormGroup = styled.div`
   display: flex;
@@ -254,6 +234,11 @@ export const DeleteButton = styled.button`
 export const StyledSvg = styled.svg`
   fill: transparent;
   stroke: ${({ theme }) => theme.color.blue};
+  cursor: pointer;
+  ${FilePickerLink}:hover &,
+  ${FilePickerLink}:focus & {
+    stroke: ${({ theme }) => theme.color.orange};
+  }
 `;
 
 export const RedError = styled(ErrorMessage)`

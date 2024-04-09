@@ -7,7 +7,7 @@ import BubblesAnimation from '../../components/Animation/BubblesAnimation';
 import { useState } from 'react';
 
 const WelcomePage = () => {
-  const [onAnimation, setOnAnimation] = useState(true);
+  const [onAnimation, setOnAnimation] = useState(false);
 
   const handleOnAnimation = () => {
     setOnAnimation(!onAnimation);

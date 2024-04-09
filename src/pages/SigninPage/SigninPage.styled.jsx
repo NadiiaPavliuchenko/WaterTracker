@@ -1,84 +1,86 @@
 import styled from 'styled-components';
-// import bg_mob_register_1x from '../../assets/images/background/RegisterLoginPage/mob/bg_mob_register_1x.png';
-// import bg_tab_register_1x from '../../assets/images/background/RegisterLoginPage/tab/bg_tab_1x.png';
-// import bg_desk_register_1x from '../../assets/images/background/RegisterLoginPage/Desk/bg_desk_1x.png';
 
 export const SignInPageStyle = styled.div`
   background-size: 100%;
-  background-position: 0, 10px;
   background-repeat: no-repeat;
   background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesMob};
+  margin-top: 24px;
 
+  .wrapper {
+    width: 100%;
+    position: relative;
+  }
   .link-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 280px;
   }
-
   button {
     border: none;
     background-color: transparent;
   }
+  .link:hover,
+  .link:focus {
+    color: ${({ theme }) => theme.color.orange};
+  }
+
   @media ${({ theme }) => theme.device.mobile} {
     .title {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Roboto-Medium', sans-serif;
       font-weight: 500;
       font-size: 26px;
       line-height: 1.23077;
-      margin-top: 20px;
     }
     .link {
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 16px;
-      
+
       line-height: 1.25;
       color: ${({ theme }) => theme.color.blue};
     }
     .bottle {
-      position: relative;
-      width: 280px;
-      z-index: -10;
     }
   }
   @media ${({ theme }) => theme.device.tablet} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
- 
+    margin-top: 40px;
     .wrapper {
-      width: 100%;
-      position: relative;
+      display: flex;
     }
-    .bottle {
-      width: 736px;
-      position: absolute;
-      top: 10px;
-      right: -150px;
+    .formCont {
+      width: 336px;
     }
     .link-container {
       width: 336px;
     }
   }
+  @media ${({ theme }) => theme.device.tabletAndDesktop} {
+    .formCont {
+      z-index: 1;
+    }
+    .bottle {
+      position: absolute;
+      top: 30px;
+      right: -15px;
+    }
+  }
   @media ${({ theme }) => theme.device.desktop} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
-    background-size: 1404px, 582px;
-    background-position-y: 0px;
-    background-position-x: -30px;
+    margin-top: 0;
+
     .bottle {
-      width: 916px;
-      position: absolute;
-      top: -100px;
-      left: -210%;
+      order: 1;
+      margin-left: -70px;
     }
     .formCont {
+      order: 2;
       position: absolute;
-      top: 120px;
-      right: 90px;
+      top: 130px;
+      right: 150px;
     }
-    .wrapper {
-      width: 100%;
-      position: relative;
-    }
+
     .link-container {
       width: 384px;
     }

@@ -9,7 +9,7 @@ export const FormRegisterStyles = styled.div`
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 18px;
-      line-height: 1.33333;      
+      line-height: 1.33333;
     }
     .input-container {
       position: relative;
@@ -28,6 +28,7 @@ export const FormRegisterStyles = styled.div`
       padding: 12px 10px;
       margin-top: 8px;
       width: 280px;
+
       height: 44px;
     }
     .input:hover,
@@ -45,7 +46,8 @@ export const FormRegisterStyles = styled.div`
       position: absolute;
       right: 20px;
       top: 50%;
-      transform: translate(0%, -50%);      
+      transform: translate(0%, -50%);
+      cursor: pointer;
     }
     .buttonSignUp {
       border-radius: 10px;

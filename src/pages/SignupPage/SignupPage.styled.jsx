@@ -19,6 +19,10 @@ export const SignUpPageStyle = styled.div`
     border: none;
     background-color: transparent;
   }
+  .link:hover,
+  .link:focus {
+    color: ${({ theme }) => theme.color.orange};
+  }
 
   @media ${({ theme }) => theme.device.mobile} {
     .title {
