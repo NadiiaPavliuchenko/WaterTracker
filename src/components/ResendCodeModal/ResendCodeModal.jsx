@@ -31,7 +31,7 @@ export const ResendCodeModal = ({ isModalOpen, closeModal }) => {
             >
               <Form className="form" autoComplete="off" noValidate>
                 <label className="label" htmlFor="email">
-                  Enter your email for re-send code:
+                  Enter your mailbox to re-send verification email:
                   <br />
                   <div className="input-container">
                     <Field

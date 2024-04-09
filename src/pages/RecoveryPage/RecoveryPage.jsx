@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, Link } from 'react-router-dom';
-import SignUpForm from '../../components/SignUpForm/SignUpForm';
-import { signUpAPI } from '../../store/auth/authOperations';
-import { SignUpPageStyle } from './SignupPage.styled';
-import { getUserEmail } from '../../store/auth/authSelectors';
+import { useDispatch } from 'react-redux';
+import { useParams, Navigate, Link } from 'react-router-dom';
+import RecoveryForm from '../../components/RecoveryForm/RecoveryForm';
+import { recoverPassword } from '../../store/auth/authOperations';
+import { RecoveryPageStyle } from './RecoveryPage.styled';
 import Wrapper from '../../components/Wrapper/Wrapper';
 import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage/mob/bottle_mob_1x.png';
 import bottleImage_mob_2x from '../../assets/images/background/RegisterLoginPage/mob/bottle_mob_2x.png';
@@ -12,39 +11,33 @@ import bottleImage_tab_2x from '../../assets/images/background/RegisterLoginPage
 import bottleImage_desk_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_1x.png';
 import bottleImage_desk_2x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_2x.png';
 import { useState } from 'react';
-import { ResendCodeModal } from '../../components/ResendCodeModal/ResendCodeModal';
 
-const SignupPage = () => {
+const RecoveryPage = () => {
+  const { recoveryToken } = useParams();
+  const [isPassword, setIsPassword] = useState(undefined);
+
   const dispatch = useDispatch();
-  const userEmail = useSelector(getUserEmail);
-  const [openResendModal, setOpenResendModal] = useState(false);
 
-  const handleOpenClick = () => {
-    setOpenResendModal(true);
-  };
-
-  const handleCloseClick = () => {
-    setOpenResendModal(false);
-  };
-  function handleSubmit(values) {
-    dispatch(signUpAPI(values));
+  function handleSubmit(password) {
+    dispatch(recoverPassword({ recoveryToken, password }));
+    setIsPassword(password);
   }
 
   return (
     <>
       <Wrapper>
-        <SignUpPageStyle>
+        <RecoveryPageStyle>
           <div className="wrapper">
             <div className="formCont">
-              <h2 className="title">Sign Up</h2>
-              <SignUpForm submitFunc={handleSubmit} />
+              <h2 className="title">Recover Password</h2>
+              <RecoveryForm submitFunc={handleSubmit} />
               <div className="link-container">
                 <Link className="link" to="/signin">
                   Sign In
                 </Link>
-                <button className="link" onClick={handleOpenClick}>
-                  Resend Email
-                </button>
+                <Link className="link" to="/signup">
+                  Sign Up
+                </Link>
               </div>
             </div>
             <picture className="bottle">
@@ -70,17 +63,11 @@ const SignupPage = () => {
               />
             </picture>
           </div>
-          {openResendModal && (
-            <ResendCodeModal
-              isModalOpen={openResendModal}
-              closeModal={handleCloseClick}
-            />
-          )}
-        </SignUpPageStyle>
+        </RecoveryPageStyle>
       </Wrapper>
-      {userEmail ? <Navigate to="/signin" /> : <Navigate to="/signup" />}
+      {isPassword && <Navigate to="/signin" />}
     </>
   );
 };
 
-export default SignupPage;
+export default RecoveryPage;

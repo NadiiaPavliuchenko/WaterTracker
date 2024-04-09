@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FormRegisterStyles = styled.div`
+export const RecoveryFormStyles = styled.div`
   @media ${({ theme }) => theme.device.mobile} {
     .form {
       margin-top: 16px;

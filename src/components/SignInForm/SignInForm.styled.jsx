@@ -9,7 +9,7 @@ export const FormLoginStyles = styled.div`
       font-family: 'Roboto-Regular';
       font-weight: 400;
       font-size: 18px;
-      line-height: 1.33333;     
+      line-height: 1.33333;
     }
     .input-container {
       position: relative;
@@ -19,7 +19,7 @@ export const FormLoginStyles = styled.div`
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 16px;
-      line-height: 1.25;     
+      line-height: 1.25;
       background-color: ${({ theme }) => theme.color.white};
       color: ${({ theme }) => theme.color.blue};
       border: 1px solid ${({ theme }) => theme.color.paleBlue};
@@ -27,6 +27,7 @@ export const FormLoginStyles = styled.div`
       padding: 12px 10px;
       margin-top: 8px;
       width: 280px;
+
       height: 44px;
     }
     .input:hover,
@@ -57,7 +58,7 @@ export const FormLoginStyles = styled.div`
       background-color: ${({ theme }) => theme.color.blue};
 
       font-family: 'Roboto-Medium';
-      font-weight: 500; 
+      font-weight: 500;
       font-size: 16px;
       line-height: 1.25;
       text-align: center;

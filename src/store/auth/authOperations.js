@@ -229,9 +229,11 @@ export const sendRecoveryEmail = createAsyncThunk(
 
 export const recoverPassword = createAsyncThunk(
   'auth/recoverPassword',
-  async ({ token, password }, thunkAPI) => {
+  async ({ recoveryToken, password }, thunkAPI) => {
     try {
-      const { data } = await axios.patch(`auth/recover/${token}`, { password });
+      const { data } = await axios.patch(`auth/recover/${recoveryToken}`, {
+        password,
+      });
 
       toastSuccess(data.message);
 

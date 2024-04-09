@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const DailySection = styled.div`
   position: relative;
+  z-index: -1;
 `;
 
 export const ModalDaily = styled.div`

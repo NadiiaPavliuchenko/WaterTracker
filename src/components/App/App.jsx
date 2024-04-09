@@ -14,6 +14,9 @@ const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 const VerificationPage = lazy(() =>
   import('../../pages/VerificationPage/VerificationPage')
 );
+const RecoveryPage = lazy(() =>
+  import('../../pages/RecoveryPage/RecoveryPage')
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +56,12 @@ function App() {
           path="verification/:verificationToken"
           element={
             <PublicRoute redirectTo="/home" component={<VerificationPage />} />
+          }
+        />
+        <Route
+          path="recovery/:recoveryToken"
+          element={
+            <PublicRoute redirectTo="/home" component={<RecoveryPage />} />
           }
         />
         <Route path="*" element={<ErrorPage />} />
