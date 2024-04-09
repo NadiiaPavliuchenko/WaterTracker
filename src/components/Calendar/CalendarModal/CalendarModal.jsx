@@ -6,7 +6,6 @@ const CalendarModal = ({
   // waterData = {},
   day,
   month,
-
   dailyWaterGoal,
   consumedWaterPercentage,
   consumedTimes,
