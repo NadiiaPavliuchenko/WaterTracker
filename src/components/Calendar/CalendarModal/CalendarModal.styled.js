@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { baseTheme } from '../theme';
 
 export const CalendarModalStyles = styled.div`
   position: absolute;
