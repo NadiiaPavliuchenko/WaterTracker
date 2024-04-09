@@ -5,7 +5,12 @@ import { signUpAPI } from '../../store/auth/authOperations';
 import { SignUpPageStyle } from './SignupPage.styled';
 import { getUserEmail } from '../../store/auth/authSelectors';
 import Wrapper from '../../components/Wrapper/Wrapper';
-import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_2x.png';
+import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage/mob/bottle_mob_1x.png';
+import bottleImage_mob_2x from '../../assets/images/background/RegisterLoginPage/mob/bottle_mob_2x.png';
+import bottleImage_tab_1x from '../../assets/images/background/RegisterLoginPage/tab/bottle_tab_1x.png';
+import bottleImage_tab_2x from '../../assets/images/background/RegisterLoginPage/tab/bottle_tab_2x.png';
+import bottleImage_desk_1x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_1x.png';
+import bottleImage_desk_2x from '../../assets/images/background/RegisterLoginPage/Desk/bottle_desk_2x.png';
 import { useState } from 'react';
 import { ResendCodeModal } from '../../components/ResendCodeModal/ResendCodeModal';
 
@@ -27,14 +32,13 @@ const SignupPage = () => {
 
   return (
     <>
-      <SignUpPageStyle>
-        <Wrapper>
+      <Wrapper>
+        <SignUpPageStyle>
           <div className="wrapper">
             <div className="formCont">
               <h2 className="title">Sign Up</h2>
               <SignUpForm submitFunc={handleSubmit} />
               <div className="link-container">
-                {/* {' '} */}
                 <Link className="link" to="/signin">
                   Sign In
                 </Link>
@@ -43,10 +47,28 @@ const SignupPage = () => {
                 </button>
               </div>
             </div>
+            <picture className="bottle">
+              <source
+                srcSet={`${bottleImage_desk_1x} 1x, ${bottleImage_desk_2x} 2x`}
+                media="(min-width: 1440px)"
+                type="image/png"
+              />
+              <source
+                srcSet={`${bottleImage_tab_1x} 1x, ${bottleImage_tab_2x} 2x`}
+                media="(min-width: 768px)"
+                type="image/png"
+              />
+              <source
+                srcSet={`${bottleImage_mob_1x} 1x, ${bottleImage_mob_2x} 2x`}
+                media="(min-width: 320px)"
+                type="image/png"
+              />
               <img
                 className="bottle"
                 alt="bottle of water"
-                src={bottleImage_mob_1x}></img>
+                src={bottleImage_mob_1x}
+              />
+            </picture>
           </div>
           {openResendModal && (
             <ResendCodeModal
@@ -54,8 +76,8 @@ const SignupPage = () => {
               closeModal={handleCloseClick}
             />
           )}
-        </Wrapper>
-      </SignUpPageStyle>
+        </SignUpPageStyle>
+      </Wrapper>
       {userEmail ? <Navigate to="/signin" /> : <Navigate to="/signup" />}
     </>
   );
