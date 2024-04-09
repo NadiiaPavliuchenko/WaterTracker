@@ -4,8 +4,7 @@ import { baseTheme } from '../theme';
 export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* width: 544px;
-  height: 332px; */
+
 `;
 
 export const MonthNav = styled.div`
