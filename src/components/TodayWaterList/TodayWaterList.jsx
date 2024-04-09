@@ -46,7 +46,7 @@ const TodayWaterList = () => {
   const handleCloseCheckDelete = () => {
     setIsCheckModalOpen(false);
   };
-  console.log('dayInfoTrunks.waterIntakes :>> ', dayInfoTrunks.waterIntakes);
+  
   return (
     <>
       <WaterTodayListStyle>
