@@ -231,6 +231,7 @@ export const Calendar = () => {
             aria-label="Next month"
             onClick={handleNextMonth}
             disabled={isCurrentMonth()}
+            hidden={isCurrentMonth()}
           >
             <ArrowForwardIosIcon sx={{ color: baseTheme.colors.blue }} />
           </ArrowButton>
