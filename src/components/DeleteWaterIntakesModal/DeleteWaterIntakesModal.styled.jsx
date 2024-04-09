@@ -7,7 +7,7 @@ export const ModalBox = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 280px;
-  height: 260px;
+  height: 320px;
   padding: 32px 24px;
   background-color: ${({ theme }) => theme.color.white};
   border-radius: 10px;

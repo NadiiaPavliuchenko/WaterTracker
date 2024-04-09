@@ -37,7 +37,7 @@ export const WaterTodayListStyle = styled.div`
       border-radius: 10px;
       padding: 6px 5px 8px 4px;
       width: 100%;
-      max-height: 175px;
+      height: 175px;
     }
 
     .waterItem {
@@ -108,13 +108,13 @@ export const WaterTodayListStyle = styled.div`
   @media ${({ theme }) => theme.device.tablet} {
     .waterList {
       width: 100%;
-      max-height: 169px;
+      height: 169px;
     }
   }
   @media ${({ theme }) => theme.device.desktop} {
     .waterList {
       width: 100%;
-      max-height: 169px;
+      height: 169px;
     }
   }
 `;
