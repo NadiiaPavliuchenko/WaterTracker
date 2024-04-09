@@ -192,7 +192,7 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                   tabIndex={-1}
                   onChange={(e) => handleUploadAvatar(e)}
                 >
-                  <StyledSvg width="16px" height="16px">
+                  <StyledSvg classMane="uploadIcon" width="16px" height="16px">
                     <use xlinkHref={`${sprite}#upload`} />
                   </StyledSvg>
                   Upload a photo
