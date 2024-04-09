@@ -16,26 +16,26 @@ export const WaterTodayListStyle = styled.div`
   @media screen and (min-width: 320px) {
     background-color: ${({ theme }) => theme.color.lavender};
 
-    min-width: 280px;
+    min-width: 254px;
 
     .title {
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
       font-size: 24px;
       line-height: 1.25;
-      height: 40px;      
+      height: 40px;
     }
     .waterList {
-      overflow-y: scroll;  
+      overflow-y: scroll;
 
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-      gap: 12px;
+      gap: 2px;
       align-items: center;
 
       border-radius: 10px;
-      padding: 24px 8px;
+      padding: 6px 5px 8px 4px;
       width: 100%;
       max-height: 175px;
     }
@@ -47,7 +47,7 @@ export const WaterTodayListStyle = styled.div`
       flex-direction: row;
       justify-content: space-between;
       border-bottom: 1px solid ${({ theme }) => theme.color.paleBlue};
-      align-items: center;      
+      align-items: center;
     }
 
     .volumeAdnDate {
@@ -73,7 +73,7 @@ export const WaterTodayListStyle = styled.div`
     }
     .waterVolumeMl {
       display: flex;
-      justify-content: end;      
+      justify-content: end;
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 18px;
@@ -112,15 +112,9 @@ export const WaterTodayListStyle = styled.div`
     }
   }
   @media ${({ theme }) => theme.device.desktop} {
-    
     .waterList {
       width: 100%;
       max-height: 169px;
-      
     }
-
   }
-
-
-
 `;

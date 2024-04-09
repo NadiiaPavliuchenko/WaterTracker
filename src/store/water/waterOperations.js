@@ -76,15 +76,9 @@ export const addWaterThunk = createAsyncThunk(
 // );
 export const deleteDrinkThunk = createAsyncThunk(
   'water/delete',
-  async (waterRecord, thunkAPI) => {
-    const body = {
-      date: new Date(waterRecord.body.date),
-      timeZoneOffset: waterRecord.body.timeZoneOffset,
-    };
-    console.log(body);
-    console.log(waterRecord.id);
+  async (id, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`water/${waterRecord.id}`, body);
+      const { data } = await axios.delete(`water/${id}`);
       toastSuccess('Drink has been deleted successful');
       return data;
     } catch (error) {

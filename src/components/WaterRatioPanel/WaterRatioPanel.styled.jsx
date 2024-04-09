@@ -38,6 +38,9 @@ export const Container = styled.div`
 `;
 
 export const ProgressContainer = styled.div`
+  padding-left: 12px;
+  padding-right: 12px;
+
   */ .progress-bar-container {
     display: flex;
     flex-direction: column;
@@ -54,6 +57,7 @@ export const ProgressContainer = styled.div`
   }
 
   .progress {
+    border-radius: 10px;
     height: 100%;
     background-color: ${({ theme }) => theme.color.skyBlue};
     text-align: center;
@@ -63,7 +67,7 @@ export const ProgressContainer = styled.div`
 
   .progress-text {
     position: absolute;
-    top: -100%;
+    top: -65%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 12px;

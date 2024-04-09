@@ -50,7 +50,10 @@ export const Day = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.color.white};
+  background-color: ${(props) =>
+    props.$isToday
+      ? `${props.theme.color.paleBlue}`
+      : `${props.theme.color.white}`};
   display: flex;
   align-items: center;
   justify-content: center;

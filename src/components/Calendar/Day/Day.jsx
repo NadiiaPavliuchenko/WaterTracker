@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+
 import CalendarModal from '../CalendarModal/CalendarModal';
 import { Day, DayCell, DayPercent } from '../Month/Month.styled';
+import { isSameDay } from '../../../services/dateAndTime';
 
 const DayComponent = ({
   calendarRef,
@@ -14,6 +16,7 @@ const DayComponent = ({
   const date = new Date(year, month.monthNumber, day);
 
   const isNotFuture = new Date() >= date;
+  const isToday = isSameDay(new Date(), date);
 
   const [activeModal, setActiveModal] = useState(null);
   const ref = useRef(null);
@@ -56,6 +59,7 @@ const DayComponent = ({
         ref={ref}
         onClick={() => toggleModal(day)}
         $isOutlineVisible={consumedWaterPercentage < 100 && isNotFuture}
+        $isToday={isToday}
       >
         {day}
       </Day>

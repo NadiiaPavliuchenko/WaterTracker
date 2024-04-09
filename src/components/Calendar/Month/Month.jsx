@@ -4,9 +4,8 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentMonthInfoThunk } from '../../../store/water/waterOperations';
 import {
+  getCurrentDay,
   getCurrentMonth,
-  getCurrentNorm,
-  getCurrentPercentage,
   getIsDayDataLoading,
 } from '../../../store/water/waterSelectors';
 
@@ -33,7 +32,7 @@ export const Calendar = () => {
   const dispatch = useDispatch();
   const ref = useRef(null);
   // const consumedWaterPercentage = useSelector(getCurrentPercentage);
-  const todayPercentage = useSelector(getCurrentPercentage);
+  const currentDay = useSelector(getCurrentDay);
 
   const waterForMonth = useSelector(getCurrentMonth);
 
@@ -89,7 +88,7 @@ export const Calendar = () => {
     // Вызываем thunk, передавая в него начальную и конечную дату месяца
     dispatch(getCurrentMonthInfoThunk(dateRange));
     console.log(dateRange);
-  }, [dispatch, currentDate, todayPercentage]);
+  }, [dispatch, currentDate, currentDay]);
 
   // =========================================================================
 
