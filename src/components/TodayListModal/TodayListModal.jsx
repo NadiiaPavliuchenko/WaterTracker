@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ModalBox } from './TodayListModal.styled';
 import { getDrinks } from '../../store/water/waterSelectors';
 import { editDrinkThunk } from '../../store/water/waterOperations';
-import { addTimeZoneToTime } from '../../services/time';
+import { addTimeZoneToTime } from '../../services/dateAndTime';
 
 const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
   const [waterAmount, setWaterAmount] = useState(currentIntakes.ml);
@@ -39,13 +39,17 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const timeZoneOffset = new Date(selectedTime).getTimezoneOffset();
+    console.log('🚀 ~ selectedTime:', selectedTime);
     const body = {
       date: selectedTime,
       ml: waterAmount,
       timeZoneOffset,
     };
+    console.log('🚀 ~ edit intake body:', body);
     dispatch(editDrinkThunk({ id: currentIntakes.id, body }));
+    closeModal();
   };
+
   const handleChangeWaterAmount = (e) => {
     const amount = parseInt(e.target.value);
     setWaterAmount(amount);

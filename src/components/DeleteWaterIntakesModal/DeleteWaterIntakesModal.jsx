@@ -10,19 +10,14 @@ const DeleteWaterIntakesModal = ({
   currentIntakes,
 }) => {
   const dispatch = useDispatch();
+
   const handleDelete = () => {
-    const timeZoneOffset = new Date(currentIntakes.time).getTimezoneOffset();
-    // console.log(new Date(currentIntakes.time))
-    // console.log(typeof(new Date(currentIntakes.time)))
-    const data = {
-      id: currentIntakes.id,
-      body: {
-        date: currentIntakes.time,
-        timeZoneOffset,
-      },
-    };
+    const data = currentIntakes.id;
+
     dispatch(deleteDrinkThunk(data));
+    onModalClose();
   };
+
   return (
     <>
       {isModalOpen && (
