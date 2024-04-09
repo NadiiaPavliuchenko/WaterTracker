@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-// import bg_mob_register_1x from '../../assets/images/background/RegisterLoginPage/mob/bg_mob_register_1x.png';
-// import bg_tab_register_1x from '../../assets/images/background/RegisterLoginPage/tab/bg_tab_1x.png';
-// import bg_desk_register_1x from '../../assets/images/background/RegisterLoginPage/Desk/bg_desk_1x.png';
 
 export const SignInPageStyle = styled.div`
   background-size: 100%;
@@ -79,6 +76,7 @@ export const SignInPageStyle = styled.div`
       top: 130px;
       right: 150px;
     }
+
     .link-container {
       width: 384px;
     }

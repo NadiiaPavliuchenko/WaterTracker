@@ -16,20 +16,17 @@ export const WaterTodayListStyle = styled.div`
   @media screen and (min-width: 320px) {
     background-color: ${({ theme }) => theme.color.lavender};
 
-    min-width: 280 px;
+    min-width: 280px;
 
     .title {
       font-family: 'Roboto', sans-serif;
       font-weight: 500;
       font-size: 24px;
       line-height: 1.25;
-      height: 40px;
-      /* color: #2f2f2f; */
+      height: 40px;      
     }
     .waterList {
-      overflow-y: scroll;
-      // scrollbar-width: 5px;
-      // scrollbar-color: #9ebbff #9ebbff;
+      overflow-y: scroll;  
 
       display: flex;
       justify-content: space-between;
@@ -40,18 +37,17 @@ export const WaterTodayListStyle = styled.div`
       border-radius: 10px;
       padding: 24px 8px;
       width: 100%;
-      max-height: 200px;
+      max-height: 175px;
     }
 
     .waterItem {
       width: 100%;
+      min-height: 48px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       border-bottom: 1px solid ${({ theme }) => theme.color.paleBlue};
-      align-items: center;
-      // gap: 38px;
-      // padding: 12px 0;
+      align-items: center;      
     }
 
     .volumeAdnDate {
@@ -89,7 +85,6 @@ export const WaterTodayListStyle = styled.div`
       font-weight: 400;
       font-size: 12px;
       line-height: 2;
-      /* color: #2f2f2f; */
     }
     .editDelete {
       display: flex;
@@ -110,9 +105,22 @@ export const WaterTodayListStyle = styled.div`
       color: ${({ theme }) => theme.color.blue};
     }
   }
-  @media screen and (min-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     .waterList {
       width: 100%;
+      max-height: 169px;
     }
   }
+  @media ${({ theme }) => theme.device.desktop} {
+    
+    .waterList {
+      width: 100%;
+      max-height: 169px;
+      
+    }
+
+  }
+
+
+
 `;
