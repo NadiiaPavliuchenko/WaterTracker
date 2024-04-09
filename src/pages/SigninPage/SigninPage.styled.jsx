@@ -53,7 +53,7 @@ export const SignInPageStyle = styled.div`
     }
   }
   @media ${({ theme }) => theme.device.tabletAndDesktop} {
-    .link {
+    .formCont {
       z-index: 1;
     }
     .bottle {
