@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DailySection = styled.div`
   position: relative;
-  z-index: -1;
+  /* z-index: -1; */
 `;
 
 export const ModalDaily = styled.div`
@@ -39,7 +39,6 @@ export const DailyBtn = styled.button`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
-  z-index: 1;
 
   background: transparent;
   border: none;
@@ -71,7 +70,7 @@ export const StyledBottleImage = styled.img`
   position: absolute;
   top: 80px;
   left: 5px;
-  /* z-index: -1; */
+  z-index: -1;
 
   @media ${({ theme }) => theme.device.tablet} {
     top: 0;
