@@ -51,39 +51,3 @@ const UserLogo = ({ name, email, avatarURL }) => {
 };
 
 export default UserLogo;
-
-// import UserLogoModal from 'components/UserLogoModal/UserLogoModal';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-// import { useState } from 'react';
-// import sprite from 'src/assets/sprite.svg';
-// import { ButtonBox, Icon } from './UserLogo.styled';
-
-// const UserLogo = ({ name, email, avatarURL }) => {
-//   const [isOpenPopup, setIsOpen] = useState(false);
-//   const userName = name ? name : email;
-
-//   const handleClick = () => {
-//     setIsOpen(!isOpenPopup);
-//   };
-//   return (
-//     <>
-//       <ButtonBox onClick={handleClick}>
-//         <div>{userName}</div>
-//         <div>
-//           {avatarURL ? (
-//             <img src={avatarURL} alt="avatar" />
-//           ) : (
-//             <Icon>
-//               <use href={`${sprite}#user`}></use>
-//             </Icon>
-//           )}
-//         </div>
-//         {isOpenPopup ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-//         {isOpenPopup && <UserLogoModal />}
-//       </ButtonBox>
-//     </>
-//   );
-// };
-
-// export default UserLogo;
