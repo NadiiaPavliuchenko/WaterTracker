@@ -11,6 +11,7 @@ import OP from '../../assets/images/team/OP.png';
 import SK from '../../assets/images/team/SK.png';
 import SO from '../../assets/images/team/SO.png';
 import NoFoto from '../../assets/images/team/nofoto.png';
+import VS from '../../assets/images/team/VS.png';
 
 const TeamPage = () => {
   return (
@@ -29,7 +30,7 @@ const TeamPage = () => {
                 <div className="img-container">
                   <img src={NP} alt="Nadiia Pavliuchenko" />
                 </div>
-                <div>
+                <div className="desc-container">
                   <h3>
                     Nadiia Pavliuchenko, <span>TechLeader, Developer</span>
                   </h3>
@@ -50,7 +51,7 @@ const TeamPage = () => {
                 <div className="img-container">
                   <img src={AD} alt="Andrii Dovhaniuk" />
                 </div>
-                <div>
+                <div className="desc-container">
                   <h3>
                     Andrii Dovhaniuk, <span>SCRUM, Developer</span>
                   </h3>
@@ -73,7 +74,7 @@ const TeamPage = () => {
                 <div className="img-container">
                   <img src={AK} alt="Andrii Koliadenko" />
                 </div>
-                <div>
+                <div className="desc-container">
                   <h3>
                     Andrii Koliadenko, <span>Developer</span>
                   </h3>
@@ -82,11 +83,15 @@ const TeamPage = () => {
               </a>
             </li>
             <li className="member">
-              <a href="">
+              <a
+                href=" https://www.linkedin.com/in/ivan-imenynnyk/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <div className="img-container">
                   <img src={II} alt="Ivan Imenynnyk" />
                 </div>
-                <div>
+                <div className="desc-container">
                   <h3>
                     Ivan Imenynnyk, <span>Developer</span>
                   </h3>
@@ -103,7 +108,7 @@ const TeamPage = () => {
                 <div className="img-container">
                   <img src={IT} alt="Iryna Trysh" />
                 </div>
-                <div>
+                <div className="desc-container">
                   <h3>
                     Iryna Trysh, <span>Developer</span>
                   </h3>
@@ -120,7 +125,7 @@ const TeamPage = () => {
                 <div className="img-container">
                   <img src={BS} alt="Bohdan Solomych" />
                 </div>
-                <div>
+                <div className="desc-container">
                   <h3>
                     Bohdan Solomych, <span>Developer</span>
                   </h3>
@@ -137,7 +142,7 @@ const TeamPage = () => {
                 <div className="img-container">
                   <img src={DD} alt="Dana Dobryshkina" />
                 </div>
-                <div>
+                <div className="desc-container">
                   <h3>
                     Dana Dobryshkina, <span>Developer</span>
                   </h3>
@@ -155,9 +160,9 @@ const TeamPage = () => {
                 rel="noreferrer"
               >
                 <div className="img-container">
-                  <img src={NoFoto} alt=" Volodymyr Shevchenko" />
+                  <img src={VS} alt=" Volodymyr Shevchenko" />
                 </div>
-                <div>
+                <div className="desc-container">
                   <h3>
                     Volodymyr Shevchenko, <span>Developer</span>
                   </h3>
@@ -182,7 +187,7 @@ const TeamPage = () => {
                 <div className="img-container">
                   <img src={SO} alt="Svitlana Otenko" />
                 </div>
-                <div>
+                <div className="desc-container">
                   <h3>
                     Svitlana Otenko, <span>TechLeader, Developer</span>
                   </h3>
@@ -208,7 +213,7 @@ const TeamPage = () => {
                   <img src={SK} alt="Serhii Krysiuk" />
                 </div>
 
-                <div>
+                <div className="desc-container">
                   <h3>
                     Serhii Krysiuk, <span>Developer</span>
                   </h3>
@@ -228,9 +233,8 @@ const TeamPage = () => {
               >
                 <div className="img-container">
                   <img src={OP} alt="Oleksii Pokormiakho" />
-                </div>
-
-                <div>
+                </div>{' '}
+                <div className="desc-container">
                   <h3>
                     Oleksii Pokormiakho, <span>Developer</span>
                   </h3>

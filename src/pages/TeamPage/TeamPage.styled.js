@@ -82,6 +82,12 @@ export const Container = styled.div`
     border-radius: 50%;
     overflow: hidden;
   }
+
+  .desc-container {
+    display: flex;
+    flex-direction: column;
+  }
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-around;
