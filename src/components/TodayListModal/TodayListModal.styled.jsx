@@ -46,6 +46,9 @@ export const ModalBox = styled.div`
       font-size: 12px;
       line-height: 2;
     }
+    .label {
+      // padding-top: 4px;
+    }
     .input {
       border: 1px solid #d7e3ff;
       border-radius: 6px;

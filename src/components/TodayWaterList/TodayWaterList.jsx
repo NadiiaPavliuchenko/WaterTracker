@@ -78,6 +78,7 @@ const TodayWaterList = () => {
                 </div>
                 <div className="editDelete">
                   <svg
+                    className='editIcon'
                     onClick={handleWaterEdit}
                     width="16"
                     height="13"
@@ -87,6 +88,7 @@ const TodayWaterList = () => {
                     <use href={sprite + '#pencil-square'}></use>
                   </svg>
                   <svg
+                    className='deleteIcon'
                     onClick={handleOpenCheckDelete}
                     width="16"
                     height="16"
