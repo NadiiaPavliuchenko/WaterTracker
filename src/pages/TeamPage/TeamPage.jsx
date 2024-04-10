@@ -104,7 +104,7 @@ const TeamPage = () => {
   return (
     <Wrapper>
       <BubblesAnimation />
-      <Title>Our team IT Froggs</Title>
+      <Title>Our team &#171; IT Froggs &#187;</Title>
       <Container>
         <ul className="members">
           {teamMembers.map((member, index) => (
