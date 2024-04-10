@@ -29,11 +29,15 @@ export const Container = styled.div`
     .box {
       flex-direction: row;
       align-items: center;
+      gap: 12px;
     }
   }
 
   @media ${({ theme }) => theme.device.desktop} {
     margin-top: 466px;
+    .box {
+      gap: 23px;
+    }
   }
 `;
 
