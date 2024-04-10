@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { ContainerFooter, Icon, StyledLink, Text } from './Footer.styled';
 import sprite from 'src/assets/sprite.svg';
 import { getIsDarkTheme } from '../../store/theme/themeSelectors';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   const color = useSelector(getIsDarkTheme) ? 'dark' : 'light';
@@ -18,10 +18,6 @@ export const Footer = () => {
             <use href={`${sprite}#frog-${color}`}></use>
           </Icon>
         </Link>
-
-        {/* <Icon>
-          <use href={`${sprite}#frog-${color}`}></use>
-        </Icon> */}
 
         <StyledLink className="link" to="/team">
           Leap ahead with us!
