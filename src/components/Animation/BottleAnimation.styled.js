@@ -4,7 +4,6 @@ export const BottleBox = styled.div`
   position: absolute;
   display: block;
   width: 374px;
-  /* height: 278px; */
   height: 100vh;
   bottom: 30px;
   right: 5%;

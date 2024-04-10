@@ -264,7 +264,6 @@ export const deleteUserAccount = createAsyncThunk(
     try {
       const { data } = await axios.delete(`user`);
       toastSuccess(data.message);
-      console.log('🚀 ~ data:', data);
       return data;
     } catch (error) {
       toastError(getErrorMessage(error));

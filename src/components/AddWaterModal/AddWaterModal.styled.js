@@ -33,7 +33,7 @@ export const ModalBox = styled.div`
   h2 {
     font-family: 'Roboto-Medium', sans-serif;
     font-size: 26px;
-    /* font-weight: 500; */
+    font-weight: 500;
     line-height: 32px;
     text-align: left;
   }
@@ -41,7 +41,7 @@ export const ModalBox = styled.div`
   p {
     font-family: 'Roboto-Medium', sans-serif;
     font-size: 18px;
-    /* font-weight: 500; */
+    font-weight: 500;
     line-height: 20px;
     text-align: left;
   }
