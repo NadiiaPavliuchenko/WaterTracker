@@ -75,7 +75,7 @@ export const InputWrapper = styled.label`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -144,7 +144,7 @@ export const TextsStyled = styled.div`
   display: flex;
   gap: 6px;
   align-items: center;
-  height: 24px;
+  /* height: 24px; */
 `;
 
 export const TextStyled = styled.p`
@@ -156,6 +156,7 @@ export const TextStyled = styled.p`
 
   @media ${({ theme }) => theme.device.tablet} {
     width: auto;
+    height: 24px;
   }
 `;
 
