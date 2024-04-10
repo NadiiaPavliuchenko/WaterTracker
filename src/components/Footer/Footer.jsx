@@ -1,6 +1,6 @@
 import Wrapper from '../Wrapper/Wrapper';
 import { useSelector } from 'react-redux';
-import { ContainerFooter, Icon, StyledLink } from './Footer.styled';
+import { ContainerFooter, Icon, StyledLink, Text } from './Footer.styled';
 import sprite from 'src/assets/sprite.svg';
 import { getIsDarkTheme } from '../../store/theme/themeSelectors';
 import { Link, NavLink } from 'react-router-dom';
@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <Wrapper>
       <ContainerFooter>
-        <p>© 2024 | Developed by IT Frogs</p>
+        <Text>© 2024 | Developed by IT Frogs</Text>
 
         <Link to="/team">
           <Icon>
