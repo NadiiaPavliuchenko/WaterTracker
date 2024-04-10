@@ -8,7 +8,7 @@ export const ContainerFooter = styled.footer`
   align-items: center;
   justify-content: center;
   text-align: center;
-
+  margin-top: auto;
   padding: 20px;
 
   @media ${({ theme }) => theme.device.tablet} {
