@@ -59,7 +59,7 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
               <h2>Edit the entered amount of water</h2>
               <CloseOutlinedIcon className="close" onClick={closeModal} />
             </div>
-            {/* TODO вставить данные существующей записи */}
+            
             <div className="currentDrink">
               <svg
                 className="waterGlass"
