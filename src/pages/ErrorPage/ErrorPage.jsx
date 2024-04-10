@@ -3,10 +3,6 @@ import { Wrapper } from './ErrorPage.styled';
 import BubblesAnimation from '../../components/Animation/BubblesAnimation';
 
 const ErrorPage = () => {
-  const handleGoBack = () => {
-    window.history.back();
-  };
-
   return (
     <Wrapper>
       <BubblesAnimation />
@@ -21,7 +17,6 @@ const ErrorPage = () => {
           <Link to="/home">
             <button>Go to Home</button>
           </Link>
-          <button onClick={handleGoBack}>Go back</button>
         </div>
       </div>
     </Wrapper>

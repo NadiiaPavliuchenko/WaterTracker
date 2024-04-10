@@ -39,7 +39,6 @@ export const WaterTodayListStyle = styled.div`
       overflow-y: scroll;
 
       display: flex;
-      justify-content: space-between;
       flex-direction: column;
       gap: 2px;
       align-items: center;
