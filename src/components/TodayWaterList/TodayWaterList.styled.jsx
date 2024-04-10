@@ -104,6 +104,12 @@ export const WaterTodayListStyle = styled.div`
       justify-content: space-between;
       gap: 18px;
     }
+    .editIcon {
+      cursor: pointer;
+    }
+    .deleteIcon {
+      cursor: pointer;
+    }
     .addWater {
       cursor: pointer;
       height: 30px;

@@ -14,15 +14,6 @@ export const ModalBox = styled.div`
   border-radius: 10px;
   background-color: ${({ theme }) => theme.color.white};
 
-  @media ${({ theme }) => theme.device.tablet} {
-    width: 704px;
-    height: 504px;
-    padding: 32px 24px;
-  }
-
-  @media ${({ theme }) => theme.device.desktop} {
-    width: 592px;
-  }
   label {
     display: flex;
     flex-direction: column;
@@ -137,5 +128,59 @@ export const ModalBox = styled.div`
   }
   .confirm:active {
     box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    gap: 20px;
+    .counter {
+      margin-bottom: 24px;
+    }
+    .enterLabel {
+      margin-top: 24px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.11111;
+    }
+    .input {
+      width: 120px;
+      height: 44px;
+    }
+    .buttons {
+      margin-top: 24px;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .confirm {
+      width: 256px;
+      height: 36px;
+    }
+  }
+  @media ${({ theme }) => theme.device.tablet} {
+    width: 704px;
+    height: 504px;
+    padding: 32px 24px;
+    .input {
+      width: 656px;
+    }
+    .buttons {
+      margin-top: 24px;
+      justify-content: end;
+      flex-direction: row;
+      gap: 36px;
+    }
+    .amount {
+    }
+    .confirm {
+      width: 160px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.desktop} {
+    width: 592px;
+
+    .input {
+      width: 544px;
+    }
   }
 `;
