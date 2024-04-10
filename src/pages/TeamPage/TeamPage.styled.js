@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.h1`
+  font-size: 30px;
   text-align: center;
   margin: 24px auto;
 `;
@@ -20,7 +21,7 @@ export const Container = styled.div`
     width: 320px;
     border-radius: 10px;
     padding: 12px;
-    background-color: ${({ theme }) => theme.color.white};
+    background-color: transparent;
     transition: all 0.5s ease-in;
   }
 
@@ -140,8 +141,9 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1440px) {
     .member:hover {
-      box-shadow: 0 0 10px 5px ${({ theme }) => theme.color.blue};
-      scale: 1.5;
+      box-shadow: 0 0 10px 5px ${({ theme }) => theme.color.skyBlue};
+      background-color: ${({ theme }) => theme.color.white};
+      scale: 1.3;
     }
   }
 `;
