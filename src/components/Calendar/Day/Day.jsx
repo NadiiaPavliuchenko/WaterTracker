@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Popover } from 'react-tiny-popover';
 import CalendarModal from '../CalendarModal/CalendarModal';
 import { Day, DayCell, DayPercent } from '../Month/Month.styled';
 import { isSameDay } from '../../../services/dateAndTime';
@@ -17,51 +18,56 @@ const DayComponent = ({
   const isNotFuture = new Date() >= date;
   const isToday = isSameDay(new Date(), date);
 
-  const [activeModal, setActiveModal] = useState(null);
+  const [popoverVisible, setPopoverVisible] = useState(false);
   const ref = useRef(null);
 
-  const handleClick = (e) => {
+  const handleClickOutside = (e) => {
     if (ref.current && !ref.current.contains(e.target)) {
-      setActiveModal(null);
+      setPopoverVisible(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClick);
+    document.addEventListener('click', handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClick);
+      document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
-  const toggleModal = () => {
-    setActiveModal((prevModal) => (prevModal === day ? null : day));
+  const togglePopover = () => {
+    setPopoverVisible((prevState) => !prevState);
   };
 
   return (
     <DayCell key={day}>
-      <div>
-        {activeModal === day && (
-          <CalendarModal
-            key={day}
-            calendarRef={calendarRef}
-            refData={ref}
-            waterDay={consumedWaterPercentage}
-            day={day}
-            month={month.monthName}
-            dailyWaterGoal={dailyWaterGoal}
-            consumedWaterPercentage={consumedWaterPercentage}
-            consumedTimes={consumedTimes}
-          />
-        )}
+      <div ref={ref}>
+        <Popover
+          isOpen={popoverVisible}
+          positions={['top', 'center']}
+          reposition={true}
+          content={
+            <CalendarModal
+              calendarRef={calendarRef}
+              refData={ref}
+              waterDay={consumedWaterPercentage}
+              day={day}
+              month={month.monthName}
+              dailyWaterGoal={dailyWaterGoal}
+              consumedWaterPercentage={consumedWaterPercentage}
+              consumedTimes={consumedTimes}
+            />
+          }
+          onClickOutside={handleClickOutside}
+        >
+          <Day
+            onClick={togglePopover}
+            $isOutlineVisible={consumedWaterPercentage < 100 && isNotFuture}
+            $isToday={isToday}
+          >
+            {day}
+          </Day>
+        </Popover>
       </div>
-      <Day
-        ref={ref}
-        onClick={() => toggleModal(day)}
-        $isOutlineVisible={consumedWaterPercentage < 100 && isNotFuture}
-        $isToday={isToday}
-      >
-        {day}
-      </Day>
       <DayPercent>{`${consumedWaterPercentage}%`}</DayPercent>
     </DayCell>
   );
