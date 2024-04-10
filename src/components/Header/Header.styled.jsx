@@ -38,6 +38,7 @@ export const CloseIcon = styled.svg`
 export const UserModalIcon = styled.svg`
   width: 16px;
   height: 16px;
+  display: none;
   transition:
     transform 0.5s ease,
     fill 0.5s ease;
