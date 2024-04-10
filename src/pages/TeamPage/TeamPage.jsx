@@ -30,7 +30,7 @@ const TeamPage = () => {
       role: 'TechLeader, Developer',
       description:
         'deployment of a server for development, architecture,, routes, SettingsModal, implementation of dark and light themes',
-      linkedin: 'www.linkedin.com/in/nadiia-pavliuchenko',
+      linkedin: 'https://www.linkedin.com/in/nadiia-pavliuchenko',
     },
     {
       name: 'Andrii Dovhaniuk',

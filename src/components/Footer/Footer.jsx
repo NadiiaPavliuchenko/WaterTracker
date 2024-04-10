@@ -19,10 +19,6 @@ export const Footer = () => {
           </Icon>
         </Link>
 
-        {/* <Icon>
-          <use href={`${sprite}#frog-${color}`}></use>
-        </Icon> */}
-
         <StyledLink className="link" to="/team">
           Leap ahead with us!
         </StyledLink>
