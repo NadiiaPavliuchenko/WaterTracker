@@ -1,15 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentMonthInfoThunk } from '../../../store/water/waterOperations';
 import { ThreeDots } from 'react-loader-spinner';
-import { baseTheme } from '../theme';
 import {
   getCurrentDay,
   getCurrentMonth,
   getIsDayDataLoading,
 } from '../../../store/water/waterSelectors';
+import sprite from '../../../assets/sprite.svg';
 
 import DayComponent from '../Day/Day';
 
@@ -22,17 +20,14 @@ import {
   MonthControl,
   Month,
   MonthTitle,
+  StyledSvg,
 } from './Month.styled';
 
-
 export const Calendar = () => {
- 
   const [currentDate, setCurrentDate] = useState(new Date()); // текущая дата + функция состояния; currentDate = текущая дата;
 
-  // const [isLoading] = useState(); // состояние загрузки;
   const dispatch = useDispatch();
   const ref = useRef(null);
-  // const consumedWaterPercentage = useSelector(getCurrentPercentage);
   const currentDay = useSelector(getCurrentDay);
 
   const waterForMonth = useSelector(getCurrentMonth);
@@ -65,7 +60,6 @@ export const Calendar = () => {
 
     const endDate = lastDayOfMonth.toISOString().split('T')[0];
 
-    // const dateRange = `${startDate} , ${endDate}`;
     const dateRange = {
       startDate,
       endDate,
@@ -73,7 +67,6 @@ export const Calendar = () => {
 
     // Вызываем thunk, передавая в него начальную и конечную дату месяца
     dispatch(getCurrentMonthInfoThunk(dateRange));
-    console.log(dateRange);
   }, [dispatch, currentDate, currentDay]);
 
   const handleNextMonth = () => {
@@ -176,7 +169,7 @@ export const Calendar = () => {
             height="60"
             width="60"
             radius="9"
-            color={baseTheme.colors.blue}
+            color="#5082F2"
             ariaLabel="three-dots-loading"
             wrapperStyle={{
               height: '30px',
@@ -194,7 +187,9 @@ export const Calendar = () => {
             aria-label="Previous month"
             onClick={handlePrevMonth}
           >
-            <ArrowBackIosIcon sx={{ color: baseTheme.colors.blue }} />
+            <StyledSvg className="uploadIcon" width="16px" height="16px">
+              <use xlinkHref={`${sprite}#arrow-left`} />
+            </StyledSvg>
           </ArrowLeftButton>
 
           <Month>
@@ -208,7 +203,9 @@ export const Calendar = () => {
             disabled={isCurrentMonth()}
             hidden={isCurrentMonth()}
           >
-            <ArrowForwardIosIcon sx={{ color: baseTheme.colors.blue }} />
+            <StyledSvg className="uploadIcon" width="16px" height="16px">
+              <use xlinkHref={`${sprite}#arrow-right`} />
+            </StyledSvg>
           </ArrowButton>
         </MonthControl>
       </MonthNav>

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
-import SharedLayout from 'components/SharedLayout/SharedLayout';
+import SharedLayout from '../SharedLayout/SharedLayout';
 import PublicRoute from '../../guards/PublicRoute';
 import PrivateRoute from '../../guards/PrivateRoute';
 import { useDispatch } from 'react-redux';
@@ -11,6 +11,7 @@ const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const SigninPage = lazy(() => import('../../pages/SigninPage/SigninPage'));
 const SignupPage = lazy(() => import('../../pages/SignupPage/SignupPage'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
+const TeamPage = lazy(() => import('../../pages/TeamPage/TeamPage'));
 const VerificationPage = lazy(() =>
   import('../../pages/VerificationPage/VerificationPage')
 );
@@ -36,9 +37,7 @@ function App() {
         />
         <Route
           path="home"
-          element={
-            <PrivateRoute redirectTo="/signin" component={<HomePage />} />
-          }
+          element={<PrivateRoute redirectTo="/" component={<HomePage />} />}
         />
         <Route
           path="signin"
@@ -64,6 +63,7 @@ function App() {
             <PublicRoute redirectTo="/home" component={<RecoveryPage />} />
           }
         />
+        <Route path="team" element={<TeamPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

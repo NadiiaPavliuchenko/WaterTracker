@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 
-// import backgroundMobile from '../../assets/images/background/WelcomePage/mob/bg_mob.png';
-// import backgroundTablet from '../../assets/images/background/WelcomePage/tab/bg_tab.png';
-// import backgroundDesktop from '../../assets/images/background/WelcomePage/desktop/bg_img.png';
-// import backgroundBubbles from '../../assets/images/background/WelcomePage/desktop/bg_img_bubbles.png';
-
 export const BackgroundWrapper = styled.div`
   position: absolute;
   display: block;
   width: 100vw;
-  /* height: 100vh; */
   top: 0;
   left: 0;
   z-index: -1;
@@ -48,21 +42,17 @@ export const Bubble = styled.div`
   background-repeat: no-repeat;
   background-size: 100%;
   padding-top: 24px;
-  // padding-bottom: 40px;
   min-height: calc(100vh - 40px);
 
   // табл
   @media ${({ theme }) => theme.device.tablet} {
     padding-top: 40px;
-
-    // padding-bottom: 50px;
     min-height: calc(100vh - 50px);
   }
 
   // деск
   @media ${({ theme }) => theme.device.desktop} {
     padding-top: 49px;
-    // padding-bottom: 109px;
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
     min-height: calc(100vh - 109px);
   }
@@ -75,13 +65,12 @@ export const TurnOff = styled.div`
   justify-content: center;
   width: 60px;
   height: 60px;
-  border-radius: 25px 25px 0 0;
+  border-radius: 25px;
   bottom: 0;
   right: 4px;
   padding: 12px;
   margin: 0;
   background-color: ${({ theme }) => theme.color.skyBlue};
-  border: 2px solid ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Bold';
   font-size: 12px;
@@ -111,5 +100,6 @@ export const TurnOff = styled.div`
     width: 160px;
     height: 80px;
     font-size: 24px;
+    border-radius: 25px 25px 0 0;
   }
 `;

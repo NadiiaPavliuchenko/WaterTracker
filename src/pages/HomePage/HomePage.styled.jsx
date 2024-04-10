@@ -6,20 +6,18 @@ export const HomeWrapper = styled.div`
   background-size: 100%;
   padding-top: 24px;
   padding-bottom: 40px;
-  margin: auto;
   z-index: -10;
 
   @media ${({ theme }) => theme.device.tablet} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesTab};
     padding-bottom: 44px;
+    z-index: -10;
   }
 
   @media ${({ theme }) => theme.device.desktop} {
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
     padding-top: 20px;
     padding-bottom: 40px;
-    width: 1404px;
-    height: 582px;
   }
 `;
 

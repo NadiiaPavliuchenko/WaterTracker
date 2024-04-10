@@ -8,14 +8,13 @@ import AddWaterModal from '../AddWaterModal/AddWaterModal';
 import DeleteWaterIntakesModal from '../DeleteWaterIntakesModal/DeleteWaterIntakesModal';
 
 const TodayWaterList = () => {
-  
-  const [isEditOpen, setIsEditOpen] = useState(false)
-  const [isAddWaterOpen, setIsAddWaterOpen] = useState(false)
-  const [isCheckModalOpen, setIsCheckModalOpen] = useState(false)
-  const [currentIntakes, setCurrentIntakes] = useState({})
-  const dayInfoTrunks = useSelector(getCurrentDay) 
-  
-  const handleWaterEdit = (evt) => { 
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isAddWaterOpen, setIsAddWaterOpen] = useState(false);
+  const [isCheckModalOpen, setIsCheckModalOpen] = useState(false);
+  const [currentIntakes, setCurrentIntakes] = useState({});
+  const dayInfoTrunks = useSelector(getCurrentDay);
+
+  const handleWaterEdit = (evt) => {
     const current = {
       id: evt.target.closest('LI').id,
       ml: Number(
@@ -46,7 +45,7 @@ const TodayWaterList = () => {
   const handleCloseCheckDelete = () => {
     setIsCheckModalOpen(false);
   };
-  
+
   return (
     <>
       <WaterTodayListStyle>
@@ -61,13 +60,7 @@ const TodayWaterList = () => {
                 time={item.consumedAt}
               >
                 <div className="volumeAdnDate">
-                  <svg
-                    className="waterGlass"
-                    width="26"
-                    height="26"
-                    stroke="#9ebbff"
-                    fill="none"
-                  >
+                  <svg className="waterGlass" width="26" height="26">
                     <use href={sprite + '#water-glass'}></use>
                   </svg>
                   <span className="waterVolume">{item.ml} </span>
@@ -78,22 +71,18 @@ const TodayWaterList = () => {
                 </div>
                 <div className="editDelete">
                   <svg
-                    className='editIcon'
+                    className="edit"
                     onClick={handleWaterEdit}
                     width="16"
-                    height="13"
-                    stroke="#9ebbff"
-                    fill="none"
+                    height="16"
                   >
                     <use href={sprite + '#pencil-square'}></use>
                   </svg>
                   <svg
-                    className='deleteIcon'
+                    className="delete"
                     onClick={handleOpenCheckDelete}
                     width="16"
                     height="16"
-                    stroke="#ef5050"
-                    fill="none"
                   >
                     <use href={sprite + '#trash'}></use>
                   </svg>

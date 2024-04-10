@@ -8,6 +8,7 @@ import {
   changeUserSettingsAPI,
   fetchUserData,
   verificateUser,
+  deleteUserAccount,
 } from './authOperations';
 
 const initialState = {
@@ -118,9 +119,25 @@ const authSlice = createSlice({
       .addCase(verificateUser.pending, (state) => {
         state.authIsLoading = true;
       })
-      .addCase(verificateUser.fulfilled, (state, { payload }) => {})
+      .addCase(verificateUser.fulfilled, (state) => {
+        state.authIsLoading = false;
+      })
       .addCase(verificateUser.rejected, (state) => {
         state.authIsLoading = false;
+      })
+
+      .addCase(deleteUserAccount.fulfilled, (state) => {
+        state.authIsLoading = false;
+        state.user = { ...initialState.user };
+        state.token = null;
+      })
+      .addCase(deleteUserAccount.pending, (state) => {
+        state.authIsLoading = true;
+      })
+      .addCase(deleteUserAccount.rejected, (state) => {
+        state.authIsLoading = false;
+        state.user = { ...initialState.user };
+        state.token = null;
       });
   },
 });

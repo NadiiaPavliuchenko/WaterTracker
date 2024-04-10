@@ -9,13 +9,10 @@ import {
   ImgThumb,
   FilePickerWrapper,
   FilePickerLink,
-  // StyledRadioGroup,
-  // SmallControlLabel,
   StyledField,
   FormGroup,
   PasswordFormGroup,
   FormContentWrapper,
-  // CustomRadio,
   SubmitButton,
   VisibilityIconsWrapper,
   StyledSvg,
@@ -44,7 +41,6 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DeleteUserModal } from '../DeleteUserModal/DeleteUserModal';
-// import { getIsDarkTheme } from '../../store/theme/themeSelectors';
 
 const SettingModal = ({ onModalClose, isModalOpen }) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -107,11 +103,9 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
     name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
     email: Yup.string().email('Invalid email'),
     gender: Yup.string().matches(/(woman|man)/),
-    oldPassword: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
-      .max(64),
+    oldPassword: Yup.string(),
     newPassword: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
+      .min(6, 'Password must be at least 6 characters')
       .max(64)
       .when('oldPassword', (oldPassword, schema) => {
         if (typeof oldPassword[0] !== 'undefined') {
@@ -125,7 +119,7 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
         return schema;
       }),
     repeatedPassword: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
+      .min(6, 'Password must be at least 6 characters')
       .max(64)
       .when('newPassword', (newPassword, schema) => {
         if (typeof newPassword[0] !== 'undefined') {
@@ -192,7 +186,7 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                   tabIndex={-1}
                   onChange={(e) => handleUploadAvatar(e)}
                 >
-                  <StyledSvg classMane="uploadIcon" width="16px" height="16px">
+                  <StyledSvg className="uploadIcon" width="16px" height="16px">
                     <use xlinkHref={`${sprite}#upload`} />
                   </StyledSvg>
                   Upload a photo

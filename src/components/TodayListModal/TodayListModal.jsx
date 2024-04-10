@@ -6,19 +6,16 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ModalBox } from './TodayListModal.styled';
-import { getDrinks } from '../../store/water/waterSelectors';
 import { editDrinkThunk } from '../../store/water/waterOperations';
 import { addTimeZoneToTime } from '../../services/dateAndTime';
 
 const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
   const [waterAmount, setWaterAmount] = useState(currentIntakes.ml);
-  console.log('🚀 ~ waterAmount:', waterAmount);
+
   const oldTime = addTimeZoneToTime(currentIntakes.time);
   const [selectedTime, setSelectedTime] = useState(new Date(oldTime));
-  console.log('🚀 ~ selectedTime:', selectedTime);
-  // const drinks = useSelector(getDrinks);
 
   const dispatch = useDispatch();
 
@@ -39,13 +36,11 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const timeZoneOffset = new Date(selectedTime).getTimezoneOffset();
-    console.log('🚀 ~ selectedTime:', selectedTime);
     const body = {
       date: selectedTime,
       ml: waterAmount,
       timeZoneOffset,
     };
-    console.log('🚀 ~ edit intake body:', body);
     dispatch(editDrinkThunk({ id: currentIntakes.id, body }));
     closeModal();
   };

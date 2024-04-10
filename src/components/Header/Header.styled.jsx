@@ -38,6 +38,7 @@ export const CloseIcon = styled.svg`
 export const UserModalIcon = styled.svg`
   width: 16px;
   height: 16px;
+  display: none;
   transition:
     transform 0.5s ease,
     fill 0.5s ease;
@@ -45,7 +46,6 @@ export const UserModalIcon = styled.svg`
   &:hover,
   &:focus {
     fill: ${({ theme }) => theme.color.blue};
-    /*transform: scale(1.2);  Збільшення розміру при натисканні */
   }
 
   &.active {
@@ -102,24 +102,3 @@ export const HeaderContent = styled.div`
   gap: 10px;
   align-items: center;
 `;
-// export const Container = styled.div`
-//   margin: 0 auto;
-//   padding-right: 20px;
-//   padding-left: 20px;
-
-//   @media (min-width: 320px) {
-//     font-size: 16px;
-//     line-height: 1.25em;
-//   }
-
-/* @media screen and (min-width: 768px) {
-    width: 768px;
-    padding-right: 32px;
-    padding-left: 32px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
-    padding-right: 120px;
-    padding-left: 120px;
-  } */

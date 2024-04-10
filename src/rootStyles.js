@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
         font-style: normal;
         color: ${({ theme }) => theme.color.black};
         width: 100%;
-        height: 100vh;
+        height: 100%;
         margin: 0;
     }
     h1,

@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import UserLogoModal from 'components/UserLogoModal/UserLogoModal';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import sprite from 'src/assets/sprite.svg';
-import { ButtonBox, AvatarStile, Icon, IconStyle, ModalBox } from './UserLogo.styled';
+import {
+  ButtonBox,
+  AvatarStile,
+  Icon,
+  IconStyle,
+  ModalBox,
+} from './UserLogo.styled';
 
 const UserLogo = ({ name, email, avatarURL }) => {
   const [isOpenPopup, setIsOpen] = useState(false);
@@ -52,5 +58,3 @@ const UserLogo = ({ name, email, avatarURL }) => {
 };
 
 export default UserLogo;
-
-

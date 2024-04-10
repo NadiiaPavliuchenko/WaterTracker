@@ -7,6 +7,7 @@ import {
   editDrinkThunk,
   editDailyNorm,
 } from './waterOperations';
+import { deleteUserAccount, logOutAPI } from '../auth/authOperations';
 
 const initialState = {
   month: null,
@@ -102,6 +103,15 @@ const waterSlice = createSlice({
       })
       .addCase(editDailyNorm.rejected, (state) => {
         state.isEditingNorm = false;
+      })
+      .addCase(logOutAPI.fulfilled, (state) => {
+        console.log('delete in water');
+        state.month = null;
+        state.dayInfo = { ...initialState.dayInfo };
+      })
+      .addCase(deleteUserAccount.fulfilled, (state) => {
+        state.month = null;
+        state.dayInfo = { ...initialState.dayInfo };
       });
   },
 });

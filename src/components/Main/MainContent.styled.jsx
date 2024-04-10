@@ -15,10 +15,10 @@ export const WelcomePageStyles = styled.div`
   }
 
   @media ${({ theme }) => theme.device.desktop} {
+    height: 582px;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    /* flex-wrap: nowrap; */
     margin-top: 80px;
     gap: 81px;
   }

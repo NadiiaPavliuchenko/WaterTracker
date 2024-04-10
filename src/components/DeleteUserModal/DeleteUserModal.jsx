@@ -1,17 +1,23 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import ModalContainer from '../ModalContainer/ModalContainer';
 import { ButtonContainer, ModalBox } from './DeleteUserModal.styled';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import { deleteUserAccount } from '../../store/auth/authOperations';
-import { getCurrentUser } from '../../store/auth/authSelectors';
+import {
+  deleteUserAccount,
+  verifyUserPassword,
+} from '../../store/auth/authOperations';
+
 import * as yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import sprite from '../../assets/sprite.svg';
+import { useState } from 'react';
 
 export const DeleteUserModal = ({ onModalClose, isModalOpen }) => {
   const dispatch = useDispatch();
-  const { id } = useSelector(getCurrentUser);
+
+  const [isUserDeleted, setIsUserDeleted] = useState(false);
+
   const passwordSchema = yup.object({
     password: yup.string().min(6).max(64).required(),
   });
@@ -34,9 +40,24 @@ export const DeleteUserModal = ({ onModalClose, isModalOpen }) => {
       return;
     }
   }
-  const handleSubmit = (id, password) => {
-    dispatch(deleteUserAccount(id, password));
+  const handleSubmit = async (password) => {
+    try {
+      const verifyResult = await dispatch(
+        verifyUserPassword(password)
+      ).unwrap();
+
+      if (verifyResult.isPasswordCorrect) {
+        const deleteResult = await dispatch(deleteUserAccount()).unwrap();
+
+        if (deleteResult.isDeleted) {
+          setIsUserDeleted(true);
+        }
+      }
+    } catch (error) {
+      return;
+    }
   };
+
   return (
     <>
       {isModalOpen && (
@@ -98,6 +119,7 @@ export const DeleteUserModal = ({ onModalClose, isModalOpen }) => {
           </ModalBox>
         </ModalContainer>
       )}
+      {isUserDeleted && <Navigate to="/" />}
     </>
   );
 };

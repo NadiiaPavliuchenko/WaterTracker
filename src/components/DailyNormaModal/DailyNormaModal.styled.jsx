@@ -43,10 +43,9 @@ export const TopLineStyled = styled.div`
 
 export const TitleStyled = styled.h2`
   font-family: 'Roboto-Medium';
-  /* font-weight: 500; */
+  font-weight: 500;
   font-size: 26px;
   line-height: 1.23077;
-  /* color: #2f2f2f; */
 `;
 
 export const CloseOutlinedIconStyled = styled(CloseOutlinedIcon)`
@@ -67,15 +66,14 @@ export const FormulesStyles = styled.div`
 
 export const FormuleStyled = styled.p`
   font-family: 'Roboto-Regular';
-  /* font-weight: 400; */
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  /* color: #2f2f2f; */
 `;
 
 export const SpanStyled = styled.span`
   font-family: 'Roboto-Regular';
-  /* font-weight: 400; */
+  font-weight: 400;
   font-size: 18px;
   line-height: 1.33333;
   color: ${({ theme }) => theme.color.blue};
@@ -91,7 +89,7 @@ export const MarkStyled = styled.div`
 
 export const TextStyled = styled.p`
   font-family: 'Roboto-Regular';
-  /* font-weight: 400; */
+  font-weight: 400;
   font-size: 12px;
   line-height: 1.33333;
   color: #8f8f8f;

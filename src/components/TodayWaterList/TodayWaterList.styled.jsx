@@ -12,6 +12,16 @@ export const WaterTodayListStyle = styled.div`
     border-radius: 8px;
     border: 3px solid ${({ theme }) => theme.color.skyBlue};
   }
+  .edit {
+    stroke: ${({ theme }) => theme.color.skyBlue};
+    cursor: pointer;
+    fill: transparent;
+  }
+  .delete {
+    stroke: ${({ theme }) => theme.color.red};
+    cursor: pointer;
+    fill: transparent;
+  }
 
   @media screen and (min-width: 320px) {
     background-color: ${({ theme }) => theme.color.lavender};
@@ -29,7 +39,6 @@ export const WaterTodayListStyle = styled.div`
       overflow-y: scroll;
 
       display: flex;
-      justify-content: space-between;
       flex-direction: column;
       gap: 2px;
       align-items: center;
@@ -60,6 +69,8 @@ export const WaterTodayListStyle = styled.div`
     .waterGlass {
       width: 26px;
       height: 26px;
+      fill: transparent;
+      stroke: ${({ theme }) => theme.color.skyBlue};
     }
     .waterVolume {
       display: flex;
