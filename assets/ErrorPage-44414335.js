@@ -1,4 +1,4 @@
-import{u as o,j as i,L as e}from"./index-72567f54.js";import{B as n}from"./BubblesAnimation-8cab3e5f.js";const r=o.div`
+import{u as e,j as i,L as o}from"./index-1c378d26.js";import{B as n}from"./BubblesAnimation-8c342ec1.js";const r=e.div`
   height: 100%;
   display: flex;
   justify-content: center;
@@ -134,4 +134,4 @@ import{u as o,j as i,L as e}from"./index-72567f54.js";import{B as n}from"./Bubbl
     bottom: 5vmin;
     left: -25vmin;
   }
-`,h=()=>{const t=()=>{window.history.back()};return i.jsxs(r,{children:[i.jsx(n,{}),i.jsxs("div",{className:"main",children:[i.jsx("h1",{children:"404"}),i.jsxs("p",{children:["It looks like you're lost...",i.jsx("br",{}),"That's a trouble?"]}),i.jsxs("div",{className:"buttons",children:[i.jsx(e,{to:"/home",children:i.jsx("button",{children:"Go to Home"})}),i.jsx("button",{onClick:t,children:"Go back"})]})]})]})};export{h as default};
+`,h=()=>i.jsxs(r,{children:[i.jsx(n,{}),i.jsxs("div",{className:"main",children:[i.jsx("h1",{children:"404"}),i.jsxs("p",{children:["It looks like you're lost...",i.jsx("br",{}),"That's a trouble?"]}),i.jsx("div",{className:"buttons",children:i.jsx(o,{to:"/home",children:i.jsx("button",{children:"Go to Home"})})})]})]});export{h as default};
