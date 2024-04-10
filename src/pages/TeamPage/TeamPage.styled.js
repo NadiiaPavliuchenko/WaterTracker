@@ -18,6 +18,10 @@ export const Container = styled.div`
 
   .member {
     width: 300px;
+    border-radius: 10px;
+    padding: 12px;
+    background-color: ${({ theme }) => theme.color.white};
+    transition: all 0.5s ease-in;
   }
 
   .member > a {
@@ -126,5 +130,12 @@ export const Container = styled.div`
     height: 10vmin;
     bottom: 5vmin;
     left: -25vmin;
+  }
+
+  @media screen and (min-width: 1440px) {
+    .member:hover {
+      box-shadow: 0 0 10px 5px ${({ theme }) => theme.color.blue};
+      scale: 1.5;
+    }
   }
 `;
