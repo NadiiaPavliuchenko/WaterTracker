@@ -18,8 +18,6 @@ export const HomeWrapper = styled.div`
     background-image: ${({ theme }) => theme.backgroundImage.bodyBubblesDesk};
     padding-top: 20px;
     padding-bottom: 40px;
-    width: 1404px;
-    height: 730px;
   }
 `;
 
