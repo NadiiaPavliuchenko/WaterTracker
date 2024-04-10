@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
-import SharedLayout from 'components/SharedLayout/SharedLayout';
+import SharedLayout from '../SharedLayout/SharedLayout';
 import PublicRoute from '../../guards/PublicRoute';
 import PrivateRoute from '../../guards/PrivateRoute';
 import { useDispatch } from 'react-redux';
