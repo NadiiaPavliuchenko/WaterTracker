@@ -11,6 +11,7 @@ const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const SigninPage = lazy(() => import('../../pages/SigninPage/SigninPage'));
 const SignupPage = lazy(() => import('../../pages/SignupPage/SignupPage'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
+const TeamPage = lazy(() => import('../../pages/TeamPage/TeamPage'));
 const VerificationPage = lazy(() =>
   import('../../pages/VerificationPage/VerificationPage')
 );
@@ -63,6 +64,10 @@ function App() {
           element={
             <PublicRoute redirectTo="/home" component={<RecoveryPage />} />
           }
+        />
+        <Route
+          path="team"
+          element={<PublicRoute redirectTo="/home" component={<TeamPage />} />}
         />
         <Route path="*" element={<ErrorPage />} />
       </Route>
