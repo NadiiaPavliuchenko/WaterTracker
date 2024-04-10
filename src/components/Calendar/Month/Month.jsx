@@ -24,9 +24,7 @@ import {
   MonthTitle,
 } from './Month.styled';
 
-
 export const Calendar = () => {
- 
   const [currentDate, setCurrentDate] = useState(new Date()); // текущая дата + функция состояния; currentDate = текущая дата;
 
   // const [isLoading] = useState(); // состояние загрузки;
@@ -73,7 +71,6 @@ export const Calendar = () => {
 
     // Вызываем thunk, передавая в него начальную и конечную дату месяца
     dispatch(getCurrentMonthInfoThunk(dateRange));
-    console.log(dateRange);
   }, [dispatch, currentDate, currentDay]);
 
   const handleNextMonth = () => {

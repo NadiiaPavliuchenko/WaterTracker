@@ -50,16 +50,22 @@ const SigninPage = () => {
               <source
                 srcSet={`${bottleImage_desk_1x} 1x, ${bottleImage_desk_2x} 2x`}
                 media="(min-width: 1440px)"
+                width="865"
+                height="680"
                 type="image/png"
               />
               <source
                 srcSet={`${bottleImage_tab_1x} 1x, ${bottleImage_tab_2x} 2x`}
                 media="(min-width: 768px)"
+                width="656"
+                height="548"
                 type="image/png"
               />
               <source
                 srcSet={`${bottleImage_mob_1x} 1x, ${bottleImage_mob_2x} 2x`}
                 media="(min-width: 320px)"
+                width="280"
+                height="210"
                 type="image/png"
               />
               <img

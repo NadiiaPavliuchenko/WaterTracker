@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import { signUpAPI } from '../../store/auth/authOperations';
 import { SignUpPageStyle } from './SignupPage.styled';
-import { getUserEmail } from '../../store/auth/authSelectors';
+// import { getUserEmail } from '../../store/auth/authSelectors';
 import Wrapper from '../../components/Wrapper/Wrapper';
 import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage/mob/bottle_mob_1x.png';
 import bottleImage_mob_2x from '../../assets/images/background/RegisterLoginPage/mob/bottle_mob_2x.png';
@@ -16,8 +16,9 @@ import { ResendCodeModal } from '../../components/ResendCodeModal/ResendCodeModa
 
 const SignupPage = () => {
   const dispatch = useDispatch();
-  const userEmail = useSelector(getUserEmail);
+  // const userEmail = useSelector(getUserEmail);
   const [openResendModal, setOpenResendModal] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleOpenClick = () => {
     setOpenResendModal(true);
@@ -28,6 +29,7 @@ const SignupPage = () => {
   };
   function handleSubmit(values) {
     dispatch(signUpAPI(values));
+    setFormSubmitted(true);
   }
 
   return (
@@ -51,16 +53,22 @@ const SignupPage = () => {
               <source
                 srcSet={`${bottleImage_desk_1x} 1x, ${bottleImage_desk_2x} 2x`}
                 media="(min-width: 1440px)"
+                width="865"
+                height="680"
                 type="image/png"
               />
               <source
                 srcSet={`${bottleImage_tab_1x} 1x, ${bottleImage_tab_2x} 2x`}
                 media="(min-width: 768px)"
+                width="656"
+                height="548"
                 type="image/png"
               />
               <source
                 srcSet={`${bottleImage_mob_1x} 1x, ${bottleImage_mob_2x} 2x`}
                 media="(min-width: 320px)"
+                width="280"
+                height="210"
                 type="image/png"
               />
               <img
@@ -78,7 +86,7 @@ const SignupPage = () => {
           )}
         </SignUpPageStyle>
       </Wrapper>
-      {userEmail ? <Navigate to="/signin" /> : <Navigate to="/signup" />}
+      {formSubmitted && <Navigate to="/signin" />}
     </>
   );
 };
