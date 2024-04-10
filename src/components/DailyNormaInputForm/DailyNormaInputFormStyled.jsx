@@ -59,7 +59,7 @@ export const MessageOfError = styled.p`
 
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.28571;
   color: ${({ theme }) => theme.color.red};
 `;
