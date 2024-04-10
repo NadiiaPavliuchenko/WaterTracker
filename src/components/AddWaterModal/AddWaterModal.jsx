@@ -82,7 +82,7 @@ const AddWaterModal = ({ isModalOpen, closeModal }) => {
                 </button>
               </div>
 
-              <label>
+              <label >
                 Recording time:
                 <DatePicker
                   className="input"
@@ -95,7 +95,7 @@ const AddWaterModal = ({ isModalOpen, closeModal }) => {
                 />
               </label>
 
-              <label>
+              <label className='enterLabel'>
                 Enter the value of the water used:
                 <input
                   className="input"

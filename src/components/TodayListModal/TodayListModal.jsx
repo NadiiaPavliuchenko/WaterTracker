@@ -76,8 +76,8 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
               </span>
             </div>
             <p>Correct entered data:</p>
-            <form onSubmit={handleFormSubmit}>
-              <label className='label'>Amount of water:</label>
+            <form className="form" onSubmit={handleFormSubmit}>
+              <label >Amount of water:</label>
               <div className="counter">
                 <button
                   className="counterBtn"
@@ -111,7 +111,7 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
                 />
               </label>
 
-              <label>
+              <label className='enterLabel'>
                 Enter the value of the water used:
                 <input
                   className="input"
