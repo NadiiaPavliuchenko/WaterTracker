@@ -1,4 +1,4 @@
-import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a.js";import{i as at,f as ot,c as st,m as rt,a as lt,S as ct,H as dt,v as R,s as ut,b as pt,d as At,e as ht,g as ft,h as mt,r as gt,j as P,k as xt,l as bt,p as vt,n as yt,o as U,q as wt,u as Y,t as X}from"./motion-5d99ae3d.js";import{B as jt}from"./BubblesAnimation-73a497c3.js";function It(t){return S.useEffect(()=>()=>t(),[])}function M(t,e,n){var i;if(typeof t=="string"){let o=document;e&&(at(!!e.current),o=e.current),n?((i=n[t])!==null&&i!==void 0||(n[t]=o.querySelectorAll(t)),t=n[t]):t=o.querySelectorAll(t)}else t instanceof Element&&(t=[t]);return Array.from(t||[])}function Bt(t,e){let n;const i=()=>{const{currentTime:o}=e,r=(o===null?0:o.value)/100;n!==r&&t(r),n=r};return ot.update(i,!0),()=>st(i)}const Et=rt(()=>window.ScrollTimeline!==void 0);class N{constructor(e){this.animations=e.filter(Boolean)}then(e,n){return Promise.all(this.animations).then(e).catch(n)}getAll(e){return this.animations[0][e]}setAll(e,n){for(let i=0;i<this.animations.length;i++)this.animations[i][e]=n}attachTimeline(e){const n=this.animations.map(i=>{if(Et()&&i.attachTimeline)i.attachTimeline(e);else return i.pause(),Bt(o=>{i.time=i.duration*o},e)});return()=>{n.forEach((i,o)=>{i&&i(),this.animations[o].stop()})}}get time(){return this.getAll("time")}set time(e){this.setAll("time",e)}get speed(){return this.getAll("speed")}set speed(e){this.setAll("speed",e)}get duration(){let e=0;for(let n=0;n<this.animations.length;n++)e=Math.max(e,this.animations[n].duration);return e}runAll(e){this.animations.forEach(n=>n[e]())}play(){this.runAll("play")}pause(){this.runAll("pause")}stop(){this.runAll("stop")}cancel(){this.runAll("cancel")}complete(){this.runAll("complete")}}function Wt(t){return typeof t=="object"&&!Array.isArray(t)}function kt(t){const e={presenceContext:null,props:{},visualState:{renderState:{transform:{},transformOrigin:{},style:{},vars:{},attrs:{}},latestValues:{}}},n=lt(t)?new ct(e,{enableHardwareAcceleration:!1}):new dt(e,{enableHardwareAcceleration:!0});n.mount(t),R.set(t,n)}function Xt(t,e=100){const n=ut({keyframes:[0,e],...t}),i=Math.min(pt(n),At);return{type:"keyframes",ease:o=>n.next(i*o).value/e,duration:ht(i)}}function F(t,e,n,i){var o;return typeof e=="number"?e:e.startsWith("-")||e.startsWith("+")?Math.max(0,t+parseFloat(e)):e==="<"?n:(o=i.get(e))!==null&&o!==void 0?o:t}const Ct=(t,e,n)=>{const i=e-t;return((n-t)%i+i)%i+t};function Kt(t,e){return ft(t)?t[Ct(0,t.length,e)]:t}function Rt(t,e,n){for(let i=0;i<t.length;i++){const o=t[i];o.at>e&&o.at<n&&(gt(t,o),i--)}}function St(t,e,n,i,o,s){Rt(t,o,s);for(let r=0;r<e.length;r++)t.push({value:e[r],at:mt(o,s,i[r]),easing:Kt(n,r)})}function Vt(t,e){return t.at===e.at?t.value===null?1:e.value===null?-1:0:t.at-e.at}const zt="easeInOut";function Tt(t,{defaultTransition:e={},...n}={},i){const o=e.duration||.3,s=new Map,r=new Map,h={},d=new Map;let B=0,u=0,k=0;for(let w=0;w<t.length;w++){const f=t[w];if(typeof f=="string"){d.set(f,u);continue}else if(!Array.isArray(f)){d.set(f.name,F(u,f.at,B,d));continue}let[y,m,p={}]=f;p.at!==void 0&&(u=F(u,p.at,B,d));let A=0;const j=(g,x,v,E=0,W=0)=>{const c=Qt(g),{delay:C=0,times:I=xt(c),type:$="keyframes",..._}=x;let{ease:V=e.ease||"easeOut",duration:b}=x;const z=typeof C=="function"?C(E,W):C,T=c.length;if(T<=2&&$==="spring"){let q=100;if(T===2&&qt(c)){const tt=c[1]-c[0];q=Math.abs(tt)}const H={..._};b!==void 0&&(H.duration=yt(b));const L=Xt(H,q);V=L.ease,b=L.duration}b??(b=o);const Q=u+z,D=Q+b;I.length===1&&I[0]===0&&(I[1]=1);const O=I.length-c.length;O>0&&bt(I,O),c.length===1&&c.unshift(null),St(v,c,V,I,Q,D),A=Math.max(z+b,A),k=Math.max(D,k)};if(P(y)){const g=J(y,r);j(m,p,G("default",g))}else{const g=M(y,i,h),x=g.length;for(let v=0;v<x;v++){m=m,p=p;const E=g[v],W=J(E,r);for(const c in m)j(m[c],Dt(p,c),G(c,W),v,x)}}B=u,u+=A}return r.forEach((w,f)=>{for(const y in w){const m=w[y];m.sort(Vt);const p=[],A=[],j=[];for(let x=0;x<m.length;x++){const{at:v,value:E,easing:W}=m[x];p.push(E),A.push(vt(0,k,v)),j.push(W||"easeOut")}A[0]!==0&&(A.unshift(0),p.unshift(p[0]),j.unshift(zt)),A[A.length-1]!==1&&(A.push(1),p.push(null)),s.has(f)||s.set(f,{keyframes:{},transition:{}});const g=s.get(f);g.keyframes[y]=p,g.transition[y]={...e,duration:k,ease:j,times:A,...n}}}),s}function J(t,e){return!e.has(t)&&e.set(t,{}),e.get(t)}function G(t,e){return e[t]||(e[t]=[]),e[t]}function Qt(t){return Array.isArray(t)?t:[t]}function Dt(t,e){return t[e]?{...t,...t[e]}:{...t}}const Ot=t=>typeof t=="number",qt=t=>t.every(Ot);function Z(t,e,n,i){const o=M(t,i),s=o.length,r=[];for(let h=0;h<s;h++){const d=o[h];R.has(d)||kt(d);const B=R.get(d),u={...n};typeof u.delay=="function"&&(u.delay=u.delay(h,s)),r.push(...wt(B,{...e,transition:u},{}))}return new N(r)}const Ht=t=>Array.isArray(t)&&Array.isArray(t[0]);function Lt(t,e,n){const i=[];return Tt(t,e,n).forEach(({keyframes:s,transition:r},h)=>{let d;P(h)?d=U(h,s.default,r.default):d=Z(h,s,r),i.push(d)}),new N(i)}const Yt=t=>{function e(n,i,o){let s;return Ht(n)?s=Lt(n,i,t):Wt(i)?s=Z(n,i,o,t):s=U(n,i,o),t&&t.animations.push(s),s}return e};function Ft(){const t=Y(()=>({current:null,animations:[]})),e=Y(()=>Yt(t));return It(()=>{t.animations.forEach(n=>n.stop())}),[t,e]}const Jt=l.div`
+import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-671212eb.js";import{i as at,f as ot,c as st,m as rt,a as lt,S as ct,H as ut,v as R,s as dt,b as pt,d as At,e as ht,g as ft,h as mt,r as gt,j as P,k as xt,l as bt,p as vt,n as yt,o as U,q as wt,u as Y,t as X}from"./motion-7179d9c4.js";import{B as jt}from"./BubblesAnimation-28614d51.js";function It(t){return S.useEffect(()=>()=>t(),[])}function M(t,e,n){var i;if(typeof t=="string"){let o=document;e&&(at(!!e.current),o=e.current),n?((i=n[t])!==null&&i!==void 0||(n[t]=o.querySelectorAll(t)),t=n[t]):t=o.querySelectorAll(t)}else t instanceof Element&&(t=[t]);return Array.from(t||[])}function Bt(t,e){let n;const i=()=>{const{currentTime:o}=e,r=(o===null?0:o.value)/100;n!==r&&t(r),n=r};return ot.update(i,!0),()=>st(i)}const Et=rt(()=>window.ScrollTimeline!==void 0);class N{constructor(e){this.animations=e.filter(Boolean)}then(e,n){return Promise.all(this.animations).then(e).catch(n)}getAll(e){return this.animations[0][e]}setAll(e,n){for(let i=0;i<this.animations.length;i++)this.animations[i][e]=n}attachTimeline(e){const n=this.animations.map(i=>{if(Et()&&i.attachTimeline)i.attachTimeline(e);else return i.pause(),Bt(o=>{i.time=i.duration*o},e)});return()=>{n.forEach((i,o)=>{i&&i(),this.animations[o].stop()})}}get time(){return this.getAll("time")}set time(e){this.setAll("time",e)}get speed(){return this.getAll("speed")}set speed(e){this.setAll("speed",e)}get duration(){let e=0;for(let n=0;n<this.animations.length;n++)e=Math.max(e,this.animations[n].duration);return e}runAll(e){this.animations.forEach(n=>n[e]())}play(){this.runAll("play")}pause(){this.runAll("pause")}stop(){this.runAll("stop")}cancel(){this.runAll("cancel")}complete(){this.runAll("complete")}}function Wt(t){return typeof t=="object"&&!Array.isArray(t)}function kt(t){const e={presenceContext:null,props:{},visualState:{renderState:{transform:{},transformOrigin:{},style:{},vars:{},attrs:{}},latestValues:{}}},n=lt(t)?new ct(e,{enableHardwareAcceleration:!1}):new ut(e,{enableHardwareAcceleration:!0});n.mount(t),R.set(t,n)}function Xt(t,e=100){const n=dt({keyframes:[0,e],...t}),i=Math.min(pt(n),At);return{type:"keyframes",ease:o=>n.next(i*o).value/e,duration:ht(i)}}function F(t,e,n,i){var o;return typeof e=="number"?e:e.startsWith("-")||e.startsWith("+")?Math.max(0,t+parseFloat(e)):e==="<"?n:(o=i.get(e))!==null&&o!==void 0?o:t}const Ct=(t,e,n)=>{const i=e-t;return((n-t)%i+i)%i+t};function Kt(t,e){return ft(t)?t[Ct(0,t.length,e)]:t}function Rt(t,e,n){for(let i=0;i<t.length;i++){const o=t[i];o.at>e&&o.at<n&&(gt(t,o),i--)}}function St(t,e,n,i,o,s){Rt(t,o,s);for(let r=0;r<e.length;r++)t.push({value:e[r],at:mt(o,s,i[r]),easing:Kt(n,r)})}function Vt(t,e){return t.at===e.at?t.value===null?1:e.value===null?-1:0:t.at-e.at}const zt="easeInOut";function Tt(t,{defaultTransition:e={},...n}={},i){const o=e.duration||.3,s=new Map,r=new Map,h={},u=new Map;let B=0,d=0,k=0;for(let w=0;w<t.length;w++){const f=t[w];if(typeof f=="string"){u.set(f,d);continue}else if(!Array.isArray(f)){u.set(f.name,F(d,f.at,B,u));continue}let[y,m,p={}]=f;p.at!==void 0&&(d=F(d,p.at,B,u));let A=0;const j=(g,x,v,E=0,W=0)=>{const c=Qt(g),{delay:C=0,times:I=xt(c),type:$="keyframes",..._}=x;let{ease:V=e.ease||"easeOut",duration:b}=x;const z=typeof C=="function"?C(E,W):C,T=c.length;if(T<=2&&$==="spring"){let q=100;if(T===2&&qt(c)){const tt=c[1]-c[0];q=Math.abs(tt)}const H={..._};b!==void 0&&(H.duration=yt(b));const L=Xt(H,q);V=L.ease,b=L.duration}b??(b=o);const Q=d+z,D=Q+b;I.length===1&&I[0]===0&&(I[1]=1);const O=I.length-c.length;O>0&&bt(I,O),c.length===1&&c.unshift(null),St(v,c,V,I,Q,D),A=Math.max(z+b,A),k=Math.max(D,k)};if(P(y)){const g=J(y,r);j(m,p,G("default",g))}else{const g=M(y,i,h),x=g.length;for(let v=0;v<x;v++){m=m,p=p;const E=g[v],W=J(E,r);for(const c in m)j(m[c],Dt(p,c),G(c,W),v,x)}}B=d,d+=A}return r.forEach((w,f)=>{for(const y in w){const m=w[y];m.sort(Vt);const p=[],A=[],j=[];for(let x=0;x<m.length;x++){const{at:v,value:E,easing:W}=m[x];p.push(E),A.push(vt(0,k,v)),j.push(W||"easeOut")}A[0]!==0&&(A.unshift(0),p.unshift(p[0]),j.unshift(zt)),A[A.length-1]!==1&&(A.push(1),p.push(null)),s.has(f)||s.set(f,{keyframes:{},transition:{}});const g=s.get(f);g.keyframes[y]=p,g.transition[y]={...e,duration:k,ease:j,times:A,...n}}}),s}function J(t,e){return!e.has(t)&&e.set(t,{}),e.get(t)}function G(t,e){return e[t]||(e[t]=[]),e[t]}function Qt(t){return Array.isArray(t)?t:[t]}function Dt(t,e){return t[e]?{...t,...t[e]}:{...t}}const Ot=t=>typeof t=="number",qt=t=>t.every(Ot);function Z(t,e,n,i){const o=M(t,i),s=o.length,r=[];for(let h=0;h<s;h++){const u=o[h];R.has(u)||kt(u);const B=R.get(u),d={...n};typeof d.delay=="function"&&(d.delay=d.delay(h,s)),r.push(...wt(B,{...e,transition:d},{}))}return new N(r)}const Ht=t=>Array.isArray(t)&&Array.isArray(t[0]);function Lt(t,e,n){const i=[];return Tt(t,e,n).forEach(({keyframes:s,transition:r},h)=>{let u;P(h)?u=U(h,s.default,r.default):u=Z(h,s,r),i.push(u)}),new N(i)}const Yt=t=>{function e(n,i,o){let s;return Ht(n)?s=Lt(n,i,t):Wt(i)?s=Z(n,i,o,t):s=U(n,i,o),t&&t.animations.push(s),s}return e};function Ft(){const t=Y(()=>({current:null,animations:[]})),e=Y(()=>Yt(t));return It(()=>{t.animations.forEach(n=>n.stop())}),[t,e]}const Jt=l.div`
   position: absolute;
   display: block;
   width: 374px;
@@ -12,7 +12,6 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
 `,$t=l.h2`
   font-weight: 700;
   font-size: 28px;
-  /* color: #2f2f2f; */
   line-height: 32px;
   margin-bottom: 16px;
 
@@ -22,7 +21,6 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
   }
 `,_t=l.p`
   font-size: 24px;
-  /* color: #2f2f2f; */
   line-height: 30px;
   margin-bottom: 24px;
 
@@ -35,7 +33,6 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
   flex-direction: column;
   gap: 16px;
   font-size: 16px;
-  /* color: #2f2f2f; */
   line-height: 20px;
   margin-bottom: 24px;
 
@@ -69,7 +66,6 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
 `,ie=l.h3`
   font-weight: 500;
   font-size: 18px;
-  /* color: #2f2f2f; */
   line-height: 20px;
   margin-bottom: 12px;
 `,ae=l.button`
@@ -77,7 +73,7 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
   padding: 8px 30px;
   color: ${({theme:t})=>t.color.white};
   font-family: 'Roboto-Medium';
-  /* font-weight: 500; */
+  font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   border: none;
@@ -114,13 +110,11 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
     height: 40px;
   }
 `,se=()=>{const t=et(),e=[{text:"Habit drive",id:`${K}#calendar`},{text:"View statistics",id:`${K}#presentation-chart-bar`},{text:"Personal rate setting",id:`${K}#wrench-screwdriver`}];function n(){t("/signup")}return a.jsxs(ne,{children:[a.jsx(Zt,{children:"Hidden"}),a.jsx($t,{children:"Water consumption tracker"}),a.jsx(_t,{children:"Record daily water intake and track"}),a.jsx(ie,{children:"Tracker Benefits"}),a.jsx(te,{children:e.map(({id:i,text:o},s)=>a.jsxs(ee,{children:[a.jsx(oe,{children:a.jsx("use",{href:i})}),o]},s))}),a.jsx(ae,{type:"button",onClick:n,children:"Try tracker"})]})},re=l.h2`
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
-  /* color: #2f2f2f; */
   margin-bottom: 12px;
 `,le=l.li`
   font-size: 16px;
-  /* color: #2f2f2f; */
   line-height: 20px;
 
   margin-bottom: 16px;
@@ -149,14 +143,9 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
 `,ce=l.div`
   display: block;
   margin: 0;
-  /* @media ${({theme:t})=>t.device.mobile} {
-    margin-bottom: 40px;
-  } */
-`,de=l.div`
+`,ue=l.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
   width: 280px;
 
   padding: 24px 16px;
@@ -169,10 +158,10 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
     width: auto;
     list-style-position: inside;
   }
-`,ue=l.ul`
+`,de=l.ul`
   list-style-type: none;
   padding-left: 0;
-`,pe=()=>{const t=["Supply of nutrients to all organs","Providing oxygen to the lungs","Maintaining the work of the heart","Release of processed substances","Ensuring the stability of the internal environment","Maintaining within the normal temperature","Maintaining an immune system capable of resisting disease"];return a.jsx(ce,{children:a.jsxs(de,{children:[a.jsx(re,{children:"Why drink water"}),a.jsx(ue,{children:t.map((e,n)=>a.jsx(le,{children:e},n))})]})})},Ae=l.div`
+`,pe=()=>{const t=["Supply of nutrients to all organs","Providing oxygen to the lungs","Maintaining the work of the heart","Release of processed substances","Ensuring the stability of the internal environment","Maintaining within the normal temperature","Maintaining an immune system capable of resisting disease"];return a.jsx(ce,{children:a.jsxs(ue,{children:[a.jsx(re,{children:"Why drink water"}),a.jsx(de,{children:t.map((e,n)=>a.jsx(le,{children:e},n))})]})})},Ae=l.div`
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -191,7 +180,6 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    /* flex-wrap: nowrap; */
     margin-top: 80px;
     gap: 81px;
   }
@@ -199,7 +187,6 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
   position: absolute;
   display: block;
   width: 100vw;
-  /* height: 100vh; */
   top: 0;
   left: 0;
   z-index: -1;
@@ -236,21 +223,17 @@ import{r as S,u as l,j as a,y as et,s as K,z as nt,W as it}from"./index-e31b782a
   background-repeat: no-repeat;
   background-size: 100%;
   padding-top: 24px;
-  // padding-bottom: 40px;
   min-height: calc(100vh - 40px);
 
   // табл
   @media ${({theme:t})=>t.device.tablet} {
     padding-top: 40px;
-
-    // padding-bottom: 50px;
     min-height: calc(100vh - 50px);
   }
 
   // деск
   @media ${({theme:t})=>t.device.desktop} {
     padding-top: 49px;
-    // padding-bottom: 109px;
     background-image: ${({theme:t})=>t.backgroundImage.bodyBubblesDesk};
     min-height: calc(100vh - 109px);
   }
