@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
 export const Title = styled.h2`
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
-  /* color: #2f2f2f; */
   margin-bottom: 12px;
 `;
 
 export const Item = styled.li`
   font-size: 16px;
-  /* color: #2f2f2f; */
   line-height: 20px;
 
   margin-bottom: 16px;
@@ -39,16 +37,11 @@ export const Item = styled.li`
 export const OutlineContainer = styled.div`
   display: block;
   margin: 0;
-  /* @media ${({ theme }) => theme.device.mobile} {
-    margin-bottom: 40px;
-  } */
 `;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
   width: 280px;
 
   padding: 24px 16px;

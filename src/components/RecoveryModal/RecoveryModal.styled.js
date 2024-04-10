@@ -21,7 +21,6 @@ export const RecoveryModalContainer = styled.div`
     font-weight: 400;
     font-size: 18px;
     line-height: 1.33333;
-    /* color: #2f2f2f; */
   }
   input {
     font-family: 'Roboto', sans-serif;

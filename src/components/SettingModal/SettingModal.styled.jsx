@@ -213,6 +213,7 @@ export const DeleteButton = styled.button`
   height: 36px;
   box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
   font-family: 'Roboto-Bold';
+  font-weight: 700;
   font-size: 12px;
   text-align: center;
   color: ${({ theme }) => theme.color.white};
@@ -263,10 +264,8 @@ export const RadioWrapper = styled.label`
   display: flex;
   gap: 8px;
   font-family: 'Roboto-Regular';
-  /* font-weight: 400; */
+  font-weight: 400;
   font-size: 16px;
-  /* line-height: 1.25; */
-  /* color: #2f2f2f; */
 
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */

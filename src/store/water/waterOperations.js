@@ -61,19 +61,6 @@ export const addWaterThunk = createAsyncThunk(
 );
 
 //видалення води
-// export const deleteDrinkThunk = createAsyncThunk(
-//   'water/delete',
-//   async (waterRecordId, thunkAPI) => {
-//     try {
-//       const { data } = await axios.delete(`water/${waterRecordId}`);
-//       toastSuccess('Drink has been deleted successful');
-//       return data;
-//     } catch (error) {
-//       toastError('Sorry, something went wrong. Please, try again');
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 export const deleteDrinkThunk = createAsyncThunk(
   'water/delete',
   async (id, thunkAPI) => {

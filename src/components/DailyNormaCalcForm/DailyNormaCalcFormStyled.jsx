@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 export const TitleStyled = styled.h3`
   font-family: 'Roboto-Medium';
-  /* font-weight: 500; */
+  font-weight: 500;
   font-size: 18px;
   line-height: 1.11111;
-  /* color: #2f2f2f; */
   margin-bottom: 16px;
 `;
 
@@ -24,10 +23,9 @@ export const RadioWrapper = styled.label`
   display: flex;
   gap: 8px;
   font-family: 'Roboto-Regular';
-  /* font-weight: 400; */
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  /* color: #2f2f2f; */
 
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
@@ -74,10 +72,9 @@ export const RadioStyled = styled.svg`
 
 export const InputWrapper = styled.label`
   font-family: 'Roboto-Regular';
-  /* font-weight: 400; */
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  /* color: #2f2f2f; */
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;
@@ -98,7 +95,7 @@ export const InputStyled = styled.input`
   width: 100%;
   height: 44px;
   font-family: 'Roboto-Regular';
-  /* font-weight: 400; */
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
   color: ${({ theme }) => theme.color.blue};
@@ -123,7 +120,7 @@ export const InputStyled = styled.input`
     height: 44px;
     margin-top: 8px;
     font-family: 'Roboto-Regular';
-    /* font-weight: 400; */
+    font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
     color: ${({ theme }) => theme.color.blue};
@@ -136,7 +133,7 @@ export const InputStyled = styled.input`
 
   &::placeholder {
     font-family: 'Roboto-Regular';
-    /* font-weight: 400; */
+    font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
     color: ${({ theme }) => theme.color.skyBlue};
@@ -152,10 +149,9 @@ export const TextsStyled = styled.div`
 
 export const TextStyled = styled.p`
   font-family: 'Roboto-Regular';
-  /* font-weight: 400; */
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  /* color: #2f2f2f; */
   width: 190px;
 
   @media ${({ theme }) => theme.device.tablet} {
@@ -165,7 +161,7 @@ export const TextStyled = styled.p`
 
 export const LitersStyled = styled.p`
   font-family: 'Roboto-Bold', sans-serif;
-  /* font-weight: 700; */
+  font-weight: 700;
   font-size: 18px;
   line-height: 1.33333;
   color: ${({ theme }) => theme.color.blue};

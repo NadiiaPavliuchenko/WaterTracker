@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const StyledSvg = styled.svg`
+  fill: transparent;
+  stroke: ${({ theme }) => theme.color.blue};
+  cursor: pointer;
+`;
+
 export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,7 +60,6 @@ export const ArrowLeftButton = styled.button`
   height: 14px;
   padding: 0;
   cursor: pointer;
-  /* margin: 0 12px; */
   background-color: transparent;
   border: none;
   fill: ${({ theme }) => theme.color.blue};
