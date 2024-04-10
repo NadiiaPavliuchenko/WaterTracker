@@ -178,6 +178,7 @@ export const ModalBox = styled.div`
 
   @media ${({ theme }) => theme.device.desktop} {
     width: 592px;
+
     .input {
       width: 544px;
     }

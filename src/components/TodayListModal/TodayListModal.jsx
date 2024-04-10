@@ -76,7 +76,7 @@ const TodayListModal = ({ isModalOpen, closeModal, currentIntakes }) => {
               </span>
             </div>
             <p>Correct entered data:</p>
-            <form className="form" onSubmit={handleFormSubmit}>
+            <form  onSubmit={handleFormSubmit}>
               <label >Amount of water:</label>
               <div className="counter">
                 <button
