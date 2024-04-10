@@ -105,6 +105,7 @@ export const FilePickerLink = styled(Link)`
   color: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Medium';
   font-size: 14px;
+  transition: color 0.3s ease;
   cursor: pointer;
   &:hover,
   &:focus {
@@ -115,7 +116,8 @@ export const FilePickerLink = styled(Link)`
 export const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
+  position: relative;
 `;
 
 export const PasswordFormGroup = styled.div`
@@ -123,7 +125,7 @@ export const PasswordFormGroup = styled.div`
   flex-direction: column;
   position: relative;
   &:not(:last-child) {
-    margin-bottom: 12px;
+    margin-bottom: 18px;
   }
   @media ${({ theme }) => theme.device.mobile} {
     &:last-child {
@@ -189,6 +191,7 @@ export const SubmitButton = styled.button`
   font-family: 'Roboto-Bold';
   font-size: 18px;
   text-align: center;
+  transition: box-shadow 0.3s ease;
   color: ${({ theme }) => theme.color.white};
   &:hover,
   &:focus {
@@ -217,6 +220,7 @@ export const DeleteButton = styled.button`
   font-size: 12px;
   text-align: center;
   color: ${({ theme }) => theme.color.white};
+  transition: box-shadow 0.3s ease;
   &:hover,
   &:focus {
     box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
@@ -236,6 +240,7 @@ export const StyledSvg = styled.svg`
   fill: transparent;
   stroke: ${({ theme }) => theme.color.blue};
   cursor: pointer;
+  transition: stroke 0.3s ease;
   ${FilePickerLink}:hover &,
   ${FilePickerLink}:focus & {
     stroke: ${({ theme }) => theme.color.orange};
@@ -243,7 +248,10 @@ export const StyledSvg = styled.svg`
 `;
 
 export const RedError = styled(ErrorMessage)`
+  position: absolute;
+  top: 73px;
   color: ${({ theme }) => theme.color.red};
+  font-size: 12px;
 `;
 
 export const RadiosWrapper = styled.label`

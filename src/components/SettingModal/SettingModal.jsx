@@ -103,7 +103,9 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
     name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!'),
     email: Yup.string().email('Invalid email'),
     gender: Yup.string().matches(/(woman|man)/),
-    oldPassword: Yup.string(),
+    oldPassword: Yup.string()
+      .min(6, 'Password must be at least 6 characters')
+      .max(64),
     newPassword: Yup.string()
       .min(6, 'Password must be at least 6 characters')
       .max(64)
