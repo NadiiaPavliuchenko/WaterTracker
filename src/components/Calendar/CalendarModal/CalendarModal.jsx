@@ -3,7 +3,7 @@ import { CalendarModalStyles } from './CalendarModal.styled';
 const CalendarModal = ({
   calendarRef,
   refData,
-   day,
+  day,
   month,
   dailyWaterGoal,
   consumedWaterPercentage,
@@ -28,61 +28,57 @@ const CalendarModal = ({
   // в противном случае отображается сообщение о том, что записей за этот день нет.
   return (
     <CalendarModalStyles $delta={position} $deltaNum={delta}>
-      {dailyWaterGoal !== 0 ? (
-        <>
-          <h3 style={{ fontSize: '16px', lineHeight: 'calc(20 / 16)' }}>
-            {dayOfMonth}
-          </h3>
-          <p style={{ fontSize: '16px', lineHeight: 'calc(20 / 16)' }}>
-            Daily norma:{' '}
-            <span
-              style={{
-                fontSize: '18px',
-                lineHeight: 'calc(24 / 18)',
-                fontWeight: '600',
-              }}
-            >
-              {dailyWaterGoal / 1000} L
-            </span>
-          </p>
-          <p
+      <>
+        <h3 style={{ fontSize: '16px', lineHeight: 'calc(20 / 16)' }}>
+          {dayOfMonth}
+        </h3>
+        <p style={{ fontSize: '16px', lineHeight: 'calc(20 / 16)' }}>
+          Daily norma:{' '}
+          <span
             style={{
-              fontSize: '16px',
-              lineHeight: 'calc(20 / 16)',
+              fontSize: '18px',
+              lineHeight: 'calc(24 / 18)',
+              fontWeight: '600',
             }}
           >
-            Fulfillment of the daily norm:{' '}
-            <span
-              style={{
-                fontSize: '18px',
-                lineHeight: 'calc(24 / 18)',
-                fontWeight: '600',
-              }}
-            >
-              {consumedWaterPercentage}%
-            </span>
-          </p>
-          <p
+            {dailyWaterGoal ? dailyWaterGoal / 1000 : 0} L
+          </span>
+        </p>
+        <p
+          style={{
+            fontSize: '16px',
+            lineHeight: 'calc(20 / 16)',
+          }}
+        >
+          Fulfillment of the daily norm:{' '}
+          <span
             style={{
-              fontSize: '16px',
-              lineHeight: 'calc(20 / 16)',
+              fontSize: '18px',
+              lineHeight: 'calc(24 / 18)',
+              fontWeight: '600',
             }}
           >
-            How many servings of water:{' '}
-            <span
-              style={{
-                fontSize: '18px',
-                lineHeight: 'calc(24 / 18)',
-                fontWeight: '600',
-              }}
-            >
-              {consumedTimes}
-            </span>
-          </p>
-        </>
-      ) : (
-        <h3>You dont have records of this day.</h3>
-      )}
+            {consumedWaterPercentage}%
+          </span>
+        </p>
+        <p
+          style={{
+            fontSize: '16px',
+            lineHeight: 'calc(20 / 16)',
+          }}
+        >
+          How many servings of water:{' '}
+          <span
+            style={{
+              fontSize: '18px',
+              lineHeight: 'calc(24 / 18)',
+              fontWeight: '600',
+            }}
+          >
+            {consumedTimes}
+          </span>
+        </p>
+      </>
     </CalendarModalStyles>
   );
 };

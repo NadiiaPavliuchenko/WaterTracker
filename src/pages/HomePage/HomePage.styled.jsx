@@ -20,7 +20,7 @@ export const HomeWrapper = styled.div`
     padding-top: 20px;
     padding-bottom: 40px;
     width: 1404px;
-    height: 582px;
+    height: 730px;
   }
 `;
 

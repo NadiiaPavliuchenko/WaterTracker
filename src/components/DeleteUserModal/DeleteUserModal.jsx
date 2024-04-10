@@ -17,7 +17,6 @@ export const DeleteUserModal = ({ onModalClose, isModalOpen }) => {
   const dispatch = useDispatch();
 
   const [isUserDeleted, setIsUserDeleted] = useState(false);
-  console.log('🚀 ~ isUserDeleted:', isUserDeleted);
 
   const passwordSchema = yup.object({
     password: yup.string().min(6).max(64).required(),
@@ -46,13 +45,11 @@ export const DeleteUserModal = ({ onModalClose, isModalOpen }) => {
       const verifyResult = await dispatch(
         verifyUserPassword(password)
       ).unwrap();
-      console.log('🚀 ~ verifyResult:', verifyResult);
 
       if (verifyResult.isPasswordCorrect) {
-        console.log('🚀 ~ trying to delete:');
         const deleteResult = await dispatch(deleteUserAccount()).unwrap();
+
         if (deleteResult.isDeleted) {
-          console.log('🚀 ~ is deleted:');
           setIsUserDeleted(true);
         }
       }
