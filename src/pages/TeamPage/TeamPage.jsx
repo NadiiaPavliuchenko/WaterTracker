@@ -61,7 +61,8 @@ const TeamPage = () => {
                 </h3>
                 <p>
                   <b>Developed part:</b> deployment of a server for development,
-                  routes, SettingsModal, implementation of dark and light themes
+                  architecture,, routes, SettingsModal, implementation of dark
+                  and light themes
                 </p>
               </div>
             </a>
@@ -81,10 +82,10 @@ const TeamPage = () => {
                 </h3>
                 <p>
                   <b>Developed part:</b> redux state, api thunks, addWaterModal,
-                  animation, loader, 404 page, deleteUserModal/Form,
-                  modalContainer, wrapper, recoveryModal/Form,
+                  animation, Loader, ErrorPage, deleteUserModal/Form,
+                  modalContainer, Wrapper, recoveryModal/Form,
                   resendCodeModal/Form, userLogoutModal, waterRatioPanel,
-                  notifications, services, help with complex issues.
+                  Notifications, services, help with complex issues.
                 </p>
               </div>
             </a>
@@ -179,7 +180,7 @@ const TeamPage = () => {
                   Dana Dobryshkina, <span>Developer</span>
                 </h3>
                 <p>
-                  <b>Developed part:</b> WelcomePage, WhyDrinkWater, Main,
+                  <b>Developed part:</b> WelcomePage, WhyDrinkWater,
                   WaterTrackerConsumption, partially DailyNorma
                 </p>
               </div>
