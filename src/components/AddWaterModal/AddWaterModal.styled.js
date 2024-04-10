@@ -160,6 +160,9 @@ export const ModalBox = styled.div`
     width: 704px;
     height: 504px;
     padding: 32px 24px;
+    .input {
+      width: 656px;
+    }
     .buttons {
       margin-top: 24px;
       justify-content: end;
@@ -175,5 +178,8 @@ export const ModalBox = styled.div`
 
   @media ${({ theme }) => theme.device.desktop} {
     width: 592px;
+    .input {
+      width: 544px;
+    }
   }
 `;
