@@ -13,11 +13,11 @@ export const Container = styled.div`
     justify-content: center;
     align-items: flex-start;
     gap: 24px;
-    padding: 24px;
+    padding: 8px;
   }
 
   .member {
-    width: 300px;
+    width: 320px;
     border-radius: 10px;
     padding: 12px;
     background-color: ${({ theme }) => theme.color.white};
@@ -130,6 +130,12 @@ export const Container = styled.div`
     height: 10vmin;
     bottom: 5vmin;
     left: -25vmin;
+  }
+
+  @media screen and (min-width: 768px) {
+    .member {
+      width: 300px;
+    }
   }
 
   @media screen and (min-width: 1440px) {
