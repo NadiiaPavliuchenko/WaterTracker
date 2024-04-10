@@ -13,8 +13,8 @@ import {
 
 const HomePage = () => {
   return (
-    <HomeWrapper>
-      <Wrapper>
+    <Wrapper>
+      <HomeWrapper>
         <HomeSection>
           <BottleSection>
             <DailyNorma />
@@ -27,8 +27,8 @@ const HomePage = () => {
             </BlueFrame>
           </HomeStatistics>
         </HomeSection>
-      </Wrapper>
-    </HomeWrapper>
+      </HomeWrapper>
+    </Wrapper>
   );
 };
 
