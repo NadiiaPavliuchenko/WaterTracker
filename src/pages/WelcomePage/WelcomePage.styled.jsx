@@ -81,7 +81,6 @@ export const TurnOff = styled.div`
   padding: 12px;
   margin: 0;
   background-color: ${({ theme }) => theme.color.skyBlue};
-  border: 2px solid ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Bold';
   font-size: 12px;

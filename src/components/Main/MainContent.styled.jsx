@@ -15,6 +15,7 @@ export const WelcomePageStyles = styled.div`
   }
 
   @media ${({ theme }) => theme.device.desktop} {
+    height: 582px;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
