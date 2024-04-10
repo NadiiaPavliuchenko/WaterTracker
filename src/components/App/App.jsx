@@ -65,10 +65,7 @@ function App() {
             <PublicRoute redirectTo="/home" component={<RecoveryPage />} />
           }
         />
-        <Route
-          path="team"
-          element={<PublicRoute redirectTo="/home" component={<TeamPage />} />}
-        />
+        <Route path="team" element={<TeamPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

@@ -75,13 +75,12 @@ export const TurnOff = styled.div`
   justify-content: center;
   width: 60px;
   height: 60px;
-  border-radius: 25px 25px 0 0;
+  border-radius: 25px;
   bottom: 0;
   right: 4px;
   padding: 12px;
   margin: 0;
   background-color: ${({ theme }) => theme.color.skyBlue};
-  border: 2px solid ${({ theme }) => theme.color.blue};
   color: ${({ theme }) => theme.color.blue};
   font-family: 'Roboto-Bold';
   font-size: 12px;
@@ -111,5 +110,6 @@ export const TurnOff = styled.div`
     width: 160px;
     height: 80px;
     font-size: 24px;
+    border-radius: 25px 25px 0 0;
   }
 `;
