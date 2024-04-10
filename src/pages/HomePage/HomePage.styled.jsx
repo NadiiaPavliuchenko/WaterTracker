@@ -6,7 +6,6 @@ export const HomeWrapper = styled.div`
   background-size: 100%;
   padding-top: 24px;
   padding-bottom: 40px;
-  margin: auto;
   z-index: -10;
 
   @media ${({ theme }) => theme.device.tablet} {

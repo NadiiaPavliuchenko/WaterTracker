@@ -33,8 +33,6 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
         margin: 0;
-        display: flex;
-  flex-direction: column;
     }
     h1,
     h2,
