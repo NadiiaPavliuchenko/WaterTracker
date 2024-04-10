@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import UserLogoutModal from 'components/UserLogoutModal/UserLogoutModal';
 import SettingModal from 'components/SettingModal/SettingModal';
 import { ModalBox, ModalMenuBtn, Icon } from './UserLogoModal.styled';

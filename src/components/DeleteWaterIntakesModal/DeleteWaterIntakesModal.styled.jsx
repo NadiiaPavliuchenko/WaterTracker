@@ -63,6 +63,7 @@ export const ButtonContainer = styled.div`
 
   button {
     font-family: 'Roboto-Medium', sans-serif;
+    font-weight: 500;
     width: 100%;
     height: 36px;
     padding: 8px 30px 8px 30px;

@@ -19,7 +19,6 @@ export const WelcomePageStyles = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    /* flex-wrap: nowrap; */
     margin-top: 80px;
     gap: 81px;
   }

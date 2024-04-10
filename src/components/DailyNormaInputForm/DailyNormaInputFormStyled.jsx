@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const LabelStyled = styled.label`
   font-family: 'Roboto-Medium';
+  font-weight: 500;
   font-size: 18px;
   line-height: 1.11111;
   display: flex;
@@ -23,7 +24,8 @@ export const ButtonStyled = styled.button`
   height: 36px;
   box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
   background: ${({ theme }) => theme.color.blue};
-  font-family: 'Roboto-Medium', sans-serif;
+  font-family: 'Roboto-Medium';
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
   color: ${({ theme }) => theme.color.white};
@@ -46,7 +48,6 @@ export const ButtonStyled = styled.button`
     padding: 10px 30px;
     margin-left: auto;
     font-size: 18px;
-
     width: 160px;
   }
 `;

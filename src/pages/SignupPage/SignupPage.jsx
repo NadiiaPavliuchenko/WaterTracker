@@ -3,7 +3,6 @@ import { Navigate, Link } from 'react-router-dom';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import { signUpAPI } from '../../store/auth/authOperations';
 import { SignUpPageStyle } from './SignupPage.styled';
-// import { getUserEmail } from '../../store/auth/authSelectors';
 import Wrapper from '../../components/Wrapper/Wrapper';
 import bottleImage_mob_1x from '../../assets/images/background/RegisterLoginPage/mob/bottle_mob_1x.png';
 import bottleImage_mob_2x from '../../assets/images/background/RegisterLoginPage/mob/bottle_mob_2x.png';
@@ -16,7 +15,6 @@ import { ResendCodeModal } from '../../components/ResendCodeModal/ResendCodeModa
 
 const SignupPage = () => {
   const dispatch = useDispatch();
-  // const userEmail = useSelector(getUserEmail);
   const [openResendModal, setOpenResendModal] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 

@@ -12,8 +12,8 @@ export const ModalBox = styled.div`
   padding: 24px 12px;
   gap: 24px;
   border-radius: 10px;
-  background-color: white;
-  color: black;
+  background-color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.color.black};
 
   width: 280px;
   height: 648px;
@@ -47,7 +47,7 @@ export const ModalBox = styled.div`
       line-height: 2;
     }
     .input {
-      border: 1px solid #d7e3ff;
+      border: 1px solid ${({ theme }) => theme.color.paleBlue};
       border-radius: 6px;
       padding: 12px 10px;
       width: 256px;
@@ -74,15 +74,18 @@ export const ModalBox = styled.div`
       height: 36px;
       background-color: ${({ theme }) => theme.color.blue};
       border: none;
-      box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+      box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
       font-size: 18px;
       font-weight: 500;
       line-height: 24px;
       text-align: center;
-      color: white;
+      color: ${({ theme }) => theme.color.white};
     }
     .confirm:hover {
-      box-shadow: 0px 4px 14px 0px #407bff8a;
+      box-shadow: ${({ theme }) => theme.boxShadow.hoverButton};
+    }
+    .confirm:active {
+      box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
     }
   }
 
@@ -154,9 +157,9 @@ export const ModalBox = styled.div`
   .counterBtn {
     width: 44px;
     height: 44px;
-    border: 1px solid #9ebbff;
+    border: 1px solid ${({ theme }) => theme.color.skyBlue};
     border-radius: 50%;
-    color: #407bff;
+    color: ${({ theme }) => theme.color.blue};
     background-color: transparent;
   }
 
@@ -167,11 +170,11 @@ export const ModalBox = styled.div`
     width: 92px;
     height: 36px;
     padding: 6px, 10px;
-    background-color: #d7e3ff;
-    color: #407bff;
+    background-color: ${({ theme }) => theme.color.paleBlue};
+    color: #${({ theme }) => theme.color.blue};
     border-radius: 40px;
     border: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto-Bold', sans-serif;
     font-size: 18px;
     font-weight: 700;
     line-height: 24px;
@@ -182,8 +185,8 @@ export const ModalBox = styled.div`
     display: flex;
     padding: 12px 10px;
     border-radius: 6px;
-    border: 1px solid #d7e3ff;
-    color: #407bff;
+    border: 1px solid ${({ theme }) => theme.color.palelue};
+    color: ${({ theme }) => theme.color.blue};
   }
   .buttons {
     display: flex;

@@ -9,13 +9,10 @@ import {
   ImgThumb,
   FilePickerWrapper,
   FilePickerLink,
-  // StyledRadioGroup,
-  // SmallControlLabel,
   StyledField,
   FormGroup,
   PasswordFormGroup,
   FormContentWrapper,
-  // CustomRadio,
   SubmitButton,
   VisibilityIconsWrapper,
   StyledSvg,
@@ -44,7 +41,6 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DeleteUserModal } from '../DeleteUserModal/DeleteUserModal';
-// import { getIsDarkTheme } from '../../store/theme/themeSelectors';
 
 const SettingModal = ({ onModalClose, isModalOpen }) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);

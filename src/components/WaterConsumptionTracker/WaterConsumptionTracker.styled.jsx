@@ -7,7 +7,6 @@ export const HiddenTitle = styled.h1`
 export const Title = styled.h2`
   font-weight: 700;
   font-size: 28px;
-  /* color: #2f2f2f; */
   line-height: 32px;
   margin-bottom: 16px;
 
@@ -19,7 +18,6 @@ export const Title = styled.h2`
 
 export const Subtitle = styled.p`
   font-size: 24px;
-  /* color: #2f2f2f; */
   line-height: 30px;
   margin-bottom: 24px;
 
@@ -34,7 +32,6 @@ export const Benefits = styled.ul`
   flex-direction: column;
   gap: 16px;
   font-size: 16px;
-  /* color: #2f2f2f; */
   line-height: 20px;
   margin-bottom: 24px;
 
@@ -74,7 +71,6 @@ export const Tracker = styled.div`
 export const BenefitsTitle = styled.h3`
   font-weight: 500;
   font-size: 18px;
-  /* color: #2f2f2f; */
   line-height: 20px;
   margin-bottom: 12px;
 `;
@@ -84,7 +80,7 @@ export const Button = styled.button`
   padding: 8px 30px;
   color: ${({ theme }) => theme.color.white};
   font-family: 'Roboto-Medium';
-  /* font-weight: 500; */
+  font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   border: none;

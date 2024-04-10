@@ -1,21 +1,5 @@
 import styled from 'styled-components';
 
-// export const ContainerFooter = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding-top: 12px;
-// `;
-
-// export const Icon = styled.svg`
-//   width: 48px;
-//   height: 48px;
-// `;
-
-// export const Text = styled.div`
-//   color: ${({ theme }) => theme.color.black};
-// `;
-
 import { Link } from 'react-router-dom';
 
 export const ContainerFooter = styled.footer`
