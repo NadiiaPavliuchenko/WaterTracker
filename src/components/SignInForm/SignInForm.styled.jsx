@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FormLoginStyles = styled.div`
   @media ${({ theme }) => theme.device.mobile} {
+   
     .form {
       margin-top: 16px;
     }
@@ -33,6 +34,20 @@ export const FormLoginStyles = styled.div`
     .input:hover,
     .input:focus {
       outline: none;
+    }
+    .errorInput {
+      border: 1px solid #ef5050;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.25;
+      background-color: ${({ theme }) => theme.color.white};
+      color: #ef5050;
+      // border: 1px solid ${({ theme }) => theme.color.paleBlue};
+      border-radius: 6px;
+      padding: 12px 10px;
+      margin-top: 8px;
+      width: 280px;
     }
     .input::placeholder {
       font-family: 'Roboto-Regular';
@@ -73,6 +88,8 @@ export const FormLoginStyles = styled.div`
       box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
     }
     .error {
+      // border: 1px solid #ef5050;
+      // border-radius: 6px;
       color: ${({ theme }) => theme.color.red};
     }
   }
