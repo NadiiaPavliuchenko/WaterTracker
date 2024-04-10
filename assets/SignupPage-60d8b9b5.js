@@ -1,10 +1,10 @@
-import{u as m,A as h,B as c,j as o,F as b,C as u,D as d,E as p,s as l,c as g,M as f,G as w,r as j,W as y,L as v,H as $}from"./index-5d836bfa.js";import{b as x,a as k}from"./bottle_mob_2x-8d352aa4.js";import{b as S,a as N,c as R,d as I}from"./bottle_desk_2x-b7d1eae2.js";const C=m.div`
+import{u as m,A as b,B as d,I as j,j as o,F as u,C as g,D as c,E as p,s as l,c as f,M as y,J as k,b as $,K as v,r as S,W as N,L as R,N as x,O as C}from"./index-8c738890.js";import{b as h,a as F}from"./bottle_mob_2x-8d352aa4.js";import{b as I,a as P,c as B,d as U}from"./bottle_desk_2x-b7d1eae2.js";const z=m.div`
   @media ${({theme:e})=>e.device.mobile} {
     .form {
       margin-top: 16px;
     }
     .label {
-      font-family: 'Roboto-Regular';
+      font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 18px;
       line-height: 1.33333;
@@ -13,6 +13,7 @@ import{u as m,A as h,B as c,j as o,F as b,C as u,D as d,E as p,s as l,c as g,M a
       position: relative;
       width: 280px;
     }
+
     .input {
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
@@ -33,7 +34,7 @@ import{u as m,A as h,B as c,j as o,F as b,C as u,D as d,E as p,s as l,c as g,M a
       outline: none;
     }
     .input::placeholder {
-      font-family: 'Roboto-Regular';
+      font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 1.25;
@@ -42,7 +43,7 @@ import{u as m,A as h,B as c,j as o,F as b,C as u,D as d,E as p,s as l,c as g,M a
     .watchPasswordIcon {
       position: absolute;
       right: 20px;
-      top: 55%;
+      top: 50%;
       transform: translate(0%, -50%);
       cursor: pointer;
     }
@@ -56,7 +57,7 @@ import{u as m,A as h,B as c,j as o,F as b,C as u,D as d,E as p,s as l,c as g,M a
       box-shadow: ${({theme:e})=>e.boxShadow.normalButton};
       background-color: ${({theme:e})=>e.color.blue};
 
-      font-family: 'Roboto-Medium';
+      font-family: 'Roboto-medium';
       font-weight: 500;
       font-size: 16px;
       line-height: 1.25;
@@ -74,6 +75,7 @@ import{u as m,A as h,B as c,j as o,F as b,C as u,D as d,E as p,s as l,c as g,M a
       color: ${({theme:e})=>e.color.red};
     }
   }
+
   @media ${({theme:e})=>e.device.tablet} {
     .input-container {
       width: 336px;
@@ -101,7 +103,7 @@ import{u as m,A as h,B as c,j as o,F as b,C as u,D as d,E as p,s as l,c as g,M a
       height: 44px;
     }
   }
-`,F=({submitFunc:e})=>{const n=h({email:c().email().required(),password:c().min(6).max(64).required()}),a={email:"",password:""};function s(i,t){e(i),t.resetForm()}function r(i){const t=i.target.closest(".watchPasswordIcon").previousSibling;if(t.type==="password"){t.type="text",i.target.closest("SVG").firstChild.href.baseVal=l+"#eye-opened";return}if(t.type==="text"){t.type="password",i.target.closest("SVG").firstChild.href.baseVal=l+"#eye-closed";return}}return o.jsx(o.Fragment,{children:o.jsx(C,{children:o.jsx(b,{initialValues:a,validationSchema:n,onSubmit:s,children:o.jsxs(u,{className:"form",autoComplete:"off",children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(d,{className:"input",type:"text",name:"email",placeholder:"Email"})}),o.jsx(p,{className:"error",name:"email",component:"div"})]}),o.jsx("br",{}),o.jsxs("label",{className:"label",htmlFor:"password",children:["Enter your password",o.jsxs("div",{className:"input-container",children:[o.jsx(d,{className:"input",type:"password",name:"password",placeholder:"Password"}),o.jsx("svg",{className:"watchPasswordIcon",onClick:r,width:"16",height:"14",stroke:"#9ebbff",fill:"none",children:o.jsx("use",{href:l+"#eye-closed"})})]}),o.jsx(p,{className:"error",name:"password",component:"div"})]}),o.jsx("br",{}),o.jsx("button",{className:"buttonSignUp",type:"submit",children:"Sign In"})]})})})})},B=m.div`
+`,E=({submitFunc:e})=>{const i=b({email:d().email().required(),password:d().min(6).max(64).required(),repeatPassword:d().oneOf([j("password"),null],"Passwords must match")}),a={email:"",password:"",repeatPassword:""};function n(t,s){e({email:t.email,password:t.password}),s.resetForm()}function r(t){const s=t.target.closest(".watchPasswordIcon").previousSibling;if(s.type==="password"){s.type="text",t.target.closest("SVG").firstChild.href.baseVal=l+"#eye-opened";return}if(s.type==="text"){s.type="password",t.target.closest("SVG").firstChild.href.baseVal=l+"#eye-closed";return}}return o.jsx(o.Fragment,{children:o.jsx(z,{children:o.jsx(u,{initialValues:a,validationSchema:i,onSubmit:n,children:o.jsxs(g,{className:"form",autoComplete:"off",children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(c,{className:"input",type:"text",name:"email",placeholder:"Email"})}),o.jsx(p,{className:"error",name:"email",component:"div"})]}),o.jsx("br",{}),o.jsxs("label",{className:"label",htmlFor:"password",children:["Enter your password",o.jsxs("div",{className:"input-container",children:[o.jsx(c,{className:"input",type:"password",name:"password",placeholder:"Password"}),o.jsx("svg",{className:"watchPasswordIcon",onClick:r,width:"16",height:"14",stroke:"#9ebbff",fill:"none",children:o.jsx("use",{href:l+"#eye-closed"})})]}),o.jsx(p,{className:"error",name:"password",component:"div"})]}),o.jsx("br",{}),o.jsxs("label",{className:"label",htmlFor:"repeatPassword",children:["Repeat password",o.jsxs("div",{className:"input-container",children:[o.jsx(c,{className:"input",type:"password",name:"repeatPassword",placeholder:"Repeat password"}),o.jsx("svg",{className:"watchPasswordIcon",onClick:r,width:"16",height:"14",stroke:"#9ebbff",fill:"none",children:o.jsx("use",{href:l+"#eye-closed"})})]}),o.jsx(p,{className:"error",name:"repeatPassword",component:"div"})]}),o.jsx("br",{}),o.jsx("button",{className:"buttonSignUp",type:"submit",children:"Sign Up"})]})})})})},_=m.div`
   background-size: 100%;
   background-repeat: no-repeat;
   background-image: ${({theme:e})=>e.backgroundImage.bodyBubblesMob};
@@ -186,7 +188,7 @@ import{u as m,A as h,B as c,j as o,F as b,C as u,D as d,E as p,s as l,c as g,M a
       width: 384px;
     }
   }
-`,z=m.div`
+`,M=m.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -266,4 +268,4 @@ import{u as m,A as h,B as c,j as o,F as b,C as u,D as d,E as p,s as l,c as g,M a
     font-size: 16px;
     text-align: center;
   }
-`,M=({isModalOpen:e,closeModal:n})=>{const a=h({email:c().email().required()}),s={email:""},r=g(),i=t=>{r(w(t)),n()};return o.jsx(o.Fragment,{children:e&&o.jsx(f,{onClose:n,children:o.jsx(z,{children:o.jsx(b,{initialValues:s,validationSchema:a,onSubmit:i,children:o.jsxs(u,{className:"form",autoComplete:"off",noValidate:!0,children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your registered mail:",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(d,{className:"input",type:"email",name:"email",placeholder:"Email"})}),o.jsx(p,{className:"error",name:"email",component:"div"})]}),o.jsx("button",{type:"submit",children:"Send"})]})})})})})},U=()=>{const e=g(),[n,a]=j.useState(!1),s=()=>{a(!0)},r=()=>{a(!1)};function i(t){e($(t))}return o.jsx(o.Fragment,{children:o.jsx(y,{children:o.jsxs(B,{children:[o.jsxs("div",{className:"wrapper",children:[o.jsxs("div",{className:"formCont",children:[o.jsx("h2",{className:"title",children:"Sign In"}),o.jsx(F,{submitFunc:i}),o.jsxs("div",{className:"link-container",children:[o.jsx(v,{className:"link",to:"/signup",children:"Sign Up"}),o.jsx("button",{className:"link",onClick:s,children:"Forgot Password"})]})]}),o.jsxs("picture",{className:"bottle",children:[o.jsx("source",{srcSet:`${S} 1x, ${N} 2x`,media:"(min-width: 1440px)",type:"image/png"}),o.jsx("source",{srcSet:`${R} 1x, ${I} 2x`,media:"(min-width: 768px)",type:"image/png"}),o.jsx("source",{srcSet:`${x} 1x, ${k} 2x`,media:"(min-width: 320px)",type:"image/png"}),o.jsx("img",{className:"bottle",alt:"bottle of water",src:x})]})]}),n&&o.jsx(M,{isModalOpen:n,closeModal:r})]})})})};export{U as default};
+`,V=({isModalOpen:e,closeModal:i})=>{const a=b({email:d().email().required()}),n={email:""},r=f(),t=s=>{r(k(s)),i()};return o.jsx(o.Fragment,{children:e&&o.jsx(y,{onClose:i,children:o.jsx(M,{children:o.jsx(u,{initialValues:n,validationSchema:a,onSubmit:t,children:o.jsxs(g,{className:"form",autoComplete:"off",noValidate:!0,children:[o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your mailbox to re-send verification email:",o.jsx("br",{}),o.jsx("div",{className:"input-container",children:o.jsx(c,{className:"input",type:"email",name:"email",placeholder:"Email"})}),o.jsx(p,{className:"error",name:"email",component:"div"})]}),o.jsx("button",{type:"submit",children:"Send"})]})})})})})},A=()=>{const e=f(),i=$(v),[a,n]=S.useState(!1),r=()=>{n(!0)},t=()=>{n(!1)};function s(w){e(C(w))}return o.jsxs(o.Fragment,{children:[o.jsx(N,{children:o.jsxs(_,{children:[o.jsxs("div",{className:"wrapper",children:[o.jsxs("div",{className:"formCont",children:[o.jsx("h2",{className:"title",children:"Sign Up"}),o.jsx(E,{submitFunc:s}),o.jsxs("div",{className:"link-container",children:[o.jsx(R,{className:"link",to:"/signin",children:"Sign In"}),o.jsx("button",{className:"link",onClick:r,children:"Resend Email"})]})]}),o.jsxs("picture",{className:"bottle",children:[o.jsx("source",{srcSet:`${I} 1x, ${P} 2x`,media:"(min-width: 1440px)",type:"image/png"}),o.jsx("source",{srcSet:`${B} 1x, ${U} 2x`,media:"(min-width: 768px)",type:"image/png"}),o.jsx("source",{srcSet:`${h} 1x, ${F} 2x`,media:"(min-width: 320px)",type:"image/png"}),o.jsx("img",{className:"bottle",alt:"bottle of water",src:h})]})]}),a&&o.jsx(V,{isModalOpen:a,closeModal:t})]})}),i?o.jsx(x,{to:"/signin"}):o.jsx(x,{to:"/signup"})]})};export{A as default};
