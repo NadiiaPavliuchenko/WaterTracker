@@ -40,3 +40,44 @@ export const StyledLink = styled(Link)`
     color: ${({ theme }) => theme.color.blue};
   }
 `;
+
+export const FrogBox = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .wow {
+    position: absolute;
+    display: none;
+    top: -70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    padding: 5px 10px;
+    color: ${({ theme }) => theme.color.white};
+    background-color: ${({ theme }) => theme.color.blue};
+
+    border-radius: 10px;
+    margin: 20px auto;
+  }
+
+  .wow::after {
+    content: '';
+    position: absolute;
+    bottom: -19px;
+    left: 50%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: ${({ theme }) => theme.color.blue} transparent transparent
+      transparent;
+    transform: translateX(-50%);
+  }
+
+  &:hover {
+    .wow {
+      display: block;
+    }
+  }
+`;
