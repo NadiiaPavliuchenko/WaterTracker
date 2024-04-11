@@ -20,6 +20,9 @@ export const SignUpPageStyle = styled.div`
     border: none;
     background-color: transparent;
   }
+  .link {
+    transition: color 0.3s ease;
+  }
   .link:hover,
   .link:focus {
     color: ${({ theme }) => theme.color.orange};

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const FormLoginStyles = styled.div`
   @media ${({ theme }) => theme.device.mobile} {
-   
     .form {
       margin-top: 16px;
     }
@@ -14,7 +13,6 @@ export const FormLoginStyles = styled.div`
     }
     .input-container {
       position: relative;
-      width: 280px;
     }
     .input {
       font-family: 'Roboto', sans-serif;
@@ -27,7 +25,6 @@ export const FormLoginStyles = styled.div`
       border-radius: 6px;
       padding: 12px 10px;
       margin-top: 8px;
-      width: 280px;
 
       height: 44px;
     }
@@ -36,18 +33,16 @@ export const FormLoginStyles = styled.div`
       outline: none;
     }
     .errorInput {
-      border: 1px solid #ef5050;
+      border: 1px solid ${({ theme }) => theme.color.red};
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 1.25;
       background-color: ${({ theme }) => theme.color.white};
-      color: #ef5050;
-      // border: 1px solid ${({ theme }) => theme.color.paleBlue};
+      color: ${({ theme }) => theme.color.red};
       border-radius: 6px;
       padding: 12px 10px;
       margin-top: 8px;
-      width: 280px;
     }
     .input::placeholder {
       font-family: 'Roboto-Regular';
@@ -67,7 +62,7 @@ export const FormLoginStyles = styled.div`
       border-radius: 10px;
       padding: 8px 30px;
       margin-bottom: 16px;
-      width: 280px;
+      /* width: 280px; */
       height: 36px;
       border: none;
       box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
@@ -79,6 +74,7 @@ export const FormLoginStyles = styled.div`
       line-height: 1.25;
       text-align: center;
       color: ${({ theme }) => theme.color.white};
+      transition: box-shadow 0.3s ease;
     }
     .buttonSignUp:hover,
     .buttonSignUp:focus {
@@ -88,12 +84,13 @@ export const FormLoginStyles = styled.div`
       box-shadow: ${({ theme }) => theme.boxShadow.activeButton};
     }
     .error {
-      // border: 1px solid #ef5050;
-      // border-radius: 6px;
       color: ${({ theme }) => theme.color.red};
     }
   }
   @media ${({ theme }) => theme.device.tablet} {
+    .errorInput {
+      width: 336px;
+    }
     .input-container {
       width: 336px;
     }
@@ -108,6 +105,9 @@ export const FormLoginStyles = styled.div`
   }
 
   @media ${({ theme }) => theme.device.desktop} {
+    .errorInput {
+      width: 384px;
+    }
     .input-container {
       width: 384px;
     }
