@@ -1,4 +1,4 @@
-import{u as r,j as n,W as t}from"./index-21cd69ca.js";import{B as a}from"./BubblesAnimation-f0033209.js";import{t as l}from"./motion-eb265f74.js";const s=r.h1`
+import{u as r,j as n,W as t}from"./index-2f4e8ba8.js";import{B as a}from"./BubblesAnimation-c6cf4de0.js";import{t as l}from"./motion-47f67aa4.js";const s=r.h1`
   font-size: 30px;
   text-align: center;
   margin: 24px auto;
