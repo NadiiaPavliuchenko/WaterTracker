@@ -68,12 +68,6 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
     setOpenDeleteModal(false);
   };
 
-  // const color = useSelector(getIsDarkTheme) ? 'dark' : 'light';
-  // const statusWoman = user.gender === 'woman' ? 'active' : 'inactive';
-  // const iconIdWoman = `radio-${statusWoman}-${color}`;
-  // const statusMan = user.gender === 'man' ? 'active' : 'inactive';
-  // const iconIdMan = `radio-${statusMan}-${color}`;
-
   const handleShowPassword = (index) => {
     const newShowPassword = [...showPassword];
     newShowPassword[index] = !showPassword[index];
@@ -307,7 +301,7 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                             type={showPassword[0] ? 'text' : 'password'}
                             name="oldPassword"
                             placeholder="Password"
-                            autoComplete="current-password"
+                            autoComplete="off"
                             error={
                               formik.errors.oldPassword &&
                               formik.touched.oldPassword
