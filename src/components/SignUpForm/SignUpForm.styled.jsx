@@ -13,7 +13,6 @@ export const FormRegisterStyles = styled.div`
     }
     .input-container {
       position: relative;
-      width: 280px;
     }
 
     .input {
@@ -27,7 +26,6 @@ export const FormRegisterStyles = styled.div`
       border-radius: 6px;
       padding: 12px 10px;
       margin-top: 8px;
-      width: 280px;
 
       height: 44px;
     }
@@ -36,21 +34,20 @@ export const FormRegisterStyles = styled.div`
       outline: none;
     }
     .errorInput {
-      border: 1px solid #ef5050;
+      border: 1px solid ${({ theme }) => theme.color.red};
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 1.25;
       background-color: ${({ theme }) => theme.color.white};
-      color: #ef5050;
-      // border: 1px solid ${({ theme }) => theme.color.paleBlue};
+      color: ${({ theme }) => theme.color.red};
       border-radius: 6px;
       padding: 12px 10px;
       margin-top: 8px;
       width: 280px;
     }
     .input::placeholder {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Roboto-Regular', sans-serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 1.25;
@@ -72,8 +69,9 @@ export const FormRegisterStyles = styled.div`
       border: none;
       box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
       background-color: ${({ theme }) => theme.color.blue};
+      transition: box-shadow 0.3s ease;
 
-      font-family: 'Roboto-medium';
+      font-family: 'Roboto-Medium';
       font-weight: 500;
       font-size: 16px;
       line-height: 1.25;
