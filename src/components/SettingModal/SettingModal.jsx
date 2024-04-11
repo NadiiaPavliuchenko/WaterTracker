@@ -178,7 +178,6 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                 <FilePickerLink
                   component="label"
                   underline="none"
-                  accept=".jpg,.jpeg,.png"
                   tabIndex={-1}
                   onChange={(e) => handleUploadAvatar(e)}
                 >
@@ -186,7 +185,11 @@ const SettingModal = ({ onModalClose, isModalOpen }) => {
                     <use xlinkHref={`${sprite}#upload`} />
                   </StyledSvg>
                   Upload a photo
-                  <VisuallyHiddenInput type="file" name="file" />
+                  <VisuallyHiddenInput
+                    type="file"
+                    name="file"
+                    accept=".jpg, .jpeg, .png"
+                  />
                 </FilePickerLink>
               </FilePickerWrapper>
             </div>
