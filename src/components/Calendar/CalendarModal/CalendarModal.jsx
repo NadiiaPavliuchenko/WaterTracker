@@ -1,8 +1,6 @@
 import { CalendarModalStyles } from './CalendarModal.styled';
 
 const CalendarModal = ({
-  calendarRef,
-  refData,
   day,
   month,
   dailyWaterGoal,

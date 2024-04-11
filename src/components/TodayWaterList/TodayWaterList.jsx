@@ -53,12 +53,7 @@ const TodayWaterList = () => {
         <ul className="waterList">
           {dayInfoTrunks.waterIntakes.length > 0 ? (
             dayInfoTrunks.waterIntakes.map((item) => (
-              <li
-                className="waterItem"
-                key={item._id}
-                id={item._id}
-                time={item.consumedAt}
-              >
+              <li className="waterItem" key={item._id} id={item._id}>
                 <div className="volumeAdnDate">
                   <svg className="waterGlass" width="26" height="26">
                     <use href={sprite + '#water-glass'}></use>
