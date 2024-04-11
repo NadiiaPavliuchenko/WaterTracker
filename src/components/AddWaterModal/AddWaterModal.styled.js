@@ -110,6 +110,9 @@ export const ModalBox = styled.div`
   }
   .confirm {
     width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 30px;
     border: none;
     border-radius: 10px;
@@ -117,7 +120,6 @@ export const ModalBox = styled.div`
     box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
     font-family: 'Roboto-Medium', sans-serif;
     font-size: 18px;
-    /* font-weight: 500; */
     line-height: 24px;
     text-align: center;
     color: ${({ theme }) => theme.color.white};
