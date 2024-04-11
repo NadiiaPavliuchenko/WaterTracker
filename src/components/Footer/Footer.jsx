@@ -28,9 +28,7 @@ export const Footer = () => {
           </FrogBox>
         </Link>
 
-        <StyledLink className="link" to="/team">
-          Leap ahead with us!
-        </StyledLink>
+        <Text>Leap ahead with us!</Text>
       </ContainerFooter>
     </Wrapper>
   );
