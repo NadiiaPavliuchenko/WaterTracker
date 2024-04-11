@@ -44,7 +44,6 @@ export const FormRegisterStyles = styled.div`
       border-radius: 6px;
       padding: 12px 10px;
       margin-top: 8px;
-      width: 280px;
     }
     .input::placeholder {
       font-family: 'Roboto-Regular', sans-serif;
@@ -64,7 +63,7 @@ export const FormRegisterStyles = styled.div`
       border-radius: 10px;
       padding: 8px 30px;
       margin-bottom: 16px;
-      width: 280px;
+      /* width: 280px; */
       height: 36px;
       border: none;
       box-shadow: ${({ theme }) => theme.boxShadow.normalButton};
@@ -91,6 +90,9 @@ export const FormRegisterStyles = styled.div`
   }
 
   @media ${({ theme }) => theme.device.tablet} {
+    .errorInput {
+      width: 336px;
+    }
     .input-container {
       width: 336px;
     }
@@ -105,6 +107,9 @@ export const FormRegisterStyles = styled.div`
   }
 
   @media ${({ theme }) => theme.device.desktop} {
+    .errorInput {
+      width: 384px;
+    }
     .input-container {
       width: 384px;
     }
