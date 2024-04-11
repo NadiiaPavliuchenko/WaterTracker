@@ -40,22 +40,32 @@ const SignUpForm = ({ submitFunc }) => {
     <FormRegisterStyles>
     <Formik initialValues={initialValues}
       validationSchema={registerSchema}
-      onSubmit={handleSubmit}>
+        onSubmit={handleSubmit}>
+         {({ errors, touched }) => (
       <Form className='form' autoComplete="off">
 
         <label className="label" htmlFor="email">
             Enter your email<br />
             <div className="input-container">
-            <Field className="input" type="text" name="email" placeholder="Email" />
+              <Field
+                className={!(touched.email && errors.email)?'input':'errorInput'}
+                type="text"
+                name="email"
+                placeholder="Email" />
             </div>
-          <ErrorMessage className="error" name="email" component='div'/>
+            <ErrorMessage
+              className="error" name="email" component='div' />
         </label>
         <br />
         
         <label className="label" htmlFor="password">
           Enter your password
            <div className="input-container">
-          <Field className="input" type="password" name="password" placeholder="Password"/>
+              <Field
+                className={!(touched.email && errors.email)?'input':'errorInput'}
+                type="password"
+                name="password"
+                placeholder="Password" />
           <svg className="watchPasswordIcon" onClick={watchPassFunc} width="16" height="14" stroke="#9ebbff" fill="none">
                 <use href={sprite + "#eye-closed"}></use>
               </svg>
@@ -80,7 +90,8 @@ const SignUpForm = ({ submitFunc }) => {
         
         <button className="buttonSignUp" type="submit">Sign Up</button>
 
-      </Form>
+          </Form>
+          )}
 
       </Formik>  
     </FormRegisterStyles>  
